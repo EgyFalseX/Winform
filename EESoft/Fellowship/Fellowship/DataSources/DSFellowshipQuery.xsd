@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSFellowshipQuery" targetNamespace="http://tempuri.org/DSFellowshipQuery.xsd" xmlns:mstns="http://tempuri.org/DSFellowshipQuery.xsd" xmlns="http://tempuri.org/DSFellowshipQuery.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FellowshipConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FellowshipConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Fellowship.Properties.Settings.GlobalReference.Default.FellowshipConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblMemberTableAdapter" GeneratorDataComponentClassName="TblMemberTableAdapter" Name="TblMember" UserDataComponentName="TblMemberTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FellowshipConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TblMember.MemberID, TblMember.MemberName, CDSyndicate.Syndicate
+FROM            TblMember LEFT OUTER JOIN
+                         CDSyndicate ON TblMember.SyndicateId = CDSyndicate.SyndicateId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberID" DataSetColumn="MemberID" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vQry002TableAdapter" GeneratorDataComponentClassName="vQry002TableAdapter" Name="vQry002" UserDataComponentName="vQry002TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FellowshipConnectionString (Settings)" DbObjectName="Fellowship.dbo.vQry002" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MEM, schoolcode, govid, edaraid, moahedcode, jobcode, GOV, Edara, Moahel, School, Job FROM dbo.vQry002</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MEM" DataSetColumn="MEM" />
+              <Mapping SourceColumn="schoolcode" DataSetColumn="schoolcode" />
+              <Mapping SourceColumn="govid" DataSetColumn="govid" />
+              <Mapping SourceColumn="edaraid" DataSetColumn="edaraid" />
+              <Mapping SourceColumn="moahedcode" DataSetColumn="moahedcode" />
+              <Mapping SourceColumn="jobcode" DataSetColumn="jobcode" />
+              <Mapping SourceColumn="GOV" DataSetColumn="GOV" />
+              <Mapping SourceColumn="Edara" DataSetColumn="Edara" />
+              <Mapping SourceColumn="Moahel" DataSetColumn="Moahel" />
+              <Mapping SourceColumn="School" DataSetColumn="School" />
+              <Mapping SourceColumn="Job" DataSetColumn="Job" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vQry005TableAdapter" GeneratorDataComponentClassName="vQry005TableAdapter" Name="vQry005" UserDataComponentName="vQry005TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FellowshipConnectionString (Settings)" DbObjectName="Fellowship.dbo.CDGov" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [CDGov] WHERE (([GovId] = @Original_GovId) AND ((@IsNull_GOV = 1 AND [GOV] IS NULL) OR ([GOV] = @Original_GOV)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_GovId" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="GovId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GOV" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GOV" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_GOV" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GOV" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [CDGov] ([GovId], [GOV]) VALUES (@GovId, @GOV);
+SELECT GovId, GOV, (SELECT COUNT(*) AS Expr1 FROM CdEdara WHERE (ModereaId = CDGov.GovId)) AS All_Edarat, (SELECT COUNT(DISTINCT edaraid) AS Expr1 FROM TblAllData WHERE (govid = CDGov.GovId)) AS Used_Edarat FROM CDGov WHERE (GovId = @GovId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@GovId" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="GovId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GOV" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GOV" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        GovId, GOV,
+(SELECT COUNT(*) FROM CdEdara WHERE ModereaId = CDGov.GovId) AS All_Edarat,
+(SELECT Count(distinct EdaraId) FROM TblAllData WHERE govid = CDGov.GovId) AS Used_Edarat
+FROM            CDGov</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [CDGov] SET [GovId] = @GovId, [GOV] = @GOV WHERE (([GovId] = @Original_GovId) AND ((@IsNull_GOV = 1 AND [GOV] IS NULL) OR ([GOV] = @Original_GOV)));
+SELECT GovId, GOV, (SELECT COUNT(*) AS Expr1 FROM CdEdara WHERE (ModereaId = CDGov.GovId)) AS All_Edarat, (SELECT COUNT(DISTINCT edaraid) AS Expr1 FROM TblAllData WHERE (govid = CDGov.GovId)) AS Used_Edarat FROM CDGov WHERE (GovId = @GovId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@GovId" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="GovId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GOV" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GOV" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_GovId" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="GovId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GOV" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GOV" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_GOV" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GOV" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GovId" DataSetColumn="GovId" />
+              <Mapping SourceColumn="GOV" DataSetColumn="GOV" />
+              <Mapping SourceColumn="All_Edarat" DataSetColumn="All_Edarat" />
+              <Mapping SourceColumn="Used_Edarat" DataSetColumn="Used_Edarat" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources>
+          <DbSource ConnectionRef="FellowshipConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ServerDatetime" MethodsParameterType="CLR" Modifier="Public" Name="ServerDatetime" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ServerDatetime">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT GETDATE()</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSFellowshipQuery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSFellowshipQuery" msprop:Generator_UserDSName="DSFellowshipQuery">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TblMember" msprop:Generator_TableClassName="TblMemberDataTable" msprop:Generator_TableVarName="tableTblMember" msprop:Generator_TablePropName="TblMember" msprop:Generator_RowDeletingName="TblMemberRowDeleting" msprop:Generator_RowChangingName="TblMemberRowChanging" msprop:Generator_RowEvHandlerName="TblMemberRowChangeEventHandler" msprop:Generator_RowDeletedName="TblMemberRowDeleted" msprop:Generator_UserTableName="TblMember" msprop:Generator_RowChangedName="TblMemberRowChanged" msprop:Generator_RowEvArgName="TblMemberRowChangeEvent" msprop:Generator_RowClassName="TblMemberRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberID" msprop:Generator_ColumnVarNameInTable="columnMemberID" msprop:Generator_ColumnPropNameInRow="MemberID" msprop:Generator_ColumnPropNameInTable="MemberIDColumn" msprop:Generator_UserColumnName="MemberID" type="xs:long" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Selected" msprop:Generator_ColumnVarNameInTable="columnSelected" msprop:Generator_ColumnPropNameInRow="Selected" msprop:Generator_ColumnPropNameInTable="SelectedColumn" msprop:Generator_UserColumnName="Selected" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vQry002" msprop:Generator_TableClassName="vQry002DataTable" msprop:Generator_TableVarName="tablevQry002" msprop:Generator_RowChangedName="vQry002RowChanged" msprop:Generator_TablePropName="vQry002" msprop:Generator_RowDeletingName="vQry002RowDeleting" msprop:Generator_RowChangingName="vQry002RowChanging" msprop:Generator_RowEvHandlerName="vQry002RowChangeEventHandler" msprop:Generator_RowDeletedName="vQry002RowDeleted" msprop:Generator_RowClassName="vQry002Row" msprop:Generator_UserTableName="vQry002" msprop:Generator_RowEvArgName="vQry002RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MEM" msprop:Generator_ColumnVarNameInTable="columnMEM" msprop:Generator_ColumnPropNameInRow="MEM" msprop:Generator_ColumnPropNameInTable="MEMColumn" msprop:Generator_UserColumnName="MEM" type="xs:int" minOccurs="0" />
+              <xs:element name="schoolcode" msprop:Generator_ColumnVarNameInTable="columnschoolcode" msprop:Generator_ColumnPropNameInRow="schoolcode" msprop:Generator_ColumnPropNameInTable="schoolcodeColumn" msprop:Generator_UserColumnName="schoolcode" type="xs:int" minOccurs="0" />
+              <xs:element name="govid" msprop:Generator_ColumnVarNameInTable="columngovid" msprop:Generator_ColumnPropNameInRow="govid" msprop:Generator_ColumnPropNameInTable="govidColumn" msprop:Generator_UserColumnName="govid" type="xs:unsignedByte" />
+              <xs:element name="edaraid" msprop:Generator_ColumnVarNameInTable="columnedaraid" msprop:Generator_ColumnPropNameInRow="edaraid" msprop:Generator_ColumnPropNameInTable="edaraidColumn" msprop:Generator_UserColumnName="edaraid" type="xs:int" />
+              <xs:element name="moahedcode" msprop:Generator_ColumnVarNameInTable="columnmoahedcode" msprop:Generator_ColumnPropNameInRow="moahedcode" msprop:Generator_ColumnPropNameInTable="moahedcodeColumn" msprop:Generator_UserColumnName="moahedcode" type="xs:int" minOccurs="0" />
+              <xs:element name="jobcode" msprop:Generator_ColumnVarNameInTable="columnjobcode" msprop:Generator_ColumnPropNameInRow="jobcode" msprop:Generator_ColumnPropNameInTable="jobcodeColumn" msprop:Generator_UserColumnName="jobcode" type="xs:int" minOccurs="0" />
+              <xs:element name="GOV" msprop:Generator_ColumnVarNameInTable="columnGOV" msprop:Generator_ColumnPropNameInRow="GOV" msprop:Generator_ColumnPropNameInTable="GOVColumn" msprop:Generator_UserColumnName="GOV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Edara" msprop:Generator_ColumnVarNameInTable="columnEdara" msprop:Generator_ColumnPropNameInRow="Edara" msprop:Generator_ColumnPropNameInTable="EdaraColumn" msprop:Generator_UserColumnName="Edara" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Moahel" msprop:Generator_ColumnVarNameInTable="columnMoahel" msprop:Generator_ColumnPropNameInRow="Moahel" msprop:Generator_ColumnPropNameInTable="MoahelColumn" msprop:Generator_UserColumnName="Moahel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="School" msprop:Generator_ColumnVarNameInTable="columnSchool" msprop:Generator_ColumnPropNameInRow="School" msprop:Generator_ColumnPropNameInTable="SchoolColumn" msprop:Generator_UserColumnName="School" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Job" msprop:Generator_ColumnVarNameInTable="columnJob" msprop:Generator_ColumnPropNameInRow="Job" msprop:Generator_ColumnPropNameInTable="JobColumn" msprop:Generator_UserColumnName="Job" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vQry005" msprop:Generator_TableClassName="vQry005DataTable" msprop:Generator_TableVarName="tablevQry005" msprop:Generator_TablePropName="vQry005" msprop:Generator_RowDeletingName="vQry005RowDeleting" msprop:Generator_RowChangingName="vQry005RowChanging" msprop:Generator_RowEvHandlerName="vQry005RowChangeEventHandler" msprop:Generator_RowDeletedName="vQry005RowDeleted" msprop:Generator_UserTableName="vQry005" msprop:Generator_RowChangedName="vQry005RowChanged" msprop:Generator_RowEvArgName="vQry005RowChangeEvent" msprop:Generator_RowClassName="vQry005Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GovId" msprop:Generator_ColumnVarNameInTable="columnGovId" msprop:Generator_ColumnPropNameInRow="GovId" msprop:Generator_ColumnPropNameInTable="GovIdColumn" msprop:Generator_UserColumnName="GovId" type="xs:unsignedByte" />
+              <xs:element name="GOV" msprop:Generator_ColumnVarNameInTable="columnGOV" msprop:Generator_ColumnPropNameInRow="GOV" msprop:Generator_ColumnPropNameInTable="GOVColumn" msprop:Generator_UserColumnName="GOV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="All_Edarat" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAll_Edarat" msprop:Generator_ColumnPropNameInRow="All_Edarat" msprop:Generator_ColumnPropNameInTable="All_EdaratColumn" msprop:Generator_UserColumnName="All_Edarat" type="xs:int" minOccurs="0" />
+              <xs:element name="Used_Edarat" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUsed_Edarat" msprop:Generator_ColumnPropNameInRow="Used_Edarat" msprop:Generator_ColumnPropNameInTable="Used_EdaratColumn" msprop:Generator_UserColumnName="Used_Edarat" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TblMember" />
+      <xs:field xpath="mstns:MemberID" />
+    </xs:unique>
+    <xs:unique name="vQry005_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vQry005" />
+      <xs:field xpath="mstns:GovId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E08AF89-11F3-4214-81B2-7B8770FD01ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_Club_Emp_Manager</RootNamespace>
+    <AssemblyName>E Club Emp Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\ECEM\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\ECEM\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>E_Club_Emp_Manager.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\File-Schedule+.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAznFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAznFrm.Designer.cs">
+      <DependentUpon>DataAznFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataSalaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataSalaryFrm.designer.cs">
+      <DependentUpon>DataSalaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataAgazatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataAgazatFrm.Designer.cs">
+      <DependentUpon>DataAgazatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddEmpAttachmentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddEmpAttachmentFrm.Designer.cs">
+      <DependentUpon>AddEmpAttachmentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddEmployeeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddEmployeeFrm.Designer.cs">
+      <DependentUpon>AddEmployeeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddQualificationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddQualificationFrm.Designer.cs">
+      <DependentUpon>AddQualificationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECEMMainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECEMMainFrm.Designer.cs">
+      <DependentUpon>ECEMMainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EditorInsuranceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EditorInsuranceFrm.Designer.cs">
+      <DependentUpon>EditorInsuranceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorCountryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorCountryFrm.Designer.cs">
+      <DependentUpon>EditorCountryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorEmpStateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorEmpStateFrm.Designer.cs">
+      <DependentUpon>EditorEmpStateFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorNationalityFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorNationalityFrm.Designer.cs">
+      <DependentUpon>EditorNationalityFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorEducationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorEducationFrm.Designer.cs">
+      <DependentUpon>EditorEducationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorJobFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorJobFrm.Designer.cs">
+      <DependentUpon>EditorJobFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorMilitaryTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorMilitaryTypeFrm.Designer.cs">
+      <DependentUpon>EditorMilitaryTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorJobDescriptionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorJobDescriptionFrm.Designer.cs">
+      <DependentUpon>EditorJobDescriptionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorDepartmentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorDepartmentFrm.Designer.cs">
+      <DependentUpon>EditorDepartmentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorQualificationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorQualificationFrm.Designer.cs">
+      <DependentUpon>EditorQualificationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorSpecificationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorSpecificationFrm.Designer.cs">
+      <DependentUpon>EditorSpecificationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorTrainingProgFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorTrainingProgFrm.Designer.cs">
+      <DependentUpon>EditorTrainingProgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorTraininPlaceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorTraininPlaceFrm.Designer.cs">
+      <DependentUpon>EditorTraininPlaceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorUniversityFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorUniversityFrm.Designer.cs">
+      <DependentUpon>EditorUniversityFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorDgreesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorDgreesFrm.designer.cs">
+      <DependentUpon>EditorDgreesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorAgazatTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorAgazatTypeFrm.Designer.cs">
+      <DependentUpon>EditorAgazatTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorEznTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorEznTypeFrm.Designer.cs">
+      <DependentUpon>EditorEznTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MSGBOXFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\MSGBOXFrm.designer.cs">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QryEmployeeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryEmployeeFrm.Designer.cs">
+      <DependentUpon>QryEmployeeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ECMMainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ECMMainFrm.Designer.cs">
+      <DependentUpon>ECMMainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MCls.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main\SQLConnectionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQLConnectionFrm.designer.cs">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.designer.cs">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.Designer.cs">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DataAznFrm.resx">
+      <DependentUpon>DataAznFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataSalaryFrm.resx">
+      <DependentUpon>DataSalaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataAgazatFrm.resx">
+      <DependentUpon>DataAgazatFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AddEmpAttachmentFrm.resx">
+      <DependentUpon>AddEmpAttachmentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AddEmployeeFrm.resx">
+      <DependentUpon>AddEmployeeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AddQualificationFrm.resx">
+      <DependentUpon>AddQualificationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECEMMainFrm.resx">
+      <DependentUpon>ECEMMainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EditorInsuranceFrm.resx">
+      <DependentUpon>EditorInsuranceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorEducationFrm.resx">
+      <DependentUpon>EditorEducationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorMilitaryTypeFrm.resx">
+      <DependentUpon>EditorMilitaryTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorJobFrm.resx">
+      <DependentUpon>EditorJobFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorJobDescriptionFrm.resx">
+      <DependentUpon>EditorJobDescriptionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorDepartmentFrm.resx">
+      <DependentUpon>EditorDepartmentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorQualificationFrm.resx">
+      <DependentUpon>EditorQualificationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorSpecificationFrm.resx">
+      <DependentUpon>EditorSpecificationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorTrainingProgFrm.resx">
+      <DependentUpon>EditorTrainingProgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorTraininPlaceFrm.resx">
+      <DependentUpon>EditorTraininPlaceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorUniversityFrm.resx">
+      <DependentUpon>EditorUniversityFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorDgreesFrm.resx">
+      <DependentUpon>EditorDgreesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorAgazatTypeFrm.resx">
+      <DependentUpon>EditorAgazatTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorEznTypeFrm.resx">
+      <DependentUpon>EditorEznTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Codes\EditorCountryFrm.resx">
+      <DependentUpon>EditorCountryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorEmpStateFrm.resx">
+      <DependentUpon>EditorEmpStateFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorNationalityFrm.resx">
+      <DependentUpon>EditorNationalityFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QryEmployeeFrm.resx">
+      <DependentUpon>QryEmployeeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ECMMainFrm.resx">
+      <DependentUpon>ECMMainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Main\SQLConnectionFrm.resx">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepGeneralFrm.resx">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\SQLConnectionUC.resx">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File-Schedule+.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background 02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOX_Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOX_Info.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOXCoLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOXFrm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ECEM_BG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImage.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImage.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSourceEmployee">
+      <DataSourceReference>DataSourceEmployee</DataSourceReference>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Fields>
+        <Field Name="Emp_Name">
+          <DataField>Emp_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpID">
+          <DataField>EmpID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ezn_date">
+          <DataField>ezn_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ezn_time_start">
+          <DataField>ezn_time_start</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="ezn_time_end">
+          <DataField>ezn_time_end</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="EznTypeId">
+          <DataField>EznTypeId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="ezn_place">
+          <DataField>ezn_place</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Deff">
+          <DataField>Deff</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EznType">
+          <DataField>EznType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="orderreport">
+          <DataField>orderreport</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="tameen_no">
+          <DataField>tameen_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpJobId">
+          <DataField>EmpJobId</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="EmpJobName">
+          <DataField>EmpJobName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentId">
+          <DataField>DepartmentId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JOB_STATUS_ID">
+          <DataField>JOB_STATUS_ID</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="EmpStateName">
+          <DataField>EmpStateName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GENDER_ID">
+          <DataField>GENDER_ID</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="name_alnoa">
+          <DataField>name_alnoa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="qualId">
+          <DataField>qualId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="qualName">
+          <DataField>qualName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT EmpID, ezn_date, ezn_time_start, ezn_time_end, EznTypeId, ezn_place, 
+CONVERT(NVARCHAR, CONVERT(DATETIME, ezn_time_end, 114) - CONVERT(DATETIME, ezn_time_start, 114), 114) AS Deff,
+(SELECT EznType FROM CD_EznType WHERE EznTypeId = EMP_ezn.EznTypeId) AS EznType,
+(Select EMP_FIRST_NAME + ' ' + EMP_FATHER_NAME + ' ' + EMP_FAM_NAME + ' ' + EMP_FOURTH_NAME From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS Emp_Name,
+(Select orderreport From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS orderreport,
+(Select tameen_no From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS tameen_no,
+(Select EmpJobId From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS EmpJobId, (SELECT JobNAME FROM CD_EmpJop Where JobId = (Select EmpJobId From TBL_Emp Where EmpID = EMP_ezn.EmpID)) AS EmpJobName,
+(Select DepartmentId From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS DepartmentId, (SELECT Department FROM CD_Department WHERE DepartmentId = (Select DepartmentId From TBL_Emp Where EmpID = EMP_ezn.EmpID)) AS Department,
+(Select JOB_STATUS_ID From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS JOB_STATUS_ID, (SELECT EmpStateName FROM CD_EmpState WHERE EmpStateID = (Select JOB_STATUS_ID From TBL_Emp Where EmpID = EMP_ezn.EmpID)) AS EmpStateName,
+(Select GENDER_ID From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS GENDER_ID, (SELECT name_alnoa FROM CDAlnoa WHERE code_alnoa = (Select GENDER_ID From TBL_Emp Where EmpID = EMP_ezn.EmpID)) AS name_alnoa,
+(Select qualId From TBL_Emp Where EmpID = EMP_ezn.EmpID) AS qualId, (SELECT qualName FROM CDQualification WHERE qualId = (Select qualId From TBL_Emp Where EmpID = EMP_ezn.EmpID)) AS qualName
+FROM EMP_ezn
+ Where exists(Select EmpStateID From CD_EmpState Where OnWork = 1 And EmpStateID = (Select EmpStateID From TBL_Emp Where EmpID = EMP_ezn.EmpID)) </CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSEmpJobId">
+      <Fields>
+        <Field Name="JobId">
+          <DataField>JobId</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="JobNAME">
+          <DataField>JobNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JobNAME_e">
+          <DataField>JobNAME_e</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>Select JobId, JobNAME, JobNAME_e From CD_EmpJop</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="ExdDataAppOptions">
+      <Fields>
+        <Field Name="SchoolLogo">
+          <DataField>SchoolLogo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT SchoolLogo
+FROM AppOptions
+Where OpCodeID = 1</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetGeneralInfo">
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="school_allcode">
+          <DataField>school_allcode</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="school_allname">
+          <DataField>school_allname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>Select asase_code, SPOS, asase_year, school_allcode, 
+(Select school_allname From TBLSCHOOLALL Where school_allcode = CD_AsaseEmp.school_allcode) AS school_allname
+From CD_AsaseEmp
+Where asase_code = @asase_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetDepartmentId">
+      <Fields>
+        <Field Name="DepartmentId">
+          <DataField>DepartmentId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT DepartmentId, Department FROM dbo.CD_Department</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetEmpStateID">
+      <Fields>
+        <Field Name="EmpStateID">
+          <DataField>EmpStateID</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="EmpStateName">
+          <DataField>EmpStateName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OnWork">
+          <DataField>OnWork</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT EmpStateID, EmpStateName, OnWork FROM dbo.CD_EmpState</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetcode_alnoa">
+      <Fields>
+        <Field Name="code_alnoa">
+          <DataField>code_alnoa</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="name_alnoa">
+          <DataField>name_alnoa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT code_alnoa, name_alnoa FROM dbo.CDAlnoa</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSettameen_no">
+      <Fields>
+        <Field Name="tameen_no">
+          <DataField>tameen_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT tameen_no FROM dbo.TBL_Emp</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.3125in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.25941in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.17398in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.34987in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.32539in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25125in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>المده</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>نهاية الاذن</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>بداية الاذن</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>نوع الاذن</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>التاريخ</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الاسم</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>م</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25167in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Deff">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Deff.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Format>H:mm:ss</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Deff</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ezn_time_end">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ezn_time_end.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Format>H:mm:ss</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ezn_time_end</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ezn_time_start">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ezn_time_start.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Format>hh:mm:ss tt</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ezn_time_start</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="EznType">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!EznType.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>EznType</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ezn_date">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ezn_date.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Format>yyyy-MM-dd</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ezn_date</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Emp_Name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Emp_Name.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Emp_Name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=RowNumber(nothing)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="table1_Details_Group">
+                    <DataElementName>Detail</DataElementName>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <NoRowsMessage>لا توجد بيانات</NoRowsMessage>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!ezn_date.Value</FilterExpression>
+            <Operator>Between</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!DateStart.Value</FilterValue>
+              <FilterValue>=Parameters!DateEnd.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!DepartmentId.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!DepartmentId.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!JOB_STATUS_ID.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!EmpStateID.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!GENDER_ID.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!code_alnoa.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!tameen_no.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!tameen_no.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!ezn_date.Value</Value>
+            <Direction>Descending</Direction>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!orderreport.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!Emp_Name.Value</Value>
+          </SortExpression>
+        </SortExpressions>
+        <Left>0.21168cm</Left>
+        <Height>0.50292in</Height>
+        <Width>8.42115in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.50292in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="DateStart">
+      <DataType>DateTime</DataType>
+      <Prompt>تاريخ من</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateEnd">
+      <DataType>DateTime</DataType>
+      <Prompt>تاريخ الي</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="asase_code">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>11</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>asase code</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="DepartmentId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetDepartmentId</DataSetName>
+          <ValueField>DepartmentId</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الاداره</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetDepartmentId</DataSetName>
+          <ValueField>DepartmentId</ValueField>
+          <LabelField>Department</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="EmpStateID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetEmpStateID</DataSetName>
+          <ValueField>EmpStateID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الحاله</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetEmpStateID</DataSetName>
+          <ValueField>EmpStateID</ValueField>
+          <LabelField>EmpStateName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="code_alnoa">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetcode_alnoa</DataSetName>
+          <ValueField>code_alnoa</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>النوع</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetcode_alnoa</DataSetName>
+          <ValueField>code_alnoa</ValueField>
+          <LabelField>name_alnoa</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="tameen_no">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSettameen_no</DataSetName>
+          <ValueField>tameen_no</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>الرقم التأميني</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSettameen_no</DataSetName>
+          <ValueField>tameen_no</ValueField>
+          <LabelField>tameen_no</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>8.51389in</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.70124cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <ReportItems>
+        <Image Name="ImgLogo">
+          <Source>Database</Source>
+          <Value>=First(Fields!SchoolLogo.Value, "ExdDataAppOptions")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.04167in</Top>
+          <Left>0.08334in</Left>
+          <Height>0.95931in</Height>
+          <Width>0.87153in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="alsofof_name">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>بيان الاذونات</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Blue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <LeftIndent>0cm</LeftIndent>
+              <HangingIndent>0cm</HangingIndent>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>alsofof_name</rd:DefaultName>
+          <Top>0.16667in</Top>
+          <Left>3.26302in</Left>
+          <Height>0.25in</Height>
+          <Width>1.98785in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="loga_name1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!DateEnd.Value</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>yyyy-MM-dd</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>loga_name1</rd:DefaultName>
+          <Top>0.53174in</Top>
+          <Left>2.73854in</Left>
+          <Height>0.25in</Height>
+          <Width>1.29165in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="loga_name3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>الي</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Blue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>loga_name1</rd:DefaultName>
+          <Top>0.53174in</Top>
+          <Left>4.03019in</Left>
+          <Height>0.25in</Height>
+          <Width>0.375in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="loga_name4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!DateStart.Value</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>yyyy-MM-dd</Format>
+                    <Language>ar-EG</Language>
+                    <Calendar>GregorianArabic</Calendar>
+                    <NumeralLanguage>ar-EG</NumeralLanguage>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>loga_name1</rd:DefaultName>
+          <Top>0.53174in</Top>
+          <Left>4.40519in</Left>
+          <Height>0.25in</Height>
+          <Width>1.30643in</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="EdaraName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!asase_year.Value, "DataSetGeneralInfo")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>EdaraName</rd:DefaultName>
+          <Top>0.19445in</Top>
+          <Left>6.66074in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="SCHOOL">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!school_allname.Value, "DataSetGeneralInfo")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>SCHOOL</rd:DefaultName>
+          <Top>0.50001in</Top>
+          <Left>6.66074in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.37701cm</Height>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>= "صفحه " &amp; Globals!PageNumber &amp; " من " &amp; Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.68583in</Top>
+          <Left>6.67014in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.68583in</Top>
+          <Left>0.06175cm</Left>
+          <Height>0.25in</Height>
+          <Width>2in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>مدير المدرسه</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.06944in</Top>
+          <Left>0.34171in</Left>
+          <Height>0.25in</Height>
+          <Width>1.35417in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox5">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>شئون عاملين</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.06944in</Top>
+          <Left>6.69302in</Left>
+          <Height>0.25in</Height>
+          <Width>1.35417in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

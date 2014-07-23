@@ -1,0 +1,1365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7FAA895A-A35A-4470-B7ED-01B76A19F253}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Members</RootNamespace>
+    <AssemblyName>Members</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <DeepSeaExtensionsPath Condition=" '$(DeepSeaExtensionsPath)' == '' ">$(MSBuildExtensionsPath)\DeepSea Obfuscator\v4</DeepSeaExtensionsPath>
+    <PublishUrl>C:\publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Releases\Files\Members\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DeepSeaKeyPassword>[Egy]FalseX</DeepSeaKeyPassword>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Releases\Files\Members\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Members.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Members.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Members\Members.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Releases\Files\Members\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Members\Members.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Members\Members.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\x86\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Members\Members.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>81A29939BF4E44E9DFC688007AF9814682EA875C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Members_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v12.2.UI, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v12.2.Wizard, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.2.Extensions, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FXFW, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\FalseX\FXFW\Releases\FXFW.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseScripts.cs" />
+    <Compile Include="DataSources\Linq\dsTeachersUnionViews.cs">
+      <DependentUpon>dsTeachersUnionViews.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\Linq\dsTeachersUnionViews.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTeachersUnionViews.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\dsMemberCard.cs">
+      <DependentUpon>dsMemberCard.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSources\dsMemberCard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMemberCard.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\dsTeachersUnionQuery.cs">
+      <DependentUpon>dsTeachersUnionQuery.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSources\dsTeachersUnionQuery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTeachersUnionQuery.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\CodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\CodeFrm.designer.cs">
+      <DependentUpon>CodeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardFawryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardFawryFrm.designer.cs">
+      <DependentUpon>TBLPrintCardFawryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFast3Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFast3Frm.Designer.cs">
+      <DependentUpon>TBLMembersFast3Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastMaashatWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastMaashatWFrm.designer.cs">
+      <DependentUpon>TBLMembersFastMaashatWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastMaashatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastMaashatFrm.designer.cs">
+      <DependentUpon>TBLMembersFastMaashatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastKidWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastKidWFrm.designer.cs">
+      <DependentUpon>TBLMembersFastKidWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastKidFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastKidFrm.designer.cs">
+      <DependentUpon>TBLMembersFastKidFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\FixesalnoTBLMemberWebFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\FixesalnoTBLMemberWebFrm.Designer.cs">
+      <DependentUpon>FixesalnoTBLMemberWebFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\FixesalnoTBLMembersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\FixesalnoTBLMembersFrm.Designer.cs">
+      <DependentUpon>FixesalnoTBLMembersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCard3Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCard3Frm.designer.cs">
+      <DependentUpon>TBLPrintCard3Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardRe3Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardRe3Frm.designer.cs">
+      <DependentUpon>TBLPrintCardRe3Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLUserMistakeWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLUserMistakeWFrm.designer.cs">
+      <DependentUpon>TBLUserMistakeWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLUserMistakeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLUserMistakeFrm.Designer.cs">
+      <DependentUpon>TBLUserMistakeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLEmpWorkWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLEmpWorkWFrm.designer.cs">
+      <DependentUpon>TBLEmpWorkWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLEmpWorkFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLEmpWorkFrm.designer.cs">
+      <DependentUpon>TBLEmpWorkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatWebWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatWebWFrm.designer.cs">
+      <DependentUpon>TBLAksatWebWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatWindowWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatWindowWFrm.designer.cs">
+      <DependentUpon>TBLAksatWindowWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatWindowFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatWindowFrm.Designer.cs">
+      <DependentUpon>TBLAksatWindowFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatDetailesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatDetailesFrm.Designer.cs">
+      <DependentUpon>TBLAksatDetailesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLAksatFrm.Designer.cs">
+      <DependentUpon>TBLAksatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMemberEsalatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMemberEsalatFrm.Designer.cs">
+      <DependentUpon>TBLMemberEsalatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMemberOldFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMemberOldFrm.designer.cs">
+      <DependentUpon>TBLMemberOldFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebNoTarhelEditFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebNoTarhelEditFrm.Designer.cs">
+      <DependentUpon>TBLHafzawebNoTarhelEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebNoTarhelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebNoTarhelFrm.Designer.cs">
+      <DependentUpon>TBLHafzawebNoTarhelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLManualArsheefDetailsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLManualArsheefDetailsFrm.designer.cs">
+      <DependentUpon>TBLManualArsheefDetailsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLManualArsheefFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLManualArsheefFrm.designer.cs">
+      <DependentUpon>TBLManualArsheefFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzaTasleemWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzaTasleemWFrm.designer.cs">
+      <DependentUpon>TBLHafzaTasleemWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\ImportFromWebFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\ImportFromWebFrm.Designer.cs">
+      <DependentUpon>ImportFromWebFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebWFrm.designer.cs">
+      <DependentUpon>TBLHafzawebWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzawebFrm.Designer.cs">
+      <DependentUpon>TBLHafzawebFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardReFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardReFrm.designer.cs">
+      <DependentUpon>TBLPrintCardReFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\XRepMemCard3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\XRepMemCard3.designer.cs">
+      <DependentUpon>XRepMemCard3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzaTasleemFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzaTasleemFrm.designer.cs">
+      <DependentUpon>TBLHafzaTasleemFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\XRepMemCard2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\XRepMemCard2.designer.cs">
+      <DependentUpon>XRepMemCard2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMandoopFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMandoopFrm.designer.cs">
+      <DependentUpon>TBLMandoopFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFast2Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFast2Frm.designer.cs">
+      <DependentUpon>TBLMembersFast2Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLPrintCardFrm.designer.cs">
+      <DependentUpon>TBLPrintCardFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMemberCardFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMemberCardFrm.designer.cs">
+      <DependentUpon>TBLMemberCardFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLHafzaFrm.designer.cs">
+      <DependentUpon>TBLHafzaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\AppOptionsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\AppOptionsFrm.Designer.cs">
+      <DependentUpon>AppOptionsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\MainFrm.designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\ImgViewerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\ImgViewerFrm.designer.cs">
+      <DependentUpon>ImgViewerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\LoginFrm.designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\PasswordChangerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\PasswordChangerFrm.Designer.cs">
+      <DependentUpon>PasswordChangerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\WaitWindowFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\WaitWindowFrm.Designer.cs">
+      <DependentUpon>WaitWindowFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleDetailFrm.designer.cs">
+      <DependentUpon>RoleDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry33Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry33Frm.designer.cs">
+      <DependentUpon>Qry33Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\SPro_0001Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\SPro_0001Frm.designer.cs">
+      <DependentUpon>SPro_0001Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry32Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry32Frm.designer.cs">
+      <DependentUpon>Qry32Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry31Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry31Frm.designer.cs">
+      <DependentUpon>Qry31Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry30Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry30Frm.designer.cs">
+      <DependentUpon>Qry30Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry5aFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry5aFrm.designer.cs">
+      <DependentUpon>Qry5aFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry29Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry29Frm.designer.cs">
+      <DependentUpon>Qry29Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry27Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry27Frm.designer.cs">
+      <DependentUpon>Qry27Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry28Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry28Frm.designer.cs">
+      <DependentUpon>Qry28Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry26Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry26Frm.designer.cs">
+      <DependentUpon>Qry26Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry25Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry25Frm.designer.cs">
+      <DependentUpon>Qry25Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry24Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry24Frm.designer.cs">
+      <DependentUpon>Qry24Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry23Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry23Frm.designer.cs">
+      <DependentUpon>Qry23Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry22Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry22Frm.designer.cs">
+      <DependentUpon>Qry22Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry20Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry20Frm.designer.cs">
+      <DependentUpon>Qry20Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry19Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry19Frm.designer.cs">
+      <DependentUpon>Qry19Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry18Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry18Frm.designer.cs">
+      <DependentUpon>Qry18Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry17Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry17Frm.designer.cs">
+      <DependentUpon>Qry17Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry16Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry16Frm.designer.cs">
+      <DependentUpon>Qry16Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry15Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry15Frm.designer.cs">
+      <DependentUpon>Qry15Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry14Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry14Frm.designer.cs">
+      <DependentUpon>Qry14Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry13Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry13Frm.designer.cs">
+      <DependentUpon>Qry13Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry12Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry12Frm.designer.cs">
+      <DependentUpon>Qry12Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry11WFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry11WFrm.designer.cs">
+      <DependentUpon>Qry11WFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry11Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry11Frm.designer.cs">
+      <DependentUpon>Qry11Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry10Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry10Frm.designer.cs">
+      <DependentUpon>Qry10Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry9Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry9Frm.designer.cs">
+      <DependentUpon>Qry9Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry8Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry8Frm.designer.cs">
+      <DependentUpon>Qry8Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry7Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry7Frm.designer.cs">
+      <DependentUpon>Qry7Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry6Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry6Frm.designer.cs">
+      <DependentUpon>Qry6Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry5Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry5Frm.designer.cs">
+      <DependentUpon>Qry5Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry4Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry4Frm.designer.cs">
+      <DependentUpon>Qry4Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry3Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry3Frm.designer.cs">
+      <DependentUpon>Qry3Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry1Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry1Frm.designer.cs">
+      <DependentUpon>Qry1Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TblMemberAttachFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TblMemberAttachFrm.Designer.cs">
+      <DependentUpon>TblMemberAttachFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry21Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry21Frm.Designer.cs">
+      <DependentUpon>Qry21Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Temporary\FiximgPathFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Temporary\FiximgPathFrm.Designer.cs">
+      <DependentUpon>FiximgPathFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\Misc.cs" />
+    <Compile Include="Misc\Types.cs" />
+    <Compile Include="MyPictureEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyPictureMenu.cs" />
+    <Compile Include="Forms\Permission\RolesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\RolesFrm.designer.cs">
+      <DependentUpon>RolesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\UserRolesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\UserRolesFrm.designer.cs">
+      <DependentUpon>UserRolesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\UsersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\UsersFrm.designer.cs">
+      <DependentUpon>UsersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SQLProvider.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\Main\SplashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\SplashFrm.designer.cs">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\XRepMemCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\XRepMemCard.designer.cs">
+      <DependentUpon>XRepMemCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLMembersFastFrm.designer.cs">
+      <DependentUpon>TBLMembersFastFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\dsTeachersUnion.cs">
+      <DependentUpon>dsTeachersUnion.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSources\dsTeachersUnion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTeachersUnion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\ReceiptsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\ReceiptsFrm.designer.cs">
+      <DependentUpon>ReceiptsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\ReceiptsWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\ReceiptsWFrm.designer.cs">
+      <DependentUpon>ReceiptsWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Data\TBLPrintCardFawryFrm.resx">
+      <DependentUpon>TBLPrintCardFawryFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFast3Frm.resx">
+      <DependentUpon>TBLMembersFast3Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLPrintCard3Frm.resx">
+      <DependentUpon>TBLPrintCard3Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLPrintCardRe3Frm.resx">
+      <DependentUpon>TBLPrintCardRe3Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry33Frm.resx">
+      <DependentUpon>Qry33Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\SPro_0001Frm.resx">
+      <DependentUpon>SPro_0001Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry32Frm.resx">
+      <DependentUpon>Qry32Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry31Frm.resx">
+      <DependentUpon>Qry31Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry30Frm.resx">
+      <DependentUpon>Qry30Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry5aFrm.resx">
+      <DependentUpon>Qry5aFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSources\dsTeachersUnionQuery.xsc">
+      <DependentUpon>dsTeachersUnionQuery.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\dsTeachersUnionQuery.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTeachersUnionQuery.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSources\dsTeachersUnionQuery.xss">
+      <DependentUpon>dsTeachersUnionQuery.xsd</DependentUpon>
+    </None>
+    <None Include="Members_TemporaryKey.pfx" />
+    <None Include="Resources\Pic.png" />
+    <Content Include="temp.txt" />
+    <Compile Include="XRep\XRep10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep10.designer.cs">
+      <DependentUpon>XRep10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep09.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep09.designer.cs">
+      <DependentUpon>XRep09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep08.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep08.designer.cs">
+      <DependentUpon>XRep08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep07.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep07.designer.cs">
+      <DependentUpon>XRep07.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepBarcodeTester.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepBarcodeTester.designer.cs">
+      <DependentUpon>XRepBarcodeTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep06.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep06.designer.cs">
+      <DependentUpon>XRep06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep05.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep05.designer.cs">
+      <DependentUpon>XRep05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep04.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep04.designer.cs">
+      <DependentUpon>XRep04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep03.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep03.designer.cs">
+      <DependentUpon>XRep03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep02.designer.cs">
+      <DependentUpon>XRep02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRep01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRep01.designer.cs">
+      <DependentUpon>XRep01.cs</DependentUpon>
+    </Compile>
+    <None Include="DataSources\dsMemberCard.xsc">
+      <DependentUpon>dsMemberCard.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\dsMemberCard.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMemberCard.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSources\dsMemberCard.xss">
+      <DependentUpon>dsMemberCard.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Save.png" />
+    <Content Include="MemberCard.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\RSBuild.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\RSBuild.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\SQLReports.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="DataSources\Linq\dsTeachersUnionViews.dbml.layout">
+      <DependentUpon>dsTeachersUnionViews.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Forms\Code\CodeFrm.resx">
+      <DependentUpon>CodeFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFastMaashatWFrm.resx">
+      <DependentUpon>TBLMembersFastMaashatWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFastMaashatFrm.resx">
+      <DependentUpon>TBLMembersFastMaashatFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFastKidWFrm.resx">
+      <DependentUpon>TBLMembersFastKidWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFastKidFrm.resx">
+      <DependentUpon>TBLMembersFastKidFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\FixesalnoTBLMemberWebFrm.resx">
+      <DependentUpon>FixesalnoTBLMemberWebFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\FixesalnoTBLMembersFrm.resx">
+      <DependentUpon>FixesalnoTBLMembersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLUserMistakeWFrm.resx">
+      <DependentUpon>TBLUserMistakeWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLUserMistakeFrm.resx">
+      <DependentUpon>TBLUserMistakeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLEmpWorkWFrm.resx">
+      <DependentUpon>TBLEmpWorkWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLEmpWorkFrm.resx">
+      <DependentUpon>TBLEmpWorkFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLAksatWebWFrm.resx">
+      <DependentUpon>TBLAksatWebWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLAksatWindowWFrm.resx">
+      <DependentUpon>TBLAksatWindowWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLAksatWindowFrm.resx">
+      <DependentUpon>TBLAksatWindowFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLAksatDetailesFrm.resx">
+      <DependentUpon>TBLAksatDetailesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLAksatFrm.resx">
+      <DependentUpon>TBLAksatFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMemberEsalatFrm.resx">
+      <DependentUpon>TBLMemberEsalatFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMemberOldFrm.resx">
+      <DependentUpon>TBLMemberOldFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzawebNoTarhelEditFrm.resx">
+      <DependentUpon>TBLHafzawebNoTarhelEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzawebNoTarhelFrm.resx">
+      <DependentUpon>TBLHafzawebNoTarhelFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLManualArsheefDetailsFrm.resx">
+      <DependentUpon>TBLManualArsheefDetailsFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLManualArsheefFrm.resx">
+      <DependentUpon>TBLManualArsheefFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzaTasleemWFrm.resx">
+      <DependentUpon>TBLHafzaTasleemWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\ImportFromWebFrm.resx">
+      <DependentUpon>ImportFromWebFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzawebWFrm.resx">
+      <DependentUpon>TBLHafzawebWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzawebFrm.resx">
+      <DependentUpon>TBLHafzawebFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLPrintCardReFrm.resx">
+      <DependentUpon>TBLPrintCardReFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TblMemberAttachFrm.resx">
+      <DependentUpon>TblMemberAttachFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\XRepMemCard3.resx">
+      <DependentUpon>XRepMemCard3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzaTasleemFrm.resx">
+      <DependentUpon>TBLHafzaTasleemFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\XRepMemCard2.resx">
+      <DependentUpon>XRepMemCard2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMandoopFrm.resx">
+      <DependentUpon>TBLMandoopFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFast2Frm.resx">
+      <DependentUpon>TBLMembersFast2Frm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMemberCardFrm.resx">
+      <DependentUpon>TBLMemberCardFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLHafzaFrm.resx">
+      <DependentUpon>TBLHafzaFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLPrintCardFrm.resx">
+      <DependentUpon>TBLPrintCardFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\AppOptionsFrm.resx">
+      <DependentUpon>AppOptionsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\ImgViewerFrm.resx">
+      <DependentUpon>ImgViewerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\PasswordChangerFrm.resx">
+      <DependentUpon>PasswordChangerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\WaitWindowFrm.resx">
+      <DependentUpon>WaitWindowFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\RoleDetailFrm.resx">
+      <DependentUpon>RoleDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry29Frm.resx">
+      <DependentUpon>Qry29Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry27Frm.resx">
+      <DependentUpon>Qry27Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry28Frm.resx">
+      <DependentUpon>Qry28Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry26Frm.resx">
+      <DependentUpon>Qry26Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry25Frm.resx">
+      <DependentUpon>Qry25Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry24Frm.resx">
+      <DependentUpon>Qry24Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry23Frm.resx">
+      <DependentUpon>Qry23Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry22Frm.resx">
+      <DependentUpon>Qry22Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry20Frm.resx">
+      <DependentUpon>Qry20Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry19Frm.resx">
+      <DependentUpon>Qry19Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry18Frm.resx">
+      <DependentUpon>Qry18Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry17Frm.resx">
+      <DependentUpon>Qry17Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry16Frm.resx">
+      <DependentUpon>Qry16Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry15Frm.resx">
+      <DependentUpon>Qry15Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry14Frm.resx">
+      <DependentUpon>Qry14Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry13Frm.resx">
+      <DependentUpon>Qry13Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry12Frm.resx">
+      <DependentUpon>Qry12Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry11WFrm.resx">
+      <DependentUpon>Qry11WFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry11Frm.resx">
+      <DependentUpon>Qry11Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry10Frm.resx">
+      <DependentUpon>Qry10Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry9Frm.resx">
+      <DependentUpon>Qry9Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry8Frm.resx">
+      <DependentUpon>Qry8Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry7Frm.resx">
+      <DependentUpon>Qry7Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry6Frm.resx">
+      <DependentUpon>Qry6Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry5Frm.resx">
+      <DependentUpon>Qry5Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry4Frm.resx">
+      <DependentUpon>Qry4Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry3Frm.resx">
+      <DependentUpon>Qry3Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry1Frm.resx">
+      <DependentUpon>Qry1Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\RolesFrm.resx">
+      <DependentUpon>RolesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\UserRolesFrm.resx">
+      <DependentUpon>UserRolesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\UsersFrm.resx">
+      <DependentUpon>UsersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry21Frm.resx">
+      <DependentUpon>Qry21Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Temporary\FiximgPathFrm.resx">
+      <DependentUpon>FiximgPathFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\Main\SplashFrm.resx">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\XRepMemCard.resx">
+      <DependentUpon>XRepMemCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLMembersFastFrm.resx">
+      <DependentUpon>TBLMembersFastFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\ReceiptsFrm.resx">
+      <DependentUpon>ReceiptsFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\ReceiptsWFrm.resx">
+      <DependentUpon>ReceiptsWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep10.resx">
+      <DependentUpon>XRep10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep09.resx">
+      <DependentUpon>XRep09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep08.resx">
+      <DependentUpon>XRep08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep07.resx">
+      <DependentUpon>XRep07.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepBarcodeTester.resx">
+      <DependentUpon>XRepBarcodeTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep06.resx">
+      <DependentUpon>XRep06.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep05.resx">
+      <DependentUpon>XRep05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep04.resx">
+      <DependentUpon>XRep04.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep03.resx">
+      <DependentUpon>XRep03.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep02.resx">
+      <DependentUpon>XRep02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRep01.resx">
+      <DependentUpon>XRep01.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="DataSources\Linq\dsTeachersUnionViews.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dsTeachersUnionViews.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="DataSources\dsTeachersUnion.xsc">
+      <DependentUpon>dsTeachersUnion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\dsTeachersUnion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTeachersUnion.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\dsTeachersUnion.xss">
+      <DependentUpon>dsTeachersUnion.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\SULTAN BOOLD.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Members.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SplashScreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EESoft.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Members.ico" />
+    <None Include="Resources\DeleteObject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SqlRpt\rdl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(DeepSeaExtensionsPath)\DeepSea.Obfuscator.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

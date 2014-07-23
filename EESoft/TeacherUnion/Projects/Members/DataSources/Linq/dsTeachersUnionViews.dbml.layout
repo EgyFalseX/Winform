@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 14.875" name="DBDataSource">
+  <DataContextMoniker Name="/dsTeachersUnionViewsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="938d6e2d-4e6c-4ea3-b1f6-77481216dcdb" absoluteBounds="0.5, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLPrintCard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aaf55d37-11ad-4a00-9439-aa3985288eaf" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="06df4929-02df-4f89-b954-08dd89437bab" absoluteBounds="0.5, 3.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLMembersPlusTBLMemberHala" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4b05da4-a4a5-4853-940d-cf6313a685c2" absoluteBounds="0.51500000000000012, 3.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b234ccb6-02d9-4dc1-8ff1-8795b802ba36" absoluteBounds="2.625, 1, 2, 2.5401025390625">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLMembersPlusShadetKed" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da6c0604-4a2d-4774-af69-dfa256f05a3b" absoluteBounds="2.64, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8890108-aab5-4380-acee-6ca7c01d2ac9" absoluteBounds="2.625, 3.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLMembersPlusTblMemberAttach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36506edb-ed08-4d53-ab86-fc6b20bda690" absoluteBounds="2.64, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76b58fa3-ba96-43b8-bd9d-3300858e56aa" absoluteBounds="0.5, 5.875, 2.25, 3.5016097005208326">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLMazroofPlusReceiptsQry29" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2dbf2fe7-59ba-48e7-840d-cb3e172833cc" absoluteBounds="0.515, 6.335, 2.2199999999999998, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8d83312-ecd5-4a8a-8b3d-fae52dd5efbb" absoluteBounds="1, 9.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLMandoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0896f6fa-c452-48cf-b2e6-7e9b6a34a80d" absoluteBounds="1.0150000000000001, 10.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="128812c1-c56e-4ea2-8a1e-00c30f83529a" absoluteBounds="5.125, 1.125, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLAksatDetaile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d381edb-34b4-4ee5-a47f-4b17cb19bbe8" absoluteBounds="5.14, 1.585, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ab45d73-ab8e-4208-a57b-e7b17ea1f1c1" absoluteBounds="3.75, 6.625, 2, 4.8477197265625">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vTBLMembersQry05" />
+      <nestedChildShapes>
+        <elementListCompartment Id="788b922f-b241-4616-88f7-d71c17d0eac9" absoluteBounds="3.765, 7.085, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a10c7c2-74f4-4084-9a00-75357ea05456" absoluteBounds="3.75, 11.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/dsTeachersUnionViewsDataContext/vQry33" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6ded548-f98d-4f00-9a7e-bca8d68b6478" absoluteBounds="3.765, 12.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

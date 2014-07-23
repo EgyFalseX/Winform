@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DCCAD4E-9ADA-4588-AA91-A86F583F2996}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>schoolStore</RootNamespace>
+    <AssemblyName>schoolStore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>schoolStore.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>schoolStore.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FXFW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FXFW\Releases\FXFW.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Codes\CD_AsaseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CD_AsaseFrm.Designer.cs">
+      <DependentUpon>CD_AsaseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataReturnbuyBillFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataReturnbuyBillFrm.Designer.cs">
+      <DependentUpon>DataReturnbuyBillFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataReturnSellStuBillFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataReturnSellStuBillFrm.Designer.cs">
+      <DependentUpon>DataReturnSellStuBillFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataTBLGardFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataTBLGardFrm.Designer.cs">
+      <DependentUpon>DataTBLGardFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BillResitFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\BillResitFrm.Designer.cs">
+      <DependentUpon>BillResitFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\AccTreeOptionsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\AccTreeOptionsFrm.Designer.cs">
+      <DependentUpon>AccTreeOptionsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorSuppliersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorSuppliersFrm.Designer.cs">
+      <DependentUpon>EditorSuppliersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataSellStuBillBarCodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataSellStuBillBarCodeFrm.designer.cs">
+      <DependentUpon>DataSellStuBillBarCodeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\studentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\studentFrm.designer.cs">
+      <DependentUpon>studentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ImportStudentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ImportStudentFrm.Designer.cs">
+      <DependentUpon>ImportStudentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SkinsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SkinsFrm.Designer.cs">
+      <DependentUpon>SkinsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SplashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SplashFrm.designer.cs">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\schoolStoreMainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\schoolStoreMainFrm.Designer.cs">
+      <DependentUpon>schoolStoreMainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QryBarcodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryBarcodeFrm.Designer.cs">
+      <DependentUpon>QryBarcodeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QryBuysFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryBuysFrm.designer.cs">
+      <DependentUpon>QryBuysFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\ItemAvailabilityFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\ItemAvailabilityFrm.Designer.cs">
+      <DependentUpon>ItemAvailabilityFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\CodeGeneralDataFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneralDataFrm.designer.cs">
+      <DependentUpon>CodeGeneralDataFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorCDASNAFFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorCDASNAFFrm.Designer.cs">
+      <DependentUpon>EditorCDASNAFFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorCDCategoriesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorCDCategoriesFrm.Designer.cs">
+      <DependentUpon>EditorCDCategoriesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AccTypesDlgFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AccTypesDlgFrm.designer.cs">
+      <DependentUpon>AccTypesDlgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AccTypesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AccTypesFrm.designer.cs">
+      <DependentUpon>AccTypesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataTblPricelistsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataTblPricelistsFrm.Designer.cs">
+      <DependentUpon>DataTblPricelistsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataSellBillBarCodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataSellBillBarCodeFrm.designer.cs">
+      <DependentUpon>DataSellBillBarCodeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataBillFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataBillFrm.designer.cs">
+      <DependentUpon>DataBillFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataEmpFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataEmpFrm.Designer.cs">
+      <DependentUpon>DataEmpFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConstraintsDailyFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ConstraintsDailyFrm.Designer.cs">
+      <DependentUpon>ConstraintsDailyFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataSellBillFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataSellBillFrm.designer.cs">
+      <DependentUpon>DataSellBillFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\LoginFrm.designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorYearFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorYearFrm.Designer.cs">
+      <DependentUpon>EditorYearFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorAccountNatureFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorAccountNatureFrm.Designer.cs">
+      <DependentUpon>EditorAccountNatureFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorSalesUnitFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorSalesUnitFrm.Designer.cs">
+      <DependentUpon>EditorSalesUnitFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorBankFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorBankFrm.Designer.cs">
+      <DependentUpon>EditorBankFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorStoreFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorStoreFrm.Designer.cs">
+      <DependentUpon>EditorStoreFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorCustomerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorCustomerFrm.Designer.cs">
+      <DependentUpon>EditorCustomerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorCompaniesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorCompaniesFrm.Designer.cs">
+      <DependentUpon>EditorCompaniesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorBillPayTypesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorBillPayTypesFrm.Designer.cs">
+      <DependentUpon>EditorBillPayTypesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorJobFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorJobFrm.Designer.cs">
+      <DependentUpon>EditorJobFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MSGBOXFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\MSGBOXFrm.designer.cs">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorRoleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorRoleFrm.designer.cs">
+      <DependentUpon>EditorRoleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorRoleMenuFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorRoleMenuFrm.designer.cs">
+      <DependentUpon>EditorRoleMenuFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorUserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorUserFrm.designer.cs">
+      <DependentUpon>EditorUserFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorUserInRoleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorUserInRoleFrm.designer.cs">
+      <DependentUpon>EditorUserInRoleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\QrysellsTotalFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QrysellsTotalFrm.designer.cs">
+      <DependentUpon>QrysellsTotalFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QrysellsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QrysellsFrm.designer.cs">
+      <DependentUpon>QrysellsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.designer.cs">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\XRepBarCode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Queries\XRepBarCode.Designer.cs">
+      <DependentUpon>XRepBarCode.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Codes\CD_AsaseFrm.resx">
+      <DependentUpon>CD_AsaseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataReturnbuyBillFrm.resx">
+      <DependentUpon>DataReturnbuyBillFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataReturnSellStuBillFrm.resx">
+      <DependentUpon>DataReturnSellStuBillFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\BillResitFrm.resx">
+      <DependentUpon>BillResitFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorSuppliersFrm.resx">
+      <DependentUpon>EditorSuppliersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\AccTreeOptionsFrm.resx">
+      <DependentUpon>AccTreeOptionsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataSellStuBillBarCodeFrm.resx">
+      <DependentUpon>DataSellStuBillBarCodeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataTBLGardFrm.resx">
+      <DependentUpon>DataTBLGardFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\studentFrm.resx">
+      <DependentUpon>studentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ImportStudentFrm.resx">
+      <DependentUpon>ImportStudentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SkinsFrm.resx">
+      <DependentUpon>SkinsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SplashFrm.resx">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\schoolStoreMainFrm.resx">
+      <DependentUpon>schoolStoreMainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QryBarcodeFrm.resx">
+      <DependentUpon>QryBarcodeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QryBuysFrm.resx">
+      <DependentUpon>QryBuysFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\ItemAvailabilityFrm.resx">
+      <DependentUpon>ItemAvailabilityFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\CodeGeneralDataFrm.resx">
+      <DependentUpon>CodeGeneralDataFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorCDASNAFFrm.resx">
+      <DependentUpon>EditorCDASNAFFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorCDCategoriesFrm.resx">
+      <DependentUpon>EditorCDCategoriesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AccTypesDlgFrm.resx">
+      <DependentUpon>AccTypesDlgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AccTypesFrm.resx">
+      <DependentUpon>AccTypesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataTblPricelistsFrm.resx">
+      <DependentUpon>DataTblPricelistsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataSellBillBarCodeFrm.resx">
+      <DependentUpon>DataSellBillBarCodeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataBillFrm.resx">
+      <DependentUpon>DataBillFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataEmpFrm.resx">
+      <DependentUpon>DataEmpFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorYearFrm.resx">
+      <DependentUpon>EditorYearFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\ConstraintsDailyFrm.resx">
+      <DependentUpon>ConstraintsDailyFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataSellBillFrm.resx">
+      <DependentUpon>DataSellBillFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorAccountNatureFrm.resx">
+      <DependentUpon>EditorAccountNatureFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorSalesUnitFrm.resx">
+      <DependentUpon>EditorSalesUnitFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorBankFrm.resx">
+      <DependentUpon>EditorBankFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorStoreFrm.resx">
+      <DependentUpon>EditorStoreFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorCustomerFrm.resx">
+      <DependentUpon>EditorCustomerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorCompaniesFrm.resx">
+      <DependentUpon>EditorCompaniesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorBillPayTypesFrm.resx">
+      <DependentUpon>EditorBillPayTypesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorJobFrm.resx">
+      <DependentUpon>EditorJobFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorRoleFrm.resx">
+      <DependentUpon>EditorRoleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorRoleMenuFrm.resx">
+      <DependentUpon>EditorRoleMenuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorUserFrm.resx">
+      <DependentUpon>EditorUserFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorUserInRoleFrm.resx">
+      <DependentUpon>EditorUserInRoleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Queries\QrysellsTotalFrm.resx">
+      <DependentUpon>QrysellsTotalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QrysellsFrm.resx">
+      <DependentUpon>QrysellsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepGeneralFrm.resx">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\XRepBarCode.resx">
+      <DependentUpon>XRepBarCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\schoolStore.jpg" />
+    <None Include="Resources\database-import.png" />
+    <None Include="Resources\CD_Asase.png" />
+    <None Include="Resources\TBLstudent.png" />
+    <None Include="Resources\DataSellStuBillBarCodeFrm.png" />
+    <None Include="Resources\TabGardDetials.png" />
+    <None Include="Resources\dataReturnSellStuBill.png" />
+    <Content Include="SqlRpt\rdl\schoolStoreIncomingByDate.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreOutcomingByDate.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreSanfInStore.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreSanfInStoreByDate.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreGard.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreSanfInfo.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreRate.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreReorderSanfInfo.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStorev_daily_st.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStoreZeroSanfInfo.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\schoolStorev_alltotal_st.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ECCM_BG.jpg" />
+    <None Include="Resources\Login_Back.png" />
+    <None Include="Resources\Background 02.jpg" />
+    <None Include="Resources\MSGBOXCoLogo.jpg" />
+    <None Include="Resources\MSGBOXFrm.jpg" />
+    <None Include="Resources\MSGBOX_Info.jpg" />
+    <None Include="Resources\MSGBOX_Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlRpt\RSBuild.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\RSBuild.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\SQLReports.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="schoolStore.ico" />
+    <None Include="Resources\Print.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\print.jpg" />
+    <None Include="Resources\DeleteTGrid.png" />
+    <None Include="Resources\DELETE.BMP" />
+    <None Include="Resources\plus.gif" />
+    <None Include="Resources\UpgradeReport_Plus.gif" />
+    <None Include="Resources\Folders.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

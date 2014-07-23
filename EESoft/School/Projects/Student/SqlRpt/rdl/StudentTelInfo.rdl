@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSourceStudent">
+      <DataSourceReference>DataSourceStudent</DataSourceReference>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Fields>
+        <Field Name="stu_code">
+          <DataField>stu_code</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="fasl_name">
+          <DataField>fasl_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Stu_Name">
+          <DataField>Stu_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="waleaalkamr_mobile">
+          <DataField>waleaalkamr_mobile</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="mother_mobile">
+          <DataField>mother_mobile</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="code_alnoa">
+          <DataField>code_alnoa</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="stu_tel">
+          <DataField>stu_tel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="INFO">
+          <DataField>INFO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT stu_code,asase_code, alsofof_code, fasl_code,
+    (Select alsofof_name From CDAlsofof Where alsofof_code = stu.student_t.alsofof_code) AS alsofof_name,
+    (Select fasl_name From CDEFasl Where fasl_code = stu.student_t.fasl_code) AS fasl_name,
+    (Select code_alnoa From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS code_alnoa,
+    (Select FIRST_NAME + ' ' + FATHER_NAME + ' ' + GF_NAME + ' ' + FAMILY_NAME From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS Stu_Name,
+    (Select waleaalkamr_mobile From stu.TBLstudent Where stu_code = stu.student_t.stu_code) AS waleaalkamr_mobile,
+    (Select mother_mobile From stu.TBLstudent Where stu_code = stu.student_t.stu_code) AS mother_mobile,
+    (Select stu_tel From stu.TBLstudent Where stu_code = stu.student_t.stu_code) AS stu_tel,
+    '' AS INFO
+FROM stu.student_t
+    WHERE asase_code = @asase_code And alsofof_code = @alsofof_code And fasl_code = @fasl_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@alsofof_code">
+            <Value>=Parameters!alsofof_code.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fasl_code">
+            <Value>=Parameters!fasl_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSasase_code">
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        asase_code, asase_year, SPOS
+FROM            CD_Asase</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSalsofof_code">
+      <Fields>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        alsofof_code, alsofof_name
+FROM            CDAlsofof</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSfasl_code">
+      <Fields>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="fasl_name">
+          <DataField>fasl_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        fasl_code, fasl_name
+FROM            CDEFasl</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="ExdDataAppOptions">
+      <Fields>
+        <Field Name="SchoolLogo">
+          <DataField>SchoolLogo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT SchoolLogo
+FROM AppOptions
+Where OpCodeID = 1</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetSPOS">
+      <Fields>
+        <Field Name="SCHOOL">
+          <DataField>SCHOOL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GOV">
+          <DataField>GOV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EdaraName">
+          <DataField>EdaraName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        SCHOOL,
+(Select GOV From CDGov Where GOV_CD = TBLSCHOOL.gov) AS GOV,
+(Select EdaraName From CDEdara Where EdaraId = TBLSCHOOL.NOEDARET) AS EdaraName
+FROM            TBLSCHOOL
+WHERE        (SPOS = (Select SPOS From CD_Asase Where asase_code = @asase_code) )</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.86806in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.12499in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.08854in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.42363in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.06768in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.35416in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25125in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>ملاحظات</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>تليفون الطالب</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>موبيل الام</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>موبيل ولي الامر</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox7">
+                      <CanGrow>true</CanGrow>
+                      <UserSort>
+                        <SortExpression>=Fields!Stu_Name.Value</SortExpression>
+                      </UserSort>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>اسم الطالب</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>م</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25167in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="INFO">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!INFO.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>INFO</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="stu_tel">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!stu_tel.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>stu_tel</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="mother_mobile">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!mother_mobile.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>mother_mobile</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="waleaalkamr_mobile">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!waleaalkamr_mobile.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>waleaalkamr_mobile</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Stu_Name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Stu_Name.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Stu_Name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=RunningValue(Fields!stu_code.Value, Count, "DataSetMainData")</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="table1_Details_Group">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!alsofof_code.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!fasl_code.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!code_alnoa.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!Stu_Name.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Height>0.50292in</Height>
+        <Width>7.92706in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.62333in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="asase_code">
+      <DataType>String</DataType>
+      <Prompt>العام الدراسي</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSasase_code</DataSetName>
+          <ValueField>asase_code</ValueField>
+          <LabelField>asase_year</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="alsofof_code">
+      <DataType>String</DataType>
+      <Prompt>الصف</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSalsofof_code</DataSetName>
+          <ValueField>alsofof_code</ValueField>
+          <LabelField>alsofof_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="fasl_code">
+      <DataType>String</DataType>
+      <Prompt>الفصل</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSfasl_code</DataSetName>
+          <ValueField>fasl_code</ValueField>
+          <LabelField>fasl_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>7.92706in</Width>
+  <Page>
+    <PageHeader>
+      <Height>1.89653cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <ReportItems>
+        <Textbox Name="alsofof_name">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="قائمه بأسماء تلاميذ و تلميذات الصف " &amp; First(Fields!alsofof_name.Value, "DataSetMainData")</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>alsofof_name</rd:DefaultName>
+          <Top>0.16667in</Top>
+          <Left>2.83419in</Left>
+          <Height>0.25in</Height>
+          <Width>2.98785in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="SCHOOL">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!SCHOOL.Value, "DataSetSPOS")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>SCHOOL</rd:DefaultName>
+          <Top>0.42535in</Top>
+          <Left>5.62847in</Left>
+          <Height>0.25in</Height>
+          <Width>2.26042in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.9218cm</Height>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>= "صفحه " &amp; Globals!PageNumber &amp; " من " &amp; Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.06083in</Top>
+          <Left>6.04514in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.06083in</Top>
+          <Left>0.06175cm</Left>
+          <Height>0.25in</Height>
+          <Width>2in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

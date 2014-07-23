@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>DataSourceSchoolWeeklyPeriods</Name>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=localhost;Initial Catalog=eschool</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>665acefc-ff81-4c8a-b08f-171c67950e0e</DataSourceID>
+</RptDataSource>

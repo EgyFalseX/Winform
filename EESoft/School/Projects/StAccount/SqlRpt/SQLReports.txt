@@ -1,0 +1,10 @@
+1;StAccTahselYawmi.rdl;»Ì«‰  Õ’Ì· ÌÊ„Ì
+1;StAccTahselYawmiMogmaa.rdl;»Ì«‰  Õ’Ì· ÌÊ„Ì „Ã„⁄
+1;StAccTahselYawmiEsalNo.rdl;»Ì«‰  Õ’Ì· »œ·«·… —ﬁ„ «·«Ì’«·
+1;StAccTahselYawmiFEFatra.rdl;»Ì«‰ «·„ Õ’·«  ›Ì › —Â „ÕœœÂ
+1;StAccLamYohasal.rdl;ÿ·«» ·„ Ì”œœÊ« «·„’—Ê›« 
+1;StAccBakiMasrofat.rdl;»«ﬁÌ «·„’—Ê›« 
+1;StAccMasrofatZyada.rdl;—”Ê„ „ Õ’·Â »«·“Ì«œÂ
+1;StAccKhosomat.rdl;«·Œ’Ê„« 
+1;StAccNsbtTa7selFatra.rdl;‰”» «· Õ’Ì· ›Ì › —Â
+1;StAccResomDerasya.rdl;«·—”Ê„ «·œ—«”ÌÂ

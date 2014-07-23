@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>DataSourceStudent</Name>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=.;Initial Catalog=eschool</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>896ea3c6-d14b-4249-aee8-419cbbec10fc</DataSourceID>
+</RptDataSource>

@@ -1,0 +1,17 @@
+1;EmpAll.rdl;”ћб ‘∆жд «бЏ«гбнд
+1;EmpAddress.rdl;”ћб «бЏд«жнд
+1;EmpInsuranceNo.rdl;”ћб «б«—ё«г «б √гндне
+1;Empagazat.rdl;»н«д џн«» «бЏ«гбнд
+1;EmpNews.rdl;д‘—е ббЏ«гбнд
+1;EmpDetail.rdl;»н«д Ќ«бе
+1;EmpLate.rdl;»н«д «б √ќн—« 
+1;EmpEzn.rdl;»н«д «б«–жд« 
+1;EmpEyabDays.rdl;«ћг«бн «н«г «бџн«»
+1;EmpLateCount.rdl;«ћг«бн «б √ќн—«  «я»— гд жё  гЌѕѕ
+1;EmpEznCount.rdl;«ћг«бн «б«–жд« 
+1;EmpEznTimeCount.rdl;«ћг«бн «б«–жд«  «я»— гд жё  гЌѕѕ
+1;EmpTraining.rdl;”ћб «б»—«гћ «б ѕ—н»не
+1;EmpTrace.rdl; ё—н— гж«ў»… гжўЁ
+1;EmpEndOfJob.rdl;”ћб «де«Ѕ «бќѕге
+1;EmpInsurance.rdl;”ћб «б √гнд «б’Ќн
+2;EmpStatisticsJob.rdl;«Ќ’«Ѕ «бЏ«гбнд

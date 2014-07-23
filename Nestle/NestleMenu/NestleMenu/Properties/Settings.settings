@@ -1,0 +1,1889 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NestleMenu.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NMConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=.;Initial Catalog=Nestle;Persist Security Info=True;User ID=sa;Password=123456&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=.;Initial Catalog=Nestle;Persist Security Info=True;User ID=sa;Password=123456</Value>
+    </Setting>
+    <Setting Name="CreateDatabaseScript" Type="System.String" Scope="User">
+      <Value Profile="(Default)">USE [master]
+GO
+/****** Object:  Database [DataCenter]    Script Date: 10/18/2013 7:09:46 AM ******/
+CREATE DATABASE [DataCenter]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'DataCenter', FILENAME = N'FalseX2013\DataCenter.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'DataCenter_log', FILENAME = N'FalseX2013\DataCenter_log.ldf' , SIZE = 8384KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [DataCenter] SET COMPATIBILITY_LEVEL = 110
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [DataCenter].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [DataCenter] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [DataCenter] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [DataCenter] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [DataCenter] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [DataCenter] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [DataCenter] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [DataCenter] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [DataCenter] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [DataCenter] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [DataCenter] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [DataCenter] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [DataCenter] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [DataCenter] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [DataCenter] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [DataCenter] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [DataCenter] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [DataCenter] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [DataCenter] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [DataCenter] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [DataCenter] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [DataCenter] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [DataCenter] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [DataCenter] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [DataCenter] SET RECOVERY FULL 
+GO
+ALTER DATABASE [DataCenter] SET  MULTI_USER 
+GO
+ALTER DATABASE [DataCenter] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [DataCenter] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [DataCenter] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [DataCenter] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'DataCenter', N'ON'
+GO
+USE [DataCenter]
+GO
+/****** Object:  StoredProcedure [dbo].[CategoryByUser]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		&lt;Author,,Name&gt;
+-- Create date: &lt;Create Date,,&gt;
+-- Description:	&lt;Description,,&gt;
+-- =============================================
+CREATE PROCEDURE [dbo].[CategoryByUser] 
+	-- Add the parameters for the stored procedure here
+	@UserID int
+AS
+
+DECLARE  @CanRead bit, @CanWrite bit, @CanInsert bit, @CanDelete bit, 
+@CategoryId int, @CategoryName nvarchar(50), @CreateIn datetime, @ModifyIn datetime, @UserIn int, @ParentID int, @Info nvarchar(255), @active bit
+
+DECLARE cur CURSOR  For SELECT CategoryId, CategoryName, CreateIn, ModifyIn, UserIn, ParentID, Info, active, 1 AS CanRead FROM Category
+WHERE
+EXISTS(SELECT * FROM CategoryRole WHERE CategoryId = Category.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID))
+OR
+EXISTS(SELECT * FROM CategoryUser WHERE CategoryId = Category.CategoryId AND CanRead = 1 AND UserID = @UserID)
+
+Open cur
+FETCH NEXT FROM cur INTO @CategoryId, @CategoryName, @CreateIn, @ModifyIn, @UserIn, @ParentID, @Info, @active, @CanRead
+While @@FETCH_STATUS = 0
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	if exists (select CanWrite from CategoryRole where CanWrite = 1 AND CategoryId = @CategoryId AND EXISTS(SELECT RoleID FROM UserRole WHERE UserId = @UserID))
+	set @CanWrite = 1
+	else
+	set @CanWrite = 0
+
+	if exists (select CanInsert from CategoryRole where CanInsert = 1 AND CategoryId = @CategoryId AND EXISTS(SELECT RoleID FROM UserRole WHERE UserId = @UserID))
+	set @CanInsert = 1
+	else
+	set @CanInsert = 0
+
+	if exists (select CanDelete from CategoryRole where CanDelete = 1 AND CategoryId = @CategoryId AND EXISTS(SELECT RoleID FROM UserRole WHERE UserId = @UserID))
+	set @CanDelete = 1
+	else
+	set @CanDelete = 0
+    -- Insert statements for procedure here
+	SELECT @CategoryId AS CategoryId, @CategoryName AS CategoryName, @CreateIn AS CreateIn, @ModifyIn AS ModifyIn, @UserIn AS UserIn, 
+	@ParentID AS ParentID, @Info AS Info, @active AS active, @CanRead AS CanRead, @CanWrite AS CanWrite, @CanInsert AS CanInsert, @CanDelete AS CanDelete
+	
+	FETCH NEXT FROM cur INTO @CategoryId, @CategoryName, @CreateIn, @ModifyIn, @UserIn, @ParentID, @Info, @active, @CanRead
+END
+Close cur
+DEALLOCATE cur
+
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteInheritanceRole]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		&lt;Author,,Name&gt;
+-- Create date: &lt;Create Date,,&gt;
+-- Description:	&lt;Description,,&gt;
+-- =============================================
+CREATE PROCEDURE [dbo].[DeleteInheritanceRole]
+	-- Add the parameters for the stored procedure here
+	@CategoryId INT, @RoleID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    --get all data needed
+;WITH ret (CategoryId, ParentID) AS(
+    SELECT CategoryId, ParentID FROM Category WHERE CategoryId = @CategoryId
+    UNION ALL
+	SELECT t.CategoryId, t.ParentID FROM Category t INNER JOIN ret r ON t.ParentID = r.CategoryId
+)
+--deleting
+DELETE CategoryRole FROM CategoryRole c
+JOIN ret d ON c.CategoryId = d.CategoryId
+WHERE d.CategoryId &lt;&gt; @CategoryId AND c.RoleID = @RoleID
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteInheritanceUser]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		&lt;Author,,Name&gt;
+-- Create date: &lt;Create Date,,&gt;
+-- Description:	&lt;Description,,&gt;
+-- =============================================
+CREATE PROCEDURE [dbo].[DeleteInheritanceUser]
+	-- Add the parameters for the stored procedure here
+	@CategoryId INT, @UserID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    --get all data needed
+;WITH ret (CategoryId, ParentID) AS(
+    SELECT CategoryId, ParentID FROM Category WHERE CategoryId = @CategoryId
+    UNION ALL
+	SELECT t.CategoryId, t.ParentID FROM Category t INNER JOIN ret r ON t.ParentID = r.CategoryId
+)
+--deleting
+DELETE CategoryUser FROM CategoryUser c
+JOIN ret d ON c.CategoryId = d.CategoryId
+WHERE d.CategoryId &lt;&gt; @CategoryId AND c.UserID = @UserID
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[ItemByUser]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		&lt;Author,,Name&gt;
+-- Create date: &lt;Create Date,,&gt;
+-- Description:	&lt;Description,,&gt;
+-- =============================================
+CREATE PROCEDURE [dbo].[ItemByUser] 
+	-- Add the parameters for the stored procedure here
+	@UserID int, @CategoryId int
+AS
+
+DECLARE  @CanRead bit, @CanWrite bit, @CanInsert bit, @CanDelete bit, 
+@ItemId int, @ItemName nvarchar(50), @PhysicalName nvarchar(50), @TypeId int,  @Info nvarchar(255), 
+ @CreateIn datetime, @OwnerId int, @ModifyIn datetime, @UserIn int, @ParentID int, @active bit, @Locker bit
+
+DECLARE cur CURSOR  For SELECT ItemId, ItemName, PhysicalName, TypeId, CategoryId, Info, CreateIn, OwnerId, ModifyIn, UserIn, active, Locker, 
+1 AS CanRead FROM Item
+WHERE CategoryId = @CategoryId AND
+EXISTS(SELECT ItemId FROM ItemRole WHERE ItemId = Item.ItemId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID))
+OR
+EXISTS(SELECT CategoryId FROM CategoryRole WHERE CategoryId = Item.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole WHERE ItemId = Item.ItemId AND CanRead = 0 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID))
+
+Open cur
+FETCH NEXT FROM cur INTO @ItemId, @ItemName, @PhysicalName, @TypeId, @CategoryId, @Info, @CreateIn, @OwnerId, @ModifyIn, @UserIn, @active, @Locker, @CanRead
+While @@FETCH_STATUS = 0
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	if exists (select CanWrite from CategoryRole where CanWrite = 1 AND CategoryId = @CategoryId AND EXISTS(SELECT RoleID FROM UserRole WHERE UserId = @UserID) AND
+	NOT EXISTS(SELECT ItemId FROM ItemRole WHERE ItemId = @ItemId AND CanWrite = 0 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID)))
+	set @CanWrite = 1
+	else
+	set @CanWrite = 0
+
+	if exists (select CanInsert from CategoryRole where CanInsert = 1 AND CategoryId = @CategoryId AND EXISTS(SELECT RoleID FROM UserRole WHERE UserId = @UserID) AND
+	NOT EXISTS(SELECT ItemId FROM ItemRole WHERE ItemId = @ItemId AND CanInsert = 0 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID)))
+	set @CanInsert = 1
+	else
+	set @CanInsert = 0
+
+	if exists (select CanDelete from CategoryRole where CanDelete = 1 AND CategoryId = @CategoryId AND EXISTS(SELECT RoleID FROM UserRole WHERE UserId = @UserID) AND
+	NOT EXISTS(SELECT ItemId FROM ItemRole WHERE ItemId = @ItemId AND CanDelete = 0 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserID)))
+	set @CanDelete = 1
+	else
+	set @CanDelete = 0
+    -- Insert statements for procedure here
+	SELECT @ItemId AS ItemId, @ItemName AS ItemName, @PhysicalName AS PhysicalName, @TypeId AS TypeId, @CategoryId AS CategoryId, @Info AS Info, @CreateIn AS CreateIn, 
+	@OwnerId AS OwnerId, @ModifyIn AS ModifyIn, @UserIn AS UserIn, @active AS active, @Locker AS Locker,
+	@CanRead AS CanRead, @CanWrite AS CanWrite, @CanInsert AS CanInsert, @CanDelete AS CanDelete
+	
+	FETCH NEXT FROM cur INTO @ItemId, @ItemName, @PhysicalName, @TypeId, @CategoryId, @Info, @CreateIn, @OwnerId, @ModifyIn, @UserIn, @active, @Locker, @CanRead
+END
+Close cur
+DEALLOCATE cur
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateInheritanceRole]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		&lt;Author,,Name&gt;
+-- Create date: &lt;Create Date,,&gt;
+-- Description:	&lt;Description,,&gt;
+-- =============================================
+CREATE PROCEDURE [dbo].[UpdateInheritanceRole] 
+	-- Add the parameters for the stored procedure here
+@CategoryId INT, @RoleID INT, @CanRead bit, @CanWrite bit, @CanInsert bit, @CanDelete bit, @Inheritance bit, @UserLevelId int, @GrantId int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+
+--get all data needed
+;WITH ret (CategoryId, ParentID) AS(
+    SELECT CategoryId, ParentID FROM Category WHERE CategoryId = @CategoryId
+    UNION ALL
+	SELECT t.CategoryId, t.ParentID FROM Category t INNER JOIN ret r ON t.ParentID = r.CategoryId
+)
+--get data needed to update
+,ret2 AS(
+	SELECT CategoryId, ParentID FROM ret WHERE CategoryId &lt;&gt; @CategoryId AND 
+	EXISTS(SELECT * FROM CategoryRole WHERE RoleID = @RoleID AND CategoryId = ret.CategoryId)
+)
+--updating
+	UPDATE CategoryRole SET CanRead = @CanRead, CanWrite = @CanWrite, CanInsert = @CanInsert, CanDelete = @CanDelete, Inheritance = @Inheritance,
+	InheritanceCategoryId = @CategoryId, UserLevelId = @UserLevelId, GrantId = @GrantId
+	FROM CategoryRole AS c JOIN ret2 AS d ON c.CategoryId = d.CategoryId
+	WHERE c.RoleID = @RoleID
+--get all data needed
+;WITH ret (CategoryId, ParentID) AS(
+    SELECT CategoryId, ParentID FROM Category WHERE CategoryId = @CategoryId
+    UNION ALL
+	SELECT t.CategoryId, t.ParentID FROM Category t INNER JOIN ret r ON t.ParentID = r.CategoryId
+)
+--get data needed to insert
+,ret2 AS(
+	SELECT CategoryId, ParentID FROM ret WHERE CategoryId &lt;&gt; @CategoryId AND 
+	NOT EXISTS(SELECT * FROM CategoryRole WHERE RoleID = @RoleID AND CategoryId = ret.CategoryId)
+)
+--inserting
+INSERT INTO CategoryRole (RoleID, CategoryId, CanRead, CanWrite, CanInsert, CanDelete, Inheritance, InheritanceCategoryId, UserLevelId, GrantId)
+SELECT @RoleID, CategoryId, @CanRead, @CanWrite, @CanInsert, @CanDelete, @Inheritance, @CategoryId, @UserLevelId, @GrantId FROM ret2
+
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateInheritanceUser]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		&lt;Author,,Name&gt;
+-- Create date: &lt;Create Date,,&gt;
+-- Description:	&lt;Description,,&gt;
+-- =============================================
+CREATE PROCEDURE [dbo].[UpdateInheritanceUser] 
+	-- Add the parameters for the stored procedure here
+@CategoryId INT, @UserID INT, @CanRead bit, @CanWrite bit, @CanInsert bit, @CanDelete bit, @Inheritance bit, @UserLevelId int, @GrantId int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+
+--get all data needed
+;WITH ret (CategoryId, ParentID) AS(
+    SELECT CategoryId, ParentID FROM Category WHERE CategoryId = @CategoryId
+    UNION ALL
+	SELECT t.CategoryId, t.ParentID FROM Category t INNER JOIN ret r ON t.ParentID = r.CategoryId
+)
+--get data needed to update
+,ret2 AS(
+	SELECT CategoryId, ParentID FROM ret WHERE CategoryId &lt;&gt; @CategoryId AND 
+	EXISTS(SELECT * FROM CategoryUser WHERE UserID = @UserID AND CategoryId = ret.CategoryId)
+)
+--updating
+	UPDATE CategoryUser SET CanRead = @CanRead, CanWrite = @CanWrite, CanInsert = @CanInsert, CanDelete = @CanDelete, Inheritance = @Inheritance,
+	InheritanceCategoryId = @CategoryId, UserLevelId = @UserLevelId, GrantId = @GrantId
+	FROM CategoryUser AS c JOIN ret2 AS d ON c.CategoryId = d.CategoryId
+	WHERE c.UserID = @UserID
+--get all data needed
+;WITH ret (CategoryId, ParentID) AS(
+    SELECT CategoryId, ParentID FROM Category WHERE CategoryId = @CategoryId
+    UNION ALL
+	SELECT t.CategoryId, t.ParentID FROM Category t INNER JOIN ret r ON t.ParentID = r.CategoryId
+)
+--get data needed to insert
+,ret2 AS(
+	SELECT CategoryId, ParentID FROM ret WHERE CategoryId &lt;&gt; @CategoryId AND 
+	NOT EXISTS(SELECT * FROM CategoryUser WHERE UserID = @UserID AND CategoryId = ret.CategoryId)
+)
+--inserting
+INSERT INTO CategoryUser (UserID, CategoryId, CanRead, CanWrite, CanInsert, CanDelete, Inheritance, InheritanceCategoryId, UserLevelId, GrantId)
+SELECT @UserID, CategoryId, @CanRead, @CanWrite, @CanInsert, @CanDelete, @Inheritance, @CategoryId, @UserLevelId, @GrantId FROM ret2
+
+END
+
+GO
+/****** Object:  Table [dbo].[AppRole]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AppRole](
+	[RoleID] [int] NOT NULL,
+	[MenuItemName] [nvarchar](50) NOT NULL,
+	[Selecting] [bit] NULL,
+	[Inserting] [bit] NULL,
+	[Updateing] [bit] NULL,
+	[Deleting] [bit] NULL,
+ CONSTRAINT [PK_RoleDetial] PRIMARY KEY CLUSTERED 
+(
+	[RoleID] ASC,
+	[MenuItemName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[AssociationApp]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AssociationApp](
+	[AssociationId] [int] NOT NULL,
+	[AssociationName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_AssociationApp] PRIMARY KEY CLUSTERED 
+(
+	[AssociationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Category]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Category](
+	[CategoryId] [int] NOT NULL,
+	[CategoryName] [nvarchar](50) NOT NULL,
+	[CreateIn] [datetime] NULL,
+	[OwnerId] [int] NULL,
+	[ModifyIn] [datetime] NULL,
+	[UserIn] [int] NULL,
+	[ParentID] [int] NULL,
+	[Info] [nvarchar](255) NULL,
+	[IconId] [int] NULL,
+	[active] [bit] NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[CategoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[CategoryRole]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CategoryRole](
+	[CategoryId] [int] NOT NULL,
+	[RoleID] [int] NOT NULL,
+	[CanRead] [bit] NULL,
+	[CanWrite] [bit] NULL,
+	[CanInsert] [bit] NULL,
+	[CanDelete] [bit] NULL,
+	[Inheritance] [bit] NULL,
+	[InheritanceCategoryId] [int] NULL,
+	[UserLevelId] [int] NULL,
+	[GrantId] [int] NULL,
+ CONSTRAINT [PK_CategoryRole] PRIMARY KEY CLUSTERED 
+(
+	[CategoryId] ASC,
+	[RoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[CategoryUser]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CategoryUser](
+	[UserID] [int] NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[CanRead] [bit] NULL,
+	[CanWrite] [bit] NULL,
+	[CanInsert] [bit] NULL,
+	[CanDelete] [bit] NULL,
+	[Inheritance] [bit] NULL,
+	[InheritanceCategoryId] [int] NULL,
+	[UserLevelId] [int] NULL,
+	[GrantId] [int] NULL,
+ CONSTRAINT [PK_CategoryUser] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC,
+	[CategoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Grant]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Grant](
+	[GrantId] [int] NOT NULL,
+	[GrantName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Grand] PRIMARY KEY CLUSTERED 
+(
+	[GrantId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Icons]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Icons](
+	[IconId] [int] IDENTITY(1,1) NOT NULL,
+	[IconName] [nvarchar](50) NULL,
+	[IconData] [image] NULL,
+	[active] [bit] NULL,
+ CONSTRAINT [PK_Icons] PRIMARY KEY CLUSTERED 
+(
+	[IconId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Item]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Item](
+	[ItemId] [int] NOT NULL,
+	[ItemName] [nvarchar](50) NULL,
+	[PhysicalName] [nvarchar](50) NULL,
+	[TypeId] [int] NULL,
+	[CategoryId] [int] NULL,
+	[Info] [nvarchar](255) NULL,
+	[CreateIn] [datetime] NULL,
+	[OwnerId] [int] NULL,
+	[ModifyIn] [datetime] NULL,
+	[UserIn] [int] NULL,
+	[active] [bit] NULL,
+	[Locker] [bit] NULL,
+ CONSTRAINT [PK_Item] PRIMARY KEY CLUSTERED 
+(
+	[ItemId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[ItemRole]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ItemRole](
+	[ItemId] [int] NOT NULL,
+	[RoleID] [int] NOT NULL,
+	[CanRead] [bit] NULL,
+	[CanWrite] [bit] NULL,
+	[CanInsert] [bit] NULL,
+	[CanDelete] [bit] NULL,
+	[GrantId] [int] NULL,
+ CONSTRAINT [PK_ItemRole] PRIMARY KEY CLUSTERED 
+(
+	[ItemId] ASC,
+	[RoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[ItemUser]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ItemUser](
+	[ItemId] [int] NOT NULL,
+	[UserID] [int] NOT NULL,
+	[CanRead] [bit] NULL,
+	[CanWrite] [bit] NULL,
+	[CanInsert] [bit] NULL,
+	[CanDelete] [bit] NULL,
+	[GrantId] [int] NULL,
+ CONSTRAINT [PK_ItemUser] PRIMARY KEY CLUSTERED 
+(
+	[ItemId] ASC,
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[LogOpType]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LogOpType](
+	[LogOpId] [int] NOT NULL,
+	[OperationName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Operation] PRIMARY KEY CLUSTERED 
+(
+	[LogOpId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Logs]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Logs](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[LogTypeId] [int] NULL,
+	[LogIndex] [int] NULL,
+	[LogIndexExtra] [int] NULL,
+	[LogOpId] [int] NULL,
+	[LogDate] [datetime] NULL,
+	[UserId] [int] NULL,
+ CONSTRAINT [PK_Logs] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[LogType]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LogType](
+	[LogTypeId] [int] NOT NULL,
+	[LogTypeName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_LogType] PRIMARY KEY CLUSTERED 
+(
+	[LogTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[RoleID] [int] NOT NULL,
+	[RoleName] [nvarchar](100) NOT NULL,
+	[RoleDesc] [nvarchar](255) NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[RoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[ServerOption]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ServerOption](
+	[OptionId] [int] NOT NULL,
+	[OptionName] [nvarchar](50) NULL,
+	[OptionValue] [nvarchar](255) NULL,
+ CONSTRAINT [PK_ServerOption] PRIMARY KEY CLUSTERED 
+(
+	[OptionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Types]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Types](
+	[TypeId] [int] IDENTITY(1,1) NOT NULL,
+	[TypeName] [nvarchar](50) NULL,
+	[TypeIconData] [image] NULL,
+	[AssociationId] [int] NULL,
+	[Info] [nvarchar](255) NULL,
+	[active] [bit] NULL,
+ CONSTRAINT [PK_Type] PRIMARY KEY CLUSTERED 
+(
+	[TypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[UserLevel]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserLevel](
+	[UserLevelId] [int] NOT NULL,
+	[UserLevelName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_UserLevel] PRIMARY KEY CLUSTERED 
+(
+	[UserLevelId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[UserRole]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserRole](
+	[UserId] [int] NOT NULL,
+	[RoleId] [int] NOT NULL,
+ CONSTRAINT [PK_UserRoles] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[UserID] [int] NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[UserPass] [nvarchar](50) NOT NULL,
+	[RealName] [nvarchar](50) NULL,
+	[UserLevelId] [int] NULL,
+	[IsActive] [bit] NULL,
+	[LastActivityDate] [datetime] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  View [dbo].[vCategory]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vCategory]
+AS
+SELECT        dbo.Category.CategoryId, dbo.Category.CategoryName, dbo.Category.CreateIn, dbo.Category.OwnerId, dbo.Category.ModifyIn, dbo.Category.UserIn, 
+                         dbo.Category.ParentID, dbo.Category.Info, dbo.Category.active, dbo.Users.RealName AS OwnerRealName, Users_1.RealName AS LastRealName, 
+                         Category_1.CategoryName AS ParentCategoryName
+FROM            dbo.Category LEFT OUTER JOIN
+                         dbo.Users AS Users_1 ON dbo.Category.UserIn = Users_1.UserID LEFT OUTER JOIN
+                         dbo.Users ON dbo.Category.OwnerId = dbo.Users.UserID LEFT OUTER JOIN
+                         dbo.Category AS Category_1 ON dbo.Category.ParentID = Category_1.CategoryId
+
+GO
+/****** Object:  View [dbo].[vGrant]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vGrant]
+AS
+SELECT        GrantId, GrantName
+FROM            dbo.[Grant]
+
+GO
+/****** Object:  View [dbo].[vItems]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vItems]
+AS
+SELECT        dbo.Item.ItemId, dbo.Item.ItemName, dbo.Item.PhysicalName, dbo.Item.TypeId, dbo.Item.CategoryId, dbo.Item.Info, dbo.Item.CreateIn, dbo.Item.ModifyIn, 
+                         dbo.Item.UserIn, dbo.Item.active, dbo.Item.Locker, dbo.Category.CategoryName, dbo.Users.RealName, dbo.Types.TypeName, dbo.Types.TypeIconData
+FROM            dbo.Item LEFT OUTER JOIN
+                         dbo.Types ON dbo.Item.TypeId = dbo.Types.TypeId LEFT OUTER JOIN
+                         dbo.Category ON dbo.Item.CategoryId = dbo.Category.CategoryId LEFT OUTER JOIN
+                         dbo.Users ON dbo.Item.UserIn = dbo.Users.UserID
+
+GO
+/****** Object:  View [dbo].[vLogOpType]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vLogOpType]
+AS
+SELECT        LogOpId, OperationName
+FROM            dbo.LogOpType
+
+GO
+/****** Object:  View [dbo].[vLogType]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vLogType]
+AS
+SELECT        LogTypeId, LogTypeName
+FROM            dbo.LogType
+
+GO
+/****** Object:  View [dbo].[vRoles]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vRoles]
+AS
+SELECT        RoleID, RoleName, RoleDesc
+FROM            dbo.Roles
+
+GO
+/****** Object:  View [dbo].[vUsers]    Script Date: 10/18/2013 7:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vUsers]
+AS
+SELECT        dbo.Users.UserID, dbo.Users.UserName, dbo.Users.UserPass, dbo.Users.RealName, dbo.Users.UserLevelId, dbo.Users.IsActive, 
+                         dbo.Users.LastActivityDate, dbo.UserLevel.UserLevelName
+FROM            dbo.Users LEFT OUTER JOIN
+                         dbo.UserLevel ON dbo.Users.UserLevelId = dbo.UserLevel.UserLevelId
+
+GO
+ALTER TABLE [dbo].[Types] ADD  CONSTRAINT [DF_Types_AssociationId]  DEFAULT ((0)) FOR [AssociationId]
+GO
+ALTER TABLE [dbo].[AppRole]  WITH CHECK ADD  CONSTRAINT [FK_AppRole_Roles] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[Roles] ([RoleID])
+GO
+ALTER TABLE [dbo].[AppRole] CHECK CONSTRAINT [FK_AppRole_Roles]
+GO
+ALTER TABLE [dbo].[Category]  WITH CHECK ADD  CONSTRAINT [FK_Category_Icons] FOREIGN KEY([IconId])
+REFERENCES [dbo].[Icons] ([IconId])
+GO
+ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_Category_Icons]
+GO
+ALTER TABLE [dbo].[Category]  WITH CHECK ADD  CONSTRAINT [FK_Category_Users] FOREIGN KEY([OwnerId])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_Category_Users]
+GO
+ALTER TABLE [dbo].[Category]  WITH CHECK ADD  CONSTRAINT [FK_Category_Users1] FOREIGN KEY([UserIn])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_Category_Users1]
+GO
+ALTER TABLE [dbo].[CategoryRole]  WITH CHECK ADD  CONSTRAINT [FK_CategoryRole_Category] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[Category] ([CategoryId])
+GO
+ALTER TABLE [dbo].[CategoryRole] CHECK CONSTRAINT [FK_CategoryRole_Category]
+GO
+ALTER TABLE [dbo].[CategoryRole]  WITH CHECK ADD  CONSTRAINT [FK_CategoryRole_Grant] FOREIGN KEY([GrantId])
+REFERENCES [dbo].[Grant] ([GrantId])
+GO
+ALTER TABLE [dbo].[CategoryRole] CHECK CONSTRAINT [FK_CategoryRole_Grant]
+GO
+ALTER TABLE [dbo].[CategoryRole]  WITH CHECK ADD  CONSTRAINT [FK_CategoryRole_Roles] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[Roles] ([RoleID])
+GO
+ALTER TABLE [dbo].[CategoryRole] CHECK CONSTRAINT [FK_CategoryRole_Roles]
+GO
+ALTER TABLE [dbo].[CategoryUser]  WITH CHECK ADD  CONSTRAINT [FK_CategoryUser_Category] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[Category] ([CategoryId])
+GO
+ALTER TABLE [dbo].[CategoryUser] CHECK CONSTRAINT [FK_CategoryUser_Category]
+GO
+ALTER TABLE [dbo].[CategoryUser]  WITH CHECK ADD  CONSTRAINT [FK_CategoryUser_Grant] FOREIGN KEY([GrantId])
+REFERENCES [dbo].[Grant] ([GrantId])
+GO
+ALTER TABLE [dbo].[CategoryUser] CHECK CONSTRAINT [FK_CategoryUser_Grant]
+GO
+ALTER TABLE [dbo].[CategoryUser]  WITH CHECK ADD  CONSTRAINT [FK_CategoryUser_Users] FOREIGN KEY([UserID])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[CategoryUser] CHECK CONSTRAINT [FK_CategoryUser_Users]
+GO
+ALTER TABLE [dbo].[Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Category] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[Category] ([CategoryId])
+GO
+ALTER TABLE [dbo].[Item] CHECK CONSTRAINT [FK_Item_Category]
+GO
+ALTER TABLE [dbo].[Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Types] FOREIGN KEY([TypeId])
+REFERENCES [dbo].[Types] ([TypeId])
+GO
+ALTER TABLE [dbo].[Item] CHECK CONSTRAINT [FK_Item_Types]
+GO
+ALTER TABLE [dbo].[Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Users] FOREIGN KEY([OwnerId])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[Item] CHECK CONSTRAINT [FK_Item_Users]
+GO
+ALTER TABLE [dbo].[Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Users1] FOREIGN KEY([UserIn])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[Item] CHECK CONSTRAINT [FK_Item_Users1]
+GO
+ALTER TABLE [dbo].[ItemRole]  WITH CHECK ADD  CONSTRAINT [FK_ItemRole_Grant] FOREIGN KEY([GrantId])
+REFERENCES [dbo].[Grant] ([GrantId])
+GO
+ALTER TABLE [dbo].[ItemRole] CHECK CONSTRAINT [FK_ItemRole_Grant]
+GO
+ALTER TABLE [dbo].[ItemRole]  WITH CHECK ADD  CONSTRAINT [FK_ItemRole_Item] FOREIGN KEY([ItemId])
+REFERENCES [dbo].[Item] ([ItemId])
+GO
+ALTER TABLE [dbo].[ItemRole] CHECK CONSTRAINT [FK_ItemRole_Item]
+GO
+ALTER TABLE [dbo].[ItemRole]  WITH CHECK ADD  CONSTRAINT [FK_ItemRole_Roles] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[Roles] ([RoleID])
+GO
+ALTER TABLE [dbo].[ItemRole] CHECK CONSTRAINT [FK_ItemRole_Roles]
+GO
+ALTER TABLE [dbo].[ItemUser]  WITH CHECK ADD  CONSTRAINT [FK_ItemUser_Grant] FOREIGN KEY([GrantId])
+REFERENCES [dbo].[Grant] ([GrantId])
+GO
+ALTER TABLE [dbo].[ItemUser] CHECK CONSTRAINT [FK_ItemUser_Grant]
+GO
+ALTER TABLE [dbo].[ItemUser]  WITH CHECK ADD  CONSTRAINT [FK_ItemUser_Item] FOREIGN KEY([ItemId])
+REFERENCES [dbo].[Item] ([ItemId])
+GO
+ALTER TABLE [dbo].[ItemUser] CHECK CONSTRAINT [FK_ItemUser_Item]
+GO
+ALTER TABLE [dbo].[ItemUser]  WITH CHECK ADD  CONSTRAINT [FK_ItemUser_Users] FOREIGN KEY([UserID])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[ItemUser] CHECK CONSTRAINT [FK_ItemUser_Users]
+GO
+ALTER TABLE [dbo].[Types]  WITH CHECK ADD  CONSTRAINT [FK_Types_AssociationApp] FOREIGN KEY([AssociationId])
+REFERENCES [dbo].[AssociationApp] ([AssociationId])
+GO
+ALTER TABLE [dbo].[Types] CHECK CONSTRAINT [FK_Types_AssociationApp]
+GO
+ALTER TABLE [dbo].[UserRole]  WITH CHECK ADD  CONSTRAINT [FK_UserRole_Roles] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[Roles] ([RoleID])
+GO
+ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK_UserRole_Roles]
+GO
+ALTER TABLE [dbo].[UserRole]  WITH CHECK ADD  CONSTRAINT [FK_UserRole_Users] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK_UserRole_Users]
+GO
+ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [FK_Users_UserLevel] FOREIGN KEY([UserLevelId])
+REFERENCES [dbo].[UserLevel] ([UserLevelId])
+GO
+ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK_Users_UserLevel]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[30] 2[4] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Category"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 269
+               Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Users"
+            Begin Extent = 
+               Top = 18
+               Left = 252
+               Bottom = 148
+               Right = 426
+            End
+            DisplayFlags = 280
+            TopColumn = 3
+         End
+         Begin Table = "Users_1"
+            Begin Extent = 
+               Top = 159
+               Left = 322
+               Bottom = 289
+               Right = 496
+            End
+            DisplayFlags = 280
+            TopColumn = 3
+         End
+         Begin Table = "Category_1"
+            Begin Extent = 
+               Top = 3
+               Left = 526
+               Bottom = 143
+               Right = 696
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 13
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+   ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vCategory'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'      Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vCategory'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vCategory'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Grant"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 102
+               Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vGrant'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vGrant'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[34] 4[9] 2[31] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = -367
+      End
+      Begin Tables = 
+         Begin Table = "Item"
+            Begin Extent = 
+               Top = 29
+               Left = 377
+               Bottom = 209
+               Right = 547
+            End
+            DisplayFlags = 280
+            TopColumn = 4
+         End
+         Begin Table = "Category"
+            Begin Extent = 
+               Top = 69
+               Left = 46
+               Bottom = 199
+               Right = 216
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Users"
+            Begin Extent = 
+               Top = 214
+               Left = 362
+               Bottom = 344
+               Right = 536
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Types"
+            Begin Extent = 
+               Top = 6
+               Left = 666
+               Bottom = 167
+               Right = 836
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+         Begin ParameterName = "@CategoryId"
+            ParameterValue = "1"
+         End
+      End
+      Begin ColumnWidths = 17
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vItems'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vItems'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vItems'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "LogOpType"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 102
+               Right = 212
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vLogOpType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vLogOpType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "LogType"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 102
+               Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vLogType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vLogType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Roles"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 124
+               Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 9
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vRoles'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vRoles'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Users"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 215
+               Right = 212
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "UserLevel"
+            Begin Extent = 
+               Top = 6
+               Left = 250
+               Bottom = 102
+               Right = 421
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 9
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vUsers'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vUsers'
+GO
+USE [master]
+GO
+ALTER DATABASE [DataCenter] SET  READ_WRITE 
+GO
+
+
+</Value>
+    </Setting>
+    <Setting Name="AccessdbConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Accessdb.mdb&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Accessdb.mdb</Value>
+    </Setting>
+    <Setting Name="NestleMenuConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\NestleMenu.mdb&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\NestleMenu.mdb</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

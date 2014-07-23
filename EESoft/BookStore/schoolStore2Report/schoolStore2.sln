@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "schoolStoreReport", "schoolStore2Report\schoolStoreReport.rptproj", "{130E2447-142D-4480-871A-A82D615D6B65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{130E2447-142D-4480-871A-A82D615D6B65}.Debug|Default.ActiveCfg = Debug
+		{130E2447-142D-4480-871A-A82D615D6B65}.Debug|Default.Build.0 = DebugLocal
+		{130E2447-142D-4480-871A-A82D615D6B65}.Debug|Default.Deploy.0 = DebugLocal
+		{130E2447-142D-4480-871A-A82D615D6B65}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{130E2447-142D-4480-871A-A82D615D6B65}.DebugLocal|Default.Build.0 = DebugLocal
+		{130E2447-142D-4480-871A-A82D615D6B65}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{130E2447-142D-4480-871A-A82D615D6B65}.Release|Default.ActiveCfg = Release
+		{130E2447-142D-4480-871A-A82D615D6B65}.Release|Default.Build.0 = Release
+		{130E2447-142D-4480-871A-A82D615D6B65}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

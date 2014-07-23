@@ -1,0 +1,141 @@
+Private Sub btnListen_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim bytesReceived As Integer = 0
+        Dim recv() As Byte = New Byte(1) {}
+        Dim clientSocket As Socket
+        Dim listenerSocket As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+        Dim IPHost As IPHostEntry = Dns.GetHostByName(Dns.GetHostName())
+        Dim ipepServer As IPEndPoint = New IPEndPoint(IPHost.AddressList(0), 8080)
+        listenerSocket.Bind(ipepServer)
+        listenerSocket.Listen(-1)
+        clientSocket = listenerSocket.Accept()
+        If clientSocket.Connected Then
+            Do
+                bytesReceived = clientSocket.Receive(recv)
+                tbStatus.Text += Encoding.ASCII.GetString(recv)
+            Loop While bytesReceived <> 0
+        End If
+    End Sub
+    
+    ________________________________________________________
+ Private Sub btnListen_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim bytesReceived As Integer = 0
+        Dim recv() As Byte = New Byte(1) {}
+        Dim clientSocket As Socket
+        Dim listenerSocket As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+        Dim IPHost As IPHostEntry = Dns.GetHostByName(Dns.GetHostName())
+        Dim ipepServer As IPEndPoint = New IPEndPoint(IPHost.AddressList(0), 8080)
+        listenerSocket.Bind(ipepServer)
+        listenerSocket.Listen(-1)
+        clientSocket = listenerSocket.Accept()
+        If clientSocket.Connected Then
+            Do
+                bytesReceived = clientSocket.Receive(recv)
+                tbStatus.Text += Encoding.ASCII.GetString(recv)
+            Loop While bytesReceived <> 0
+        End If
+    End Sub
+_____________________________________________
+Public Sub GetFoldersOrdered_ThenGetFiles(ByVal DataPath As String, ByVal UsrID As String)
+        ReDim Folders(0)
+        Dim i As Int16
+        Dim RullsIDs() As String = Nothing
+        Dim FolderIDs() As String = Nothing
+        Try
+            SQLCmd.CommandText = "select RullID from dbo.Users_Rulls where UsrID='" & UsrID & "'"
+            SQLCon.Open()
+            SQLDR = SQLCmd.ExecuteReader
+            Do While SQLDR.Read
+                If RullsIDs Is Nothing Then
+                    ReDim RullsIDs(0)
+                Else
+                    ReDim Preserve RullsIDs(RullsIDs.Length)
+                End If
+                RullsIDs(RullsIDs.Length - 1) = SQLDR.GetString(0).Trim
+            Loop
+            SQLDR.Close()
+            If RullsIDs Is Nothing Then
+                GoTo ExitPoint
+            End If
+            SQLCmd.CommandText = "select FolderID from dbo.Folder_Rull where RullID='" & RullsIDs(0) & "'"
+            For i = 1 To RullsIDs.Length - 1
+                SQLCmd.CommandText &= " or RullID='" & RullsIDs(i) & "'"
+            Next
+            SQLDR = SQLCmd.ExecuteReader
+            Do While SQLDR.Read
+                If FolderIDs Is Nothing Then
+                    ReDim FolderIDs(0)
+                Else
+                    ReDim Preserve FolderIDs(FolderIDs.Length)
+                End If
+                FolderIDs(FolderIDs.Length - 1) = SQLDR.GetString(0).Trim
+            Loop
+            SQLDR.Close()
+            If FolderIDs Is Nothing Then
+                GoTo ExitPoint
+            End If
+            SQLCmd.CommandText = "SELECT FolderID,FolderName,FolderPath,UserID,CreatedIn,Disc,ProID,ParentID from dbo.FolderInfo where FolderID='" & FolderIDs(0) & "'"
+            For i = 1 To FolderIDs.Length - 1
+                SQLCmd.CommandText &= " or FolderID='" & FolderIDs(i) & "'"
+            Next
+            SQLCmd.CommandText &= " order by FolderPath"
+            SQLDR = SQLCmd.ExecuteReader
+            Do While SQLDR.Read
+                Folders(Folders.Length - 1).FolderID = SQLDR.GetValue(0).ToString.Trim
+                Folders(Folders.Length - 1).FolderName = SQLDR.GetValue(1).ToString.Trim
+                Folders(Folders.Length - 1).FolderPath = DataPath & SQLDR.GetValue(2).ToString.Trim
+                Folders(Folders.Length - 1).UserID = SQLDR.GetValue(3).ToString.Trim
+                Folders(Folders.Length - 1).CreatedIn = SQLDR.GetValue(4).ToString.Trim
+                Folders(Folders.Length - 1).Disc = SQLDR.GetValue(5).ToString.Trim
+                Folders(Folders.Length - 1).ProID = SQLDR.GetValue(6).ToString.Trim
+                Folders(Folders.Length - 1).ParentID = SQLDR.GetValue(7).ToString.Trim
+                ReDim Preserve Folders(Folders.Length)
+            Loop
+            ReDim Preserve Folders(Folders.Length - 2)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Information)
+        End Try
+ExitPoint:
+        SQLDR.Close()
+        SQLCon.Close()
+        GetAllFiles(DataPath)
+    End Sub
+    ______________________________________________________
+    Private Sub GetAllFiles(ByVal DataPath As String)
+        Try
+            SQLCmd.CommandText = "SP_GetAllFiles"
+            SQLCon.Open()
+            SQLDR = SQLCmd.ExecuteReader
+            Dim Int1 As Int16 = 0
+            Do While SQLDR.Read
+                For Int1 = 0 To Folders.Length - 1
+                    If SQLDR.GetValue(7).ToString.Trim = Folders(Int1).FolderID Then
+                        If Folders(Int1).Files Is Nothing Then
+                            ReDim Folders(Int1).Files(0)
+                        Else
+                            ReDim Preserve Folders(Int1).Files(Folders(Int1).Files.Length)
+                        End If
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).FileID = SQLDR.GetValue(0).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).FileName = SQLDR.GetValue(1).ToString.Trim
+                        'The File Path = DataPath & the Database File Path :)
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).FilePath = DataPath & SQLDR.GetValue(2).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).CreatedIn = SQLDR.GetValue(3).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).UsrID = SQLDR.GetValue(4).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).Dis = SQLDR.GetValue(5).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).ProID = SQLDR.GetValue(6).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).FolderID = SQLDR.GetValue(7).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).TypeID = SQLDR.GetValue(8).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).UserName = SQLDR.GetValue(9).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).TypeName = SQLDR.GetValue(10).ToString.Trim
+                        Folders(Int1).Files(Folders(Int1).Files.Length - 1).TypePath = SQLDR.GetValue(11).ToString.Trim
+                        Exit For
+                    End If
+                Next
+                If SQLDR.NextResult() = True Then
+                End If
+            Loop
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Information)
+        End Try
+        SQLDR.Close()
+        SQLCon.Close()
+    End Sub

@@ -1,0 +1,4 @@
+1- Install From "setup.exe"
+2- Use "ATCommandsLicense.exe" to get "license" put this file with the application in the program files
+3- Copy the database from application directory in program files to any location you need
+4- Open the application from your disktop shortcut - Have Fun :)=

@@ -1,0 +1,257 @@
+Imports System.IO
+Imports System.Net
+Imports System.Net.Sockets
+Imports System.Text
+Imports System.Threading
+Public Class File_Transporter_Service
+    Private SokNfo() As Alsockets
+    Private FileIfo As String
+    Private Structure Alsockets
+        Dim MySocket As Socket
+        Dim Cmd As Commands
+        Dim RelatedFile As String
+    End Structure
+    Public Enum Commands
+        Ping
+        GetIconFile
+        PutFile
+    End Enum
+    Private Sub OnStart()
+        Try
+            Dim tcpListener As New TcpListener(IPAddress.Any, 8080)
+            Dim handlerSocket As Socket
+            Dim thdRecHandler As Thread
+            tcpListener.Start()
+            MsgBox("MSG 1" & vbNewLine & "server is waiting the incoming Req")
+            Do
+                handlerSocket = tcpListener.AcceptSocket()
+                If handlerSocket.Connected Then
+                    SyncLock (Me) 'Redim SokNfo and start new thread
+                        If SokNfo Is Nothing Then
+                            ReDim SokNfo(0)
+                        Else
+                            ReDim Preserve SokNfo(SokNfo.Length)
+                        End If
+                        SokNfo(SokNfo.Length - 1).MySocket = handlerSocket
+                        thdRecHandler = New Thread(AddressOf handlerThread)
+                        thdRecHandler.Start()
+                    End SyncLock
+                End If
+            Loop
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Sub handlerThread()
+        Try
+            Dim FileNfoArr() As String = Nothing
+            Dim Buffers(4096) As Byte
+            Dim FileSTM As FileStream = Nothing
+            SyncLock Me
+                Dim NetSTM As New NetworkStream(SokNfo(SokNfo.Length - 1).MySocket)
+                'Dim Cases As Char = Chr(NetSTM.ReadByte())
+                Dim ReadedCounter As Int16 = 0
+                MsgBox("MSG 2 Begin read")
+                Do
+                    ReadedCounter = NetSTM.Read(Buffers, 0, Buffers.Length - 1)
+                    If ReadedCounter <> 0 Then
+                        SokNfo(SokNfo.Length - 1).RelatedFile &= Encoding.Unicode.GetChars(Buffers, 0, ReadedCounter)
+                    End If
+                Loop While ReadedCounter <> 0
+                MsgBox("MSG 3 File Path Is:" & vbNewLine & SokNfo(SokNfo.Length - 1).RelatedFile)
+                Exit Sub
+
+                Dim Cases As Char = "1"
+                Select Case Cases
+                    Case "0"
+                        'Ping
+                    Case "1"
+                        'GetFile
+                        MsgBox(SokNfo(SokNfo.Length - 1).RelatedFile)
+                        SendFile()
+                    Case "2"
+                        'PutFile
+                End Select
+
+ExitMe:
+                NetSTM.Close()
+                SokNfo(SokNfo.Length - 1).MySocket = Nothing
+                Threading.Thread.CurrentThread.Abort()
+            End SyncLock
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' This is subroutine to send file to the client like icons, this subroutine sync with " handlerThread " subroutine
+    ''' </summary>
+    ''' <remarks>[Egy]FalseX</remarks>
+    Private Sub SendFile()
+        Dim SndSok As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+        Dim NetStream As New NetworkStream(SndSok)
+        If Not File.Exists(SokNfo(SokNfo.Length - 1).RelatedFile) Then
+            Exit Sub
+        End If
+        SyncLock Me
+            Dim FStream As New FileStream(SokNfo(SokNfo.Length - 1).RelatedFile, FileMode.Open, FileAccess.Read, FileShare.Read)
+            Dim Buffers(4069) As Byte
+            SndSok.Connect(SokNfo(SokNfo.Length - 1).MySocket.LocalEndPoint)
+            If SndSok.Connected = True Then
+                Dim StrFNfo As String = FStream.Length & ":" & SokNfo(SokNfo.Length - 1).RelatedFile 'Prepare file information (File length + ":" + File path)
+                NetStream.Write(Encoding.Unicode.GetBytes(StrFNfo), 0, 300) 'Sending File information
+                Dim readed As Int16 = 0 'Reader counter
+                Do 'Sending file bytes
+                    readed = FStream.Read(Buffers, 0, 4096)
+                    If readed > 0 Then
+                        NetStream.Write(Buffers, 0, readed)
+                    End If
+                Loop While readed > 0
+                FStream.Close()
+                NetStream.Close()
+                SndSok.Close()
+            End If
+        End SyncLock
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim x As New Thread(AddressOf OnStart)
+        x.Start()
+    End Sub
+
+    Private Sub File_Transporter_Service_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Process.GetCurrentProcess.Kill()
+    End Sub
+End Class
+________________________________________________________________
+'Code for the good one
+Imports System.IO
+Imports System.Net
+Imports System.Net.Sockets
+Imports System.Text
+Imports System.Threading
+Public Class File_Transporter_Service
+    Private SokNfo() As Alsockets
+    Private FileIfo As String
+    Private Structure Alsockets
+        Dim MySocket As Socket
+        Dim Cmd As Commands
+        Dim RelatedFile As String
+    End Structure
+    Public Enum Commands
+        Ping
+        GetIconFile
+        PutFile
+    End Enum
+    Private Sub OnStart()
+        Try
+            Dim tcpListener As New TcpListener(IPAddress.Any, 8080)
+            Dim handlerSocket As Socket
+            Dim thdRecHandler As Thread
+            tcpListener.Start()
+            MsgBox("server is waiting the incoming Req")
+            Do
+                handlerSocket = tcpListener.AcceptSocket()
+                If handlerSocket.Connected Then
+                    SyncLock (Me) 'Redim SokNfo and start new thread
+                        If SokNfo Is Nothing Then
+                            ReDim SokNfo(0)
+                        Else
+                            ReDim Preserve SokNfo(SokNfo.Length)
+                        End If
+                        SokNfo(SokNfo.Length - 1).MySocket = handlerSocket
+                        Dim NetSTM As New NetworkStream(handlerSocket)
+                        Dim Cases As Char = Chr(NetSTM.ReadByte())
+                        Select Case Cases
+                            Case "0"
+                                'Ping
+                                SokNfo(SokNfo.Length - 1).Cmd = Commands.GetIconFile
+                            Case "1"
+                                'GetFile
+                                SokNfo(SokNfo.Length - 1).Cmd = Commands.GetIconFile
+                            Case "2"
+                                'PutFile
+                                SokNfo(SokNfo.Length - 1).Cmd = Commands.PutFile
+                        End Select
+                        thdRecHandler = New Thread(AddressOf handlerThread)
+                        thdRecHandler.Start()
+                    End SyncLock
+                End If
+            Loop
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Sub handlerThread()
+        Try
+            Dim FileNfoArr() As String = Nothing
+            Dim Buffers(4096) As Byte
+            Dim FileSTM As FileStream = Nothing
+            SyncLock Me
+                Dim NetSTM As New NetworkStream(SokNfo(SokNfo.Length - 1).MySocket)
+                Select Case SokNfo(SokNfo.Length - 1).Cmd
+                    Case Commands.Ping
+                    Case Commands.GetIconFile
+                        Dim ReadedCounter As Int16 = 0
+                        Do
+                            ReadedCounter = NetSTM.Read(Buffers, 0, Buffers.Length - 1)
+                            If ReadedCounter <> 0 Then
+                                SokNfo(SokNfo.Length - 1).RelatedFile &= Encoding.Unicode.GetChars(Buffers, 0, ReadedCounter)
+                            End If
+                        Loop While ReadedCounter <> 0
+                        SendFile()
+                    Case Commands.PutFile
+                End Select
+ExitMe:
+                NetSTM.Close()
+                SokNfo(SokNfo.Length - 1).MySocket = Nothing
+                Threading.Thread.CurrentThread.Abort()
+            End SyncLock
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' This is subroutine to send file to the client like icons, this subroutine sync with " handlerThread " subroutine
+    ''' </summary>
+    ''' <remarks>[Egy]FalseX</remarks>
+    Private Sub SendFile()
+        Dim SndSok As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+        Dim NetStream As New NetworkStream(SndSok)
+        If Not File.Exists(SokNfo(SokNfo.Length - 1).RelatedFile) Then
+            Exit Sub
+        End If
+        SyncLock Me
+            Dim FStream As New FileStream(SokNfo(SokNfo.Length - 1).RelatedFile, FileMode.Open, FileAccess.Read, FileShare.Read)
+            Dim Buffers(4069) As Byte
+            SndSok.Connect(SokNfo(SokNfo.Length - 1).MySocket.LocalEndPoint)
+            If SndSok.Connected = True Then
+                Dim StrFNfo As String = FStream.Length & ":" & SokNfo(SokNfo.Length - 1).RelatedFile 'Prepare file information (File length + ":" + File path)
+                NetStream.Write(Encoding.Unicode.GetBytes(StrFNfo), 0, 300) 'Sending File information
+                Dim readed As Int16 = 0 'Reader counter
+                Do 'Sending file bytes
+                    readed = FStream.Read(Buffers, 0, 4096)
+                    If readed > 0 Then
+                        NetStream.Write(Buffers, 0, readed)
+                    End If
+                Loop While readed > 0
+                FStream.Close()
+                NetStream.Close()
+                SndSok.Close()
+            End If
+        End SyncLock
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim x As New Thread(AddressOf OnStart)
+        x.Start()
+    End Sub
+
+    Private Sub File_Transporter_Service_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Process.GetCurrentProcess.Kill()
+    End Sub
+End Class

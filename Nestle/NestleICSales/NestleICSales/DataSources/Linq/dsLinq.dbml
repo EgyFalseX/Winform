@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Nestle" Class="dsLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Nestle;Persist Security Info=True;User ID=sa" SettingsObjectName="NestleICSales.Properties.Settings" SettingsPropertyName="MainConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vQry001" Member="vQry001s">
+    <Type Name="vQry001">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerNameEn1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerNameEn2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerNameAr1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerNameAr2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustHierLevel6Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel6Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustHierLevel5Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel5Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustHierLevel4Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel4Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustHierLevel3Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel3Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DistributionChannel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CityEnName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CityArName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubchannelName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerType2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vQry002" Member="vQry002s">
+    <Type Name="vQry002">
+      <Column Name="MaterialNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaterialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VolumPiece" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VolumCarton" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TradePriceCarton" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TradePricePiece" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ConsumerPriceCarton" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ConsumerPricePiece" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pallet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Split" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ValidDateStart" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ValidDateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PricePoint" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PricePointLastYear" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PricePointOldYear" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="userin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datein" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Flavor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaterialType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceChanges" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NPDS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BaseProduct" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BusinessUnit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroup3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroup2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroup1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.City" Member="Cities">
+    <Type Name="City">
+      <Column Name="CityId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityEnName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CityArName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="City_Customer" Member="Customers" ThisKey="CityId" OtherKey="CityId" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerNameEn1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerNameEn2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerNameAr1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerNameAr2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustHierLevel6Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubchannelId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerType2Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datein" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="City_Customer" Member="City" ThisKey="CityId" OtherKey="CityId" Type="City" IsForeignKey="true" />
+      <Association Name="Subchannel_Customer" Member="Subchannel" ThisKey="SubchannelId" OtherKey="SubchannelId" Type="Subchannel" IsForeignKey="true" />
+      <Association Name="vQryCustHierLevel_Customer" Member="vQryCustHierLevel" ThisKey="CustHierLevel6Id" OtherKey="CustHierLevel6Id" Type="vQryCustHierLevel" IsForeignKey="true" />
+      <Association Name="CustomerGroup_Customer" Member="CustomerGroup" ThisKey="CustomerGroupId" OtherKey="CustomerGroupId" Type="CustomerGroup" IsForeignKey="true" />
+      <Association Name="CustomerType_Customer" Member="CustomerType" ThisKey="CustomerTypeId" OtherKey="CustomerTypeId" Type="CustomerType" IsForeignKey="true" />
+      <Association Name="CustomerType2_Customer" Member="CustomerType2" ThisKey="CustomerType2Id" OtherKey="CustomerType2Id" Type="CustomerType2" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vQryCustHierLevel" Member="vQryCustHierLevels">
+    <Type Name="vQryCustHierLevel">
+      <Column Name="CustHierLevel6Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustHierLevel6Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustHierLevel5Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel5Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustHierLevel4Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel4Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustHierLevel3Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustHierLevel3Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DistributionChannelId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DistributionChannel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="vQryCustHierLevel_Customer" Member="Customers" ThisKey="CustHierLevel6Id" OtherKey="CustHierLevel6Id" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Subchannel" Member="Subchannels">
+    <Type Name="Subchannel">
+      <Column Name="SubchannelId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubchannelName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Subchannel_Customer" Member="Customers" ThisKey="SubchannelId" OtherKey="SubchannelId" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerGroup" Member="CustomerGroups">
+    <Type Name="CustomerGroup">
+      <Column Name="CustomerGroupId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerGroup" Member="CustomerGroup1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CustomerGroup_Customer" Member="Customers" ThisKey="CustomerGroupId" OtherKey="CustomerGroupId" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerType" Member="CustomerTypes">
+    <Type Name="CustomerType">
+      <Column Name="CustomerTypeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerType" Member="CustomerType1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CustomerType_Customer" Member="Customers" ThisKey="CustomerTypeId" OtherKey="CustomerTypeId" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerType2" Member="CustomerType2s">
+    <Type Name="CustomerType2">
+      <Column Name="CustomerType2Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerType2" Member="CustomerType21" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CustomerType2_Customer" Member="Customers" ThisKey="CustomerType2Id" OtherKey="CustomerType2Id" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RouteBrand" Member="RouteBrands">
+    <Type Name="RouteBrand">
+      <Column Name="RouteBrandId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RouteBrand" Member="RouteBrand1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RouteStatus" Member="RouteStatus">
+    <Type Name="RouteStatus">
+      <Column Name="RouteStatusId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RouteStatus" Member="RouteStatus1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlantSalesDistrict" Member="PlantSalesDistricts">
+    <Type Name="PlantSalesDistrict">
+      <Column Name="PlantSalesDistrictId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlantSalesDistrict" Member="PlantSalesDistrict1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PlantId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PlantTypeId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Plant_PlantSalesDistrict" Member="Plant" ThisKey="PlantId" OtherKey="PlantId" Type="Plant" IsForeignKey="true" />
+      <Association Name="PlantType_PlantSalesDistrict" Member="PlantType" ThisKey="PlantTypeId" OtherKey="PlantTypeId" Type="PlantType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Plant" Member="Plants">
+    <Type Name="Plant">
+      <Column Name="PlantId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlantName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PlantBaseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SapName" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="Plant_PlantSalesDistrict" Member="PlantSalesDistricts" ThisKey="PlantId" OtherKey="PlantId" Type="PlantSalesDistrict" />
+      <Association Name="PlantBase_Plant" Member="PlantBase" ThisKey="PlantBaseId" OtherKey="PlantBaseId" Type="PlantBase" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlantBase" Member="PlantBases">
+    <Type Name="PlantBase">
+      <Column Name="PlantBaseId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlantBaseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DistributionChannelId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="PlantBase_Plant" Member="Plants" ThisKey="PlantBaseId" OtherKey="PlantBaseId" Type="Plant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlantType" Member="PlantTypes">
+    <Type Name="PlantType">
+      <Column Name="PlantTypeId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlantType" Member="PlantType1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PlantTypeBaseId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="PlantType_PlantSalesDistrict" Member="PlantSalesDistricts" ThisKey="PlantTypeId" OtherKey="PlantTypeId" Type="PlantSalesDistrict" />
+      <Association Name="PlantTypeBase_PlantType" Member="PlantTypeBase" ThisKey="PlantTypeBaseId" OtherKey="PlantTypeBaseId" Type="PlantTypeBase" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlantTypeBase" Member="PlantTypeBases">
+    <Type Name="PlantTypeBase">
+      <Column Name="PlantTypeBaseId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlantTypeBase" Member="PlantTypeBase1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="PlantTypeBase_PlantType" Member="PlantTypes" ThisKey="PlantTypeBaseId" OtherKey="PlantTypeBaseId" Type="PlantType" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBase" Member="ProductBases">
+    <Type Name="ProductBase">
+      <Column Name="ProductBaseId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductBase" Member="ProductBase1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroup3Id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BrandId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PricePoint" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="ProductGroup3_ProductBase" Member="ProductGroup3" ThisKey="ProductGroup3Id" OtherKey="ProductGroup3Id" Type="ProductGroup3" IsForeignKey="true" />
+      <Association Name="ProductBrand_ProductBase" Member="ProductBrand" ThisKey="BrandId" OtherKey="BrandId" Type="ProductBrand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroup3" Member="ProductGroup3s">
+    <Type Name="ProductGroup3">
+      <Column Name="ProductGroup3Id" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductGroup3" Member="ProductGroup31" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroup2Id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="ProductGroup3_ProductBase" Member="ProductBases" ThisKey="ProductGroup3Id" OtherKey="ProductGroup3Id" Type="ProductBase" />
+      <Association Name="ProductGroup2_ProductGroup3" Member="ProductGroup2" ThisKey="ProductGroup2Id" OtherKey="ProductGroup2Id" Type="ProductGroup2" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroup2" Member="ProductGroup2s">
+    <Type Name="ProductGroup2">
+      <Column Name="ProductGroup2Id" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductGroup2" Member="ProductGroup21" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroup1" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="ProductGroup2_ProductGroup3" Member="ProductGroup3s" ThisKey="ProductGroup2Id" OtherKey="ProductGroup2Id" Type="ProductGroup3" />
+      <Association Name="ProductGroup1_ProductGroup2" Member="ProductGroup11" ThisKey="ProductGroup1" OtherKey="ProductGroup1Id" Type="ProductGroup1" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroup1" Member="ProductGroup1s">
+    <Type Name="ProductGroup1">
+      <Column Name="ProductGroup1Id" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductGroup1" Member="ProductGroup11" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ProductGroup1_ProductGroup2" Member="ProductGroup2s" ThisKey="ProductGroup1Id" OtherKey="ProductGroup1" Type="ProductGroup2" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBrand" Member="ProductBrands">
+    <Type Name="ProductBrand">
+      <Column Name="BrandId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductBusinessUnitId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="ProductBrand_ProductBase" Member="ProductBases" ThisKey="BrandId" OtherKey="BrandId" Type="ProductBase" />
+      <Association Name="ProductBusinessUnit_ProductBrand" Member="ProductBusinessUnit" ThisKey="ProductBusinessUnitId" OtherKey="ProductBusinessUnitId" Type="ProductBusinessUnit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBusinessUnit" Member="ProductBusinessUnits">
+    <Type Name="ProductBusinessUnit">
+      <Column Name="ProductBusinessUnitId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductBusinessUnit" Member="ProductBusinessUnit1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ProductBusinessUnit_ProductBrand" Member="ProductBrands" ThisKey="ProductBusinessUnitId" OtherKey="ProductBusinessUnitId" Type="ProductBrand" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceChanges" Member="PriceChanges">
+    <Type Name="PriceChange">
+      <Column Name="PriceChangesId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PriceChanges" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PricePointRang" Member="PricePointRangs">
+    <Type Name="PricePointRang">
+      <Column Name="PricePointRangId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PricePointRang" Member="PricePointRang1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialType" Member="MaterialTypes">
+    <Type Name="MaterialType">
+      <Column Name="MaterialTypeId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaterialType" Member="MaterialType1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NPDS" Member="NPDs">
+    <Type Name="NPD">
+      <Column Name="NPDSId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NPDS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Flavor" Member="Flavors">
+    <Type Name="Flavor">
+      <Column Name="FlavorId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Flavor" Member="Flavor1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

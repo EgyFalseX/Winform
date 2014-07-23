@@ -1,0 +1,1632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTeachersUnionQuery" targetNamespace="http://tempuri.org/dsTeachersUnionQuery.xsd" xmlns:mstns="http://tempuri.org/dsTeachersUnionQuery.xsd" xmlns="http://tempuri.org/dsTeachersUnionQuery.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TeachersUnionConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TeachersUnionConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Members.Properties.Settings.GlobalReference.Default.TeachersUnionConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry18TableAdapter" GeneratorDataComponentClassName="Qry18TableAdapter" Name="Qry18" UserDataComponentName="Qry18TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLHafzaweb.hafzaid, TBLHafzaweb.SyndicateId, TBLHafzaweb.hafzadate, COUNT(TBLHafzaweb.hafzaid) AS count, CDSyndicate.Syndicate,
+                             (SELECT        COUNT(MemberId) AS Expr1
+                                FROM            TBLMemberWeb
+                                WHERE        (rekeed = 1) AND EXISTS
+                                                             (SELECT        MemberId
+                                                                FROM            TBLHafzaweb AS hWeb
+                                                                WHERE        (hafzaid = TBLHafzaweb.hafzaid) AND (MemberId = TBLMemberWeb.MemberId))) AS countrekeed,
+                             (SELECT        COUNT(MemberId) AS Expr1
+                                FROM            TBLMemberWeb AS TBLMemberWeb_2
+                                WHERE        (estefaa = 1) AND EXISTS
+                                                             (SELECT        MemberId
+                                                                FROM            TBLHafzaweb AS hWeb
+                                                                WHERE        (hafzaid = TBLHafzaweb.hafzaid) AND (MemberId = TBLMemberWeb_2.MemberId))) AS countestefaa,
+                             (SELECT        COUNT(MemberId) AS Expr1
+                                FROM            TBLMemberWeb AS TBLMemberWeb_1
+                                WHERE        (closed = 1) AND EXISTS
+                                                             (SELECT        MemberId
+                                                                FROM            TBLHafzaweb AS hWeb
+                                                                WHERE        (hafzaid = TBLHafzaweb.hafzaid) AND (MemberId = TBLMemberWeb_1.MemberId))) AS countclosed
+FROM            TBLHafzaweb LEFT OUTER JOIN
+                         CDSyndicate ON TBLHafzaweb.SyndicateId = CDSyndicate.SyndicateId
+GROUP BY TBLHafzaweb.hafzaid, TBLHafzaweb.SyndicateId, TBLHafzaweb.hafzadate, CDSyndicate.Syndicate</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="hafzaid" DataSetColumn="hafzaid" />
+              <Mapping SourceColumn="SyndicateId" DataSetColumn="SyndicateId" />
+              <Mapping SourceColumn="hafzadate" DataSetColumn="hafzadate" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="countrekeed" DataSetColumn="countrekeed" />
+              <Mapping SourceColumn="countestefaa" DataSetColumn="countestefaa" />
+              <Mapping SourceColumn="countclosed" DataSetColumn="countclosed" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry19TableAdapter" GeneratorDataComponentClassName="Qry19TableAdapter" Name="Qry19" UserDataComponentName="Qry19TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMemberEsalat.MemberId, TBLMemberEsalat.esalno, TBLMemberEsalat.esaldate, TBLMemberEsalat.esalmony, TBLMemberEsalat.esalremark, 
+                         TBLMemberEsalat.userin, TBLMemberEsalat.datein, TBLMembers.KideNumber, TBLMembers.esalno AS Memesalno, CDSyndicate.Syndicate, 
+                         CDSubCommitte.SubCommitte, TBLMembers.MemberName, Users.RealName
+FROM            CDSubCommitte RIGHT OUTER JOIN
+                         TBLMembers ON CDSubCommitte.SubCommitteId = TBLMembers.SubCommitteId LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId RIGHT OUTER JOIN
+                         TBLMemberEsalat ON TBLMembers.MemberId = TBLMemberEsalat.MemberId LEFT OUTER JOIN
+                         Users ON TBLMemberEsalat.userin = Users.UserID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="esaldate" DataSetColumn="esaldate" />
+              <Mapping SourceColumn="esalmony" DataSetColumn="esalmony" />
+              <Mapping SourceColumn="esalremark" DataSetColumn="esalremark" />
+              <Mapping SourceColumn="userin" DataSetColumn="userin" />
+              <Mapping SourceColumn="datein" DataSetColumn="datein" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="Memesalno" DataSetColumn="Memesalno" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Rep07TableAdapter" GeneratorDataComponentClassName="Rep07TableAdapter" Name="Rep07" UserDataComponentName="Rep07TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLHafzaweb.hafzaid, CDSyndicate.Syndicate, CDSubCommitte.SubCommitte, TBLMemberWeb.KideNumber, TBLMembers.esalno AS esalprint, 
+                         TBLMemberWeb.estefaa, TBLMemberWeb.estefareson, TBLMemberWeb.MemberName, TBLHafzaweb.hafzadate, TBLMemberWeb.rekeed, 
+                         TBLMemberWeb.closed, TBLPrintCard.printdate, TBLMemberWeb.SubCommitteId
+FROM            TBLMemberWeb LEFT OUTER JOIN
+                         TBLMembers INNER JOIN
+                         TBLPrintCard ON TBLMembers.MemberId = TBLPrintCard.MemberId ON TBLMemberWeb.KideNumber = TBLMembers.KideNumber LEFT OUTER JOIN
+                         CDSyndicate INNER JOIN
+                         CDSubCommitte ON CDSyndicate.SyndicateId = CDSubCommitte.SyndicateId ON 
+                         TBLMemberWeb.SubCommitteId = CDSubCommitte.SubCommitteId RIGHT OUTER JOIN
+                         TBLHafzaweb ON CDSyndicate.SyndicateId = TBLHafzaweb.SyndicateId AND TBLMemberWeb.MemberId = TBLHafzaweb.MemberId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="hafzaid" DataSetColumn="hafzaid" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="esalprint" DataSetColumn="esalprint" />
+              <Mapping SourceColumn="estefaa" DataSetColumn="estefaa" />
+              <Mapping SourceColumn="estefareson" DataSetColumn="estefareson" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="hafzadate" DataSetColumn="hafzadate" />
+              <Mapping SourceColumn="rekeed" DataSetColumn="rekeed" />
+              <Mapping SourceColumn="closed" DataSetColumn="closed" />
+              <Mapping SourceColumn="printdate" DataSetColumn="printdate" />
+              <Mapping SourceColumn="SubCommitteId" DataSetColumn="SubCommitteId" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByhafzaid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByhafzaid" GeneratorSourceName="FillByhafzaid" GetMethodModifier="Public" GetMethodName="GetDataByhafzaid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByhafzaid" UserSourceName="FillByhafzaid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLHafzaweb.hafzaid, CDSyndicate.Syndicate, CDSubCommitte.SubCommitte, TBLMemberWeb.KideNumber, TBLMembers.esalno AS esalprint, 
+                         TBLMemberWeb.estefaa, TBLMemberWeb.estefareson, TBLMemberWeb.MemberName, TBLHafzaweb.hafzadate, TBLMemberWeb.rekeed, 
+                         TBLMemberWeb.closed, TBLPrintCard.printdate, TBLMemberWeb.SubCommitteId
+FROM            TBLMemberWeb LEFT OUTER JOIN
+                         TBLMembers INNER JOIN
+                         TBLPrintCard ON TBLMembers.MemberId = TBLPrintCard.MemberId ON TBLMemberWeb.KideNumber = TBLMembers.KideNumber LEFT OUTER JOIN
+                         CDSyndicate INNER JOIN
+                         CDSubCommitte ON CDSyndicate.SyndicateId = CDSubCommitte.SyndicateId ON 
+                         TBLMemberWeb.SubCommitteId = CDSubCommitte.SubCommitteId RIGHT OUTER JOIN
+                         TBLHafzaweb ON CDSyndicate.SyndicateId = TBLHafzaweb.SyndicateId AND TBLMemberWeb.MemberId = TBLHafzaweb.MemberId
+WHERE        (TBLHafzaweb.hafzaid = @hafzaid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="hafzaid" ColumnName="hafzaid" DataSourceName="TeachersUnion.dbo.TBLHafzaweb" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@hafzaid" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="hafzaid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HafzawebListTableAdapter" GeneratorDataComponentClassName="HafzawebListTableAdapter" Name="HafzawebList" UserDataComponentName="HafzawebListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLHafzaweb.hafzaid, TBLHafzaweb.SyndicateId, CDSyndicate.Syndicate
+FROM            TBLHafzaweb LEFT OUTER JOIN
+                         CDSyndicate ON TBLHafzaweb.SyndicateId = CDSyndicate.SyndicateId
+GROUP BY TBLHafzaweb.hafzaid, TBLHafzaweb.SyndicateId, CDSyndicate.Syndicate</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="hafzaid" DataSetColumn="hafzaid" />
+              <Mapping SourceColumn="SyndicateId" DataSetColumn="SyndicateId" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AppOptionsTableAdapter" GeneratorDataComponentClassName="AppOptionsTableAdapter" Name="AppOptions" UserDataComponentName="AppOptionsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.AppOptions" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CompanyLogo
+FROM            AppOptions</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CompanyLogo" DataSetColumn="CompanyLogo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.AppOptions" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryLogo" Modifier="Public" Name="ScalarQueryLogo" QueryType="Scalar" ScalarCallRetval="System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQueryLogo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TOP (1) CompanyLogo
+FROM            AppOptions</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry20TableAdapter" GeneratorDataComponentClassName="Qry20TableAdapter" Name="Qry20" UserDataComponentName="Qry20TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TblMemberAttach.AttachId, TblMemberAttach.MemberId, TblMemberAttach.AttachName, TblMemberAttach.AttachmentTypeId, TblMemberAttach.AttachInfo, 
+                         CDAttachmentType.AttachmentName, TBLMembers.MemberName
+FROM            TblMemberAttach LEFT OUTER JOIN
+                         TBLMembers ON TblMemberAttach.MemberId = TBLMembers.MemberId LEFT OUTER JOIN
+                         CDAttachmentType ON TblMemberAttach.AttachmentTypeId = CDAttachmentType.AttachmentTypeId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="AttachId" DataSetColumn="AttachId" />
+              <Mapping SourceColumn="AttachName" DataSetColumn="AttachName" />
+              <Mapping SourceColumn="AttachmentTypeId" DataSetColumn="AttachmentTypeId" />
+              <Mapping SourceColumn="AttachInfo" DataSetColumn="AttachInfo" />
+              <Mapping SourceColumn="AttachmentName" DataSetColumn="AttachmentName" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry21TableAdapter" GeneratorDataComponentClassName="Qry21TableAdapter" Name="Qry21" UserDataComponentName="Qry21TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByhafzaid" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByhafzaid" GeneratorSourceName="FillByhafzaid" GetMethodModifier="Public" GetMethodName="GetDataByhafzaid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByhafzaid" UserSourceName="FillByhafzaid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLHafzaweb.hafzaid, TBLHafzaweb.MemberId, TBLMemberWeb.MemberName, TBLMemberWeb.KideNumber, TBLMemberWeb.imagepath, 
+                         CDSyndicate.Syndicate, TBLMemberWeb.closed
+FROM            TBLHafzaweb LEFT OUTER JOIN
+                         CDSyndicate ON TBLHafzaweb.SyndicateId = CDSyndicate.SyndicateId LEFT OUTER JOIN
+                         TBLMemberWeb ON TBLHafzaweb.MemberId = TBLMemberWeb.MemberId
+WHERE        (TBLHafzaweb.hafzaid = @hafzaid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="hafzaid" ColumnName="hafzaid" DataSourceName="TeachersUnion.dbo.TBLHafzaweb" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@hafzaid" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="hafzaid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="hafzaid" DataSetColumn="hafzaid" />
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="imagepath" DataSetColumn="imagepath" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="closed" DataSetColumn="closed" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Rep08TableAdapter" GeneratorDataComponentClassName="Rep08TableAdapter" Name="Rep08" UserDataComponentName="Rep08TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByKideNumber" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByKideNumber" GeneratorSourceName="FillByKideNumber" GetMethodModifier="Public" GetMethodName="GetDataByKideNumber" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByKideNumber" UserSourceName="FillByKideNumber">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.KideNumber, TBLMembers.MemberName, CDSyndicate.Syndicate, TBLMembers.fawry, TBLMembers.Installment, TBLMembers.dateend, 
+                         TBLMembers.cardtype
+FROM            TBLMembers LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId
+WHERE        (TBLMembers.KideNumber BETWEEN @StartKideNumber AND @EndKideNumber)
+ORDER BY KideNumber</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="StartKideNumber" ColumnName="KideNumber" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@StartKideNumber" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="KideNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndKideNumber" ColumnName="KideNumber" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EndKideNumber" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="KideNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="fawry" DataSetColumn="fawry" />
+              <Mapping SourceColumn="Installment" DataSetColumn="Installment" />
+              <Mapping SourceColumn="dateend" DataSetColumn="dateend" />
+              <Mapping SourceColumn="cardtype" DataSetColumn="cardtype" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReceiptsListTableAdapter" GeneratorDataComponentClassName="ReceiptsListTableAdapter" Name="ReceiptsList" UserDataComponentName="ReceiptsListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.Receipts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ReceiptNo, CardsCount
+FROM            Receipts</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ReceiptNo" DataSetColumn="ReceiptNo" />
+              <Mapping SourceColumn="CardsCount" DataSetColumn="CardsCount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry08TableAdapter" GeneratorDataComponentClassName="Qry08TableAdapter" Name="Qry08" UserDataComponentName="Qry08TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.TBLMembers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [TBLMembers] WHERE (([MemberId] = @Original_MemberId) AND ([MemberName] = @Original_MemberName) AND ((@IsNull_MemberShipNumber = 1 AND [MemberShipNumber] IS NULL) OR ([MemberShipNumber] = @Original_MemberShipNumber)) AND ([KideNumber] = @Original_KideNumber) AND ((@IsNull_esalno = 1 AND [esalno] IS NULL) OR ([esalno] = @Original_esalno)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MemberId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MemberName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MemberName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MemberShipNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberShipNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MemberShipNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberShipNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_KideNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KideNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_esalno" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="esalno" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_esalno" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MemberId, MemberName, MemberShipNumber, KideNumber, esalno, 
+            (SELECT SubCommitte FROM CDSubCommitte WHERE (SubCommitteId = TBLMEM.SubCommitteId)) AS SubCommitte,
+            (SELECT Syndicate FROM CDSyndicate WHERE (SyndicateId = TBLMEM.SyndicateId)) AS Syndicate,
+			(SELECT RealName FROM Users WHERE (UserID = TBLMEM.userin)) AS RealName
+            FROM TBLMembers AS TBLMEM
+            WHERE EXISTS(SELECT MemberId FROM TBLMembers WHERE MemberId != TBLMEM.MemberId AND KideNumber = TBLMEM.KideNumber)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [TBLMembers] SET [MemberId] = @MemberId, [MemberName] = @MemberName, [MemberShipNumber] = @MemberShipNumber, [KideNumber] = @KideNumber, [esalno] = @esalno WHERE (([MemberId] = @Original_MemberId) AND ([MemberName] = @Original_MemberName) AND ((@IsNull_MemberShipNumber = 1 AND [MemberShipNumber] IS NULL) OR ([MemberShipNumber] = @Original_MemberShipNumber)) AND ([KideNumber] = @Original_KideNumber) AND ((@IsNull_esalno = 1 AND [esalno] IS NULL) OR ([esalno] = @Original_esalno)));
+SELECT MemberId, MemberName, MemberShipNumber, KideNumber, esalno, (SELECT SubCommitte FROM CDSubCommitte WHERE (SubCommitteId = TBLMEM.SubCommitteId)) AS SubCommitte, (SELECT Syndicate FROM CDSyndicate WHERE (SyndicateId = TBLMEM.SyndicateId)) AS Syndicate, (SELECT RealName FROM Users WHERE (UserID = TBLMEM.userin)) AS RealName FROM TBLMembers AS TBLMEM WHERE (MemberId = @MemberId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MemberId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MemberName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MemberName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MemberShipNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberShipNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@KideNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KideNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MemberId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MemberName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MemberName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MemberShipNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberShipNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MemberShipNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MemberShipNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_KideNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KideNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_esalno" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="esalno" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_esalno" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="MemberShipNumber" DataSetColumn="MemberShipNumber" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry22TableAdapter" GeneratorDataComponentClassName="Qry22TableAdapter" Name="Qry22" UserDataComponentName="Qry22TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLEmpWork.userin, TBLEmpWork.workdate, TBLEmpWork.WorkTypeId, TBLEmpWork.wid, TBLEmpWork.timestart, TBLEmpWork.timeend, 
+                         TBLEmpWork.wno, TBLEmpWork.wrem, TBLEmpWork.SyndicateId, TBLEmpWork.closed, Users.RealName, CDSyndicate.Syndicate, 
+                         CDWorkType.WorkType
+FROM            TBLEmpWork LEFT OUTER JOIN
+                         CDSyndicate ON TBLEmpWork.SyndicateId = CDSyndicate.SyndicateId LEFT OUTER JOIN
+                         CDWorkType ON TBLEmpWork.WorkTypeId = CDWorkType.WorkTypeId LEFT OUTER JOIN
+                         Users ON TBLEmpWork.userin = Users.UserID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="userin" DataSetColumn="userin" />
+              <Mapping SourceColumn="workdate" DataSetColumn="workdate" />
+              <Mapping SourceColumn="WorkTypeId" DataSetColumn="WorkTypeId" />
+              <Mapping SourceColumn="wid" DataSetColumn="wid" />
+              <Mapping SourceColumn="timestart" DataSetColumn="timestart" />
+              <Mapping SourceColumn="timeend" DataSetColumn="timeend" />
+              <Mapping SourceColumn="wno" DataSetColumn="wno" />
+              <Mapping SourceColumn="wrem" DataSetColumn="wrem" />
+              <Mapping SourceColumn="SyndicateId" DataSetColumn="SyndicateId" />
+              <Mapping SourceColumn="closed" DataSetColumn="closed" />
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="WorkType" DataSetColumn="WorkType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry05TableAdapter" GeneratorDataComponentClassName="Qry05TableAdapter" Name="Qry05" UserDataComponentName="Qry05TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.MemberId, TBLMembers.MemberName, TBLMembers.KideNumber, TBLMembers.trheelprog, TBLMembers.SyndicateId, 
+                         TBLMembers.SubCommitteId, TBLMembers.MemberShipNumber, TBLMembers.RandomCard,
+                             (SELECT        SubCommitte
+                                FROM            CDSubCommitte
+                                WHERE        (SubCommitteId = TBLMembers.SubCommitteId)) AS SubCommitte,
+                             (SELECT        Syndicate
+                                FROM            CDSyndicate
+                                WHERE        (SyndicateId = TBLMembers.SyndicateId)) AS Syndicate, TBLMembers.datein,
+                             (SELECT        RealName
+                                FROM            Users
+                                WHERE        (UserID = TBLMembers.userin)) AS RealName, TBLMembers.esalno, CAST(NULL AS BINARY) AS Img,
+                             (SELECT        RealName
+                                FROM            Users AS Users_1
+                                WHERE        (UserID = TBLPrintCard.userin)) AS RealNamePrint, TBLMembers.fawry, TBLPrintCard.printed, TBLPrintCard.printdate, TBLMembers.mEdited, 
+                         TBLMembers.userEdit, Users_2.RealName AS EditUserName
+FROM            TBLMembers LEFT OUTER JOIN
+                         Users AS Users_2 ON TBLMembers.userEdit = Users_2.UserID LEFT OUTER JOIN
+                         TBLPrintCard ON TBLMembers.MemberId = TBLPrintCard.MemberId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="trheelprog" DataSetColumn="trheelprog" />
+              <Mapping SourceColumn="SyndicateId" DataSetColumn="SyndicateId" />
+              <Mapping SourceColumn="SubCommitteId" DataSetColumn="SubCommitteId" />
+              <Mapping SourceColumn="MemberShipNumber" DataSetColumn="MemberShipNumber" />
+              <Mapping SourceColumn="RandomCard" DataSetColumn="RandomCard" />
+              <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="datein" DataSetColumn="datein" />
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="Img" DataSetColumn="Img" />
+              <Mapping SourceColumn="RealNamePrint" DataSetColumn="RealNamePrint" />
+              <Mapping SourceColumn="fawry" DataSetColumn="fawry" />
+              <Mapping SourceColumn="printed" DataSetColumn="printed" />
+              <Mapping SourceColumn="printdate" DataSetColumn="printdate" />
+              <Mapping SourceColumn="mEdited" DataSetColumn="mEdited" />
+              <Mapping SourceColumn="userEdit" DataSetColumn="userEdit" />
+              <Mapping SourceColumn="EditUserName" DataSetColumn="EditUserName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry23TableAdapter" GeneratorDataComponentClassName="Qry23TableAdapter" Name="Qry23" UserDataComponentName="Qry23TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="SELECT MemberId, datepart(YEAR,datein) AS Y, datepart(MONTH,datein) AS M FROM TBLMembers" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select count(o.MemberId) as C, o.Y, o.M
+From ( select MemberId, datepart(YEAR,datein) AS Y, datepart(MONTH,datein) AS M from TBLMembers ) o
+Group by Y, M
+order by Y, M</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="C" DataSetColumn="C" />
+              <Mapping SourceColumn="Y" DataSetColumn="Y" />
+              <Mapping SourceColumn="M" DataSetColumn="M" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry24TableAdapter" GeneratorDataComponentClassName="Qry24TableAdapter" Name="Qry24" UserDataComponentName="Qry24TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="SELECT MemberId, datepart(YEAR, datein) AS Y, datepart(MONTH, datein) AS M, CONVERT(nvarchar, datepart(YEAR, datein)) + '-' + CONVERT(nvarchar, datepart(MONTH, datein)) AS YM FROM TBLMembers" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select count(o.MemberId) as C, o.YM, o.Y, o.M
+From (select MemberId, datepart(YEAR, datein) AS Y, datepart(MONTH, datein) AS M, CONVERT(nvarchar, datepart(YEAR, datein)) + '-' + CONVERT(nvarchar, datepart(MONTH, datein)) AS YM from TBLMembers) o
+Group by YM, Y, M
+order by Y, M</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="C" DataSetColumn="C" />
+              <Mapping SourceColumn="YM" DataSetColumn="YM" />
+              <Mapping SourceColumn="Y" DataSetColumn="Y" />
+              <Mapping SourceColumn="M" DataSetColumn="M" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry25TableAdapter" GeneratorDataComponentClassName="Qry25TableAdapter" Name="Qry25" UserDataComponentName="Qry25TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.TBLMembers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBydatein" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataBydatein" GeneratorSourceName="FillBydatein" GetMethodModifier="Public" GetMethodName="GetDataBydatein" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBydatein" UserSourceName="FillBydatein">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT SyndicateId, (SELECT Syndicate FROM CDSyndicate WHERE SyndicateId = TBLMembers.SyndicateId) AS Syndicate, COUNT(SyndicateId) AS total 
+FROM TBLMembers
+WHERE CAST(datein AS DATE) BETWEEN CAST(@dateinStart AS DATE) AND CAST(@dateinEnd AS DATE)
+GROUP BY SyndicateId
+Order by SyndicateId</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="dateinStart" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Date" Direction="Input" ParameterName="@dateinStart" Precision="0" ProviderType="DateTime" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dateinEnd" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Date" Direction="Input" ParameterName="@dateinEnd" Precision="0" ProviderType="DateTime" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SyndicateId" DataSetColumn="SyndicateId" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ServerDateTimeTableAdapter" GeneratorDataComponentClassName="ServerDateTimeTableAdapter" Name="ServerDateTime" UserDataComponentName="ServerDateTimeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT GETDATE() AS VAL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="VAL" DataSetColumn="VAL" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.CDGender" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryAuth" Modifier="Public" Name="ScalarQueryAuth" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQueryAuth">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TOP (1) GenderEnglish AS VAL
+FROM            CDGender</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryServerDateTime" Modifier="Public" Name="ScalarQueryServerDateTime" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQueryServerDateTime">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT GETDATE() AS VAL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryEndAuth" Modifier="Public" Name="UpdateQueryEndAuth" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryEndAuth">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       CDGender
+SET                GenderEnglish = 0</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryStartAuth" Modifier="Public" Name="UpdateQueryStartAuth" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQueryStartAuth">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       CDGender
+SET                GenderEnglish = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry26TableAdapter" GeneratorDataComponentClassName="Qry26TableAdapter" Name="Qry26" UserDataComponentName="Qry26TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Receipts.ReceiptNo, Receipts.ReceiptDate, Receipts.CardsCount, CDCardtype.Cardtype, 
+(SELECT COUNT(esalno) FROM TBLMembers WHERE (esalno = Receipts.ReceiptNo))
++
+(SELECT COUNT(esalno) FROM TBLMemberWeb WHERE (esalno = Receipts.ReceiptNo AND closed = 0))
+ AS [Counter]
+FROM Receipts LEFT OUTER JOIN CDCardtype ON Receipts.CardType = CDCardtype.CardtypeId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ReceiptNo" DataSetColumn="ReceiptNo" />
+              <Mapping SourceColumn="ReceiptDate" DataSetColumn="ReceiptDate" />
+              <Mapping SourceColumn="CardsCount" DataSetColumn="CardsCount" />
+              <Mapping SourceColumn="Counter" DataSetColumn="Counter" />
+              <Mapping SourceColumn="Cardtype" DataSetColumn="Cardtype" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry27TableAdapter" GeneratorDataComponentClassName="Qry27TableAdapter" Name="Qry27" UserDataComponentName="Qry27TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Users.RealName, CDWorkType.WorkType, TBLEmpWork.workdate, COUNT(CDWorkType.WorkType) AS Counter
+FROM            TBLEmpWork LEFT OUTER JOIN
+                         Users ON TBLEmpWork.userin = Users.UserID LEFT OUTER JOIN
+                         CDWorkType ON TBLEmpWork.WorkTypeId = CDWorkType.WorkTypeId
+WHERE        (TBLEmpWork.workdate = @workdate)
+GROUP BY Users.RealName, CDWorkType.WorkType, TBLEmpWork.workdate</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="workdate" ColumnName="workdate" DataSourceName="TeachersUnion.dbo.TBLEmpWork" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@workdate" Precision="0" ProviderType="DateTime" Scale="0" Size="3" SourceColumn="workdate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+              <Mapping SourceColumn="WorkType" DataSetColumn="WorkType" />
+              <Mapping SourceColumn="workdate" DataSetColumn="workdate" />
+              <Mapping SourceColumn="Counter" DataSetColumn="Counter" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry28TableAdapter" GeneratorDataComponentClassName="Qry28TableAdapter" Name="Qry28" UserDataComponentName="Qry28TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.TBLMembers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.esalno, COUNT(TBLMembers.esalno) AS EnteredCount, COUNT(Receipts.ReceiptNo) AS SourceCount
+FROM            TBLMembers LEFT OUTER JOIN
+                         Receipts ON TBLMembers.esalno = Receipts.ReceiptNo
+GROUP BY TBLMembers.esalno</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="EnteredCount" DataSetColumn="EnteredCount" />
+              <Mapping SourceColumn="SourceCount" DataSetColumn="SourceCount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PathFixTableAdapter" GeneratorDataComponentClassName="PathFixTableAdapter" Name="PathFix" UserDataComponentName="PathFixTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.TBLMembers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MemberId, img, KideNumber, esalno
+FROM            TBLMembers
+WHERE        (esalno = @esalno)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="esalno" ColumnName="esalno" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="img" DataSetColumn="img" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FixesalnoTBLMemberWebTableAdapter" GeneratorDataComponentClassName="FixesalnoTBLMemberWebTableAdapter" Name="FixesalnoTBLMemberWeb" UserDataComponentName="FixesalnoTBLMemberWebTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMemberWeb.MemberId, TBLMemberWeb.MemberName, TBLMemberWeb.esalno, TBLMemberWeb.KideNumber, CDSyndicate.Syndicate
+FROM            TBLMemberWeb LEFT OUTER JOIN
+                         CDSyndicate ON TBLMemberWeb.SyndicateId = CDSyndicate.SyndicateId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByesalno" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByesalno" GeneratorSourceName="FillByesalno" GetMethodModifier="Public" GetMethodName="GetDataByesalno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByesalno" UserSourceName="FillByesalno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMemberWeb.MemberId, TBLMemberWeb.MemberName, TBLMemberWeb.esalno, TBLMemberWeb.KideNumber, CDSyndicate.Syndicate
+FROM            TBLMemberWeb LEFT OUTER JOIN
+                         CDSyndicate ON TBLMemberWeb.SyndicateId = CDSyndicate.SyndicateId
+WHERE TBLMemberWeb.esalno = @esalno</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="esalno" ColumnName="esalno" DataSourceName="TeachersUnion.dbo.TBLMemberWeb" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySyndicateId" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySyndicateId" GeneratorSourceName="FillBySyndicateId" GetMethodModifier="Public" GetMethodName="GetDataBySyndicateId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySyndicateId" UserSourceName="FillBySyndicateId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMemberWeb.MemberId, TBLMemberWeb.MemberName, TBLMemberWeb.esalno, TBLMemberWeb.KideNumber, CDSyndicate.Syndicate
+FROM            TBLMemberWeb LEFT OUTER JOIN
+                         CDSyndicate ON TBLMemberWeb.SyndicateId = CDSyndicate.SyndicateId
+WHERE TBLMemberWeb.SyndicateId = @SyndicateId</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="SyndicateId" ColumnName="SyndicateId" DataSourceName="TeachersUnion.dbo.TBLMemberWeb" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SyndicateId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SyndicateId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySyndicateId_esalno" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySyndicateId_esalno" GeneratorSourceName="FillBySyndicateId_esalno" GetMethodModifier="Public" GetMethodName="GetDataBySyndicateId_esalno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySyndicateId_esalno" UserSourceName="FillBySyndicateId_esalno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMemberWeb.MemberId, TBLMemberWeb.MemberName, TBLMemberWeb.esalno, TBLMemberWeb.KideNumber, CDSyndicate.Syndicate
+FROM            TBLMemberWeb LEFT OUTER JOIN
+                         CDSyndicate ON TBLMemberWeb.SyndicateId = CDSyndicate.SyndicateId
+WHERE        (TBLMemberWeb.SyndicateId = @SyndicateId) AND (TBLMemberWeb.esalno = @esalno)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="SyndicateId" ColumnName="SyndicateId" DataSourceName="TeachersUnion.dbo.TBLMemberWeb" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SyndicateId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SyndicateId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="esalno" ColumnName="esalno" DataSourceName="TeachersUnion.dbo.TBLMemberWeb" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FixesalnoTBLMembersTableAdapter" GeneratorDataComponentClassName="FixesalnoTBLMembersTableAdapter" Name="FixesalnoTBLMembers" UserDataComponentName="FixesalnoTBLMembersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.MemberId, TBLMembers.MemberName, TBLMembers.KideNumber, TBLMembers.esalno, CDSyndicate.Syndicate
+FROM            TBLMembers LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByesalno" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByesalno" GeneratorSourceName="FillByesalno" GetMethodModifier="Public" GetMethodName="GetDataByesalno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByesalno" UserSourceName="FillByesalno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.MemberId, TBLMembers.MemberName, TBLMembers.KideNumber, TBLMembers.esalno, CDSyndicate.Syndicate
+FROM            TBLMembers LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId
+WHERE        (TBLMembers.esalno = @esalno)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="esalno" ColumnName="esalno" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySyndicateId" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySyndicateId" GeneratorSourceName="FillBySyndicateId" GetMethodModifier="Public" GetMethodName="GetDataBySyndicateId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySyndicateId" UserSourceName="FillBySyndicateId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.MemberId, TBLMembers.MemberName, TBLMembers.KideNumber, TBLMembers.esalno, CDSyndicate.Syndicate
+FROM            TBLMembers LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId
+WHERE        (TBLMembers.SyndicateId = @SyndicateId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="SyndicateId" ColumnName="SyndicateId" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SyndicateId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SyndicateId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySyndicateId_esalno" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySyndicateId_esalno" GeneratorSourceName="FillBySyndicateId_esalno" GetMethodModifier="Public" GetMethodName="GetDataBySyndicateId_esalno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySyndicateId_esalno" UserSourceName="FillBySyndicateId_esalno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.MemberId, TBLMembers.MemberName, TBLMembers.KideNumber, TBLMembers.esalno, CDSyndicate.Syndicate
+FROM            TBLMembers LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId
+WHERE        (TBLMembers.SyndicateId = @SyndicateId) AND (TBLMembers.esalno = @esalno)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="SyndicateId" ColumnName="SyndicateId" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SyndicateId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SyndicateId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="esalno" ColumnName="esalno" DataSourceName="TeachersUnion.dbo.TBLMembers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="esalno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry32TableAdapter" GeneratorDataComponentClassName="Qry32TableAdapter" Name="Qry32" UserDataComponentName="Qry32TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TBLMembers.MemberId, TBLMembers.KideNumber, TBLMembers.MemberMobil, TBLMembers.MemberName, CDSyndicate.Syndicate, 
+                         CDSubCommitte.SubCommitte
+FROM            TBLMembers LEFT OUTER JOIN
+                         CDSubCommitte ON TBLMembers.SubCommitteId = CDSubCommitte.SubCommitteId LEFT OUTER JOIN
+                         CDSyndicate ON TBLMembers.SyndicateId = CDSyndicate.SyndicateId
+WHERE        (TBLMembers.MemberMobil IS NOT NULL) AND (TBLMembers.MemberMobil &lt;&gt; '')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="MemberMobil" DataSetColumn="MemberMobil" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SPro_0001TableAdapter" GeneratorDataComponentClassName="SPro_0001TableAdapter" Name="SPro_0001" UserDataComponentName="SPro_0001TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.SPro_0001" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SPro_0001</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberId" DataSetColumn="MemberId" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="KideNumber" DataSetColumn="KideNumber" />
+              <Mapping SourceColumn="MemberShipNumber" DataSetColumn="MemberShipNumber" />
+              <Mapping SourceColumn="esalno" DataSetColumn="esalno" />
+              <Mapping SourceColumn="HafzaId" DataSetColumn="HafzaId" />
+              <Mapping SourceColumn="ISMandoop" DataSetColumn="ISMandoop" />
+              <Mapping SourceColumn="Hafzaperson" DataSetColumn="Hafzaperson" />
+              <Mapping SourceColumn="HafzapersonText" DataSetColumn="HafzapersonText" />
+              <Mapping SourceColumn="MandoopName" DataSetColumn="MandoopName" />
+              <Mapping SourceColumn="Syndicate" DataSetColumn="Syndicate" />
+              <Mapping SourceColumn="Sector" DataSetColumn="Sector" />
+              <Mapping SourceColumn="SubCommitte" DataSetColumn="SubCommitte" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vQry33TableAdapter" GeneratorDataComponentClassName="vQry33TableAdapter" Name="vQry33" UserDataComponentName="vQry33TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectName="TeachersUnion.dbo.vQry33" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ReceiptNo, mazroofno, WorkTypeId, workcount, workrem, userwork, datework, WorkType, ReceiptDate, RealName FROM dbo.vQry33</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ReceiptNo" DataSetColumn="ReceiptNo" />
+              <Mapping SourceColumn="mazroofno" DataSetColumn="mazroofno" />
+              <Mapping SourceColumn="WorkTypeId" DataSetColumn="WorkTypeId" />
+              <Mapping SourceColumn="workcount" DataSetColumn="workcount" />
+              <Mapping SourceColumn="workrem" DataSetColumn="workrem" />
+              <Mapping SourceColumn="userwork" DataSetColumn="userwork" />
+              <Mapping SourceColumn="datework" DataSetColumn="datework" />
+              <Mapping SourceColumn="WorkType" DataSetColumn="WorkType" />
+              <Mapping SourceColumn="ReceiptDate" DataSetColumn="ReceiptDate" />
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources>
+          <DbSource ConnectionRef="TeachersUnionConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eslanoRemains" MethodsParameterType="CLR" Modifier="Public" Name="eslanoRemains" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="eslanoRemains">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT (SELECT CardsCount FROM Receipts WHERE ReceiptNo = @esalno)
+-
+(
+(SELECT COUNT(*) FROM TBLMembers WHERE esalno = @esalno) + 
+(SELECT COUNT(*) FROM TBLMemberWeb WHERE esalno = @esalno AND closed = 0)
+) AS Remains</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="false" AutogeneratedName="esalno" ColumnName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@esalno" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTeachersUnionQuery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsTeachersUnionQuery" msprop:Generator_UserDSName="dsTeachersUnionQuery">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Qry18" msprop:Generator_TableClassName="Qry18DataTable" msprop:Generator_TableVarName="tableQry18" msprop:Generator_TablePropName="Qry18" msprop:Generator_RowDeletingName="Qry18RowDeleting" msprop:Generator_RowChangingName="Qry18RowChanging" msprop:Generator_RowEvHandlerName="Qry18RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry18RowDeleted" msprop:Generator_UserTableName="Qry18" msprop:Generator_RowChangedName="Qry18RowChanged" msprop:Generator_RowEvArgName="Qry18RowChangeEvent" msprop:Generator_RowClassName="Qry18Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hafzaid" msprop:Generator_ColumnVarNameInTable="columnhafzaid" msprop:Generator_ColumnPropNameInRow="hafzaid" msprop:Generator_ColumnPropNameInTable="hafzaidColumn" msprop:Generator_UserColumnName="hafzaid" type="xs:double" />
+              <xs:element name="SyndicateId" msprop:Generator_ColumnVarNameInTable="columnSyndicateId" msprop:Generator_ColumnPropNameInRow="SyndicateId" msprop:Generator_ColumnPropNameInTable="SyndicateIdColumn" msprop:Generator_UserColumnName="SyndicateId" type="xs:int" />
+              <xs:element name="hafzadate" msprop:Generator_ColumnVarNameInTable="columnhafzadate" msprop:Generator_ColumnPropNameInRow="hafzadate" msprop:Generator_ColumnPropNameInTable="hafzadateColumn" msprop:Generator_UserColumnName="hafzadate" type="xs:dateTime" />
+              <xs:element name="count" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" minOccurs="0" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="countrekeed" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncountrekeed" msprop:Generator_ColumnPropNameInRow="countrekeed" msprop:Generator_ColumnPropNameInTable="countrekeedColumn" msprop:Generator_UserColumnName="countrekeed" type="xs:int" minOccurs="0" />
+              <xs:element name="countestefaa" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncountestefaa" msprop:Generator_ColumnPropNameInRow="countestefaa" msprop:Generator_ColumnPropNameInTable="countestefaaColumn" msprop:Generator_UserColumnName="countestefaa" type="xs:int" minOccurs="0" />
+              <xs:element name="countclosed" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncountclosed" msprop:Generator_ColumnPropNameInRow="countclosed" msprop:Generator_ColumnPropNameInTable="countclosedColumn" msprop:Generator_UserColumnName="countclosed" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry19" msprop:Generator_TableClassName="Qry19DataTable" msprop:Generator_TableVarName="tableQry19" msprop:Generator_RowChangedName="Qry19RowChanged" msprop:Generator_TablePropName="Qry19" msprop:Generator_RowDeletingName="Qry19RowDeleting" msprop:Generator_RowChangingName="Qry19RowChanging" msprop:Generator_RowEvHandlerName="Qry19RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry19RowDeleted" msprop:Generator_RowClassName="Qry19Row" msprop:Generator_UserTableName="Qry19" msprop:Generator_RowEvArgName="Qry19RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:double" />
+              <xs:element name="esaldate" msprop:Generator_ColumnVarNameInTable="columnesaldate" msprop:Generator_ColumnPropNameInRow="esaldate" msprop:Generator_ColumnPropNameInTable="esaldateColumn" msprop:Generator_UserColumnName="esaldate" type="xs:dateTime" />
+              <xs:element name="esalmony" msprop:Generator_ColumnVarNameInTable="columnesalmony" msprop:Generator_ColumnPropNameInRow="esalmony" msprop:Generator_ColumnPropNameInTable="esalmonyColumn" msprop:Generator_UserColumnName="esalmony" type="xs:double" />
+              <xs:element name="esalremark" msprop:Generator_ColumnVarNameInTable="columnesalremark" msprop:Generator_ColumnPropNameInRow="esalremark" msprop:Generator_ColumnPropNameInTable="esalremarkColumn" msprop:Generator_UserColumnName="esalremark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="userin" msprop:Generator_ColumnVarNameInTable="columnuserin" msprop:Generator_ColumnPropNameInRow="userin" msprop:Generator_ColumnPropNameInTable="userinColumn" msprop:Generator_UserColumnName="userin" type="xs:int" />
+              <xs:element name="datein" msprop:Generator_ColumnVarNameInTable="columndatein" msprop:Generator_ColumnPropNameInRow="datein" msprop:Generator_ColumnPropNameInTable="dateinColumn" msprop:Generator_UserColumnName="datein" type="xs:dateTime" />
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="Memesalno" msprop:Generator_ColumnVarNameInTable="columnMemesalno" msprop:Generator_ColumnPropNameInRow="Memesalno" msprop:Generator_ColumnPropNameInTable="MemesalnoColumn" msprop:Generator_UserColumnName="Memesalno" type="xs:int" minOccurs="0" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubCommitte" msprop:Generator_ColumnVarNameInTable="columnSubCommitte" msprop:Generator_ColumnPropNameInRow="SubCommitte" msprop:Generator_ColumnPropNameInTable="SubCommitteColumn" msprop:Generator_UserColumnName="SubCommitte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RealName" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Rep07" msprop:Generator_TableClassName="Rep07DataTable" msprop:Generator_TableVarName="tableRep07" msprop:Generator_RowChangedName="Rep07RowChanged" msprop:Generator_TablePropName="Rep07" msprop:Generator_RowDeletingName="Rep07RowDeleting" msprop:Generator_RowChangingName="Rep07RowChanging" msprop:Generator_RowEvHandlerName="Rep07RowChangeEventHandler" msprop:Generator_RowDeletedName="Rep07RowDeleted" msprop:Generator_RowClassName="Rep07Row" msprop:Generator_UserTableName="Rep07" msprop:Generator_RowEvArgName="Rep07RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hafzaid" msprop:Generator_ColumnVarNameInTable="columnhafzaid" msprop:Generator_ColumnPropNameInRow="hafzaid" msprop:Generator_ColumnPropNameInTable="hafzaidColumn" msprop:Generator_UserColumnName="hafzaid" type="xs:double" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubCommitte" msprop:Generator_ColumnVarNameInTable="columnSubCommitte" msprop:Generator_ColumnPropNameInRow="SubCommitte" msprop:Generator_ColumnPropNameInTable="SubCommitteColumn" msprop:Generator_UserColumnName="SubCommitte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="esalprint" msprop:Generator_ColumnVarNameInTable="columnesalprint" msprop:Generator_ColumnPropNameInRow="esalprint" msprop:Generator_ColumnPropNameInTable="esalprintColumn" msprop:Generator_UserColumnName="esalprint" type="xs:int" minOccurs="0" />
+              <xs:element name="estefaa" msprop:Generator_ColumnVarNameInTable="columnestefaa" msprop:Generator_ColumnPropNameInRow="estefaa" msprop:Generator_ColumnPropNameInTable="estefaaColumn" msprop:Generator_UserColumnName="estefaa" type="xs:boolean" minOccurs="0" />
+              <xs:element name="estefareson" msprop:Generator_ColumnVarNameInTable="columnestefareson" msprop:Generator_ColumnPropNameInRow="estefareson" msprop:Generator_ColumnPropNameInTable="estefaresonColumn" msprop:Generator_UserColumnName="estefareson" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hafzadate" msprop:Generator_ColumnVarNameInTable="columnhafzadate" msprop:Generator_ColumnPropNameInRow="hafzadate" msprop:Generator_ColumnPropNameInTable="hafzadateColumn" msprop:Generator_UserColumnName="hafzadate" type="xs:dateTime" />
+              <xs:element name="rekeed" msprop:Generator_ColumnVarNameInTable="columnrekeed" msprop:Generator_ColumnPropNameInRow="rekeed" msprop:Generator_ColumnPropNameInTable="rekeedColumn" msprop:Generator_UserColumnName="rekeed" type="xs:boolean" minOccurs="0" />
+              <xs:element name="closed" msprop:Generator_ColumnVarNameInTable="columnclosed" msprop:Generator_ColumnPropNameInRow="closed" msprop:Generator_ColumnPropNameInTable="closedColumn" msprop:Generator_UserColumnName="closed" type="xs:boolean" minOccurs="0" />
+              <xs:element name="printdate" msprop:Generator_ColumnVarNameInTable="columnprintdate" msprop:Generator_ColumnPropNameInRow="printdate" msprop:Generator_ColumnPropNameInTable="printdateColumn" msprop:Generator_UserColumnName="printdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SubCommitteId" msprop:Generator_ColumnVarNameInTable="columnSubCommitteId" msprop:Generator_ColumnPropNameInRow="SubCommitteId" msprop:Generator_ColumnPropNameInTable="SubCommitteIdColumn" msprop:Generator_UserColumnName="SubCommitteId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HafzawebList" msprop:Generator_TableClassName="HafzawebListDataTable" msprop:Generator_TableVarName="tableHafzawebList" msprop:Generator_TablePropName="HafzawebList" msprop:Generator_RowDeletingName="HafzawebListRowDeleting" msprop:Generator_RowChangingName="HafzawebListRowChanging" msprop:Generator_RowEvHandlerName="HafzawebListRowChangeEventHandler" msprop:Generator_RowDeletedName="HafzawebListRowDeleted" msprop:Generator_UserTableName="HafzawebList" msprop:Generator_RowChangedName="HafzawebListRowChanged" msprop:Generator_RowEvArgName="HafzawebListRowChangeEvent" msprop:Generator_RowClassName="HafzawebListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hafzaid" msprop:Generator_ColumnVarNameInTable="columnhafzaid" msprop:Generator_ColumnPropNameInRow="hafzaid" msprop:Generator_ColumnPropNameInTable="hafzaidColumn" msprop:Generator_UserColumnName="hafzaid" type="xs:double" />
+              <xs:element name="SyndicateId" msprop:Generator_ColumnVarNameInTable="columnSyndicateId" msprop:Generator_ColumnPropNameInRow="SyndicateId" msprop:Generator_ColumnPropNameInTable="SyndicateIdColumn" msprop:Generator_UserColumnName="SyndicateId" type="xs:int" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AppOptions" msprop:Generator_TableClassName="AppOptionsDataTable" msprop:Generator_TableVarName="tableAppOptions" msprop:Generator_RowChangedName="AppOptionsRowChanged" msprop:Generator_TablePropName="AppOptions" msprop:Generator_RowDeletingName="AppOptionsRowDeleting" msprop:Generator_RowChangingName="AppOptionsRowChanging" msprop:Generator_RowEvHandlerName="AppOptionsRowChangeEventHandler" msprop:Generator_RowDeletedName="AppOptionsRowDeleted" msprop:Generator_RowClassName="AppOptionsRow" msprop:Generator_UserTableName="AppOptions" msprop:Generator_RowEvArgName="AppOptionsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompanyLogo" msprop:Generator_ColumnVarNameInTable="columnCompanyLogo" msprop:Generator_ColumnPropNameInRow="CompanyLogo" msprop:Generator_ColumnPropNameInTable="CompanyLogoColumn" msprop:Generator_UserColumnName="CompanyLogo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry20" msprop:Generator_TableClassName="Qry20DataTable" msprop:Generator_TableVarName="tableQry20" msprop:Generator_RowChangedName="Qry20RowChanged" msprop:Generator_TablePropName="Qry20" msprop:Generator_RowDeletingName="Qry20RowDeleting" msprop:Generator_RowChangingName="Qry20RowChanging" msprop:Generator_RowEvHandlerName="Qry20RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry20RowDeleted" msprop:Generator_RowClassName="Qry20Row" msprop:Generator_UserTableName="Qry20" msprop:Generator_RowEvArgName="Qry20RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="AttachId" msprop:Generator_ColumnVarNameInTable="columnAttachId" msprop:Generator_ColumnPropNameInRow="AttachId" msprop:Generator_ColumnPropNameInTable="AttachIdColumn" msprop:Generator_UserColumnName="AttachId" type="xs:long" />
+              <xs:element name="AttachName" msprop:Generator_ColumnVarNameInTable="columnAttachName" msprop:Generator_ColumnPropNameInRow="AttachName" msprop:Generator_ColumnPropNameInTable="AttachNameColumn" msprop:Generator_UserColumnName="AttachName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AttachmentTypeId" msprop:Generator_ColumnVarNameInTable="columnAttachmentTypeId" msprop:Generator_ColumnPropNameInRow="AttachmentTypeId" msprop:Generator_ColumnPropNameInTable="AttachmentTypeIdColumn" msprop:Generator_UserColumnName="AttachmentTypeId" type="xs:int" minOccurs="0" />
+              <xs:element name="AttachInfo" msprop:Generator_ColumnVarNameInTable="columnAttachInfo" msprop:Generator_ColumnPropNameInRow="AttachInfo" msprop:Generator_ColumnPropNameInTable="AttachInfoColumn" msprop:Generator_UserColumnName="AttachInfo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AttachmentName" msprop:Generator_ColumnVarNameInTable="columnAttachmentName" msprop:Generator_ColumnPropNameInRow="AttachmentName" msprop:Generator_ColumnPropNameInTable="AttachmentNameColumn" msprop:Generator_UserColumnName="AttachmentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry21" msprop:Generator_TableClassName="Qry21DataTable" msprop:Generator_TableVarName="tableQry21" msprop:Generator_TablePropName="Qry21" msprop:Generator_RowDeletingName="Qry21RowDeleting" msprop:Generator_RowChangingName="Qry21RowChanging" msprop:Generator_RowEvHandlerName="Qry21RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry21RowDeleted" msprop:Generator_UserTableName="Qry21" msprop:Generator_RowChangedName="Qry21RowChanged" msprop:Generator_RowEvArgName="Qry21RowChangeEvent" msprop:Generator_RowClassName="Qry21Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hafzaid" msprop:Generator_ColumnVarNameInTable="columnhafzaid" msprop:Generator_ColumnPropNameInRow="hafzaid" msprop:Generator_ColumnPropNameInTable="hafzaidColumn" msprop:Generator_UserColumnName="hafzaid" type="xs:double" />
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="imagepath" msprop:Generator_ColumnVarNameInTable="columnimagepath" msprop:Generator_ColumnPropNameInRow="imagepath" msprop:Generator_ColumnPropNameInTable="imagepathColumn" msprop:Generator_UserColumnName="imagepath" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="closed" msprop:Generator_ColumnVarNameInTable="columnclosed" msprop:Generator_ColumnPropNameInRow="closed" msprop:Generator_ColumnPropNameInTable="closedColumn" msprop:Generator_UserColumnName="closed" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Rep08" msprop:Generator_TableClassName="Rep08DataTable" msprop:Generator_TableVarName="tableRep08" msprop:Generator_TablePropName="Rep08" msprop:Generator_RowDeletingName="Rep08RowDeleting" msprop:Generator_RowChangingName="Rep08RowChanging" msprop:Generator_RowEvHandlerName="Rep08RowChangeEventHandler" msprop:Generator_RowDeletedName="Rep08RowDeleted" msprop:Generator_UserTableName="Rep08" msprop:Generator_RowChangedName="Rep08RowChanged" msprop:Generator_RowEvArgName="Rep08RowChangeEvent" msprop:Generator_RowClassName="Rep08Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fawry" msprop:Generator_ColumnVarNameInTable="columnfawry" msprop:Generator_ColumnPropNameInRow="fawry" msprop:Generator_ColumnPropNameInTable="fawryColumn" msprop:Generator_UserColumnName="fawry" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Installment" msprop:Generator_ColumnVarNameInTable="columnInstallment" msprop:Generator_ColumnPropNameInRow="Installment" msprop:Generator_ColumnPropNameInTable="InstallmentColumn" msprop:Generator_UserColumnName="Installment" type="xs:boolean" minOccurs="0" />
+              <xs:element name="dateend" msprop:Generator_ColumnVarNameInTable="columndateend" msprop:Generator_ColumnPropNameInRow="dateend" msprop:Generator_ColumnPropNameInTable="dateendColumn" msprop:Generator_UserColumnName="dateend" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cardtype" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncardtype" msprop:Generator_ColumnPropNameInRow="cardtype" msprop:Generator_ColumnPropNameInTable="cardtypeColumn" msprop:Generator_UserColumnName="cardtype" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="cardtypebool" msdata:ReadOnly="true" msdata:Expression="Iif([cardtype] = 2,  1, 0)" msprop:Generator_ColumnVarNameInTable="columncardtypebool" msprop:Generator_ColumnPropNameInRow="cardtypebool" msprop:Generator_ColumnPropNameInTable="cardtypeboolColumn" msprop:Generator_UserColumnName="cardtypebool" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReceiptsList" msprop:Generator_TableClassName="ReceiptsListDataTable" msprop:Generator_TableVarName="tableReceiptsList" msprop:Generator_RowChangedName="ReceiptsListRowChanged" msprop:Generator_TablePropName="ReceiptsList" msprop:Generator_RowDeletingName="ReceiptsListRowDeleting" msprop:Generator_RowChangingName="ReceiptsListRowChanging" msprop:Generator_RowEvHandlerName="ReceiptsListRowChangeEventHandler" msprop:Generator_RowDeletedName="ReceiptsListRowDeleted" msprop:Generator_RowClassName="ReceiptsListRow" msprop:Generator_UserTableName="ReceiptsList" msprop:Generator_RowEvArgName="ReceiptsListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ReceiptNo" msprop:Generator_ColumnVarNameInTable="columnReceiptNo" msprop:Generator_ColumnPropNameInRow="ReceiptNo" msprop:Generator_ColumnPropNameInTable="ReceiptNoColumn" msprop:Generator_UserColumnName="ReceiptNo" type="xs:int" />
+              <xs:element name="CardsCount" msprop:Generator_ColumnVarNameInTable="columnCardsCount" msprop:Generator_ColumnPropNameInRow="CardsCount" msprop:Generator_ColumnPropNameInTable="CardsCountColumn" msprop:Generator_UserColumnName="CardsCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry08" msprop:Generator_TableClassName="Qry08DataTable" msprop:Generator_TableVarName="tableQry08" msprop:Generator_TablePropName="Qry08" msprop:Generator_RowDeletingName="Qry08RowDeleting" msprop:Generator_RowChangingName="Qry08RowChanging" msprop:Generator_RowEvHandlerName="Qry08RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry08RowDeleted" msprop:Generator_UserTableName="Qry08" msprop:Generator_RowChangedName="Qry08RowChanged" msprop:Generator_RowEvArgName="Qry08RowChangeEvent" msprop:Generator_RowClassName="Qry08Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberShipNumber" msprop:Generator_ColumnVarNameInTable="columnMemberShipNumber" msprop:Generator_ColumnPropNameInRow="MemberShipNumber" msprop:Generator_ColumnPropNameInTable="MemberShipNumberColumn" msprop:Generator_UserColumnName="MemberShipNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" />
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:int" minOccurs="0" />
+              <xs:element name="SubCommitte" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubCommitte" msprop:Generator_ColumnPropNameInRow="SubCommitte" msprop:Generator_ColumnPropNameInTable="SubCommitteColumn" msprop:Generator_UserColumnName="SubCommitte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RealName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry22" msprop:Generator_TableClassName="Qry22DataTable" msprop:Generator_TableVarName="tableQry22" msprop:Generator_RowChangedName="Qry22RowChanged" msprop:Generator_TablePropName="Qry22" msprop:Generator_RowDeletingName="Qry22RowDeleting" msprop:Generator_RowChangingName="Qry22RowChanging" msprop:Generator_RowEvHandlerName="Qry22RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry22RowDeleted" msprop:Generator_RowClassName="Qry22Row" msprop:Generator_UserTableName="Qry22" msprop:Generator_RowEvArgName="Qry22RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="userin" msprop:Generator_ColumnVarNameInTable="columnuserin" msprop:Generator_ColumnPropNameInRow="userin" msprop:Generator_ColumnPropNameInTable="userinColumn" msprop:Generator_UserColumnName="userin" type="xs:int" />
+              <xs:element name="workdate" msprop:Generator_ColumnVarNameInTable="columnworkdate" msprop:Generator_ColumnPropNameInRow="workdate" msprop:Generator_ColumnPropNameInTable="workdateColumn" msprop:Generator_UserColumnName="workdate" type="xs:dateTime" />
+              <xs:element name="WorkTypeId" msprop:Generator_ColumnVarNameInTable="columnWorkTypeId" msprop:Generator_ColumnPropNameInRow="WorkTypeId" msprop:Generator_ColumnPropNameInTable="WorkTypeIdColumn" msprop:Generator_UserColumnName="WorkTypeId" type="xs:unsignedByte" />
+              <xs:element name="wid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnwid" msprop:Generator_ColumnPropNameInRow="wid" msprop:Generator_ColumnPropNameInTable="widColumn" msprop:Generator_UserColumnName="wid" type="xs:int" />
+              <xs:element name="timestart" msprop:Generator_ColumnVarNameInTable="columntimestart" msprop:Generator_ColumnPropNameInRow="timestart" msprop:Generator_ColumnPropNameInTable="timestartColumn" msprop:Generator_UserColumnName="timestart" type="xs:duration" />
+              <xs:element name="timeend" msprop:Generator_ColumnVarNameInTable="columntimeend" msprop:Generator_ColumnPropNameInRow="timeend" msprop:Generator_ColumnPropNameInTable="timeendColumn" msprop:Generator_UserColumnName="timeend" type="xs:duration" minOccurs="0" />
+              <xs:element name="wno" msprop:Generator_ColumnVarNameInTable="columnwno" msprop:Generator_ColumnPropNameInRow="wno" msprop:Generator_ColumnPropNameInTable="wnoColumn" msprop:Generator_UserColumnName="wno" type="xs:int" />
+              <xs:element name="wrem" msprop:Generator_ColumnVarNameInTable="columnwrem" msprop:Generator_ColumnPropNameInRow="wrem" msprop:Generator_ColumnPropNameInTable="wremColumn" msprop:Generator_UserColumnName="wrem" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyndicateId" msprop:Generator_ColumnVarNameInTable="columnSyndicateId" msprop:Generator_ColumnPropNameInRow="SyndicateId" msprop:Generator_ColumnPropNameInTable="SyndicateIdColumn" msprop:Generator_UserColumnName="SyndicateId" type="xs:int" />
+              <xs:element name="closed" msprop:Generator_ColumnVarNameInTable="columnclosed" msprop:Generator_ColumnPropNameInRow="closed" msprop:Generator_ColumnPropNameInTable="closedColumn" msprop:Generator_UserColumnName="closed" type="xs:boolean" />
+              <xs:element name="RealName" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType" msprop:Generator_ColumnVarNameInTable="columnWorkType" msprop:Generator_ColumnPropNameInRow="WorkType" msprop:Generator_ColumnPropNameInTable="WorkTypeColumn" msprop:Generator_UserColumnName="WorkType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry05" msprop:Generator_TableClassName="Qry05DataTable" msprop:Generator_TableVarName="tableQry05" msprop:Generator_RowChangedName="Qry05RowChanged" msprop:Generator_TablePropName="Qry05" msprop:Generator_RowDeletingName="Qry05RowDeleting" msprop:Generator_RowChangingName="Qry05RowChanging" msprop:Generator_RowEvHandlerName="Qry05RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry05RowDeleted" msprop:Generator_RowClassName="Qry05Row" msprop:Generator_UserTableName="Qry05" msprop:Generator_RowEvArgName="Qry05RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" />
+              <xs:element name="trheelprog" msprop:Generator_ColumnVarNameInTable="columntrheelprog" msprop:Generator_ColumnPropNameInRow="trheelprog" msprop:Generator_ColumnPropNameInTable="trheelprogColumn" msprop:Generator_UserColumnName="trheelprog" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SyndicateId" msprop:Generator_ColumnVarNameInTable="columnSyndicateId" msprop:Generator_ColumnPropNameInRow="SyndicateId" msprop:Generator_ColumnPropNameInTable="SyndicateIdColumn" msprop:Generator_UserColumnName="SyndicateId" type="xs:int" />
+              <xs:element name="SubCommitteId" msprop:Generator_ColumnVarNameInTable="columnSubCommitteId" msprop:Generator_ColumnPropNameInRow="SubCommitteId" msprop:Generator_ColumnPropNameInTable="SubCommitteIdColumn" msprop:Generator_UserColumnName="SubCommitteId" type="xs:int" minOccurs="0" />
+              <xs:element name="MemberShipNumber" msprop:Generator_ColumnVarNameInTable="columnMemberShipNumber" msprop:Generator_ColumnPropNameInRow="MemberShipNumber" msprop:Generator_ColumnPropNameInTable="MemberShipNumberColumn" msprop:Generator_UserColumnName="MemberShipNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="RandomCard" msprop:Generator_ColumnVarNameInTable="columnRandomCard" msprop:Generator_ColumnPropNameInRow="RandomCard" msprop:Generator_ColumnPropNameInTable="RandomCardColumn" msprop:Generator_UserColumnName="RandomCard" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubCommitte" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubCommitte" msprop:Generator_ColumnPropNameInRow="SubCommitte" msprop:Generator_ColumnPropNameInTable="SubCommitteColumn" msprop:Generator_UserColumnName="SubCommitte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datein" msprop:Generator_ColumnVarNameInTable="columndatein" msprop:Generator_ColumnPropNameInRow="datein" msprop:Generator_ColumnPropNameInTable="dateinColumn" msprop:Generator_UserColumnName="datein" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RealName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:int" minOccurs="0" />
+              <xs:element name="Img" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnImg" msprop:Generator_ColumnPropNameInRow="Img" msprop:Generator_ColumnPropNameInTable="ImgColumn" msprop:Generator_UserColumnName="Img" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="RealNamePrint" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealNamePrint" msprop:Generator_ColumnPropNameInRow="RealNamePrint" msprop:Generator_ColumnPropNameInTable="RealNamePrintColumn" msprop:Generator_UserColumnName="RealNamePrint" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fawry" msprop:Generator_ColumnVarNameInTable="columnfawry" msprop:Generator_ColumnPropNameInRow="fawry" msprop:Generator_ColumnPropNameInTable="fawryColumn" msprop:Generator_UserColumnName="fawry" type="xs:boolean" minOccurs="0" />
+              <xs:element name="printed" msprop:Generator_ColumnVarNameInTable="columnprinted" msprop:Generator_ColumnPropNameInRow="printed" msprop:Generator_ColumnPropNameInTable="printedColumn" msprop:Generator_UserColumnName="printed" type="xs:boolean" minOccurs="0" />
+              <xs:element name="printdate" msprop:Generator_ColumnVarNameInTable="columnprintdate" msprop:Generator_ColumnPropNameInRow="printdate" msprop:Generator_ColumnPropNameInTable="printdateColumn" msprop:Generator_UserColumnName="printdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="mEdited" msprop:Generator_ColumnVarNameInTable="columnmEdited" msprop:Generator_ColumnPropNameInRow="mEdited" msprop:Generator_ColumnPropNameInTable="mEditedColumn" msprop:Generator_UserColumnName="mEdited" type="xs:boolean" minOccurs="0" />
+              <xs:element name="userEdit" msprop:Generator_ColumnVarNameInTable="columnuserEdit" msprop:Generator_ColumnPropNameInRow="userEdit" msprop:Generator_ColumnPropNameInTable="userEditColumn" msprop:Generator_UserColumnName="userEdit" type="xs:int" minOccurs="0" />
+              <xs:element name="EditUserName" msprop:Generator_ColumnVarNameInTable="columnEditUserName" msprop:Generator_ColumnPropNameInRow="EditUserName" msprop:Generator_ColumnPropNameInTable="EditUserNameColumn" msprop:Generator_UserColumnName="EditUserName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry23" msprop:Generator_TableClassName="Qry23DataTable" msprop:Generator_TableVarName="tableQry23" msprop:Generator_TablePropName="Qry23" msprop:Generator_RowDeletingName="Qry23RowDeleting" msprop:Generator_RowChangingName="Qry23RowChanging" msprop:Generator_RowEvHandlerName="Qry23RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry23RowDeleted" msprop:Generator_UserTableName="Qry23" msprop:Generator_RowChangedName="Qry23RowChanged" msprop:Generator_RowEvArgName="Qry23RowChangeEvent" msprop:Generator_RowClassName="Qry23Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="C" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnC" msprop:Generator_ColumnPropNameInRow="C" msprop:Generator_ColumnPropNameInTable="CColumn" msprop:Generator_UserColumnName="C" type="xs:int" minOccurs="0" />
+              <xs:element name="Y" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnY" msprop:Generator_ColumnPropNameInRow="Y" msprop:Generator_ColumnPropNameInTable="YColumn" msprop:Generator_UserColumnName="Y" type="xs:int" minOccurs="0" />
+              <xs:element name="M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry24" msprop:Generator_TableClassName="Qry24DataTable" msprop:Generator_TableVarName="tableQry24" msprop:Generator_TablePropName="Qry24" msprop:Generator_RowDeletingName="Qry24RowDeleting" msprop:Generator_RowChangingName="Qry24RowChanging" msprop:Generator_RowEvHandlerName="Qry24RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry24RowDeleted" msprop:Generator_UserTableName="Qry24" msprop:Generator_RowChangedName="Qry24RowChanged" msprop:Generator_RowEvArgName="Qry24RowChangeEvent" msprop:Generator_RowClassName="Qry24Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="C" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnC" msprop:Generator_ColumnPropNameInRow="C" msprop:Generator_ColumnPropNameInTable="CColumn" msprop:Generator_UserColumnName="C" type="xs:int" minOccurs="0" />
+              <xs:element name="YM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnYM" msprop:Generator_ColumnPropNameInRow="YM" msprop:Generator_ColumnPropNameInTable="YMColumn" msprop:Generator_UserColumnName="YM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Y" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnY" msprop:Generator_ColumnPropNameInRow="Y" msprop:Generator_ColumnPropNameInTable="YColumn" msprop:Generator_UserColumnName="Y" type="xs:int" minOccurs="0" />
+              <xs:element name="M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry25" msprop:Generator_TableClassName="Qry25DataTable" msprop:Generator_TableVarName="tableQry25" msprop:Generator_RowChangedName="Qry25RowChanged" msprop:Generator_TablePropName="Qry25" msprop:Generator_RowDeletingName="Qry25RowDeleting" msprop:Generator_RowChangingName="Qry25RowChanging" msprop:Generator_RowEvHandlerName="Qry25RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry25RowDeleted" msprop:Generator_RowClassName="Qry25Row" msprop:Generator_UserTableName="Qry25" msprop:Generator_RowEvArgName="Qry25RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SyndicateId" msprop:Generator_ColumnVarNameInTable="columnSyndicateId" msprop:Generator_ColumnPropNameInRow="SyndicateId" msprop:Generator_ColumnPropNameInTable="SyndicateIdColumn" msprop:Generator_UserColumnName="SyndicateId" type="xs:int" />
+              <xs:element name="Syndicate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ServerDateTime" msprop:Generator_TableClassName="ServerDateTimeDataTable" msprop:Generator_TableVarName="tableServerDateTime" msprop:Generator_RowChangedName="ServerDateTimeRowChanged" msprop:Generator_TablePropName="ServerDateTime" msprop:Generator_RowDeletingName="ServerDateTimeRowDeleting" msprop:Generator_RowChangingName="ServerDateTimeRowChanging" msprop:Generator_RowEvHandlerName="ServerDateTimeRowChangeEventHandler" msprop:Generator_RowDeletedName="ServerDateTimeRowDeleted" msprop:Generator_RowClassName="ServerDateTimeRow" msprop:Generator_UserTableName="ServerDateTime" msprop:Generator_RowEvArgName="ServerDateTimeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVAL" msprop:Generator_ColumnPropNameInRow="VAL" msprop:Generator_ColumnPropNameInTable="VALColumn" msprop:Generator_UserColumnName="VAL" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry26" msprop:Generator_TableClassName="Qry26DataTable" msprop:Generator_TableVarName="tableQry26" msprop:Generator_RowChangedName="Qry26RowChanged" msprop:Generator_TablePropName="Qry26" msprop:Generator_RowDeletingName="Qry26RowDeleting" msprop:Generator_RowChangingName="Qry26RowChanging" msprop:Generator_RowEvHandlerName="Qry26RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry26RowDeleted" msprop:Generator_RowClassName="Qry26Row" msprop:Generator_UserTableName="Qry26" msprop:Generator_RowEvArgName="Qry26RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ReceiptNo" msprop:Generator_ColumnVarNameInTable="columnReceiptNo" msprop:Generator_ColumnPropNameInRow="ReceiptNo" msprop:Generator_ColumnPropNameInTable="ReceiptNoColumn" msprop:Generator_UserColumnName="ReceiptNo" type="xs:int" />
+              <xs:element name="ReceiptDate" msprop:Generator_ColumnVarNameInTable="columnReceiptDate" msprop:Generator_ColumnPropNameInRow="ReceiptDate" msprop:Generator_ColumnPropNameInTable="ReceiptDateColumn" msprop:Generator_UserColumnName="ReceiptDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CardsCount" msprop:Generator_ColumnVarNameInTable="columnCardsCount" msprop:Generator_ColumnPropNameInRow="CardsCount" msprop:Generator_ColumnPropNameInTable="CardsCountColumn" msprop:Generator_UserColumnName="CardsCount" type="xs:int" minOccurs="0" />
+              <xs:element name="Counter" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCounter" msprop:Generator_ColumnPropNameInRow="Counter" msprop:Generator_ColumnPropNameInTable="CounterColumn" msprop:Generator_UserColumnName="Counter" type="xs:int" minOccurs="0" />
+              <xs:element name="Cardtype" msprop:Generator_ColumnVarNameInTable="columnCardtype" msprop:Generator_ColumnPropNameInRow="Cardtype" msprop:Generator_ColumnPropNameInTable="CardtypeColumn" msprop:Generator_UserColumnName="Cardtype" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry27" msprop:Generator_TableClassName="Qry27DataTable" msprop:Generator_TableVarName="tableQry27" msprop:Generator_RowChangedName="Qry27RowChanged" msprop:Generator_TablePropName="Qry27" msprop:Generator_RowDeletingName="Qry27RowDeleting" msprop:Generator_RowChangingName="Qry27RowChanging" msprop:Generator_RowEvHandlerName="Qry27RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry27RowDeleted" msprop:Generator_RowClassName="Qry27Row" msprop:Generator_UserTableName="Qry27" msprop:Generator_RowEvArgName="Qry27RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RealName" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType" msprop:Generator_ColumnVarNameInTable="columnWorkType" msprop:Generator_ColumnPropNameInRow="WorkType" msprop:Generator_ColumnPropNameInTable="WorkTypeColumn" msprop:Generator_UserColumnName="WorkType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="workdate" msprop:Generator_ColumnVarNameInTable="columnworkdate" msprop:Generator_ColumnPropNameInRow="workdate" msprop:Generator_ColumnPropNameInTable="workdateColumn" msprop:Generator_UserColumnName="workdate" type="xs:dateTime" />
+              <xs:element name="Counter" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCounter" msprop:Generator_ColumnPropNameInRow="Counter" msprop:Generator_ColumnPropNameInTable="CounterColumn" msprop:Generator_UserColumnName="Counter" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry28" msprop:Generator_TableClassName="Qry28DataTable" msprop:Generator_TableVarName="tableQry28" msprop:Generator_RowChangedName="Qry28RowChanged" msprop:Generator_TablePropName="Qry28" msprop:Generator_RowDeletingName="Qry28RowDeleting" msprop:Generator_RowChangingName="Qry28RowChanging" msprop:Generator_RowEvHandlerName="Qry28RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry28RowDeleted" msprop:Generator_RowClassName="Qry28Row" msprop:Generator_UserTableName="Qry28" msprop:Generator_RowEvArgName="Qry28RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:int" minOccurs="0" />
+              <xs:element name="EnteredCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEnteredCount" msprop:Generator_ColumnPropNameInRow="EnteredCount" msprop:Generator_ColumnPropNameInTable="EnteredCountColumn" msprop:Generator_UserColumnName="EnteredCount" type="xs:int" minOccurs="0" />
+              <xs:element name="SourceCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSourceCount" msprop:Generator_ColumnPropNameInRow="SourceCount" msprop:Generator_ColumnPropNameInTable="SourceCountColumn" msprop:Generator_UserColumnName="SourceCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PathFix" msprop:Generator_TableClassName="PathFixDataTable" msprop:Generator_TableVarName="tablePathFix" msprop:Generator_RowChangedName="PathFixRowChanged" msprop:Generator_TablePropName="PathFix" msprop:Generator_RowDeletingName="PathFixRowDeleting" msprop:Generator_RowChangingName="PathFixRowChanging" msprop:Generator_RowEvHandlerName="PathFixRowChangeEventHandler" msprop:Generator_RowDeletedName="PathFixRowDeleted" msprop:Generator_RowClassName="PathFixRow" msprop:Generator_UserTableName="PathFix" msprop:Generator_RowEvArgName="PathFixRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" />
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:int" minOccurs="0" />
+              <xs:element name="img" msprop:Generator_ColumnVarNameInTable="columnimg" msprop:Generator_ColumnPropNameInRow="img" msprop:Generator_ColumnPropNameInTable="imgColumn" msprop:Generator_UserColumnName="img" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FixesalnoTBLMemberWeb" msprop:Generator_TableClassName="FixesalnoTBLMemberWebDataTable" msprop:Generator_TableVarName="tableFixesalnoTBLMemberWeb" msprop:Generator_TablePropName="FixesalnoTBLMemberWeb" msprop:Generator_RowDeletingName="FixesalnoTBLMemberWebRowDeleting" msprop:Generator_RowChangingName="FixesalnoTBLMemberWebRowChanging" msprop:Generator_RowEvHandlerName="FixesalnoTBLMemberWebRowChangeEventHandler" msprop:Generator_RowDeletedName="FixesalnoTBLMemberWebRowDeleted" msprop:Generator_UserTableName="FixesalnoTBLMemberWeb" msprop:Generator_RowChangedName="FixesalnoTBLMemberWebRowChanged" msprop:Generator_RowEvArgName="FixesalnoTBLMemberWebRowChangeEvent" msprop:Generator_RowClassName="FixesalnoTBLMemberWebRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:int" minOccurs="0" />
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FixesalnoTBLMembers" msprop:Generator_TableClassName="FixesalnoTBLMembersDataTable" msprop:Generator_TableVarName="tableFixesalnoTBLMembers" msprop:Generator_TablePropName="FixesalnoTBLMembers" msprop:Generator_RowDeletingName="FixesalnoTBLMembersRowDeleting" msprop:Generator_RowChangingName="FixesalnoTBLMembersRowChanging" msprop:Generator_RowEvHandlerName="FixesalnoTBLMembersRowChangeEventHandler" msprop:Generator_RowDeletedName="FixesalnoTBLMembersRowDeleted" msprop:Generator_UserTableName="FixesalnoTBLMembers" msprop:Generator_RowChangedName="FixesalnoTBLMembersRowChanged" msprop:Generator_RowEvArgName="FixesalnoTBLMembersRowChangeEvent" msprop:Generator_RowClassName="FixesalnoTBLMembersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" />
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" type="xs:int" minOccurs="0" />
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry32" msprop:Generator_TableClassName="Qry32DataTable" msprop:Generator_TableVarName="tableQry32" msprop:Generator_TablePropName="Qry32" msprop:Generator_RowDeletingName="Qry32RowDeleting" msprop:Generator_RowChangingName="Qry32RowChanging" msprop:Generator_RowEvHandlerName="Qry32RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry32RowDeleted" msprop:Generator_UserTableName="Qry32" msprop:Generator_RowChangedName="Qry32RowChanged" msprop:Generator_RowEvArgName="Qry32RowChangeEvent" msprop:Generator_RowClassName="Qry32Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" />
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" type="xs:int" />
+              <xs:element name="MemberMobil" msprop:Generator_ColumnVarNameInTable="columnMemberMobil" msprop:Generator_ColumnPropNameInRow="MemberMobil" msprop:Generator_ColumnPropNameInTable="MemberMobilColumn" msprop:Generator_UserColumnName="MemberMobil" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubCommitte" msprop:Generator_ColumnVarNameInTable="columnSubCommitte" msprop:Generator_ColumnPropNameInRow="SubCommitte" msprop:Generator_ColumnPropNameInTable="SubCommitteColumn" msprop:Generator_UserColumnName="SubCommitte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SPro_0001" msprop:Generator_TableClassName="SPro_0001DataTable" msprop:Generator_TableVarName="tableSPro_0001" msprop:Generator_RowChangedName="SPro_0001RowChanged" msprop:Generator_TablePropName="SPro_0001" msprop:Generator_RowDeletingName="SPro_0001RowDeleting" msprop:Generator_RowChangingName="SPro_0001RowChanging" msprop:Generator_RowEvHandlerName="SPro_0001RowChangeEventHandler" msprop:Generator_RowDeletedName="SPro_0001RowDeleted" msprop:Generator_RowClassName="SPro_0001Row" msprop:Generator_UserTableName="SPro_0001" msprop:Generator_RowEvArgName="SPro_0001RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberId" msprop:Generator_ColumnVarNameInTable="columnMemberId" msprop:Generator_ColumnPropNameInRow="MemberId" msprop:Generator_ColumnPropNameInTable="MemberIdColumn" msprop:Generator_UserColumnName="MemberId" type="xs:int" minOccurs="0" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KideNumber" msprop:Generator_ColumnVarNameInTable="columnKideNumber" msprop:Generator_ColumnPropNameInRow="KideNumber" msprop:Generator_ColumnPropNameInTable="KideNumberColumn" msprop:Generator_UserColumnName="KideNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberShipNumber" msprop:Generator_ColumnVarNameInTable="columnMemberShipNumber" msprop:Generator_ColumnPropNameInRow="MemberShipNumber" msprop:Generator_ColumnPropNameInTable="MemberShipNumberColumn" msprop:Generator_UserColumnName="MemberShipNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="esalno" msprop:Generator_ColumnVarNameInTable="columnesalno" msprop:Generator_ColumnPropNameInRow="esalno" msprop:Generator_ColumnPropNameInTable="esalnoColumn" msprop:Generator_UserColumnName="esalno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HafzaId" msprop:Generator_ColumnVarNameInTable="columnHafzaId" msprop:Generator_ColumnPropNameInRow="HafzaId" msprop:Generator_ColumnPropNameInTable="HafzaIdColumn" msprop:Generator_UserColumnName="HafzaId" type="xs:int" minOccurs="0" />
+              <xs:element name="ISMandoop" msprop:Generator_ColumnVarNameInTable="columnISMandoop" msprop:Generator_ColumnPropNameInRow="ISMandoop" msprop:Generator_ColumnPropNameInTable="ISMandoopColumn" msprop:Generator_UserColumnName="ISMandoop" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Hafzaperson" msprop:Generator_ColumnVarNameInTable="columnHafzaperson" msprop:Generator_ColumnPropNameInRow="Hafzaperson" msprop:Generator_ColumnPropNameInTable="HafzapersonColumn" msprop:Generator_UserColumnName="Hafzaperson" type="xs:int" minOccurs="0" />
+              <xs:element name="HafzapersonText" msprop:Generator_ColumnVarNameInTable="columnHafzapersonText" msprop:Generator_ColumnPropNameInRow="HafzapersonText" msprop:Generator_ColumnPropNameInTable="HafzapersonTextColumn" msprop:Generator_UserColumnName="HafzapersonText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MandoopName" msprop:Generator_ColumnVarNameInTable="columnMandoopName" msprop:Generator_ColumnPropNameInRow="MandoopName" msprop:Generator_ColumnPropNameInTable="MandoopNameColumn" msprop:Generator_UserColumnName="MandoopName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Syndicate" msprop:Generator_ColumnVarNameInTable="columnSyndicate" msprop:Generator_ColumnPropNameInRow="Syndicate" msprop:Generator_ColumnPropNameInTable="SyndicateColumn" msprop:Generator_UserColumnName="Syndicate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sector" msprop:Generator_ColumnVarNameInTable="columnSector" msprop:Generator_ColumnPropNameInRow="Sector" msprop:Generator_ColumnPropNameInTable="SectorColumn" msprop:Generator_UserColumnName="Sector" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="SubCommitte" msprop:Generator_ColumnVarNameInTable="columnSubCommitte" msprop:Generator_ColumnPropNameInRow="SubCommitte" msprop:Generator_ColumnPropNameInTable="SubCommitteColumn" msprop:Generator_UserColumnName="SubCommitte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vQry33" msprop:Generator_TableClassName="vQry33DataTable" msprop:Generator_TableVarName="tablevQry33" msprop:Generator_TablePropName="vQry33" msprop:Generator_RowDeletingName="vQry33RowDeleting" msprop:Generator_RowChangingName="vQry33RowChanging" msprop:Generator_RowEvHandlerName="vQry33RowChangeEventHandler" msprop:Generator_RowDeletedName="vQry33RowDeleted" msprop:Generator_UserTableName="vQry33" msprop:Generator_RowChangedName="vQry33RowChanged" msprop:Generator_RowEvArgName="vQry33RowChangeEvent" msprop:Generator_RowClassName="vQry33Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ReceiptNo" msprop:Generator_ColumnVarNameInTable="columnReceiptNo" msprop:Generator_ColumnPropNameInRow="ReceiptNo" msprop:Generator_ColumnPropNameInTable="ReceiptNoColumn" msprop:Generator_UserColumnName="ReceiptNo" type="xs:int" />
+              <xs:element name="mazroofno" msprop:Generator_ColumnVarNameInTable="columnmazroofno" msprop:Generator_ColumnPropNameInRow="mazroofno" msprop:Generator_ColumnPropNameInTable="mazroofnoColumn" msprop:Generator_UserColumnName="mazroofno" type="xs:unsignedByte" />
+              <xs:element name="WorkTypeId" msprop:Generator_ColumnVarNameInTable="columnWorkTypeId" msprop:Generator_ColumnPropNameInRow="WorkTypeId" msprop:Generator_ColumnPropNameInTable="WorkTypeIdColumn" msprop:Generator_UserColumnName="WorkTypeId" type="xs:unsignedByte" />
+              <xs:element name="workcount" msprop:Generator_ColumnVarNameInTable="columnworkcount" msprop:Generator_ColumnPropNameInRow="workcount" msprop:Generator_ColumnPropNameInTable="workcountColumn" msprop:Generator_UserColumnName="workcount" type="xs:unsignedByte" />
+              <xs:element name="workrem" msprop:Generator_ColumnVarNameInTable="columnworkrem" msprop:Generator_ColumnPropNameInRow="workrem" msprop:Generator_ColumnPropNameInTable="workremColumn" msprop:Generator_UserColumnName="workrem" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="userwork" msprop:Generator_ColumnVarNameInTable="columnuserwork" msprop:Generator_ColumnPropNameInRow="userwork" msprop:Generator_ColumnPropNameInTable="userworkColumn" msprop:Generator_UserColumnName="userwork" type="xs:int" />
+              <xs:element name="datework" msprop:Generator_ColumnVarNameInTable="columndatework" msprop:Generator_ColumnPropNameInRow="datework" msprop:Generator_ColumnPropNameInTable="dateworkColumn" msprop:Generator_UserColumnName="datework" type="xs:dateTime" />
+              <xs:element name="WorkType" msprop:Generator_ColumnVarNameInTable="columnWorkType" msprop:Generator_ColumnPropNameInRow="WorkType" msprop:Generator_ColumnPropNameInTable="WorkTypeColumn" msprop:Generator_UserColumnName="WorkType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReceiptDate" msprop:Generator_ColumnVarNameInTable="columnReceiptDate" msprop:Generator_ColumnPropNameInRow="ReceiptDate" msprop:Generator_ColumnPropNameInTable="ReceiptDateColumn" msprop:Generator_UserColumnName="ReceiptDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RealName" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry19" />
+      <xs:field xpath="mstns:MemberId" />
+      <xs:field xpath="mstns:esalno" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:Qry20" />
+      <xs:field xpath="mstns:AttachId" />
+    </xs:unique>
+    <xs:unique name="Qry21_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry21" />
+      <xs:field xpath="mstns:hafzaid" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="ReceiptsList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ReceiptsList" />
+      <xs:field xpath="mstns:ReceiptNo" />
+    </xs:unique>
+    <xs:unique name="Qry08_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry08" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="Qry22_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry22" />
+      <xs:field xpath="mstns:wid" />
+    </xs:unique>
+    <xs:unique name="Qry05_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry05" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="Qry26_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry26" />
+      <xs:field xpath="mstns:ReceiptNo" />
+    </xs:unique>
+    <xs:unique name="PathFix_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PathFix" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="FixesalnoTBLMemberWeb_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FixesalnoTBLMemberWeb" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="FixesalnoTBLMembers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FixesalnoTBLMembers" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="Qry32_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry32" />
+      <xs:field xpath="mstns:MemberId" />
+    </xs:unique>
+    <xs:unique name="vQry33_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vQry33" />
+      <xs:field xpath="mstns:ReceiptNo" />
+      <xs:field xpath="mstns:mazroofno" />
+      <xs:field xpath="mstns:WorkTypeId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

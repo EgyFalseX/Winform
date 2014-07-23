@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "StoreAccountReport", "StoreAccountReport\StoreAccountReport.rptproj", "{BA942563-B595-4A2A-90C0-42ADD60DA3E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.Debug|Default.ActiveCfg = Debug
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.Debug|Default.Build.0 = DebugLocal
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.Debug|Default.Deploy.0 = DebugLocal
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.DebugLocal|Default.Build.0 = DebugLocal
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.Release|Default.ActiveCfg = Release
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.Release|Default.Build.0 = Release
+		{BA942563-B595-4A2A-90C0-42ADD60DA3E1}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

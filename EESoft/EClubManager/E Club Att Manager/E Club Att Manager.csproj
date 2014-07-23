@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A0CE649-8D94-47C5-8F01-B16FAF78E4CD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_Club_Att_Manager</RootNamespace>
+    <AssemblyName>E Club Att Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\ECAM\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\ECAM\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>E_Club_Att_Manager.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>File-Schedule+.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main\AttUserMainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\AttUserMainFrm.Designer.cs">
+      <DependentUpon>AttUserMainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\EditorShiftFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\EditorShiftFrm.Designer.cs">
+      <DependentUpon>EditorShiftFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\EditorHarakaTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\EditorHarakaTypeFrm.Designer.cs">
+      <DependentUpon>EditorHarakaTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QryEmpInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryEmpInfoFrm.Designer.cs">
+      <DependentUpon>QryEmpInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataEmpAttTimeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\DataEmpAttTimeFrm.Designer.cs">
+      <DependentUpon>DataEmpAttTimeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DemoManagerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DemoManagerFrm.Designer.cs">
+      <DependentUpon>DemoManagerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MCls.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\QryEmpAttFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryEmpAttFrm.designer.cs">
+      <DependentUpon>QryEmpAttFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Main\AttUserMainFrm.resx">
+      <DependentUpon>AttUserMainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\EditorShiftFrm.resx">
+      <DependentUpon>EditorShiftFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\EditorHarakaTypeFrm.resx">
+      <DependentUpon>EditorHarakaTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QryEmpInfoFrm.resx">
+      <DependentUpon>QryEmpInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataEmpAttTimeFrm.resx">
+      <DependentUpon>DataEmpAttTimeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DemoManagerFrm.resx">
+      <DependentUpon>DemoManagerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Queries\QryEmpAttFrm.resx">
+      <DependentUpon>QryEmpAttFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="File-Schedule+.ico" />
+    <None Include="Resources\ECAM_BG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

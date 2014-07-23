@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Emp Manager", "E Club Emp Manager\E Club Emp Manager.csproj", "{5E08AF89-11F3-4214-81B2-7B8770FD01ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Mem Manager", "E Club Mem Manager\E Club Mem Manager.csproj", "{3B96FA16-BD32-437F-AFB8-D5ED2EF92A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Att Manager", "E Club Att Manager\E Club Att Manager.csproj", "{7A0CE649-8D94-47C5-8F01-B16FAF78E4CD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ECEM", "ECEM\ECEM.vdproj", "{131B4502-BEA2-4EA8-991E-99B8251A83EE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ECMM", "ECMM\ECMM.vdproj", "{DFD2FC95-A166-48BA-9874-8A9678009247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Acc Manager", "E Club Acc Manager\E Club Acc Manager.csproj", "{7DCCAD4E-9ADA-4588-AA91-A86F583F2996}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ECCM", "ECCM\ECCM.vdproj", "{64375153-F688-4667-81C9-B13D1A9FCEFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Store Manager", "E Club Store Manager\E Club Store Manager.csproj", "{BA6AE7B9-1C0F-40DA-8655-2EAAB50A6436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Loader", "E Club Loader\E Club Loader.csproj", "{02078DF8-B3F1-4210-A1ED-C609BBB595BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E Club Sub Manager", "E Club Sub Manager\E Club Sub Manager.csproj", "{D2402B48-FDA1-45DC-9B38-753CFA74E645}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ECAM", "ECAM\ECAM.vdproj", "{03C9296F-30C8-4784-AB0C-267D1CC2BEBC}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ECRM", "ECRM\ECRM.vdproj", "{890E0F97-D762-4B2D-901A-21E5C3CB93A7}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ECSM", "ECSM\ECSM.vdproj", "{938770A7-4628-4882-939E-4BD7D22F9793}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E08AF89-11F3-4214-81B2-7B8770FD01ED}.Debug|x86.ActiveCfg = Debug|x86
+		{5E08AF89-11F3-4214-81B2-7B8770FD01ED}.Debug|x86.Build.0 = Debug|x86
+		{5E08AF89-11F3-4214-81B2-7B8770FD01ED}.Release|x86.ActiveCfg = Release|x86
+		{5E08AF89-11F3-4214-81B2-7B8770FD01ED}.Release|x86.Build.0 = Release|x86
+		{3B96FA16-BD32-437F-AFB8-D5ED2EF92A0F}.Debug|x86.ActiveCfg = Debug|x86
+		{3B96FA16-BD32-437F-AFB8-D5ED2EF92A0F}.Debug|x86.Build.0 = Debug|x86
+		{3B96FA16-BD32-437F-AFB8-D5ED2EF92A0F}.Release|x86.ActiveCfg = Release|x86
+		{3B96FA16-BD32-437F-AFB8-D5ED2EF92A0F}.Release|x86.Build.0 = Release|x86
+		{7A0CE649-8D94-47C5-8F01-B16FAF78E4CD}.Debug|x86.ActiveCfg = Debug|x86
+		{7A0CE649-8D94-47C5-8F01-B16FAF78E4CD}.Debug|x86.Build.0 = Debug|x86
+		{7A0CE649-8D94-47C5-8F01-B16FAF78E4CD}.Release|x86.ActiveCfg = Release|x86
+		{7A0CE649-8D94-47C5-8F01-B16FAF78E4CD}.Release|x86.Build.0 = Release|x86
+		{131B4502-BEA2-4EA8-991E-99B8251A83EE}.Debug|x86.ActiveCfg = Debug
+		{131B4502-BEA2-4EA8-991E-99B8251A83EE}.Release|x86.ActiveCfg = Release
+		{DFD2FC95-A166-48BA-9874-8A9678009247}.Debug|x86.ActiveCfg = Debug
+		{DFD2FC95-A166-48BA-9874-8A9678009247}.Release|x86.ActiveCfg = Release
+		{7DCCAD4E-9ADA-4588-AA91-A86F583F2996}.Debug|x86.ActiveCfg = Debug|x86
+		{7DCCAD4E-9ADA-4588-AA91-A86F583F2996}.Debug|x86.Build.0 = Debug|x86
+		{7DCCAD4E-9ADA-4588-AA91-A86F583F2996}.Release|x86.ActiveCfg = Release|x86
+		{7DCCAD4E-9ADA-4588-AA91-A86F583F2996}.Release|x86.Build.0 = Release|x86
+		{64375153-F688-4667-81C9-B13D1A9FCEFF}.Debug|x86.ActiveCfg = Debug
+		{64375153-F688-4667-81C9-B13D1A9FCEFF}.Release|x86.ActiveCfg = Release
+		{BA6AE7B9-1C0F-40DA-8655-2EAAB50A6436}.Debug|x86.ActiveCfg = Debug|x86
+		{BA6AE7B9-1C0F-40DA-8655-2EAAB50A6436}.Debug|x86.Build.0 = Debug|x86
+		{BA6AE7B9-1C0F-40DA-8655-2EAAB50A6436}.Release|x86.ActiveCfg = Release|x86
+		{BA6AE7B9-1C0F-40DA-8655-2EAAB50A6436}.Release|x86.Build.0 = Release|x86
+		{02078DF8-B3F1-4210-A1ED-C609BBB595BA}.Debug|x86.ActiveCfg = Debug|x86
+		{02078DF8-B3F1-4210-A1ED-C609BBB595BA}.Debug|x86.Build.0 = Debug|x86
+		{02078DF8-B3F1-4210-A1ED-C609BBB595BA}.Release|x86.ActiveCfg = Release|x86
+		{02078DF8-B3F1-4210-A1ED-C609BBB595BA}.Release|x86.Build.0 = Release|x86
+		{D2402B48-FDA1-45DC-9B38-753CFA74E645}.Debug|x86.ActiveCfg = Debug|x86
+		{D2402B48-FDA1-45DC-9B38-753CFA74E645}.Debug|x86.Build.0 = Debug|x86
+		{D2402B48-FDA1-45DC-9B38-753CFA74E645}.Release|x86.ActiveCfg = Release|x86
+		{D2402B48-FDA1-45DC-9B38-753CFA74E645}.Release|x86.Build.0 = Release|x86
+		{03C9296F-30C8-4784-AB0C-267D1CC2BEBC}.Debug|x86.ActiveCfg = Debug
+		{03C9296F-30C8-4784-AB0C-267D1CC2BEBC}.Release|x86.ActiveCfg = Release
+		{890E0F97-D762-4B2D-901A-21E5C3CB93A7}.Debug|x86.ActiveCfg = Debug
+		{890E0F97-D762-4B2D-901A-21E5C3CB93A7}.Release|x86.ActiveCfg = Release
+		{938770A7-4628-4882-939E-4BD7D22F9793}.Debug|x86.ActiveCfg = Debug
+		{938770A7-4628-4882-939E-4BD7D22F9793}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿DataSources.dsRetirementCenter.TBLMashatRow Mainrow = dsRetirementCenter.TBLMashat[0];
+            DataSources.dsRetirementCenter.TBLNoSarfDetelsRow row = dsRetirementCenter.TBLNoSarfDetels.NewTBLNoSarfDetelsRow();
+            TBLNoSarfDetelsDlg dlg = new TBLNoSarfDetelsDlg(row);
+
+            //New Member
+            if (Mainrow.RowState == DataRowState.Added)
+            {
+                if (ceyasref.Checked)//wanna uncheck it
+                {
+                    if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        tblNoSarfDetelsTablebindingSource.EndEdit();
+                        row.yasref = !ceyasref.Checked;
+                        dsRetirementCenter.TBLNoSarfDetels.AddTBLNoSarfDetelsRow(row);
+                    }
+                }
+                else//wanna check it
+                    dsRetirementCenter.TBLNoSarfDetels.Clear();
+
+                ceyasref.Checked = !ceyasref.Checked;
+                return;
+            }
+
+            //Exist Member
+            if ((bool)Mainrow["yasref", DataRowVersion.Original] == ceyasref.Checked)
+            {
+                if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    tblNoSarfDetelsTablebindingSource.EndEdit();
+                    row.yasref = !ceyasref.Checked;
+                    dsRetirementCenter.TBLNoSarfDetels.AddTBLNoSarfDetelsRow(row);
+                }
+            }
+            else
+                dsRetirementCenter.TBLNoSarfDetels.Clear();
+            ceyasref.Checked = !ceyasref.Checked;
+________________________________________________________________________________________
+SELECT SubCommitteId, SubCommitte,
+(SELECT Isnull(SUM(monymonth), 0) - (Isnull(SUM(rsmmonth), 0) + Isnull(SUM(estktaa), 0) + Isnull(SUM(eshtrakmonth), 0)) 
+FROM TBLMemberSarf WHERE sarf = 1 AND EXISTS(SELECT MMashatId FROM TBLMashat WHERE MMashatId = TBLMemberSarf.MMashatId AND SubCommitteId = CDSubCommitte.SubCommitteId)) AS MemberSarf
+FROM CDSubCommitte
+WHERE SyndicateId = 17

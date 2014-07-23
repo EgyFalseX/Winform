@@ -1,0 +1,18 @@
+1;EmpAll.rdl;ÓÌá ÔÆæä ÇáÚÇãáíä
+1;EmpAddress.rdl;ÓÌá ÇáÚäÇæíä
+1;EmpInsuranceNo.rdl;ÓÌá ÇáÇÑŞÇã ÇáÊÃãíäíå
+1;Empagazat.rdl;ÈíÇä ÛíÇÈ ÇáÚÇãáíä
+1;EmpNews.rdl;äÔÑå ááÚÇãáíä
+1;EmpDetail.rdl;ÈíÇä ÍÇáå
+1;EmpLate.rdl;ÈíÇä ÇáÊÃÎíÑÇÊ
+1;EmpEzn.rdl;ÈíÇä ÇáÇĞæäÇÊ
+1;EmpEyabDays.rdl;ÇÌãÇáí ÇíÇã ÇáÛíÇÈ
+1;EmpLateCount.rdl;ÇÌãÇáí ÇáÊÃÎíÑÇÊ ÇßÈÑ ãä æŞÊ ãÍÏÏ
+1;EmpEznCount.rdl;ÇÌãÇáí ÇáÇĞæäÇÊ
+1;EmpEznTimeCount.rdl;ÇÌãÇáí ÇáÇĞæäÇÊ ÇßÈÑ ãä æŞÊ ãÍÏÏ
+1;EmpTraining.rdl;ÓÌá ÇáÈÑÇãÌ ÇáÊÏÑíÈíå
+1;EmpTrace.rdl;ÊŞÑíÑ ãæÇÙÈÉ ãæÙİ
+1;EmpEndOfJob.rdl;ÓÌá ÇäåÇÁ ÇáÎÏãå
+1;EmpInsurance.rdl;ÓÌá ÇáÊÃãíä ÇáÕÍí
+2;EmpStatisticsJob.rdl;ÇÍÕÇÁ ÇáÚÇãáíä
+2;EmpStatisticsSubject.rdl;ÇÍÕÇÁ ÇáãÇÏå - ÇáäæÚ

@@ -1,0 +1,7 @@
+1;TimeTblAhteaty.rdl;ÇáÛíÇÈ æ ÇáÇÍÊíÇØí
+1;TimeFaslTable.rdl;ÌÏæá ÇáİÕá
+1;TimeTeacherTable.rdl;ÌÏæá ÇáãÏÑÓ
+1;TimeDayTable.rdl;ÇáÇÔÑÇİ Çáíæãí
+1;TimePlanTable.rdl;ãŞÇÑäÉ ÇáÎØå
+1;TimeAllTable.rdl;ÇáÌÏæá ÇáßÇãá
+1;TimeTeacherPeriodCountTable.rdl;ÌÏæá ÊæÒíÚ ÇáÍÕÕ

@@ -1,0 +1,191 @@
+1- if the data center start from the files chcker it doesnt load the server options varablats so we need to load this var even if the program will sart from the data checker form
+2- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+__
+my.Application.CommandLineArgs.
+                    Command(
+___________________________________________
+Global.DataCenter.My.Computer.Network.DownloadFile
+___________________
+                Me.Opacity = 0.3
+                FrmMSG = New MSGBOXFrm("Data didnt checked yet")
+                FrmMSG.LBLMSG.Location = New Point(84, 20)
+                FrmMSG.BtnOk.BackColor = Color.Red
+                FrmMSG.BackgroundImage = Global.DataCenter.My.Resources.Resources._Error
+                FrmMSG.ShowDialog()
+                Me.Opacity = 1
+__________________________
+ Draw icon
+		 Dim i As New System.Drawing.Icon("C:\!\1.ico")
+         Me.Icon = i
+
+
+
+
+
+'PropertyObjectInfo
+
+ Enum ObjectType
+        Project
+        File
+        Folder
+    End Enum
+    Public Structure ObjectProperty
+        Dim ObjectName As String
+        Dim ObjectID As String
+        Dim ObjectPath As String
+        Dim ObjectDate As String
+        Dim ObjectUser As String
+        Dim ProjectName As String
+        Dim Disc As String
+        Dim ObjectType As ObjectType
+        Dim Exist As Boolean
+    End Structure
+    Public PropertyObjectInfo As New ObjectProperty
+    ________________
+    Me.FoldersFilesTabControl.Controls.Add(Me.FoldersTabPage)
+    Me.FoldersFilesTabControl.Controls.Add(Me.FilesTabPage)
+        ________________________
+        
+        
+        
+        
+          'Dim i As Integer = 0
+        'For i = 0 To FunLib.Files.Length - 1
+        '    Dim InternalPath As String
+        '    InternalPath = FunLib.Files(i).FilePath.Substring(ProjectsPath.Length)
+        '    Dim arr() As String
+        '    arr = InternalPath.Split("\")
+        '    Select Case arr.Length
+        '        Case 1
+        '            'Level 0
+        '            TVFoldersFiles.Nodes.Add(FunLib.Files(i).FileName).Name = FunLib.Files(i).FileID
+        '        Case 2
+        '            'Level 1
+        '            Dim IntCase2 As Integer = 0
+        '            For IntCase2 = 0 To TVFoldersFiles.Nodes.Count - 1
+        '                If TVFoldersFiles.Nodes(IntCase2).Name = FunLib.Files(i).FolderID Then
+        '                    TVFoldersFiles.Nodes(IntCase2).Nodes.Add(FunLib.Files(i).FileName).Name = FunLib.Files(i).FileID
+        '                    Exit Select
+        '                End If
+        '            Next
+        '        Case 3
+        '            'Level 2
+        '            Dim IntCase3 As Integer = 0
+        '            For IntCase3 = 0 To TVFoldersFiles.Nodes.Count - 1
+        '                If TVFoldersFiles.Nodes(IntCase3).Text = arr(0) Then
+        '                    Dim IntCase3_1 As Integer = 0
+        '                    For IntCase3_1 = 0 To TVFoldersFiles.Nodes(IntCase3).Nodes.Count - 1
+        '                        If TVFoldersFiles.Nodes(IntCase3).Nodes(IntCase3_1).Name = FunLib.Files(i).FolderID Then
+        '                            TVFoldersFiles.Nodes(IntCase3).Nodes(IntCase3_1).Nodes.Add(FunLib.Files(i).FileName).Name = FunLib.Files(i).FileID
+        '                            Exit Select
+        '                        End If
+        '                    Next
+        '                End If
+        '            Next
+        '        Case 4
+        '            'Level 3
+        '            Dim IntCase4 As Integer = 0
+        '            For IntCase4 = 0 To TVFoldersFiles.Nodes.Count - 1
+        '                If TVFoldersFiles.Nodes(IntCase4).Text = arr(0) Then
+        '                    Dim IntCase4_1 As Integer = 0
+        '                    For IntCase4_1 = 0 To TVFoldersFiles.Nodes(IntCase4).Nodes.Count - 1
+        '                        If TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Text = arr(1) Then
+        '                            Dim IntCase4_2 As Integer = 0
+        '                            For IntCase4_2 = 0 To TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes.Count - 1
+        '                                If TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes(IntCase4_2).Text = arr(2) Then
+        '                                    TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes(IntCase4_2).Nodes.Add(FunLib.Files(i).FileName).Name = FunLib.Files(i).FileID
+        '                                    Exit Select
+        '                                End If
+        '                            Next
+        '                        End If
+        '                    Next
+        '                End If
+        '            Next
+        '        Case 5
+        '            'Level 4
+        '            Dim IntCase4 As Integer = 0
+        '            For IntCase4 = 0 To TVFoldersFiles.Nodes.Count - 1
+        '                If TVFoldersFiles.Nodes(IntCase4).Text = arr(0) Then
+        '                    Dim IntCase4_1 As Integer = 0
+        '                    For IntCase4_1 = 0 To TVFoldersFiles.Nodes(IntCase4).Nodes.Count - 1
+        '                        If TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Text = arr(1) Then
+        '                            Dim IntCase4_2 As Integer = 0
+        '                            For IntCase4_2 = 0 To TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes.Count - 1
+        '                                If TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes(IntCase4_2).Text = arr(2) Then
+        '                                    Dim IntCase4_3 As Integer = 0
+        '                                    For IntCase4_3 = 0 To TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes(IntCase4_2).Nodes.Count - 1
+        '                                        If TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes(IntCase4_2).Nodes(IntCase4_3).Text = arr(3) Then
+        '                                            TVFoldersFiles.Nodes(IntCase4).Nodes(IntCase4_1).Nodes(IntCase4_2).Nodes(IntCase4_3).Nodes.Add(FunLib.Files(i).FileName).Name = FunLib.Files(i).FileID
+        '                                            Exit Select
+        '                                        End If
+        '                                    Next
+        '                                End If
+        '                            Next
+        '                        End If
+        '                    Next
+        '                End If
+        '            Next
+        '    End Select
+        'Next
+        ________________________
+  'Users Privileges
+  
+   Private Structure UsersFolders
+        Dim FolderID As String
+        Dim FolderName As String
+    End Structure
+    ________________________________
+    """"""""""""""""""""""""""""""""Delete ME
+    If AddOrRemove = True Then
+                Dim NewID As String
+                Dim i As Int16
+                SQLCmd.CommandText = "select FRID from dbo.Folder_Rull order by FRID desc"
+                SQLCon.Open()
+                NewID = Val(SQLCmd.ExecuteScalar)
+                For i = 0 To privilegesID.Length - 1
+                    NewID = NewID + 1
+                    Select Case NewID.Length
+                        Case 1
+                            NewID = "0000000" & NewID
+                        Case 2
+                            NewID = "000000" & NewID
+                        Case 3
+                            NewID = "00000" & NewID
+                        Case 4
+                            NewID = "0000" & NewID
+                        Case 5
+                            NewID = "000" & NewID
+                        Case 6
+                            NewID = "00" & NewID
+                        Case 7
+                            NewID = "0" & NewID
+                    End Select
+                    SQLCmd.CommandText = "insert into dbo.Folder_Rull (FRID,FolderID,RullID) values ('" & NewID & "','" & FolderID & "','" & privilegesID(i) & "')"
+                    SQLCmd.ExecuteNonQuery()
+                Next
+            Else
+                Dim i As Int16
+                SQLCon.Open()
+                For i = 0 To privilegesID.Length - 1
+                    SQLCmd.CommandText = "delete from dbo.Folder_Rull where FolderID='" & FolderID & "' and RullID='" & privilegesID(i) & "'"
+                    SQLCmd.ExecuteNonQuery()
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Information)
+        End Try
+        SQLDR.Close()
+        SQLCon.Close()

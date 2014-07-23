@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DataCenter - Client</name>
+    </assembly>
+    <members>
+        <member name="P:DataCenter_Client.StartUpFrm.Default">
+            <summary>
+            Added by the VB.Net to C# Converter to support default instance behavour in C#
+            </summary>
+        </member>
+        <member name="F:DataCenter_Client.StuObjectPropertyFrm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DataCenter_Client.StuObjectPropertyFrm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DataCenter_Client.StuObjectPropertyFrm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:My.Resources.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:My.Resources.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:My.Resources.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="F:DataCenter_Client.SQLConnectionFrm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DataCenter_Client.SQLConnectionFrm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DataCenter_Client.SQLConnectionFrm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DataCenter_Client.SQLConnectionUC.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DataCenter_Client.SQLConnectionUC.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DataCenter_Client.SQLConnectionUC.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

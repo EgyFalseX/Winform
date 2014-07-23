@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA434503-9E50-46E6-B49F-4C213DDF6C78}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>DataCenter_Server.My.MyApplication</StartupObject>
+    <RootNamespace>DataCenter_Server</RootNamespace>
+    <AssemblyName>DataCenter - Server</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Tools\Icons\Server_exe.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>FB8FAE45CAD9E63AD709951310F0993FB782C20A</ManifestCertificateThumbprint>
+    <ManifestKeyFile>DataCenter - Server_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+    <BootstrapperComponentsUrl>D:\PC Software\Development\Tools\Runtime and Framework\Microsoft .NET Framework\Microsoft .NET Framework Ver. 2.0</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DataCenter - Server.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DocumentationFile>DataCenter - Server.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\DeactivateProjectFrm.Designer.vb">
+      <DependentUpon>DeactivateProjectFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeactivateProjectFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DisactivatedClientsFrm.Designer.vb">
+      <DependentUpon>DisactivatedClientsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DisactivatedClientsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DisactivatedConsultantsFrm.Designer.vb">
+      <DependentUpon>DisactivatedConsultantsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DisactivatedConsultantsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DisactivatedContractorsFrm.Designer.vb">
+      <DependentUpon>DisactivatedContractorsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DisactivatedContractorsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DisactivatedUsersFrm.Designer.vb">
+      <DependentUpon>DisactivatedUsersFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DisactivatedUsersFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditClientsFrm.Designer.vb">
+      <DependentUpon>EditClientsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditClientsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditConsultantsFrm.Designer.vb">
+      <DependentUpon>EditConsultantsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditConsultantsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditContractorsFrm.Designer.vb">
+      <DependentUpon>EditContractorsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditContractorsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditFileTypesFrm.Designer.vb">
+      <DependentUpon>EditFileTypesFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditFileTypesFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LockedFilesFrm.Designer.vb">
+      <DependentUpon>LockedFilesFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LockedFilesFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MSGBOXFrm.Designer.vb">
+      <DependentUpon>MSGBOXFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MSGBOXFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewFileTypesFrm.Designer.vb">
+      <DependentUpon>NewFileTypesFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewFileTypesFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsFrm.Designer.vb">
+      <DependentUpon>OptionsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartUpFrm.Designer.vb">
+      <DependentUpon>StartUpFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartUpFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ObjectPropertyFrm.Designer.vb">
+      <DependentUpon>ObjectPropertyFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ObjectPropertyFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewContractorsFrm.Designer.vb">
+      <DependentUpon>NewContractorsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewContractorsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UsersPrivilegesFrm.Designer.vb">
+      <DependentUpon>UsersPrivilegesFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UsersPrivilegesFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilesCheckerFrm.Designer.vb">
+      <DependentUpon>FilesCheckerFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FilesCheckerFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainModule.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Forms\NewClientFrm.Designer.vb">
+      <DependentUpon>NewClientFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewClientFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewConsultantsFrm.Designer.vb">
+      <DependentUpon>NewConsultantsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewConsultantsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PrivilegesFrm.Designer.vb">
+      <DependentUpon>PrivilegesFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrivilegesFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SQLConnectionFrm.Designer.vb">
+      <DependentUpon>SQLConnectionFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SQLConnectionFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditUsersFrm.Designer.vb">
+      <DependentUpon>EditUsersFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditUsersFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WizradFrm.Designer.vb">
+      <DependentUpon>WizradFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WizradFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\DeactivateProjectFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DeactivateProjectFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DisactivatedClientsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DisactivatedClientsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DisactivatedConsultantsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DisactivatedConsultantsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DisactivatedContractorsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DisactivatedContractorsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DisactivatedUsersFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DisactivatedUsersFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditClientsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditClientsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditConsultantsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditConsultantsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditContractorsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditContractorsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditFileTypesFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditFileTypesFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LockedFilesFrm.resx">
+      <DependentUpon>LockedFilesFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewFileTypesFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewFileTypesFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OptionsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PrivilegesFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrivilegesFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartUpFrm.resx">
+      <DependentUpon>StartUpFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ObjectPropertyFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ObjectPropertyFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewContractorsFrm.resx">
+      <DependentUpon>NewContractorsFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FilesCheckerFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FilesCheckerFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewClientFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewClientFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewConsultantsFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewConsultantsFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SQLConnectionFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SQLConnectionFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditUsersFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditUsersFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsersPrivilegesFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UsersPrivilegesFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WizradFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WizradFrm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tasks.txt" />
+    <None Include="Tools\Icons\Lock-file.ico" />
+    <Content Include="Tools\Icons\Server_exe.ico" />
+    <None Include="Tools\Images\Background\LockedFilesFrm.jpg" />
+    <None Include="Tools\Images\Background\Mena Logo.bmp" />
+    <None Include="Tools\Icons\About.ico" />
+    <None Include="Tools\Icons\Consultants.gif" />
+    <None Include="Tools\Icons\Contractors.ico" />
+    <None Include="Tools\Icons\Consultants.ico" />
+    <None Include="Tools\Icons\Client.ico" />
+    <None Include="Tools\Icons\Remove.ico" />
+    <None Include="Tools\Icons\Users.ico" />
+    <None Include="Tools\Icons\Edit.ico" />
+    <None Include="Tools\Icons\files_Types.ico" />
+    <None Include="Tools\Icons\Data.ico" />
+    <None Include="Tools\Icons\add.ico" />
+    <None Include="Tools\Icons\Options.ico" />
+    <None Include="Tools\Icons\Default.ico" />
+    <None Include="Tools\Icons\Restart.ico" />
+    <None Include="Tools\Icons\Exit.ico" />
+    <None Include="Tools\Images\Background\LVFiles.jpg" />
+    <None Include="Tools\Icons\FIle_List_Style.ico" />
+    <None Include="Tools\Icons\remove-folder.ico" />
+    <None Include="Tools\Icons\folder-property.ico" />
+    <None Include="Tools\Icons\Add-folder.ico" />
+    <None Include="Tools\Icons\file-property.ico" />
+    <None Include="Tools\Icons\DeleteObject.ico" />
+    <None Include="Tools\Icons\new-file.ico" />
+    <None Include="Tools\Images\Background\WizradFrm.jpg" />
+    <None Include="Tools\Images\Background\UsersPrivilegesFrm.jpg" />
+    <None Include="Tools\Images\Background\SQLConnectionFrm.jpg" />
+    <None Include="Tools\Images\Background\SplashScreen.jpg" />
+    <None Include="Tools\Images\Background\PrivilegesFrm.jpg" />
+    <None Include="Tools\Images\Background\OptionsFrm.jpg" />
+    <None Include="Tools\Images\Background\ObjectPropertyFrm.jpg" />
+    <None Include="Tools\Images\Background\MSGBOXFrm.jpg" />
+    <None Include="Tools\Images\Background\Login Logo.jpg" />
+    <None Include="Tools\Images\Background\FilesCheckerFrm.jpg" />
+    <None Include="Tools\Images\Background\EditUsersFrm.jpg" />
+    <None Include="Tools\Images\Background\EditFileTypesFrm.jpg" />
+    <None Include="Tools\Images\Background\EditContractorsFrm.jpg" />
+    <None Include="Tools\Images\Background\EditConsultantsFrm.jpg" />
+    <None Include="Tools\Images\Background\EditClientsFrm.jpg" />
+    <None Include="Tools\Images\Background\DisactivatedUsersFrm.jpg" />
+    <None Include="Tools\Images\Background\DisactivatedContractorsFrm.jpg" />
+    <None Include="Tools\Images\Background\DisactivatedConsultantsFrm.jpg" />
+    <None Include="Tools\Images\Background\DisactivatedClientsFrm.jpg" />
+    <None Include="Tools\Images\Background\DeactivateProjectFrm.jpg" />
+    <None Include="Tools\Images\Background\NewFileTypesFrm.jpg" />
+    <None Include="Tools\Images\Background\Error.JPG" />
+    <None Include="Tools\Images\Background\Complated.JPG" />
+    <None Include="Tools\Images\Background\MainWindow.JPG" />
+    <None Include="Tools\Images\Background\New Client.JPG" />
+    <None Include="Tools\Images\Background\New Contractor.JPG" />
+    <None Include="Tools\Images\Background\New Consultants.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FunctionLib\FunctionLib.vbproj">
+      <Project>{3325CF24-817D-42C4-A6FF-047B75E209F7}</Project>
+      <Name>FunctionLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

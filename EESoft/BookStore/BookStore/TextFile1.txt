@@ -1,0 +1,5 @@
+﻿DevExpress.Charts.v11.2.Core
+DevExpress.PivotGrid.v11.2.Core
+DevExpress.RichEdit.v11.2.Core
+DevExpress.XtraCharts.v11.2
+DevExpress.XtraPivotGrid.v11.2

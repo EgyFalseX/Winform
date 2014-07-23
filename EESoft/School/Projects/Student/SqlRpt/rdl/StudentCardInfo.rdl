@@ -1,0 +1,1025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSourceStudent">
+      <DataSourceReference>DataSourceStudent</DataSourceReference>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Fields>
+        <Field Name="stu_code">
+          <DataField>stu_code</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="fasl_name">
+          <DataField>fasl_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Stu_Name">
+          <DataField>Stu_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="user_name">
+          <DataField>user_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MyPass">
+          <DataField>MyPass</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MyAaddres">
+          <DataField>MyAaddres</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pic">
+          <DataField>pic</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="code_alnoa">
+          <DataField>code_alnoa</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT stu_code,asase_code, alsofof_code, fasl_code, 
+        (Select alsofof_name From CDAlsofof Where alsofof_code = stu.student_t.alsofof_code) AS alsofof_name,
+        (Select fasl_name From CDEFasl Where fasl_code = stu.student_t.fasl_code) AS fasl_name,
+        (Select FIRST_NAME + ' ' + FATHER_NAME + ' ' + GF_NAME + ' ' + FAMILY_NAME From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS Stu_Name,
+        (Select user_name From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS user_name,
+        (Select pass From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS MyPass,
+        (Select addres From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS MyAaddres,
+        (Select code_alnoa From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS code_alnoa,
+        (Select pic From stu.TBLstudent  Where  stu_code = stu.student_t.stu_code) AS pic
+        FROM stu.student_t
+        WHERE asase_code = @asase_code  And alsofof_code = @alsofof_code  And fasl_code = @fasl_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@alsofof_code">
+            <Value>=Parameters!alsofof_code.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fasl_code">
+            <Value>=Parameters!fasl_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSasase_code">
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        asase_code, asase_year, SPOS
+FROM            CD_Asase</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSalsofof_code">
+      <Fields>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        alsofof_code, alsofof_name
+FROM            CDAlsofof</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSfasl_code">
+      <Fields>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="fasl_name">
+          <DataField>fasl_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        fasl_code, fasl_name
+FROM            CDEFasl</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetSPOS">
+      <Fields>
+        <Field Name="SCHOOL">
+          <DataField>SCHOOL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GOV">
+          <DataField>GOV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EdaraName">
+          <DataField>EdaraName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        SCHOOL,
+(Select GOV From CDGov Where GOV_CD = TBLSCHOOL.gov) AS GOV,
+(Select EdaraName From CDEdara Where EdaraId = TBLSCHOOL.NOEDARET) AS EdaraName
+FROM            TBLSCHOOL
+WHERE        (SPOS = (Select SPOS From CD_Asase Where asase_code = @asase_code) )</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="ExdDataAppOptions">
+      <Fields>
+        <Field Name="SchoolLogo">
+          <DataField>SchoolLogo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT SchoolLogo
+FROM AppOptions
+Where OpCodeID = 1</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix9">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.81139in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.81139in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>2.41319in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle4">
+                      <ReportItems>
+                        <Tablix Name="Tablix13">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.42706in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name12">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!stu_code.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <Top>0.14063in</Top>
+                          <Left>1.09897in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.42706in</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Tablix Name="Tablix14">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.20831in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name13">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>="الاسم  " &amp; Fields!Stu_Name.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>0.57379in</Top>
+                          <Left>1.31772in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.20831in</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Tablix Name="Tablix15">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.20831in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name14">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>="الصف  " &amp; Fields!alsofof_name.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>1.00694in</Top>
+                          <Left>1.31772in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.20831in</Width>
+                          <ZIndex>2</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Tablix Name="Tablix16">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.20831in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name15">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>="الفصل  " &amp; Fields!fasl_name.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>1.4401in</Top>
+                          <Left>1.31772in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.20831in</Width>
+                          <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Tablix Name="Tablix17">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.20831in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name16">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>="العنوان  " &amp; Fields!MyAaddres.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>1.87326in</Top>
+                          <Left>1.31772in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.20831in</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Image Name="ImgLogo5">
+                          <Source>Database</Source>
+                          <Value>=Fields!pic.Value</Value>
+                          <MIMEType>image/jpeg</MIMEType>
+                          <Sizing>FitProportional</Sizing>
+                          <Top>0.5568in</Top>
+                          <Left>0.11458in</Left>
+                          <Height>1.10514in</Height>
+                          <Width>1.04514in</Width>
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Image>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle3">
+                      <ReportItems>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>موقع المدرسه الالكترونيه</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <LeftIndent>0cm</LeftIndent>
+                              <HangingIndent>0cm</HangingIndent>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Top>0.14063in</Top>
+                          <Left>0.6875in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.26042in</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Image Name="ImgLogo4">
+                          <Source>Database</Source>
+                          <Value>=First(Fields!SchoolLogo.Value, "ExdDataAppOptions")</Value>
+                          <MIMEType>image/jpeg</MIMEType>
+                          <Sizing>FitProportional</Sizing>
+                          <Top>0.48389in</Top>
+                          <Left>2.76389in</Left>
+                          <Height>0.95931in</Height>
+                          <Width>0.87153in</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Image>
+                        <Image Name="Image7">
+                          <Source>Embedded</Source>
+                          <Value>barcode</Value>
+                          <Sizing>FitProportional</Sizing>
+                          <Top>1.59375in</Top>
+                          <Left>0.4375in</Left>
+                          <Height>1.16417cm</Height>
+                          <Width>5.13292cm</Width>
+                          <ZIndex>2</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Image>
+                        <Tablix Name="Tablix10">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.43748in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name9">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>="اسم المستخدم " &amp; Fields!user_name.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>0.54153in</Top>
+                          <Left>0.1823in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.43748in</Width>
+                          <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Tablix Name="Tablix11">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.43748in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name10">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>="كلمة المرور " &amp; Fields!MyPass.Value</Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>0.98597in</Top>
+                          <Left>0.1823in</Left>
+                          <Height>0.25in</Height>
+                          <Width>2.43748in</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Tablix Name="Tablix12">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.02083in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.18229in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="user_name11">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!user_name.Value</Value>
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>user_name</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSetMainData</DataSetName>
+                          <Top>1.99653in</Top>
+                          <Left>0.4375in</Left>
+                          <Height>0.18229in</Height>
+                          <Width>2.02083in</Width>
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!alsofof_code.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!fasl_code.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!code_alnoa.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!Stu_Name.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Top>0.11899in</Top>
+        <Left>0.51672in</Left>
+        <Height>2.41319in</Height>
+        <Width>7.62278in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>2.65118in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="asase_code">
+      <DataType>String</DataType>
+      <Prompt>العام الدراسي</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSasase_code</DataSetName>
+          <ValueField>asase_code</ValueField>
+          <LabelField>asase_year</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="alsofof_code">
+      <DataType>String</DataType>
+      <Prompt>الصف</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSalsofof_code</DataSetName>
+          <ValueField>alsofof_code</ValueField>
+          <LabelField>alsofof_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="fasl_code">
+      <DataType>String</DataType>
+      <Prompt>الفصل</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSfasl_code</DataSetName>
+          <ValueField>fasl_code</ValueField>
+          <LabelField>fasl_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>8.65623in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <EmbeddedImages>
+    <EmbeddedImage Name="barcode">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAMIAAAAsCAIAAAC4zfCUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAP8SURBVHhe7Z3bcuIwEEQJBCj+/1eTcAvJdnK87SlJ9tby3H6gsDyau2VpRh5vHo/H9/f35+fn6+vry8vLbrfbbDZq+fr60q8adfhUfwQvAB/b7Zb/wqCroNIvjUIieLoYOfiX8OjS7XYzRdioFOt/8EBXkHQEQIzt93toXa9XGpfkMm/H4/Hj40MiwJ6QWEAwmBySwp66A7bCz1CE/+VnSa4V/aAQzEp3eObXRxVTwJIIYa0KrAk2rlqlUvt0zdoHwobRqY6G5JDpCiPyxoPe6WLy4B/iqXbivzAvqQmiTZclWqK+JJfxA1N5bkhX1VtkzGNFD/lZciMEbPS8wk+vw2rUnlshb+6EKoL/146VBLJUr2jUO+mq6sKWjhsteXncKG6U0ejHBzIatU+GPNSamUoeapMGMjeqz9N+rpa5UabY7Wj6xJQ/bhQ3ihuViVkW/B5FHLnIgn8KQ9WFXBb8WfCzpkvcaIq0esBI+NFx537Nn/BjothzaiIL/iz456RTkiE/42Vyan5qNBnoYYYuObVZLUnNJjU759uT4U+GPxn+eRvTMNr7RNQ4G0WyUWROaJPCjBslwz8InifDnwx/dj8u7jLNgj8L/nE4dJiIfOIhmwx/MvzJ8CfD/+sD2YudvdhZqWUv9mhykZVaVmpZqWWl1o0Nyaklp5ac2nRb5K3Z+pTM7sdBcCHJkOx+HEbvpgIEeYd/rJ2/pS/yDn9KQbSlKRLFThQ7UexEsRPF/vWBRLETxU4UO1HsXw1kbpS5UeZGmRtlbpS5UfZieyRMtbX2oZAMfzL8yfAnw58MfyktLWWkvtFclZzFpKpruyA19cX97KCdRoqXuxS3n7iuce6C2q5u7uTOP/G4WHutmN4v+UUUAB3u
+YjAVhmfbKzUFRF3/L5fL/X6vSUpeoa9Th1ohno52FIspJJJLp5TtBgxm3t7e4KfiMX4qnfO7pGeAD4eDfqHCO4euko5cNK7UxYYHAWMsvxJN3XQn8Akq2jpGWAWsFAGGPdiYNxebjCCko+lyWZ6o0XXHq2Y9ez2fz64AX1/iFiqJoS7ILOsu4RGMLjXV3BFyeDSzRT4KACHB40YupG+zqZc9rIrpRptfLb5PYB7V23d1KrWgDT5nYG82b5gQ5PYDOFzSsz4WgLzgrExCy7eorbaiH7qI9Ol0wvAwaU9yvQq+1MAhthvSOnWxdgSxvebvH9Cn10JjKmD4BoBT69XwFYPbfdv5PhjigVFsg8F02nuVWeIqFOnigZNTDwm6seCBO4wuPXLrF2Dc5f39HYqC12CmRvyVRhCq3dSrxvxBiF699qFewxa8KhmFeHByr+rTDSpIWJnrFDGNb+Nq3L6j5LUOReIPvNDoA9etmmIAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

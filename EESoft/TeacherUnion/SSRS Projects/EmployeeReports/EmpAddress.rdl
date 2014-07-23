@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSourceEmployee">
+      <DataSourceReference>DataSourceEmployee</DataSourceReference>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Fields>
+        <Field Name="Emp_Name">
+          <DataField>Emp_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpJobName">
+          <DataField>EmpJobName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="qualName">
+          <DataField>qualName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SpecializationName">
+          <DataField>SpecializationName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BIRTH_DATE">
+          <DataField>BIRTH_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Work_Start_Date">
+          <DataField>Work_Start_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="tameen_no">
+          <DataField>tameen_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tameen_date1">
+          <DataField>tameen_date1</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Emp_Address">
+          <DataField>Emp_Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PHONE_NO">
+          <DataField>PHONE_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MOBILE_NO">
+          <DataField>MOBILE_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="orderreport">
+          <DataField>orderreport</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EmpJobId">
+          <DataField>EmpJobId</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentId">
+          <DataField>DepartmentId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JOB_STATUS_ID">
+          <DataField>JOB_STATUS_ID</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="EmpStateName">
+          <DataField>EmpStateName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GENDER_ID">
+          <DataField>GENDER_ID</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="name_alnoa">
+          <DataField>name_alnoa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="qualId">
+          <DataField>qualId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>Select EMP_FIRST_NAME + ' ' + EMP_FATHER_NAME + ' ' + EMP_FAM_NAME + ' ' + EMP_FOURTH_NAME AS Emp_Name,
+(SELECT SpecializationName FROM CD_Specialization Where SpecializationId = TBL_Emp.SpecializationId) AS SpecializationName,
+BIRTH_DATE, Work_Start_Date, tameen_no, tameen_date1, Emp_Address, PHONE_NO, MOBILE_NO, orderreport, 
+EmpJobId, (Select JobNAME From CD_EmpJop Where JobId = TBL_Emp.EmpJobId) AS EmpJobName,
+DepartmentId, (SELECT Department FROM CD_Department WHERE DepartmentId = TBL_Emp.DepartmentId) AS Department,
+JOB_STATUS_ID, (SELECT EmpStateName FROM CD_EmpState WHERE EmpStateID = TBL_Emp.JOB_STATUS_ID) AS EmpStateName,
+GENDER_ID, (SELECT name_alnoa FROM CDAlnoa WHERE code_alnoa = TBL_Emp.GENDER_ID) AS name_alnoa,
+qualId, (SELECT qualName FROM CDQualification WHERE qualId = TBL_Emp.qualId) AS qualName
+From TBL_Emp
+Where exists(Select EmpStateID From CD_EmpState Where OnWork = 1 And EmpStateID = TBL_Emp.JOB_STATUS_ID) </CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSEmpJobId">
+      <Fields>
+        <Field Name="JobId">
+          <DataField>JobId</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="JobNAME">
+          <DataField>JobNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JobNAME_e">
+          <DataField>JobNAME_e</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>Select JobId, JobNAME, JobNAME_e From CD_EmpJop</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="ExdDataAppOptions">
+      <Fields>
+        <Field Name="SchoolLogo">
+          <DataField>SchoolLogo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT SchoolLogo
+FROM AppOptions
+Where OpCodeID = 1</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetGeneralInfo">
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="school_allcode">
+          <DataField>school_allcode</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="school_allname">
+          <DataField>school_allname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>Select asase_code, SPOS, asase_year, school_allcode, 
+(Select school_allname From TBLSCHOOLALL Where school_allcode = CD_AsaseEmp.school_allcode) AS school_allname
+From CD_AsaseEmp
+Where asase_code = @asase_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetDepartmentId">
+      <Fields>
+        <Field Name="DepartmentId">
+          <DataField>DepartmentId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT DepartmentId, Department FROM dbo.CD_Department</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetEmpStateID">
+      <Fields>
+        <Field Name="EmpStateID">
+          <DataField>EmpStateID</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="EmpStateName">
+          <DataField>EmpStateName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OnWork">
+          <DataField>OnWork</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT EmpStateID, EmpStateName, OnWork FROM dbo.CD_EmpState</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetcode_alnoa">
+      <Fields>
+        <Field Name="code_alnoa">
+          <DataField>code_alnoa</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="name_alnoa">
+          <DataField>name_alnoa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT code_alnoa, name_alnoa FROM dbo.CDAlnoa</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSettameen_no">
+      <Fields>
+        <Field Name="tameen_no">
+          <DataField>tameen_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceEmployee</DataSourceName>
+        <CommandText>SELECT tameen_no FROM dbo.TBL_Emp</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.79723in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.81685in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.76648in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.21839in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.24306in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25125in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox19">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>موبيل</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox19</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox17">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>تليفون</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox17</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox15">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>عنوان</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الوظيفه</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الاسم</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>م</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25167in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MOBILE_NO">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MOBILE_NO.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MOBILE_NO</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PHONE_NO">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!PHONE_NO.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>PHONE_NO</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Emp_Address">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Emp_Address.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Emp_Address</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="EmpJobName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!EmpJobName.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>EmpJobName</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Emp_Name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Emp_Name.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Emp_Name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=RowNumber(nothing)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="table1_Details_Group">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <NoRowsMessage>لا توجد بيانات</NoRowsMessage>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!EmpJobId.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!EmpJobId.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!DepartmentId.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!DepartmentId.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!JOB_STATUS_ID.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!EmpStateID.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!GENDER_ID.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!code_alnoa.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!tameen_no.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!tameen_no.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!orderreport.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!EmpJobId.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!Emp_Name.Value</Value>
+          </SortExpression>
+        </SortExpressions>
+        <Left>0.06303cm</Left>
+        <Height>0.50292in</Height>
+        <Width>6.84201in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.50292in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="EmpJobId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DSEmpJobId</DataSetName>
+          <ValueField>JobId</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الوظيفه</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSEmpJobId</DataSetName>
+          <ValueField>JobId</ValueField>
+          <LabelField>JobNAME</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="asase_code">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>11</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>asase code</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="DepartmentId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetDepartmentId</DataSetName>
+          <ValueField>DepartmentId</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الاداره</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetDepartmentId</DataSetName>
+          <ValueField>DepartmentId</ValueField>
+          <LabelField>Department</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="EmpStateID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetEmpStateID</DataSetName>
+          <ValueField>EmpStateID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الحاله</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetEmpStateID</DataSetName>
+          <ValueField>EmpStateID</ValueField>
+          <LabelField>EmpStateName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="code_alnoa">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetcode_alnoa</DataSetName>
+          <ValueField>code_alnoa</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>النوع</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetcode_alnoa</DataSetName>
+          <ValueField>code_alnoa</ValueField>
+          <LabelField>name_alnoa</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="tameen_no">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSettameen_no</DataSetName>
+          <ValueField>tameen_no</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>الرقم التأميني</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSettameen_no</DataSetName>
+          <ValueField>tameen_no</ValueField>
+          <LabelField>tameen_no</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>6.86683in</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.67478cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <ReportItems>
+        <Image Name="ImgLogo">
+          <Source>Database</Source>
+          <Value>=First(Fields!SchoolLogo.Value, "ExdDataAppOptions")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.04167in</Top>
+          <Left>0.08334in</Left>
+          <Height>0.95931in</Height>
+          <Width>0.87153in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="alsofof_name">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>سجل العناوين</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Blue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <LeftIndent>0cm</LeftIndent>
+              <HangingIndent>0cm</HangingIndent>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>alsofof_name</rd:DefaultName>
+          <Top>0.16667in</Top>
+          <Left>2.5072in</Left>
+          <Height>0.25in</Height>
+          <Width>1.85243in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="EdaraName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!asase_year.Value, "DataSetGeneralInfo")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>EdaraName</rd:DefaultName>
+          <Top>0.24875in</Top>
+          <Left>4.59487in</Left>
+          <Height>0.25in</Height>
+          <Width>2.26042in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="SCHOOL">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!school_allname.Value, "DataSetGeneralInfo")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>SCHOOL</rd:DefaultName>
+          <Top>0.55431in</Top>
+          <Left>4.59487in</Left>
+          <Height>0.25in</Height>
+          <Width>2.26042in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.37701cm</Height>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>= "صفحه " &amp; Globals!PageNumber &amp; " من " &amp; Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.68583in</Top>
+          <Left>4.92014in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.68583in</Top>
+          <Left>0.06175cm</Left>
+          <Height>0.25in</Height>
+          <Width>2in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>شئون عاملين</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.06944in</Top>
+          <Left>5.12612in</Left>
+          <Height>0.25in</Height>
+          <Width>1.35417in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>مدير المدرسه</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.06944in</Top>
+          <Left>0.39982in</Left>
+          <Height>0.25in</Height>
+          <Width>1.35417in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

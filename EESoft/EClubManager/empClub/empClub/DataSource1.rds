@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>DataSource1</Name>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=.;Initial Catalog=MALAFAT</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+  </ConnectionProperties>
+  <DataSourceID>399bf398-7b9c-4f3d-a4d8-e2b3209e1749</DataSourceID>
+</RptDataSource>

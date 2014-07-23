@@ -1,0 +1,62 @@
+﻿if (LVFiles.SelectedIndices.Count == 0) //If there is no selected file
+            {
+                FilesRemoveToolStripMenuItem.Enabled = false;
+                FilesPropertiesToolStripMenuItem.Enabled = false;
+                TransferToolStripMenuItem.Enabled = false;
+                lockToolStripMenuItem.Enabled = false;
+                if (MainModule.AllFoldersWithPrv.PrvOperationsType[(int)(TVFolders.SelectedNode.Tag)].CanWrite == true)
+                {
+                    AddFilesToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    AddFilesToolStripMenuItem.Enabled = false;
+                }
+                return;
+            }
+            TransferToolStripMenuItem.Enabled = true;
+            if (MainModule.AllFoldersWithPrv.FolderInfo[(int)(TVFolders.SelectedNode.Tag)].Files[LVFiles.SelectedIndices[0]].InUse == "1") //if file is locked
+            {
+                AddFilesToolStripMenuItem.Enabled = false;
+                FilesRemoveToolStripMenuItem.Enabled = false;
+                FilesPropertiesToolStripMenuItem.Enabled = false;
+                if (MainModule.FunLib.CUser.UID == MainModule.AllFoldersWithPrv.FolderInfo[(int)(TVFolders.SelectedNode.Tag)].Files[LVFiles.SelectedIndices[0]].InUseUserID)
+                {
+                    lockToolStripMenuItem.Enabled = true;
+                    lockToolStripMenuItem.Text = "&Unlock";
+                }
+                else
+                {
+                    lockToolStripMenuItem.Enabled = false;
+                }
+            }
+            else if (MainModule.AllFoldersWithPrv.PrvOperationsType[(int)(TVFolders.SelectedNode.Tag)].CanWrite == true) // if canwrite enabled and the file is unlocked
+            {
+                lockToolStripMenuItem.Text = "&Lock";
+                lockToolStripMenuItem.Enabled = true;
+                FilesPropertiesToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                lockToolStripMenuItem.Enabled = false;
+                FilesPropertiesToolStripMenuItem.Enabled = true;
+            }
+
+            if (MainModule.AllFoldersWithPrv.PrvOperationsType[(int)(TVFolders.SelectedNode.Tag)].CanWrite == true) //Chech for Write privilage
+            {
+                AddFilesToolStripMenuItem.Enabled = true;
+                TransferToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                AddFilesToolStripMenuItem.Enabled = false;
+                TransferToolStripMenuItem.Enabled = false;
+            }
+            if (MainModule.AllFoldersWithPrv.PrvOperationsType[(int)(TVFolders.SelectedNode.Tag)].CanDelete == true) //Chech for Delete privilage
+            {
+                FilesRemoveToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                FilesRemoveToolStripMenuItem.Enabled = false;
+            }

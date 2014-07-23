@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "schoolStoreReport", "schoolStoreReport\schoolStoreReport.rptproj", "{CD169C52-9A35-4615-A5B1-F196F3B06C9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.Debug|Default.ActiveCfg = Debug
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.Debug|Default.Build.0 = DebugLocal
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.Debug|Default.Deploy.0 = DebugLocal
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.DebugLocal|Default.Build.0 = DebugLocal
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.Release|Default.ActiveCfg = Release
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.Release|Default.Build.0 = Release
+		{CD169C52-9A35-4615-A5B1-F196F3B06C9C}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

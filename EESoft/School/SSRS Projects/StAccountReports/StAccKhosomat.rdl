@@ -1,0 +1,1126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSourceStAccount">
+      <DataSourceReference>DataSourceStAccountReports</DataSourceReference>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Fields>
+        <Field Name="MID">
+          <DataField>MID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="PayTypeDetielId">
+          <DataField>PayTypeDetielId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EsalNo">
+          <DataField>EsalNo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="stu_code">
+          <DataField>stu_code</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MMony">
+          <DataField>MMony</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="DiscountsId">
+          <DataField>DiscountsId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="MKasm">
+          <DataField>MKasm</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="DateTasel">
+          <DataField>DateTasel</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="KastNoId">
+          <DataField>KastNoId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="datein">
+          <DataField>datein</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="userin">
+          <DataField>userin</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="stu_name">
+          <DataField>stu_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fasl_name">
+          <DataField>fasl_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PayTypeId">
+          <DataField>PayTypeId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Discounts">
+          <DataField>Discounts</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStAccount</DataSourceName>
+        <CommandText>SELECT [MID]
+      ,[asase_code]
+      ,[PayTypeDetielId]
+      ,[EsalNo]
+      ,[stu_code]
+      ,[MMony]
+      ,[DiscountsId]
+      ,[MKasm]
+      ,[DateTasel]
+      ,[KastNoId]
+      ,[datein]
+      ,[userin],
+(SELECT FIRST_NAME + ' ' + FATHER_NAME + ' ' + GF_NAME + ' ' + FAMILY_NAME  FROM stu.TBLstudent WHERE stu_code = dbo.TBLMothsleat.stu_code) AS stu_name,
+(SELECT alsofof_name FROM dbo.CDAlsofof WHERE alsofof_code = (SELECT alsofof_code FROM stu.student_t WHERE stu_code = TBLMothsleat.stu_code AND asase_code = TBLMothsleat.asase_code)) AS alsofof_name,
+(SELECT fasl_name FROM dbo.CDEFasl WHERE fasl_code = (SELECT fasl_code FROM stu.student_t WHERE stu_code = TBLMothsleat.stu_code AND asase_code = TBLMothsleat.asase_code)) AS fasl_name,
+(SELECT PayTypeId FROM CD_PayTypeDetiel WHERE PayTypeDetielId = dbo.TBLMothsleat.PayTypeDetielId) AS PayTypeId,
+(SELECT Discounts FROM dbo.CD_Discounts WHERE DiscountsId = dbo.TBLMothsleat.DiscountsId) AS Discounts,
+(SELECT alsofof_code FROM stu.student_t WHERE stu_code = TBLMothsleat.stu_code AND asase_code = TBLMothsleat.asase_code) AS alsofof_code,
+(SELECT fasl_code FROM stu.student_t WHERE stu_code = TBLMothsleat.stu_code AND asase_code = TBLMothsleat.asase_code) AS fasl_code
+      
+  FROM [TBLMothsleat]</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetCD_AsaseACC">
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="school_allcode">
+          <DataField>school_allcode</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="GOV_CD">
+          <DataField>GOV_CD</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="GOV">
+          <DataField>GOV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EDARET">
+          <DataField>EDARET</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SCHOOL">
+          <DataField>SCHOOL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStAccount</DataSourceName>
+        <CommandText>SELECT [asase_code]
+      ,[asase_year]
+      ,[SPOS]
+      ,[school_allcode],
+(SELECT gov FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_AsaseACC.SPOS) AS GOV_CD,
+(SELECT GOV FROM dbo.CDGov WHERE GOV_CD = (SELECT gov FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_AsaseACC.SPOS)) AS GOV,
+(SELECT EDARET FROM dbo.CDEDARET WHERE EPOS = (SELECT NOEDARET FROM TBLSCHOOL WHERE SPOS = dbo.CD_AsaseACC.SPOS)) AS EDARET,
+(SELECT SCHOOL FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_AsaseACC.SPOS) AS SCHOOL
+  FROM [CD_AsaseACC]
+where [asase_code] = @asase_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetCD_PayType">
+      <Fields>
+        <Field Name="PayTypeId">
+          <DataField>PayTypeId</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="PayType">
+          <DataField>PayType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Additional">
+          <DataField>Additional</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStAccount</DataSourceName>
+        <CommandText>SELECT [PayTypeId]
+      ,[PayType]
+      ,[Additional]
+  FROM [CD_PayType]</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSSaf">
+      <Fields>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStAccount</DataSourceName>
+        <CommandText>SELECT alsofof_code, alsofof_name FROM CDAlsofof</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSFasl">
+      <Fields>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="fasl_name">
+          <DataField>fasl_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStAccount</DataSourceName>
+        <CommandText>SELECT fasl_code, fasl_name FROM dbo.CDEFasl</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.7692in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.9414in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1053in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1053in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.627in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.31588in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25125in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>مبلغ الخصم</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>نوع الخصم</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الفصل</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الصف</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الاسم</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>م</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25167in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MKasm">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MKasm.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Format>0.00;- 0.00</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MKasm</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Discounts">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Discounts.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Discounts</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="fasl_name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fasl_name.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fasl_name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="alsofof_name1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!alsofof_name.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>alsofof_name1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="stu_name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!stu_name.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>stu_name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=RowNumber(nothing)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="table1_Details_Group">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <NoRowsMessage>لا توجد بيانات</NoRowsMessage>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!asase_code.Value</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!asase_code.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!alsofof_code.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!Saf.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!fasl_code.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!Fasl.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=Fields!PayTypeId.Value</FilterExpression>
+            <Operator>In</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!PayTypeId.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Left>0.06303cm</Left>
+        <Height>0.50292in</Height>
+        <Width>7.86407in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.50292in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="asase_code">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>10</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>asase code</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Saf">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DSFasl</DataSetName>
+          <ValueField>fasl_code</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الصف</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSSaf</DataSetName>
+          <ValueField>alsofof_code</ValueField>
+          <LabelField>alsofof_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Fasl">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DSFasl</DataSetName>
+          <ValueField>fasl_code</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>الفصل</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSFasl</DataSetName>
+          <ValueField>fasl_code</ValueField>
+          <LabelField>fasl_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="PayTypeId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSetCD_PayType</DataSetName>
+          <ValueField>PayTypeId</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>بند التحصيل</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetCD_PayType</DataSetName>
+          <ValueField>PayTypeId</ValueField>
+          <LabelField>PayType</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>7.93056in</Width>
+  <Page>
+    <PageHeader>
+      <Height>3.49499cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <ReportItems>
+        <Image Name="ImgLogo">
+          <Source>Database</Source>
+          <Value>=First(Fields!MID.Value, "DataSetMainData")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.04167in</Top>
+          <Left>0.08334in</Left>
+          <Height>0.95931in</Height>
+          <Width>0.87153in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="alsofof_name">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>تقرير الخصومات</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Blue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <LeftIndent>0cm</LeftIndent>
+              <HangingIndent>0cm</HangingIndent>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>alsofof_name</rd:DefaultName>
+          <Top>0.16667in</Top>
+          <Left>2.54948in</Left>
+          <Height>0.25in</Height>
+          <Width>2.8316in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+            <Direction>RTL</Direction>
+          </Style>
+        </Textbox>
+        <Textbox Name="EdaraName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="المحافظه : " &amp; First(Fields!GOV.Value, "DataSetCD_AsaseACC")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>EdaraName</rd:DefaultName>
+          <Top>0.19445in</Top>
+          <Left>5.3993in</Left>
+          <Height>0.25in</Height>
+          <Width>2.48959in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+            <Direction>RTL</Direction>
+          </Style>
+        </Textbox>
+        <Textbox Name="SCHOOL">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="ادارة : " &amp; First(Fields!EDARET.Value, "DataSetCD_AsaseACC")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>SCHOOL</rd:DefaultName>
+          <Top>0.50001in</Top>
+          <Left>5.3993in</Left>
+          <Height>0.25in</Height>
+          <Width>2.48959in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+            <Direction>RTL</Direction>
+          </Style>
+        </Textbox>
+        <Textbox Name="SCHOOL2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="اسم المدرسه : " &amp; First(Fields!SCHOOL.Value, "DataSetCD_AsaseACC")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>SCHOOL</rd:DefaultName>
+          <Top>0.81945in</Top>
+          <Left>5.3993in</Left>
+          <Height>0.25in</Height>
+          <Width>2.48959in</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+            <Direction>RTL</Direction>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.69451cm</Height>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>= "صفحه " &amp; Globals!PageNumber &amp; " من " &amp; Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.81083in</Top>
+          <Left>6.04514in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.81083in</Top>
+          <Left>0.06175cm</Left>
+          <Height>0.25in</Height>
+          <Width>2in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>مدير المدرسه</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.12333in</Top>
+          <Left>0.15973in</Left>
+          <Height>0.25in</Height>
+          <Width>1.35417in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

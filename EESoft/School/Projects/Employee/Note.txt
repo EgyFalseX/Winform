@@ -1,0 +1,1 @@
+change EMPPIC from text to image

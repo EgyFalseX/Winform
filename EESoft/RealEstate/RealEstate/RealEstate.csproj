@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADB0A8F4-F9FA-418C-9EBA-0E8EE4E349D1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RealEstate</RootNamespace>
+    <AssemblyName>RealEstate</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>RealEstate.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RealEstate.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CReports\CRContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRContract.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\BuyContractFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\BuyContractFrm.designer.cs">
+      <DependentUpon>BuyContractFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\cdnationaltyFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\cdnationaltyFrm.designer.cs">
+      <DependentUpon>cdnationaltyFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\BasicDataFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\BasicDataFrm.designer.cs">
+      <DependentUpon>BasicDataFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deleted\TblEstateFrm_.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deleted\TblEstateFrm_.designer.cs">
+      <DependentUpon>TblEstateFrm_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TblOwnerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TblOwnerFrm.designer.cs">
+      <DependentUpon>TblOwnerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\CdEstateCaseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\CdEstateCaseFrm.designer.cs">
+      <DependentUpon>CdEstateCaseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\CdAreaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\CdAreaFrm.designer.cs">
+      <DependentUpon>CdAreaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\CdTypeEstateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\CdTypeEstateFrm.designer.cs">
+      <DependentUpon>CdTypeEstateFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\CdperiodFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\CdperiodFrm.designer.cs">
+      <DependentUpon>CdperiodFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ImgViewerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ImgViewerFrm.Designer.cs">
+      <DependentUpon>ImgViewerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ActionLogFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ActionLogFrm.designer.cs">
+      <DependentUpon>ActionLogFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\LoginFrm.designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCL.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SplashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SplashFrm.designer.cs">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TblEstateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TblEstateFrm.designer.cs">
+      <DependentUpon>TblEstateFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qry\QryTblEstateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qry\QryTblEstateFrm.Designer.cs">
+      <DependentUpon>QryTblEstateFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepCRGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepCRGeneralFrm.designer.cs">
+      <DependentUpon>RepCRGeneralFrm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CReports\CRContract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRContract.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\BuyContractFrm.resx">
+      <DependentUpon>BuyContractFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\cdnationaltyFrm.resx">
+      <DependentUpon>cdnationaltyFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\BasicDataFrm.resx">
+      <DependentUpon>BasicDataFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deleted\TblEstateFrm_.resx">
+      <DependentUpon>TblEstateFrm_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TblOwnerFrm.resx">
+      <DependentUpon>TblOwnerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\CdEstateCaseFrm.resx">
+      <DependentUpon>CdEstateCaseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\CdAreaFrm.resx">
+      <DependentUpon>CdAreaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\CdTypeEstateFrm.resx">
+      <DependentUpon>CdTypeEstateFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\CdperiodFrm.resx">
+      <DependentUpon>CdperiodFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ImgViewerFrm.resx">
+      <DependentUpon>ImgViewerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ActionLogFrm.resx">
+      <DependentUpon>ActionLogFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SplashFrm.resx">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TblEstateFrm.resx">
+      <DependentUpon>TblEstateFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qry\QryTblEstateFrm.resx">
+      <DependentUpon>QryTblEstateFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepCRGeneralFrm.resx">
+      <DependentUpon>RepCRGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\Login_Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RealEstate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CReports\CReports.txt" />
+    <Content Include="RealEstate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

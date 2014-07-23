@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Process Manager">
+</Property><Property Name="Solution File" Value="E:\Software\My Work Area\WorkArea\Projects\Process Manger\Process Manager.sln">
+</Property><Property Name="User Options File" Value="E:\Software\My Work Area\WorkArea\Projects\Process Manger\Process Manager.suo">
+</Property><Property Name="Date" Value="Tuesday, March 08, 2011">
+</Property><Property Name="Time" Value="9:16 AM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Process Manager.sln" Description="File successfully backed up as E:\Software\My Work Area\WorkArea\Projects\Process Manger\Backup\Process Manager.sln">
+</Event><Event ErrorLevel="0" Project="" Source="Process Manager.suo" Description="File successfully backed up as E:\Software\My Work Area\WorkArea\Projects\Process Manger\Backup\Process Manager.suo">
+</Event><Event ErrorLevel="0" Project="" Source="Process Manager.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Process Manager.sln" Description="Converted">
+</Event></UpgradeLog>

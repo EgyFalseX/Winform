@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsdatam" targetNamespace="http://tempuri.org/dsdatam.xsd" xmlns:mstns="http://tempuri.org/dsdatam.xsd" xmlns="http://tempuri.org/dsdatam.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="datamConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="datamConnectionString (Settings)" PropertyReference="ApplicationSettings.RetirementCenter.Properties.Settings.GlobalReference.Default.datamConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="replyTableAdapter" GeneratorDataComponentClassName="replyTableAdapter" Name="reply" UserDataComponentName="replyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="datamConnectionString (Settings)" DbObjectName="reply" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, reply_name, [رقم_الصرف], الفرعية, اللجنة, typee, ملاحظات, adddres, filedate, estktaa, ked, w_name, WarasaType, wNID, t1
+FROM            reply</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="reply_name" DataSetColumn="reply_name" />
+              <Mapping SourceColumn="رقم_الصرف" DataSetColumn="رقم_الصرف" />
+              <Mapping SourceColumn="الفرعية" DataSetColumn="الفرعية" />
+              <Mapping SourceColumn="اللجنة" DataSetColumn="اللجنة" />
+              <Mapping SourceColumn="typee" DataSetColumn="typee" />
+              <Mapping SourceColumn="ملاحظات" DataSetColumn="ملاحظات" />
+              <Mapping SourceColumn="adddres" DataSetColumn="adddres" />
+              <Mapping SourceColumn="filedate" DataSetColumn="filedate" />
+              <Mapping SourceColumn="estktaa" DataSetColumn="estktaa" />
+              <Mapping SourceColumn="ked" DataSetColumn="ked" />
+              <Mapping SourceColumn="w_name" DataSetColumn="w_name" />
+              <Mapping SourceColumn="WarasaType" DataSetColumn="WarasaType" />
+              <Mapping SourceColumn="wNID" DataSetColumn="wNID" />
+              <Mapping SourceColumn="t1" DataSetColumn="t1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reply_wTableAdapter" GeneratorDataComponentClassName="reply_wTableAdapter" Name="reply_w" UserDataComponentName="reply_wTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="datamConnectionString (Settings)" DbObjectName="reply_w" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        t1, w_name, WarasaType, filedate, estktaa
+FROM            reply_w</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="t1" DataSetColumn="t1" />
+              <Mapping SourceColumn="w_name" DataSetColumn="w_name" />
+              <Mapping SourceColumn="WarasaType" DataSetColumn="WarasaType" />
+              <Mapping SourceColumn="filedate" DataSetColumn="filedate" />
+              <Mapping SourceColumn="estktaa" DataSetColumn="estktaa" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="datamConnectionString (Settings)" DbObjectName="reply_w" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByt1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByt1" GeneratorSourceName="FillByt1" GetMethodModifier="Public" GetMethodName="GetDataByt1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByt1" UserSourceName="FillByt1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT WarasaType, estktaa, filedate, t1, w_name FROM reply_w WHERE (t1 = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="t1" DataSourceName="reply_w" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="t1" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="t1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="accsessTableAdapter" GeneratorDataComponentClassName="accsessTableAdapter" Name="accsess" UserDataComponentName="accsessTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="datamConnectionString (Settings)" DbObjectName="accsess" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT mid, sarffnomber, syndicate, lagna, maashhala, amony FROM accsess</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="mid" DataSetColumn="mid" />
+              <Mapping SourceColumn="sarffnomber" DataSetColumn="sarffnomber" />
+              <Mapping SourceColumn="syndicate" DataSetColumn="syndicate" />
+              <Mapping SourceColumn="lagna" DataSetColumn="lagna" />
+              <Mapping SourceColumn="maashhala" DataSetColumn="maashhala" />
+              <Mapping SourceColumn="amony" DataSetColumn="amony" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsdatam" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsdatam" msprop:Generator_UserDSName="dsdatam">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="reply" msprop:Generator_TableClassName="replyDataTable" msprop:Generator_TableVarName="tablereply" msprop:Generator_TablePropName="reply" msprop:Generator_RowDeletingName="replyRowDeleting" msprop:Generator_RowChangingName="replyRowChanging" msprop:Generator_RowEvHandlerName="replyRowChangeEventHandler" msprop:Generator_RowDeletedName="replyRowDeleted" msprop:Generator_UserTableName="reply" msprop:Generator_RowChangedName="replyRowChanged" msprop:Generator_RowEvArgName="replyRowChangeEvent" msprop:Generator_RowClassName="replyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="reply_name" msprop:Generator_ColumnVarNameInTable="columnreply_name" msprop:Generator_ColumnPropNameInRow="reply_name" msprop:Generator_ColumnPropNameInTable="reply_nameColumn" msprop:Generator_UserColumnName="reply_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_الصرف" msprop:Generator_ColumnVarNameInTable="columnرقم_الصرف" msprop:Generator_ColumnPropNameInRow="رقم_الصرف" msprop:Generator_ColumnPropNameInTable="رقم_الصرفColumn" msprop:Generator_UserColumnName="رقم_الصرف" type="xs:int" minOccurs="0" />
+              <xs:element name="الفرعية" msprop:Generator_ColumnVarNameInTable="columnالفرعية" msprop:Generator_ColumnPropNameInRow="الفرعية" msprop:Generator_ColumnPropNameInTable="الفرعيةColumn" msprop:Generator_UserColumnName="الفرعية" type="xs:int" minOccurs="0" />
+              <xs:element name="اللجنة" msprop:Generator_ColumnVarNameInTable="columnاللجنة" msprop:Generator_ColumnPropNameInRow="اللجنة" msprop:Generator_ColumnPropNameInTable="اللجنةColumn" msprop:Generator_UserColumnName="اللجنة" type="xs:int" minOccurs="0" />
+              <xs:element name="typee" msprop:Generator_ColumnVarNameInTable="columntypee" msprop:Generator_ColumnPropNameInRow="typee" msprop:Generator_ColumnPropNameInTable="typeeColumn" msprop:Generator_UserColumnName="typee" type="xs:int" minOccurs="0" />
+              <xs:element name="ملاحظات" msprop:Generator_ColumnVarNameInTable="columnملاحظات" msprop:Generator_ColumnPropNameInRow="ملاحظات" msprop:Generator_ColumnPropNameInTable="ملاحظاتColumn" msprop:Generator_UserColumnName="ملاحظات" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adddres" msprop:Generator_ColumnVarNameInTable="columnadddres" msprop:Generator_ColumnPropNameInRow="adddres" msprop:Generator_ColumnPropNameInTable="adddresColumn" msprop:Generator_UserColumnName="adddres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="filedate" msprop:Generator_ColumnVarNameInTable="columnfiledate" msprop:Generator_ColumnPropNameInRow="filedate" msprop:Generator_ColumnPropNameInTable="filedateColumn" msprop:Generator_UserColumnName="filedate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="estktaa" msprop:Generator_ColumnVarNameInTable="columnestktaa" msprop:Generator_ColumnPropNameInRow="estktaa" msprop:Generator_ColumnPropNameInTable="estktaaColumn" msprop:Generator_UserColumnName="estktaa" type="xs:double" minOccurs="0" />
+              <xs:element name="ked" msprop:Generator_ColumnVarNameInTable="columnked" msprop:Generator_ColumnPropNameInRow="ked" msprop:Generator_ColumnPropNameInTable="kedColumn" msprop:Generator_UserColumnName="ked" type="xs:int" minOccurs="0" />
+              <xs:element name="w_name" msprop:Generator_ColumnVarNameInTable="columnw_name" msprop:Generator_ColumnPropNameInRow="w_name" msprop:Generator_ColumnPropNameInTable="w_nameColumn" msprop:Generator_UserColumnName="w_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WarasaType" msprop:Generator_ColumnVarNameInTable="columnWarasaType" msprop:Generator_ColumnPropNameInRow="WarasaType" msprop:Generator_ColumnPropNameInTable="WarasaTypeColumn" msprop:Generator_UserColumnName="WarasaType" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="wNID" msprop:Generator_ColumnVarNameInTable="columnwNID" msprop:Generator_ColumnPropNameInRow="wNID" msprop:Generator_ColumnPropNameInTable="wNIDColumn" msprop:Generator_UserColumnName="wNID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t1" msprop:Generator_ColumnVarNameInTable="columnt1" msprop:Generator_ColumnPropNameInRow="t1" msprop:Generator_ColumnPropNameInTable="t1Column" msprop:Generator_UserColumnName="t1" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="reply_w" msprop:Generator_TableClassName="reply_wDataTable" msprop:Generator_TableVarName="tablereply_w" msprop:Generator_RowChangedName="reply_wRowChanged" msprop:Generator_TablePropName="reply_w" msprop:Generator_RowDeletingName="reply_wRowDeleting" msprop:Generator_RowChangingName="reply_wRowChanging" msprop:Generator_RowEvHandlerName="reply_wRowChangeEventHandler" msprop:Generator_RowDeletedName="reply_wRowDeleted" msprop:Generator_RowClassName="reply_wRow" msprop:Generator_UserTableName="reply_w" msprop:Generator_RowEvArgName="reply_wRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="t1" msprop:Generator_ColumnVarNameInTable="columnt1" msprop:Generator_ColumnPropNameInRow="t1" msprop:Generator_ColumnPropNameInTable="t1Column" msprop:Generator_UserColumnName="t1" type="xs:int" minOccurs="0" />
+              <xs:element name="w_name" msprop:Generator_ColumnVarNameInTable="columnw_name" msprop:Generator_ColumnPropNameInRow="w_name" msprop:Generator_ColumnPropNameInTable="w_nameColumn" msprop:Generator_UserColumnName="w_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WarasaType" msprop:Generator_ColumnVarNameInTable="columnWarasaType" msprop:Generator_ColumnPropNameInRow="WarasaType" msprop:Generator_ColumnPropNameInTable="WarasaTypeColumn" msprop:Generator_UserColumnName="WarasaType" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="filedate" msprop:Generator_ColumnVarNameInTable="columnfiledate" msprop:Generator_ColumnPropNameInRow="filedate" msprop:Generator_ColumnPropNameInTable="filedateColumn" msprop:Generator_UserColumnName="filedate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="estktaa" msprop:Generator_ColumnVarNameInTable="columnestktaa" msprop:Generator_ColumnPropNameInRow="estktaa" msprop:Generator_ColumnPropNameInTable="estktaaColumn" msprop:Generator_UserColumnName="estktaa" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="accsess" msprop:Generator_TableClassName="accsessDataTable" msprop:Generator_TableVarName="tableaccsess" msprop:Generator_TablePropName="accsess" msprop:Generator_RowDeletingName="accsessRowDeleting" msprop:Generator_RowChangingName="accsessRowChanging" msprop:Generator_RowEvHandlerName="accsessRowChangeEventHandler" msprop:Generator_RowDeletedName="accsessRowDeleted" msprop:Generator_UserTableName="accsess" msprop:Generator_RowChangedName="accsessRowChanged" msprop:Generator_RowEvArgName="accsessRowChangeEvent" msprop:Generator_RowClassName="accsessRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmid" msprop:Generator_ColumnPropNameInRow="mid" msprop:Generator_ColumnPropNameInTable="midColumn" msprop:Generator_UserColumnName="mid" type="xs:int" minOccurs="0" />
+              <xs:element name="sarffnomber" msprop:Generator_ColumnVarNameInTable="columnsarffnomber" msprop:Generator_ColumnPropNameInRow="sarffnomber" msprop:Generator_ColumnPropNameInTable="sarffnomberColumn" msprop:Generator_UserColumnName="sarffnomber" type="xs:int" minOccurs="0" />
+              <xs:element name="syndicate" msprop:Generator_ColumnVarNameInTable="columnsyndicate" msprop:Generator_ColumnPropNameInRow="syndicate" msprop:Generator_ColumnPropNameInTable="syndicateColumn" msprop:Generator_UserColumnName="syndicate" type="xs:int" minOccurs="0" />
+              <xs:element name="lagna" msprop:Generator_ColumnVarNameInTable="columnlagna" msprop:Generator_ColumnPropNameInRow="lagna" msprop:Generator_ColumnPropNameInTable="lagnaColumn" msprop:Generator_UserColumnName="lagna" type="xs:int" minOccurs="0" />
+              <xs:element name="maashhala" msprop:Generator_ColumnVarNameInTable="columnmaashhala" msprop:Generator_ColumnPropNameInRow="maashhala" msprop:Generator_ColumnPropNameInTable="maashhalaColumn" msprop:Generator_UserColumnName="maashhala" type="xs:int" minOccurs="0" />
+              <xs:element name="amony" msprop:Generator_ColumnVarNameInTable="columnamony" msprop:Generator_ColumnPropNameInRow="amony" msprop:Generator_ColumnPropNameInTable="amonyColumn" msprop:Generator_UserColumnName="amony" type="xs:float" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:reply" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

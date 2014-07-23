@@ -1,0 +1,37 @@
+﻿private void RemoveClickEvent(DevExpress.XtraBars.BarItem item)
+        {
+            DetachEvents(item);
+          
+        }
+        private void sub1(object item)
+        {
+            foreach (EventInfo ev in item.GetType().GetEvents())
+            {		
+                //Public | Sealed | BeforeFieldInit | HasSecurity	System.Reflection.TypeAttributes
+
+                FieldInfo fi = item.GetType().GetField(ev.Name, BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                Delegate del = (Delegate)fi.GetValue(item);
+                var list = del.GetInvocationList();
+                string msg = string.Empty;
+                foreach (var d in list)
+                {
+                    msg += d.Method.Name + Environment.NewLine;
+                    //Console.WriteLine("{0}", d.Method.Name);
+                }
+                MessageBox.Show(msg);
+            }
+        }
+        private EventHandlerList DetachEvents(Component obj)
+        {
+           
+            PropertyInfo propEvents = obj.GetType().GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
+
+            object objNew = obj.GetType().GetConstructor(new Type[] { }).Invoke(new object[] { });
+            EventHandlerList eventHandlerList_obj = (EventHandlerList)propEvents.GetValue(obj, null);
+            EventHandlerList eventHandlerList_objNew = (EventHandlerList)propEvents.GetValue(objNew, null);
+
+            eventHandlerList_objNew.AddHandlers(eventHandlerList_obj);
+            eventHandlerList_obj.Dispose();
+
+            return eventHandlerList_objNew;
+        }

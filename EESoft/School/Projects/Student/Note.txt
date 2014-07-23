@@ -1,0 +1,11 @@
+﻿
+CDDyana:
+change dyana_code from bit to int.
+___________________________________
+Relation info_helth, rem_sud
+___________________________________
+remove relation bettwen (stu_takasosat, CD_Asase)
+__________________________________
+CDAlnoa -> name_alnoa change it to nvarchar(40)
+		-> name_alnoa_e change it to nvarchar(40)
+__________________________________

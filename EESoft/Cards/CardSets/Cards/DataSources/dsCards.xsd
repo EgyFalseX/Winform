@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCards" targetNamespace="http://tempuri.org/dsCards.xsd" xmlns:mstns="http://tempuri.org/dsCards.xsd" xmlns="http://tempuri.org/dsCards.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CARDSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CARDSConnectionString (Settings)" PropertyReference="ApplicationSettings.CardSets.Properties.Settings.GlobalReference.Default.CARDSConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="memberdataTableAdapter" GeneratorDataComponentClassName="memberdataTableAdapter" Name="memberdata" UserDataComponentName="memberdataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CARDSConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     memberid, titleid, membername, sefaid, LagnaId, cdsubcommite, imgpath, False AS chk, KidNumber, Sefa2,
+                          (SELECT     titleName
+                             FROM         cdtitle
+                             WHERE     titleid = memberdata.titleid) AS titleName,
+                          (SELECT     sefaName
+                             FROM         cdsefa
+                             WHERE     sefaid = memberdata.sefaid) AS sefaName,
+                          (SELECT     LagnaName
+                             FROM         CDLagna
+                             WHERE     LagnaId = memberdata.LagnaId) AS LagnaName,
+                          (SELECT     subcommite
+                             FROM         cdsubcommite
+                             WHERE     cdsubcommite = memberdata.cdsubcommite) AS subcommite
+FROM         memberdata</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="memberid" DataSetColumn="memberid" />
+              <Mapping SourceColumn="titleid" DataSetColumn="titleid" />
+              <Mapping SourceColumn="membername" DataSetColumn="membername" />
+              <Mapping SourceColumn="sefaid" DataSetColumn="sefaid" />
+              <Mapping SourceColumn="LagnaId" DataSetColumn="LagnaId" />
+              <Mapping SourceColumn="cdsubcommite" DataSetColumn="cdsubcommite" />
+              <Mapping SourceColumn="imgpath" DataSetColumn="imgpath" />
+              <Mapping SourceColumn="KidNumber" DataSetColumn="KidNumber" />
+              <Mapping SourceColumn="Sefa2" DataSetColumn="Sefa2" />
+              <Mapping SourceColumn="titleName" DataSetColumn="titleName" />
+              <Mapping SourceColumn="sefaName" DataSetColumn="sefaName" />
+              <Mapping SourceColumn="LagnaName" DataSetColumn="LagnaName" />
+              <Mapping SourceColumn="subcommite" DataSetColumn="subcommite" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCards" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCards" msprop:Generator_UserDSName="dsCards">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="memberdata" msprop:Generator_TableClassName="memberdataDataTable" msprop:Generator_TableVarName="tablememberdata" msprop:Generator_TablePropName="memberdata" msprop:Generator_RowDeletingName="memberdataRowDeleting" msprop:Generator_UserTableName="memberdata" msprop:Generator_RowChangingName="memberdataRowChanging" msprop:Generator_RowEvHandlerName="memberdataRowChangeEventHandler" msprop:Generator_RowDeletedName="memberdataRowDeleted" msprop:Generator_RowEvArgName="memberdataRowChangeEvent" msprop:Generator_RowChangedName="memberdataRowChanged" msprop:Generator_RowClassName="memberdataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="memberid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmemberid" msprop:Generator_ColumnPropNameInRow="memberid" msprop:Generator_ColumnPropNameInTable="memberidColumn" msprop:Generator_UserColumnName="memberid" type="xs:int" />
+              <xs:element name="titleid" msprop:Generator_ColumnVarNameInTable="columntitleid" msprop:Generator_ColumnPropNameInRow="titleid" msprop:Generator_ColumnPropNameInTable="titleidColumn" msprop:Generator_UserColumnName="titleid" type="xs:int" minOccurs="0" />
+              <xs:element name="membername" msprop:Generator_ColumnVarNameInTable="columnmembername" msprop:Generator_ColumnPropNameInRow="membername" msprop:Generator_ColumnPropNameInTable="membernameColumn" msprop:Generator_UserColumnName="membername" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sefaid" msprop:Generator_ColumnVarNameInTable="columnsefaid" msprop:Generator_ColumnPropNameInRow="sefaid" msprop:Generator_ColumnPropNameInTable="sefaidColumn" msprop:Generator_UserColumnName="sefaid" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LagnaId" msprop:Generator_ColumnVarNameInTable="columnLagnaId" msprop:Generator_ColumnPropNameInRow="LagnaId" msprop:Generator_ColumnPropNameInTable="LagnaIdColumn" msprop:Generator_UserColumnName="LagnaId" type="xs:int" minOccurs="0" />
+              <xs:element name="cdsubcommite" msprop:Generator_ColumnVarNameInTable="columncdsubcommite" msprop:Generator_ColumnPropNameInRow="cdsubcommite" msprop:Generator_ColumnPropNameInTable="cdsubcommiteColumn" msprop:Generator_UserColumnName="cdsubcommite" type="xs:int" minOccurs="0" />
+              <xs:element name="imgpath" msprop:Generator_ColumnVarNameInTable="columnimgpath" msprop:Generator_ColumnPropNameInRow="imgpath" msprop:Generator_ColumnPropNameInTable="imgpathColumn" msprop:Generator_UserColumnName="imgpath" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="chk" msprop:Generator_ColumnVarNameInTable="columnchk" msprop:Generator_ColumnPropNameInRow="chk" msprop:Generator_ColumnPropNameInTable="chkColumn" msprop:Generator_UserColumnName="chk" type="xs:boolean" minOccurs="0" />
+              <xs:element name="KidNumber" msprop:Generator_ColumnVarNameInTable="columnKidNumber" msprop:Generator_ColumnPropNameInRow="KidNumber" msprop:Generator_ColumnPropNameInTable="KidNumberColumn" msprop:Generator_UserColumnName="KidNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sefa2" msprop:Generator_ColumnVarNameInTable="columnSefa2" msprop:Generator_ColumnPropNameInRow="Sefa2" msprop:Generator_ColumnPropNameInTable="Sefa2Column" msprop:Generator_UserColumnName="Sefa2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="titleName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntitleName" msprop:Generator_ColumnPropNameInRow="titleName" msprop:Generator_ColumnPropNameInTable="titleNameColumn" msprop:Generator_UserColumnName="titleName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sefaName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsefaName" msprop:Generator_ColumnPropNameInRow="sefaName" msprop:Generator_ColumnPropNameInTable="sefaNameColumn" msprop:Generator_UserColumnName="sefaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LagnaName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLagnaName" msprop:Generator_ColumnPropNameInRow="LagnaName" msprop:Generator_ColumnPropNameInTable="LagnaNameColumn" msprop:Generator_UserColumnName="LagnaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subcommite" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsubcommite" msprop:Generator_ColumnPropNameInRow="subcommite" msprop:Generator_ColumnPropNameInTable="subcommiteColumn" msprop:Generator_UserColumnName="subcommite" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:memberdata" />
+      <xs:field xpath="mstns:memberid" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

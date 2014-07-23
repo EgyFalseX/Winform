@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{620CEDD9-BD48-4195-9C29-394AACA7EC82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>DataCenter_Client.My.MyApplication</StartupObject>
+    <RootNamespace>DataCenter_Client</RootNamespace>
+    <AssemblyName>DataCenter - Client</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Tools\Icons\Client_exe.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Releases\</OutputPath>
+    <DocumentationFile>DataCenter - Client.xml</DocumentationFile>
+    <NOWARN>1591,660,661</NOWARN>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DocumentationFile>DataCenter - Client.xml</DocumentationFile>
+    <NOWARN>1591,660,661</NOWARN>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FunctionLib\FunctionLib.csproj">
+      <Project>{957B7F1B-E1FF-43CB-AFB3-549F521D9010}</Project>
+      <Name>FunctionLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\LockedFilesFrm.Designer.cs">
+      <DependentUpon>LockedFilesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LockedFilesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainWindowFrm.Designer.cs">
+      <DependentUpon>MainWindowFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainWindowFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MSGBOXFrm.Designer.cs">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MSGBOXFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ObjectPropertyFrm.Designer.cs">
+      <DependentUpon>ObjectPropertyFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ObjectPropertyFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsFrm.Designer.cs">
+      <DependentUpon>OptionsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartUpFrm.Designer.cs">
+      <DependentUpon>StartUpFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartUpFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StuObjectPropertyFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StuObjectPropertyFrm.Designer.cs">
+      <DependentUpon>StuObjectPropertyFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TransferFrm.Designer.cs">
+      <DependentUpon>TransferFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TransferFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Application.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SQLConnectionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLConnectionFrm.designer.cs">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLConnectionUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SQLConnectionUC.designer.cs">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\LockedFilesFrm.resx">
+      <DependentUpon>LockedFilesFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainWindowFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainWindowFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ObjectPropertyFrm.resx">
+      <DependentUpon>ObjectPropertyFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsFrm.resx">
+      <DependentUpon>OptionsFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartUpFrm.resx">
+      <DependentUpon>StartUpFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StuObjectPropertyFrm.resx">
+      <DependentUpon>StuObjectPropertyFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TransferFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TransferFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLConnectionFrm.resx">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLConnectionUC.resx">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\Images\Background\Complated.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\Images\Background\Error.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Codes.txt" />
+    <Content Include="DelMe.txt" />
+    <Content Include="Missing tasks.txt" />
+    <None Include="Resources\EESoft Logo.jpg" />
+    <None Include="Resources\logo.jpg" />
+    <None Include="Resources\Default.ico" />
+    <None Include="Resources\Background 02.jpg" />
+    <None Include="Tools\Images\Background\Mena Logo.bmp" />
+    <None Include="Tools\Icons\About.ico" />
+    <None Include="Tools\Images\Background\SplashScreen_Trns.jpg" />
+    <None Include="Tools\Images\Background\SplashScreen_.jpg" />
+    <None Include="Tools\Images\Background\MSGBOXFrm.jpg" />
+    <None Include="Tools\Images\Background\LVFiles.jpg" />
+    <None Include="Tools\Images\Background\TransferFrm.jpg" />
+    <None Include="Tools\Images\Background\SQLConnectionFrm.jpg" />
+    <None Include="Tools\Images\Background\OptionsFrm.jpg" />
+    <None Include="Tools\Images\Background\ObjectPropertyFrm.jpg" />
+    <None Include="Tools\Images\Background\LockedFilesFrm.jpg" />
+    <None Include="Tools\Icons\FIle_List_Style.ico" />
+    <None Include="Tools\Icons\Exit.ico" />
+    <None Include="Tools\Icons\Client_exe.ico" />
+    <None Include="Tools\Icons\Add-folder.ico" />
+    <None Include="Resources\Options.ico" />
+    <None Include="Resources\Locked-Files.ico" />
+    <None Include="Resources\new-file.ico" />
+    <None Include="Resources\Lock-file.ico" />
+    <None Include="Resources\Unlock-file.ico" />
+    <None Include="Resources\Transfer.ico" />
+    <None Include="Resources\folder-property.ico" />
+    <None Include="Resources\remove-folder.ico" />
+    <None Include="Resources\Add-folder.ico" />
+    <None Include="Resources\file-property.ico" />
+    <None Include="Resources\DeleteObject.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="$(MSBuildBinPath)/Microsoft.CSharp.targets" />
+</Project>

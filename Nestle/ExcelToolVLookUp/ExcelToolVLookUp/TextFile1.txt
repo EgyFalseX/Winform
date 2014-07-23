@@ -1,0 +1,48 @@
+﻿  OpenUI(false);
+                try
+                {
+                    this.Invoke(new MethodInvoker(() =>
+                    {
+                        tbResult.Clear();
+                    }));
+                    
+                    DataTable dtFor = LoadExcelFile(LblFor.Text, 0, tbFieldFor.Text);
+                    DataTable dtIn = LoadExcelFile(LblIn.Text, 0, tbFieldIn.Text);
+                    this.Invoke(new MethodInvoker(() =>
+                    {
+                        pb.Maximum = dtFor.Rows.Count;
+                    }));
+                    
+                    foreach (DataRow rowFor in dtFor.Rows)
+                    {
+                        this.Invoke(new MethodInvoker(() =>
+                        {
+                            pb.Value = Convert.ToInt32(pb.Value) + 1;
+                        }));
+
+                        bool Found = false;
+                        foreach (DataRow rowIn in dtIn.Rows)
+                        {
+                            if (rowFor[tbFieldFor.Text].ToString().Trim() == rowIn[tbFieldIn.Text].ToString().Trim())
+                            {
+                                Found = true;
+                                break;
+                            }
+                        }
+                        if (!Found)
+                            Add(rowFor[tbFieldFor.Text].ToString());
+                    }
+                    MessageBox.Show("Done ..." + tbResult.Lines.Length + " Found", "Copy", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Occured  - " + ex.Message);
+                }
+
+                OpenUI(true);
+                this.Invoke(new MethodInvoker(() =>
+                {
+                    pb.Maximum = 0;
+                    pb.Value = 0;
+                }));
+            });

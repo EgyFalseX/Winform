@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2402B48-FDA1-45DC-9B38-753CFA74E645}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_Club_Sub_Manager</RootNamespace>
+    <AssemblyName>E Club Sub Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\ECSM\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\ECSM\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>File-Schedule+.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AddMembershipFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddMembershipFrm.Designer.cs">
+      <DependentUpon>AddMembershipFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CardsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\CardsFrm.Designer.cs">
+      <DependentUpon>CardsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ECMMainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ECMMainFrm.Designer.cs">
+      <DependentUpon>ECMMainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MCls.cs" />
+    <Compile Include="Main\MSGBOXFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\MSGBOXFrm.designer.cs">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main\SQLConnectionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQLConnectionFrm.designer.cs">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QryMembershipFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryMembershipFrm.Designer.cs">
+      <DependentUpon>QryMembershipFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.designer.cs">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.Designer.cs">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Data\AddMembershipFrm.resx">
+      <DependentUpon>AddMembershipFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\CardsFrm.resx">
+      <DependentUpon>CardsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ECMMainFrm.resx">
+      <DependentUpon>ECMMainFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Main\SQLConnectionFrm.resx">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QryMembershipFrm.resx">
+      <DependentUpon>QryMembershipFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepGeneralFrm.resx">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\SQLConnectionUC.resx">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOX_Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOX_Info.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOXFrm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background 02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ECSM_BG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="File-Schedule+.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

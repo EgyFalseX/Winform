@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsNUQry" targetNamespace="http://tempuri.org/dsNUQry.xsd" xmlns:mstns="http://tempuri.org/dsNUQry.xsd" xmlns="http://tempuri.org/dsNUQry.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NMConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NMConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.NestleMenu.Properties.Settings.GlobalReference.Default.NMConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NestleMenuConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NestleMenuConnectionString (Settings)" PropertyReference="ApplicationSettings.NestleMenu.Properties.Settings.GlobalReference.Default.NestleMenuConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry001TableAdapter" GeneratorDataComponentClassName="Qry001TableAdapter" Name="Qry001" UserDataComponentName="Qry001TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NestleMenuConnectionString (Settings)" DbObjectName="Qry001" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Price, ShowPrice, MenuOrderName, MenuOrderDate, BranchName, CustomerName, MenuSizeName, MenuThemeName, ShowLogo, OrderCount, Deliverydate, OrderSupervisor, ProductName, ProductBaseName FROM Qry001</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="ShowPrice" DataSetColumn="ShowPrice" />
+              <Mapping SourceColumn="MenuOrderName" DataSetColumn="MenuOrderName" />
+              <Mapping SourceColumn="MenuOrderDate" DataSetColumn="MenuOrderDate" />
+              <Mapping SourceColumn="BranchName" DataSetColumn="BranchName" />
+              <Mapping SourceColumn="CustomerName" DataSetColumn="CustomerName" />
+              <Mapping SourceColumn="MenuSizeName" DataSetColumn="MenuSizeName" />
+              <Mapping SourceColumn="MenuThemeName" DataSetColumn="MenuThemeName" />
+              <Mapping SourceColumn="ShowLogo" DataSetColumn="ShowLogo" />
+              <Mapping SourceColumn="OrderCount" DataSetColumn="OrderCount" />
+              <Mapping SourceColumn="Deliverydate" DataSetColumn="Deliverydate" />
+              <Mapping SourceColumn="OrderSupervisor" DataSetColumn="OrderSupervisor" />
+              <Mapping SourceColumn="ProductName" DataSetColumn="ProductName" />
+              <Mapping SourceColumn="ProductBaseName" DataSetColumn="ProductBaseName" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="NestleMenuConnectionString (Settings)" DbObjectName="Qry001" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByMenuOrderDateRange" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMenuOrderDateRange" GeneratorSourceName="FillByMenuOrderDateRange" GetMethodModifier="Public" GetMethodName="GetDataByMenuOrderDateRange" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMenuOrderDateRange" UserSourceName="FillByMenuOrderDateRange">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Price, ShowPrice, MenuOrderName, MenuOrderDate, BranchName, CustomerName, MenuSizeName, MenuThemeName, ShowLogo, OrderCount, Deliverydate, OrderSupervisor, ProductName, ProductBaseName FROM Qry001
+WHERE        (MenuOrderDate BETWEEN ? AND ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="MenuOrderDate" DataSourceName="Qry001" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="MenuOrderDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="MenuOrderDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="MenuOrderDate" DataSourceName="Qry001" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="MenuOrderDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="MenuOrderDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+          <DbSource ConnectionRef="NMConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EmptyData" MethodsParameterType="CLR" Modifier="Public" Name="EmptyData" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="EmptyData">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>select '' As EmptyData</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsNUQry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsNUQry" msprop:Generator_UserDSName="dsNUQry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Qry001" msprop:Generator_TableClassName="Qry001DataTable" msprop:Generator_TableVarName="tableQry001" msprop:Generator_TablePropName="Qry001" msprop:Generator_RowDeletingName="Qry001RowDeleting" msprop:Generator_RowChangingName="Qry001RowChanging" msprop:Generator_RowEvHandlerName="Qry001RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry001RowDeleted" msprop:Generator_UserTableName="Qry001" msprop:Generator_RowChangedName="Qry001RowChanged" msprop:Generator_RowEvArgName="Qry001RowChangeEvent" msprop:Generator_RowClassName="Qry001Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" minOccurs="0" />
+              <xs:element name="ShowPrice" msprop:Generator_ColumnVarNameInTable="columnShowPrice" msprop:Generator_ColumnPropNameInRow="ShowPrice" msprop:Generator_ColumnPropNameInTable="ShowPriceColumn" msprop:Generator_UserColumnName="ShowPrice" type="xs:boolean" minOccurs="0" />
+              <xs:element name="MenuOrderName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMenuOrderName" msprop:Generator_ColumnPropNameInRow="MenuOrderName" msprop:Generator_ColumnPropNameInTable="MenuOrderNameColumn" msprop:Generator_UserColumnName="MenuOrderName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MenuOrderDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMenuOrderDate" msprop:Generator_ColumnPropNameInRow="MenuOrderDate" msprop:Generator_ColumnPropNameInTable="MenuOrderDateColumn" msprop:Generator_UserColumnName="MenuOrderDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BranchName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBranchName" msprop:Generator_ColumnPropNameInRow="BranchName" msprop:Generator_ColumnPropNameInTable="BranchNameColumn" msprop:Generator_UserColumnName="BranchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MenuSizeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMenuSizeName" msprop:Generator_ColumnPropNameInRow="MenuSizeName" msprop:Generator_ColumnPropNameInTable="MenuSizeNameColumn" msprop:Generator_UserColumnName="MenuSizeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MenuThemeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMenuThemeName" msprop:Generator_ColumnPropNameInRow="MenuThemeName" msprop:Generator_ColumnPropNameInTable="MenuThemeNameColumn" msprop:Generator_UserColumnName="MenuThemeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShowLogo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShowLogo" msprop:Generator_ColumnPropNameInRow="ShowLogo" msprop:Generator_ColumnPropNameInTable="ShowLogoColumn" msprop:Generator_UserColumnName="ShowLogo" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderCount" msprop:Generator_ColumnPropNameInRow="OrderCount" msprop:Generator_ColumnPropNameInTable="OrderCountColumn" msprop:Generator_UserColumnName="OrderCount" type="xs:int" minOccurs="0" />
+              <xs:element name="Deliverydate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDeliverydate" msprop:Generator_ColumnPropNameInRow="Deliverydate" msprop:Generator_ColumnPropNameInTable="DeliverydateColumn" msprop:Generator_UserColumnName="Deliverydate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="OrderSupervisor" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderSupervisor" msprop:Generator_ColumnPropNameInRow="OrderSupervisor" msprop:Generator_ColumnPropNameInTable="OrderSupervisorColumn" msprop:Generator_UserColumnName="OrderSupervisor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProductName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_UserColumnName="ProductName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProductBaseName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnProductBaseName" msprop:Generator_ColumnPropNameInRow="ProductBaseName" msprop:Generator_ColumnPropNameInTable="ProductBaseNameColumn" msprop:Generator_UserColumnName="ProductBaseName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

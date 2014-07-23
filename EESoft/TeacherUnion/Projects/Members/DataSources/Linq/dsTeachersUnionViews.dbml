@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TeachersUnion" Class="dsTeachersUnionViewsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=TeachersUnion;Integrated Security=True" SettingsObjectName="Members.Properties.Settings" SettingsPropertyName="TeachersUnionConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vTBLPrintCard" Member="vTBLPrintCards">
+    <Type Name="vTBLPrintCard">
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="printed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="printdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="esalno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SyndicateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLMembersPlusTBLMemberHala" Member="vTBLMembersPlusTBLMemberHalas">
+    <Type Name="vTBLMembersPlusTBLMemberHala">
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="KideNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="esalno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLMembersPlusShadetKed" Member="vTBLMembersPlusShadetKeds">
+    <Type Name="vTBLMembersPlusShadetKed">
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubCommitte" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="esalno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KideNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Jobtitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShadetKed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MemberNId" Type="System.String" DbType="NVarChar(14)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLMembersPlusTblMemberAttach" Member="vTBLMembersPlusTblMemberAttaches">
+    <Type Name="vTBLMembersPlusTblMemberAttach">
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="KideNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="esalno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="img" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AttachCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLMazroofPlusReceiptsQry29" Member="vTBLMazroofPlusReceiptsQry29s">
+    <Type Name="vTBLMazroofPlusReceiptsQry29">
+      <Column Name="ReceiptNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mazroofno" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="WorkTypeId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="workcount" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="workrem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="userwork" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="datework" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CardsCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cardtype" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReceiptAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WorkType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLMandoop" Member="vTBLMandoops">
+    <Type Name="vTBLMandoop">
+      <Column Name="MandoopId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MandoopName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MandoopNID" Type="System.String" DbType="NVarChar(14)" CanBeNull="true" />
+      <Column Name="MandoopJOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MandoopMOBIL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MandoopEMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SyndicateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datein" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MandoopImg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLAksatDetailes" Member="vTBLAksatDetailes">
+    <Type Name="vTBLAksatDetaile">
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="datesadad" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="sdadmony" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="datein" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="userin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kestenddate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="mostahk" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="madfoaa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="esalno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="esaldate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubCommitte" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="KideNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cardtype" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Installment" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="fawry" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SyndicateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubCommitteId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTBLMembersQry05" Member="vTBLMembersQry05s">
+    <Type Name="vTBLMembersQry05">
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="KideNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trheelprog" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SyndicateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubCommitteId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberShipNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RandomCard" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubCommitte" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Syndicate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="datein" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="esalno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Img" Type="System.Data.Linq.Binary" DbType="Binary(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RealNamePrint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fawry" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="printed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="printdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="mEdited" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="userEdit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EditUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vQry33" Member="vQry33s">
+    <Type Name="vQry33">
+      <Column Name="ReceiptNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mazroofno" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="WorkTypeId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="workcount" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="workrem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="userwork" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="datework" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WorkType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

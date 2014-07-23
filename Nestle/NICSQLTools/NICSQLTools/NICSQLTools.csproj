@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3148BD6-5E16-41C3-A23E-3A565D7CA252}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NICSQLTools</RootNamespace>
+    <AssemblyName>NICSQLTools</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>NICAccessTools.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FXFW">
+      <HintPath>..\..\..\FalseX\FXFW\Releases\FXFW.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>C:\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\dsLinqData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLinqData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\ProductEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\ProductEditorFrm.designer.cs">
+      <DependentUpon>ProductEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\FinalDataEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\FinalDataEditorFrm.designer.cs">
+      <DependentUpon>FinalDataEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\RouteEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\RouteEditorFrm.designer.cs">
+      <DependentUpon>RouteEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\CustomerEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\CustomerEditorFrm.designer.cs">
+      <DependentUpon>CustomerEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dsCfg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCfg.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Macro.cs" />
+    <Compile Include="Master.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="Data\dsData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SampleData.cs" />
+    <Compile Include="Forms\ImportDaysFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportBillingDetailsFrm.designer.cs">
+      <DependentUpon>ImportDaysFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainFrm.designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MsgDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MsgDlg.designer.cs">
+      <DependentUpon>MsgDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QryFrm.Designer.cs">
+      <DependentUpon>QryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProceduresFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProceduresFrm.Designer.cs">
+      <DependentUpon>ProceduresFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="UpdateInfo.cs" />
+    <Compile Include="Uti\Types.cs" />
+    <Compile Include="Views\GroupDetailPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GroupDetailPage.Designer.cs">
+      <DependentUpon>GroupDetailPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemDetailPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ItemDetailPage.Designer.cs">
+      <DependentUpon>ItemDetailPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\GroupItemDetailPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GroupItemDetailPage.Designer.cs">
+      <DependentUpon>GroupItemDetailPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitWindowFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitWindowFrm.designer.cs">
+      <DependentUpon>WaitWindowFrm.cs</DependentUpon>
+    </Compile>
+    <None Include="Data\dsLinqData.dbml.layout">
+      <DependentUpon>dsLinqData.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Forms\Data\ProductEditorFrm.resx">
+      <DependentUpon>ProductEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\FinalDataEditorFrm.resx">
+      <DependentUpon>FinalDataEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\RouteEditorFrm.resx">
+      <DependentUpon>RouteEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\CustomerEditorFrm.resx">
+      <DependentUpon>CustomerEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportDaysFrm.resx">
+      <DependentUpon>ImportDaysFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MsgDlg.resx">
+      <DependentUpon>MsgDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QryFrm.resx">
+      <DependentUpon>QryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProceduresFrm.resx">
+      <DependentUpon>ProceduresFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Views\GroupDetailPage.resx">
+      <DependentUpon>GroupDetailPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ItemDetailPage.resx">
+      <DependentUpon>ItemDetailPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\GroupItemDetailPage.resx">
+      <DependentUpon>GroupItemDetailPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitWindowFrm.resx">
+      <DependentUpon>WaitWindowFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Data\dsCfg.xsc">
+      <DependentUpon>dsCfg.xsd</DependentUpon>
+    </None>
+    <None Include="Data\dsCfg.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCfg.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\dsCfg.xss">
+      <DependentUpon>dsCfg.xsd</DependentUpon>
+    </None>
+    <None Include="Data\dsData.xsc">
+      <DependentUpon>dsData.xsd</DependentUpon>
+    </None>
+    <None Include="Data\dsData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\dsData.xss">
+      <DependentUpon>dsData.xsd</DependentUpon>
+    </None>
+    <None Include="Data\dsLinqData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dsLinqData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\DarkGray.png" />
+    <EmbeddedResource Include="Assets\LightGray.png" />
+    <EmbeddedResource Include="Assets\MediumGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\importtodatabase_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\importtodatabase_16x16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cfg.mdb" />
+    <Content Include="db.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NICAccessTools.ico" />
+    <None Include="Resources\Stop.png" />
+    <None Include="Resources\Start.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Question.png" />
+    <None Include="Resources\New.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\done.png" />
+    <None Include="Resources\MSG_Warnning.png" />
+    <None Include="Resources\MSG_Success.png" />
+    <None Include="Resources\MSG_Information.png" />
+    <None Include="Resources\MSG_Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{2A75196C-D9EB-4129-B803-931327F72D5C}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DAO">
+      <Guid>{00025E01-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Access">
+      <Guid>{4AFFC9A0-5F99-101B-AF4E-00AA003F0F07}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

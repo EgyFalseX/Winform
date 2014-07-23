@@ -1,0 +1,2 @@
+1- if i would add privlige to child folder by default its make the same privilage to the parent but read onl the prolem is if i delete the parent privliage it will hie its contants
+2-

@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A067ABFE-9B89-488A-B52C-C73E423D1C48}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Employee</RootNamespace>
+    <AssemblyName>Employee</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <DeepSeaExtensionsPath Condition=" '$(DeepSeaExtensionsPath)' == '' ">$(MSBuildExtensionsPath)\DeepSea Obfuscator\v4</DeepSeaExtensionsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Releases\Files\Employee\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DeepSeaObfuscate>false</DeepSeaObfuscate>
+    <DeepSeaKeyPassword>[Egy]FalseX</DeepSeaKeyPassword>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Releases\Files\Employee\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Employee.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Employee\Employee.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Releases\Files\Employee\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Employee\Employee.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Employee\Employee.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Releases\Files\Employee\Employee.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sysbase\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FXFW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\FXFW\Releases\FXFW.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.Smo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Development\SQL Server 2008\Extra Packages\SQL Server 2008 R2\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\CodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\CodeFrm.designer.cs">
+      <DependentUpon>CodeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLEmpKashfFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLEmpKashfFrm.designer.cs">
+      <DependentUpon>TBLEmpKashfFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_trainingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_trainingFrm.designer.cs">
+      <DependentUpon>EMP_trainingFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_agazatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_agazatFrm.designer.cs">
+      <DependentUpon>EMP_agazatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_LaterFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_LaterFrm.designer.cs">
+      <DependentUpon>EMP_LaterFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_eznFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_eznFrm.designer.cs">
+      <DependentUpon>EMP_eznFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_gzaatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_gzaatFrm.designer.cs">
+      <DependentUpon>EMP_gzaatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_TAMEENFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_TAMEENFrm.designer.cs">
+      <DependentUpon>EMP_TAMEENFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EMP_reportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\EMP_reportFrm.designer.cs">
+      <DependentUpon>EMP_reportFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\AboutBoxFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\AboutBoxFrm.designer.cs">
+      <DependentUpon>AboutBoxFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\AppOptionsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\AppOptionsFrm.designer.cs">
+      <DependentUpon>AppOptionsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DatabaseManagerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DatabaseManagerFrm.designer.cs">
+      <DependentUpon>DatabaseManagerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\LoginFrm.designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\MainFrm.designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SplashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SplashFrm.designer.cs">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\RoleDetialFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\RoleDetialFrm.designer.cs">
+      <DependentUpon>RoleDetialFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\RolesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\RolesFrm.designer.cs">
+      <DependentUpon>RolesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\UserRolesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\UserRolesFrm.designer.cs">
+      <DependentUpon>UserRolesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\UsersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\UsersFrm.designer.cs">
+      <DependentUpon>UsersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.designer.cs">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBL_EmpFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBL_EmpFrm.Designer.cs">
+      <DependentUpon>TBL_EmpFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Emp_MoaahelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Emp_MoaahelFrm.designer.cs">
+      <DependentUpon>Emp_MoaahelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLProvider.cs" />
+    <Compile Include="Data\TBLSalaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLSalaryFrm.Designer.cs">
+      <DependentUpon>TBLSalaryFrm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Code\CodeFrm.resx">
+      <DependentUpon>CodeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLEmpKashfFrm.resx">
+      <DependentUpon>TBLEmpKashfFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_trainingFrm.resx">
+      <DependentUpon>EMP_trainingFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_agazatFrm.resx">
+      <DependentUpon>EMP_agazatFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_LaterFrm.resx">
+      <DependentUpon>EMP_LaterFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_eznFrm.resx">
+      <DependentUpon>EMP_eznFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_gzaatFrm.resx">
+      <DependentUpon>EMP_gzaatFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_TAMEENFrm.resx">
+      <DependentUpon>EMP_TAMEENFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\EMP_reportFrm.resx">
+      <DependentUpon>EMP_reportFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\AboutBoxFrm.resx">
+      <DependentUpon>AboutBoxFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\AppOptionsFrm.resx">
+      <DependentUpon>AppOptionsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DatabaseManagerFrm.resx">
+      <DependentUpon>DatabaseManagerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SplashFrm.resx">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\RoleDetialFrm.resx">
+      <DependentUpon>RoleDetialFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\RolesFrm.resx">
+      <DependentUpon>RolesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\UserRolesFrm.resx">
+      <DependentUpon>UserRolesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\UsersFrm.resx">
+      <DependentUpon>UsersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepGeneralFrm.resx">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBL_EmpFrm.resx">
+      <DependentUpon>TBL_EmpFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Emp_MoaahelFrm.resx">
+      <DependentUpon>Emp_MoaahelFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLSalaryFrm.resx">
+      <DependentUpon>TBLSalaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Code.png" />
+    <None Include="Resources\Connection.png" />
+    <None Include="Resources\Data.png" />
+    <None Include="Resources\DeleteObject.png" />
+    <None Include="Resources\EESoft.jpg" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\File.png" />
+    <None Include="Resources\Help.png" />
+    <None Include="Resources\Index.png" />
+    <None Include="Resources\info16.png" />
+    <None Include="Resources\Login_Back.png" />
+    <None Include="Resources\Permission.png" />
+    <None Include="Resources\Print.png" />
+    <None Include="Resources\Queries.png" />
+    <None Include="Resources\Skins.png" />
+    <None Include="Resources\SQLConnection.jpg" />
+    <None Include="Resources\studentLoginImg.png" />
+    <None Include="Resources\View.png" />
+    <None Include="Resources\Window.png" />
+    <None Include="Resources\WindowCascade.png" />
+    <None Include="Resources\WindowHorizontal.png" />
+    <None Include="Resources\WindowVertical.png" />
+    <Content Include="Employee.ico" />
+    <None Include="Resources\About.png" />
+    <None Include="Resources\employeeLoginImg.png" />
+    <None Include="Resources\SplashScreen.jpg" />
+    <None Include="Resources\NoImg.jpg" />
+    <None Include="Note.txt" />
+    <Content Include="SqlRpt\RSBuild.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\RSBuild.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\SQLReports.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpAddress.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\Empagazat.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpAll.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpDetail.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpInsurance.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpNews.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpEndOfJob.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpEyabDays.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpEzn.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpEznCount.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpEznTimeCount.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpInsuranceNo.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpLate.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpLateCount.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpStatisticsJob.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpTrace.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\EmpTraining.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Qry\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(DeepSeaExtensionsPath)\DeepSea.Obfuscator.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

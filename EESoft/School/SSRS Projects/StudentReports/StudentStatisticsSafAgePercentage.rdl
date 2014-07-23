@@ -1,0 +1,1052 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSourceStudent">
+      <DataSourceReference>DataSourceStudent</DataSourceReference>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Fields>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marhala_code">
+          <DataField>marhala_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="FaslCount">
+          <DataField>FaslCount</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MyAll">
+          <DataField>MyAll</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="YearsCount">
+          <DataField>YearsCount</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>Select alsofof_code, alsofof_name, marhala_code, 
+--Get FaslCount
+ISNULL((
+SELECT COUNT(DISTINCT fasl_code) FROM stu.student_t WHERE (asase_code = @asase_code) AND (alsofof_code = CDAlsofof.alsofof_code)
+), 0 ) AS FaslCount,
+--Get MyAll
+ISNULL((
+SELECT COUNT(*) FROM stu.student_t WHERE (asase_code = @asase_code) AND (alsofof_code = CDAlsofof.alsofof_code)
+), 0 ) AS MyAll,
+--Get YearsCount
+ISNULL((
+(Select Sum(YEAR(getdate()) - YEAR(Parthday)) From stu.TBLstudent Where stu_code in (select stu_code From stu.student_t Where asase_code = @asase_code And alsofof_code = CDAlsofof.alsofof_code))
+), 0 ) 
+AS YearsCount
+ 
+From CDAlsofof</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DSasase_code">
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        asase_code, asase_year, SPOS
+FROM            CD_Asase</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="ExdDataAppOptions">
+      <Fields>
+        <Field Name="SchoolLogo">
+          <DataField>SchoolLogo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT SchoolLogo
+FROM AppOptions
+Where OpCodeID = 1</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DataSetSPOS">
+      <Fields>
+        <Field Name="SCHOOL">
+          <DataField>SCHOOL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GOV">
+          <DataField>GOV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EdaraName">
+          <DataField>EdaraName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSourceStudent</DataSourceName>
+        <CommandText>SELECT        SCHOOL,
+(Select GOV From CDGov Where GOV_CD = TBLSCHOOL.gov) AS GOV,
+(Select EdaraName From CDEdara Where EdaraId = TBLSCHOOL.NOEDARET) AS EdaraName
+FROM            TBLSCHOOL
+WHERE        (SPOS = (Select SPOS From CD_Asase Where asase_code = @asase_code) )</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Chart Name="Chart1">
+        <ChartCategoryHierarchy>
+          <ChartMembers>
+            <ChartMember>
+              <Group Name="Chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!alsofof_name.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <Label>=Fields!alsofof_name.Value</Label>
+            </ChartMember>
+          </ChartMembers>
+        </ChartCategoryHierarchy>
+        <ChartSeriesHierarchy>
+          <ChartMembers>
+            <ChartMember>
+              <Label>Years Count</Label>
+            </ChartMember>
+          </ChartMembers>
+        </ChartSeriesHierarchy>
+        <ChartData>
+          <ChartSeriesCollection>
+            <ChartSeries Name="YearsCount">
+              <ChartDataPoints>
+                <ChartDataPoint>
+                  <ChartDataPointValues>
+                    <Y>=Sum(Fields!YearsCount.Value / Fields!MyAll.Value)</Y>
+                  </ChartDataPointValues>
+                  <ChartDataLabel>
+                    <Style />
+                    <UseValueAsLabel>true</UseValueAsLabel>
+                    <Visible>true</Visible>
+                  </ChartDataLabel>
+                  <Style />
+                  <ChartMarker>
+                    <Style />
+                  </ChartMarker>
+                  <DataElementOutput>Output</DataElementOutput>
+                </ChartDataPoint>
+              </ChartDataPoints>
+              <Style />
+              <ChartEmptyPoints>
+                <Style />
+                <ChartMarker>
+                  <Style />
+                </ChartMarker>
+                <ChartDataLabel>
+                  <Style />
+                </ChartDataLabel>
+              </ChartEmptyPoints>
+              <ValueAxisName>Primary</ValueAxisName>
+              <CategoryAxisName>Primary</CategoryAxisName>
+              <ChartSmartLabel>
+                <CalloutLineColor>Black</CalloutLineColor>
+                <MinMovingDistance>0pt</MinMovingDistance>
+              </ChartSmartLabel>
+            </ChartSeries>
+          </ChartSeriesCollection>
+        </ChartData>
+        <ChartAreas>
+          <ChartArea Name="Default">
+            <ChartCategoryAxes>
+              <ChartAxis Name="Primary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>الصفوف</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <Interval>1</Interval>
+                <ChartMajorGridLines>
+                  <Enabled>True</Enabled>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Enabled>True</Enabled>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+                <Angle>-45</Angle>
+                <AllowLabelRotation>None</AllowLabelRotation>
+                <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
+              </ChartAxis>
+              <ChartAxis Name="Secondary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>Axis Title</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Enabled>False</Enabled>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Location>Opposite</Location>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+              </ChartAxis>
+            </ChartCategoryAxes>
+            <ChartValueAxes>
+              <ChartAxis Name="Primary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>متوسط الاعمار</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Enabled>True</Enabled>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+              </ChartAxis>
+              <ChartAxis Name="Secondary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>Axis Title</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Location>Opposite</Location>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+              </ChartAxis>
+            </ChartValueAxes>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+            </Style>
+          </ChartArea>
+        </ChartAreas>
+        <ChartLegends>
+          <ChartLegend Name="Default">
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <FontSize>8pt</FontSize>
+            </Style>
+            <Position>TopRight</Position>
+            <DockToChartArea>Default</DockToChartArea>
+            <ChartLegendTitle>
+              <Caption />
+              <Style>
+                <FontSize>8pt</FontSize>
+                <FontWeight>Bold</FontWeight>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </ChartLegendTitle>
+            <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+            <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+          </ChartLegend>
+        </ChartLegends>
+        <ChartTitles>
+          <ChartTitle Name="Default">
+            <Caption>متوسط اعمار الصفوف</Caption>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <FontWeight>Bold</FontWeight>
+              <TextAlign>General</TextAlign>
+              <VerticalAlign>Top</VerticalAlign>
+            </Style>
+          </ChartTitle>
+        </ChartTitles>
+        <Palette>BrightPastel</Palette>
+        <ChartBorderSkin>
+          <Style>
+            <BackgroundColor>Gray</BackgroundColor>
+            <BackgroundGradientType>None</BackgroundGradientType>
+            <Color>White</Color>
+          </Style>
+        </ChartBorderSkin>
+        <ChartNoDataMessage Name="NoDataMessage">
+          <Caption>No Data Available</Caption>
+          <Style>
+            <BackgroundGradientType>None</BackgroundGradientType>
+            <TextAlign>General</TextAlign>
+            <VerticalAlign>Top</VerticalAlign>
+          </Style>
+        </ChartNoDataMessage>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Top>0.14416in</Top>
+        <Height>3.21875in</Height>
+        <Width>10.00346in</Width>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>Solid</Style>
+          </Border>
+          <BackgroundColor>White</BackgroundColor>
+          <BackgroundGradientType>None</BackgroundGradientType>
+        </Style>
+      </Chart>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.82292in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.82986in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.82986in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.82986in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.21875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>متوسط الاعمار</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>عدد التلاميذ</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>اجمالي الاعمار</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الصف</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>0cm</LeftIndent>
+                          <HangingIndent>0cm</HangingIndent>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.21875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Percentage">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(IsNumeric(Fields!YearsCount.Value / Fields!MyAll.Value), Fields!YearsCount.Value / Fields!MyAll.Value, 0)</Value>
+                              <Style>
+                                <Format>n0</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Percentage</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MyAll">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MyAll.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MyAll</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="YearsCount">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!YearsCount.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>YearsCount</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="alsofof_name1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!alsofof_name.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>alsofof_name1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSetMainData</DataSetName>
+        <Top>3.44285in</Top>
+        <Left>1.36292in</Left>
+        <Height>0.4375in</Height>
+        <Width>7.3125in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>3.98625in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="asase_code">
+      <DataType>String</DataType>
+      <Prompt>العام الدراسي</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DSasase_code</DataSetName>
+          <ValueField>asase_code</ValueField>
+          <LabelField>asase_year</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>10.03833in</Width>
+  <Page>
+    <PageHeader>
+      <Height>3.23231cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <ReportItems>
+        <Image Name="ImgLogo">
+          <Source>Database</Source>
+          <Value>=First(Fields!SchoolLogo.Value, "ExdDataAppOptions")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.16667in</Top>
+          <Left>0.08334in</Left>
+          <Height>0.95931in</Height>
+          <Width>0.87153in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="alsofof_name">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>مقارنة الصفوف حسب الاعمار للعام الدراسي</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Blue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <LeftIndent>0cm</LeftIndent>
+              <HangingIndent>0cm</HangingIndent>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>alsofof_name</rd:DefaultName>
+          <Top>0.16667in</Top>
+          <Left>4.10554in</Left>
+          <Height>0.54167in</Height>
+          <Width>1.82725in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="GOV">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="محافظة  " &amp; First(Fields!GOV.Value, "DataSetSPOS")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>GOV</rd:DefaultName>
+          <Top>0.18056in</Top>
+          <Left>7.93228in</Left>
+          <Height>0.25in</Height>
+          <Width>2.08161in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="EdaraName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!EdaraName.Value, "DataSetSPOS")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>EdaraName</rd:DefaultName>
+          <Top>0.45834in</Top>
+          <Left>7.93228in</Left>
+          <Height>0.25in</Height>
+          <Width>2.08161in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="SCHOOL">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!SCHOOL.Value, "DataSetSPOS")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>SCHOOL</rd:DefaultName>
+          <Top>0.7639in</Top>
+          <Left>7.93228in</Left>
+          <Height>0.25in</Height>
+          <Width>2.08161in</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="asase_code">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!asase_code.Label</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>asase_code</rd:DefaultName>
+          <Top>0.76128in</Top>
+          <Left>4.21709in</Left>
+          <Height>0.25in</Height>
+          <Width>1.60415in</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.89534cm</Height>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>= "صفحه " &amp; Globals!PageNumber &amp; " من " &amp; Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.05556in</Top>
+          <Left>8.18748in</Left>
+          <Height>0.25in</Height>
+          <Width>1.84375in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.06083in</Top>
+          <Left>0.06175cm</Left>
+          <Height>0.25in</Height>
+          <Width>2in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

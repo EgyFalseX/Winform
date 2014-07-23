@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA77AA82-BA89-436A-9B48-AB0114FE9F27}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Training_Center</RootNamespace>
+    <AssemblyName>Training Center</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>H:\My Work Area\WorkArea\Projects\Training Center\publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Training Center</ProductName>
+    <PublisherName>FalseX-2011</PublisherName>
+    <SuiteName>FalseX-2011</SuiteName>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TrainingCenter.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\Release\Training Center.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sys_base\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Sys_base\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\Release\Training Center.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Sys_base\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;D:\Sys_base\Development\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1A1D2148041F2FB43AB3C8A48A5A9B9E29C1A37B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Training Center_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FlashControlV71" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Deployment, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceProcess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CReports\CRTraineeInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRTraineeInfo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Not Used\CDTraineeTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Not Used\CDTraineeTypeFrm.Designer.cs">
+      <DependentUpon>CDTraineeTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DBImportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DBImportFrm.Designer.cs">
+      <DependentUpon>DBImportFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\AccTypesDlgFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\AccTypesDlgFrm.designer.cs">
+      <DependentUpon>AccTypesDlgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLAccountsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLAccountsFrm.designer.cs">
+      <DependentUpon>TBLAccountsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLPartnersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLPartnersFrm.Designer.cs">
+      <DependentUpon>TBLPartnersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLTraineeCertificatesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLTraineeCertificatesFrm.Designer.cs">
+      <DependentUpon>TBLTraineeCertificatesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLCourseCertificatesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLCourseCertificatesFrm.Designer.cs">
+      <DependentUpon>TBLCourseCertificatesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLTraineeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLTraineeFrm.Designer.cs">
+      <DependentUpon>TBLTraineeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLReservationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLReservationFrm.Designer.cs">
+      <DependentUpon>TBLReservationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLCourseAgendaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLCourseAgendaFrm.Designer.cs">
+      <DependentUpon>TBLCourseAgendaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CdLabFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CdLabFrm.Designer.cs">
+      <DependentUpon>CdLabFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CDMembershipTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CDMembershipTypeFrm.Designer.cs">
+      <DependentUpon>CDMembershipTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CdNationalityFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CdNationalityFrm.Designer.cs">
+      <DependentUpon>CdNationalityFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CdPlaceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CdPlaceFrm.Designer.cs">
+      <DependentUpon>CdPlaceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CDReservationWayFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CDReservationWayFrm.Designer.cs">
+      <DependentUpon>CDReservationWayFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CDTrainingBagFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CDTrainingBagFrm.Designer.cs">
+      <DependentUpon>CDTrainingBagFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLCoursesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLCoursesFrm.Designer.cs">
+      <DependentUpon>TBLCoursesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\LoginFrm.designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ActionLogFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ActionLogFrm.Designer.cs">
+      <DependentUpon>ActionLogFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CdBankAccountFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CdBankAccountFrm.Designer.cs">
+      <DependentUpon>CdBankAccountFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CDCertificatesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CDCertificatesFrm.Designer.cs">
+      <DependentUpon>CDCertificatesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CDCourseTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CDCourseTypeFrm.Designer.cs">
+      <DependentUpon>CDCourseTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CdjobFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CdjobFrm.Designer.cs">
+      <DependentUpon>CdjobFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CDknowFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CDknowFrm.Designer.cs">
+      <DependentUpon>CDknowFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCL.cs" />
+    <Compile Include="Permission\EditorRoleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorRoleFrm.designer.cs">
+      <DependentUpon>EditorRoleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorRoleMenuFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorRoleMenuFrm.designer.cs">
+      <DependentUpon>EditorRoleMenuFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorUserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorUserFrm.designer.cs">
+      <DependentUpon>EditorUserFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permission\EditorUserInRoleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permission\EditorUserInRoleFrm.designer.cs">
+      <DependentUpon>EditorUserInRoleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SplashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SplashFrm.designer.cs">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SQLConnectionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQLConnectionFrm.designer.cs">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepCRGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepCRGeneralFrm.Designer.cs">
+      <DependentUpon>RepCRGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.designer.cs">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLTrainersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLTrainersFrm.Designer.cs">
+      <DependentUpon>TBLTrainersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLTrainersBagFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLTrainersBagFrm.Designer.cs">
+      <DependentUpon>TBLTrainersBagFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLTrainersCoursesOutFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLTrainersCoursesOutFrm.Designer.cs">
+      <DependentUpon>TBLTrainersCoursesOutFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLMemberShipFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLMemberShipFrm.Designer.cs">
+      <DependentUpon>TBLMemberShipFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLWebReservationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLWebReservationFrm.Designer.cs">
+      <DependentUpon>TBLWebReservationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBLWebTraineeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TBLWebTraineeFrm.Designer.cs">
+      <DependentUpon>TBLWebTraineeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TblAlkaznaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\TblAlkaznaFrm.Designer.cs">
+      <DependentUpon>TblAlkaznaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Not Used\TabTrainerOrderBagFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Not Used\TabTrainerOrderBagFrm.Designer.cs">
+      <DependentUpon>TabTrainerOrderBagFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.designer.cs">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="SAP.CrystalReports14.NET.2.0">
+      <Visible>False</Visible>
+      <ProductName>SAP Crystal Reports Runtime Engine for .NET Framework 4.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CReports\CRTraineeInfo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRTraineeInfo.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Not Used\CDTraineeTypeFrm.resx">
+      <DependentUpon>CDTraineeTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DBImportFrm.resx">
+      <DependentUpon>DBImportFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\AccTypesDlgFrm.resx">
+      <DependentUpon>AccTypesDlgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLAccountsFrm.resx">
+      <DependentUpon>TBLAccountsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLPartnersFrm.resx">
+      <DependentUpon>TBLPartnersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLTraineeCertificatesFrm.resx">
+      <DependentUpon>TBLTraineeCertificatesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLCourseCertificatesFrm.resx">
+      <DependentUpon>TBLCourseCertificatesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLTraineeFrm.resx">
+      <DependentUpon>TBLTraineeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLReservationFrm.resx">
+      <DependentUpon>TBLReservationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLCourseAgendaFrm.resx">
+      <DependentUpon>TBLCourseAgendaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CdLabFrm.resx">
+      <DependentUpon>CdLabFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CDMembershipTypeFrm.resx">
+      <DependentUpon>CDMembershipTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CdNationalityFrm.resx">
+      <DependentUpon>CdNationalityFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CdPlaceFrm.resx">
+      <DependentUpon>CdPlaceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CDReservationWayFrm.resx">
+      <DependentUpon>CDReservationWayFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CDTrainingBagFrm.resx">
+      <DependentUpon>CDTrainingBagFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLCoursesFrm.resx">
+      <DependentUpon>TBLCoursesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ActionLogFrm.resx">
+      <DependentUpon>ActionLogFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CdBankAccountFrm.resx">
+      <DependentUpon>CdBankAccountFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CDCertificatesFrm.resx">
+      <DependentUpon>CDCertificatesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CDCourseTypeFrm.resx">
+      <DependentUpon>CDCourseTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CdjobFrm.resx">
+      <DependentUpon>CdjobFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CDknowFrm.resx">
+      <DependentUpon>CDknowFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorRoleFrm.resx">
+      <DependentUpon>EditorRoleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorRoleMenuFrm.resx">
+      <DependentUpon>EditorRoleMenuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorUserFrm.resx">
+      <DependentUpon>EditorUserFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permission\EditorUserInRoleFrm.resx">
+      <DependentUpon>EditorUserInRoleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SplashFrm.resx">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SQLConnectionFrm.resx">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepCRGeneralFrm.resx">
+      <DependentUpon>RepCRGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepGeneralFrm.resx">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLTrainersFrm.resx">
+      <DependentUpon>TBLTrainersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLTrainersBagFrm.resx">
+      <DependentUpon>TBLTrainersBagFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLTrainersCoursesOutFrm.resx">
+      <DependentUpon>TBLTrainersCoursesOutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLMemberShipFrm.resx">
+      <DependentUpon>TBLMemberShipFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLWebReservationFrm.resx">
+      <DependentUpon>TBLWebReservationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TBLWebTraineeFrm.resx">
+      <DependentUpon>TBLWebTraineeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\TblAlkaznaFrm.resx">
+      <DependentUpon>TblAlkaznaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Not Used\TabTrainerOrderBagFrm.resx">
+      <DependentUpon>TabTrainerOrderBagFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\SQLConnectionUC.resx">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\MyCL.CRReportsStr.datasource" />
+    <None Include="Resources\Login_Back.png" />
+    <None Include="Resources\MainBack.jpg" />
+    <None Include="Resources\SplashScreen.png" />
+    <None Include="Resources\Background 02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CReports\CReports.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TrainingCenter.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

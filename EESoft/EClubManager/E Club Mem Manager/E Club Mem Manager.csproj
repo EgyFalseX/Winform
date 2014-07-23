@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B96FA16-BD32-437F-AFB8-D5ED2EF92A0F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_Club_Mem_Manager</RootNamespace>
+    <AssemblyName>E Club Mem Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\ECMM\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\ECMM\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>E_Club_Mem_Manager.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>File-Schedule+.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v11.2.Core, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Codes\CD_FALLReasonFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CD_FALLReasonFrm.Designer.cs">
+      <DependentUpon>CD_FALLReasonFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\CD_kinshipFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\CD_kinshipFrm.Designer.cs">
+      <DependentUpon>CD_kinshipFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorAttachmentTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorAttachmentTypeFrm.Designer.cs">
+      <DependentUpon>EditorAttachmentTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorSubscriptionTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorSubscriptionTypeFrm.Designer.cs">
+      <DependentUpon>EditorSubscriptionTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorSocialFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorSocialFrm.Designer.cs">
+      <DependentUpon>EditorSocialFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\LoginFrm.designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="permission\EditorObjectInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="permission\EditorObjectInfoFrm.Designer.cs">
+      <DependentUpon>EditorObjectInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MSGBOXFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MSGBOXFrm.designer.cs">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="permission\EditorRoleContiansFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="permission\EditorRoleContiansFrm.Designer.cs">
+      <DependentUpon>EditorRoleContiansFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="permission\EditorUserInRoleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="permission\EditorUserInRoleFrm.Designer.cs">
+      <DependentUpon>EditorUserInRoleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="permission\EditorUserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="permission\EditorUserFrm.Designer.cs">
+      <DependentUpon>EditorUserFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="permission\EditorObjectTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="permission\EditorObjectTypeFrm.Designer.cs">
+      <DependentUpon>EditorObjectTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorMembershipTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorMembershipTypeFrm.Designer.cs">
+      <DependentUpon>EditorMembershipTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorGOVFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorGOVFrm.Designer.cs">
+      <DependentUpon>EditorGOVFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddDependentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddDependentFrm.Designer.cs">
+      <DependentUpon>AddDependentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddMemAttachmentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddMemAttachmentFrm.Designer.cs">
+      <DependentUpon>AddMemAttachmentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddMembersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\AddMembersFrm.Designer.cs">
+      <DependentUpon>AddMembersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorAsaseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorAsaseFrm.Designer.cs">
+      <DependentUpon>EditorAsaseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorMarkzFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorMarkzFrm.Designer.cs">
+      <DependentUpon>EditorMarkzFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorJobFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorJobFrm.Designer.cs">
+      <DependentUpon>EditorJobFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codes\EditorQualificationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Codes\EditorQualificationFrm.Designer.cs">
+      <DependentUpon>EditorQualificationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="permission\EditorRoleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="permission\EditorRoleFrm.Designer.cs">
+      <DependentUpon>EditorRoleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ECMMainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ECMMainFrm.Designer.cs">
+      <DependentUpon>ECMMainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MCls.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\QryMemInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryMemInfoFrm.Designer.cs">
+      <DependentUpon>QryMemInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\QryMemberFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries\QryMemberFrm.Designer.cs">
+      <DependentUpon>QryMemberFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RepGeneralFrm.designer.cs">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLConnectionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLConnectionFrm.designer.cs">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\SQLConnectionUC.Designer.cs">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Codes\CD_FALLReasonFrm.resx">
+      <DependentUpon>CD_FALLReasonFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\CD_kinshipFrm.resx">
+      <DependentUpon>CD_kinshipFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorAttachmentTypeFrm.resx">
+      <DependentUpon>EditorAttachmentTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorSubscriptionTypeFrm.resx">
+      <DependentUpon>EditorSubscriptionTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorSocialFrm.resx">
+      <DependentUpon>EditorSocialFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permission\EditorObjectInfoFrm.resx">
+      <DependentUpon>EditorObjectInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permission\EditorRoleContiansFrm.resx">
+      <DependentUpon>EditorRoleContiansFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permission\EditorUserInRoleFrm.resx">
+      <DependentUpon>EditorUserInRoleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permission\EditorUserFrm.resx">
+      <DependentUpon>EditorUserFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permission\EditorObjectTypeFrm.resx">
+      <DependentUpon>EditorObjectTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorMembershipTypeFrm.resx">
+      <DependentUpon>EditorMembershipTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorGOVFrm.resx">
+      <DependentUpon>EditorGOVFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AddDependentFrm.resx">
+      <DependentUpon>AddDependentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AddMemAttachmentFrm.resx">
+      <DependentUpon>AddMemAttachmentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\AddMembersFrm.resx">
+      <DependentUpon>AddMembersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorAsaseFrm.resx">
+      <DependentUpon>EditorAsaseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorMarkzFrm.resx">
+      <DependentUpon>EditorMarkzFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorJobFrm.resx">
+      <DependentUpon>EditorJobFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codes\EditorQualificationFrm.resx">
+      <DependentUpon>EditorQualificationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permission\EditorRoleFrm.resx">
+      <DependentUpon>EditorRoleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ECMMainFrm.resx">
+      <DependentUpon>ECMMainFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Queries\QryMemInfoFrm.resx">
+      <DependentUpon>QryMemInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\QryMemberFrm.resx">
+      <DependentUpon>QryMemberFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepGeneralFrm.resx">
+      <DependentUpon>RepGeneralFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLConnectionFrm.resx">
+      <DependentUpon>SQLConnectionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\SQLConnectionUC.resx">
+      <DependentUpon>SQLConnectionUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="File-Schedule+.ico" />
+    <None Include="Resources\Login_Back.png" />
+    <None Include="Resources\NoImage.jpg" />
+    <None Include="Resources\ECMM_BG.jpg" />
+    <None Include="Resources\Mem.jpg" />
+    <None Include="Resources\MSGBOXFrm.jpg" />
+    <None Include="Resources\MSGBOXCoLogo.jpg" />
+    <None Include="Resources\MSGBOX_Info.jpg" />
+    <None Include="Resources\MSGBOX_Error.png" />
+    <None Include="Resources\Background 02.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

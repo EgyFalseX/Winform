@@ -1,0 +1,35 @@
+1;StudentFaslInfo.rdl;ŞÇÆãÉ İÕá ãÍÏÏ
+1;StudentSafInfo.rdl;ŞÇÆãÉ Õİ ãÍÏÏ
+1;StudentSafwaleaalkamrInfo.rdl;ŞÇÆãÉ Õİ ÈÇáÚäæÇä æ ÇáÊáíİæä
+1;StudentFaslShortInfo.rdl;ŞÇÆãÉ İÕá ãÎÊÕÑÉ
+1;StudentSafTanseekInfo.rdl;ßÔİ ÊäÓíŞ
+1;StudentSafInfo1.rdl;ÓÌá ÇáÈíÇäÇÊ 1
+1;StudentSafInfo2.rdl;ÓÌá ÇáÈíÇäÇÊ 2
+1;StudentCardInfo.rdl;ßÇÑäíåÇÊ ÕæÑÉ 6
+1;StudentForm41.rdl;ÇÓÊãÇÑÉ 41
+1;StudentControlD12.rdl;12Ï ááßäÊÑæá
+1;StudentCardFaslInfo.rdl;ÈíÇä ãÎÊÕÑ
+1;StudentTelInfo.rdl;ÓÌá ÇáÊáíİæäÇÊ
+2;StudentFaslAbsentEmptyList.rdl;ßÔİ ÊÓÌíá ÇáÛíÇÈ
+2;StudentFaslHessaAbsentEmptyList.rdl;ßÔİ ÊÓÌíá ÇáÛíÇÈ ÈÇáÍÕå
+2;StudentSafAbsent.rdl;ßÔİ ÇáÛíÇÈ
+2;StudentDailyCount.rdl;ÇÍÕÇÁ ÇáÛíÇÈ Çáíæãí
+2;StudentSafAbsentBetween.rdl;ÊŞÑíÑ ÛíÇÈ İÕá İí İÊÑÉ
+2;StudentAbsentWarningCard.rdl;ÇÎØÇÑ ÇáÛíÇÈ
+2;StudentAbsentDailyMonitoring.rdl;ÇáãÊÇÈÚå Çáíæãíå
+2;StudentAbsentIndividual.rdl;ÊŞÑíÑ ÛíÇÈ ØÇáÈ
+2;StudentAttended.rdl;ÇáÛíÑ ÛÇÆÈæä
+3;StudentStatisticsMarhala.rdl;ÇÍÕÇÁ ÇáãŞíÏíä ÍÓÈ ÇáãÑÍáÉ
+3;StudentStatisticsSchool.rdl;ÇÍÕÇÁ ÇáãŞíÏíä ãÌãÚ
+3;StudentStatisticsSchoolType.rdl;ÇÍÕÇÁ ÈÇáÏíÇäÉ æÇáäæÚ ÍÓÈ ÇáãÑÍáÉ
+3;StudentStatisticsFaslType.rdl;ÇÍÕÇÁ ÇáÏíÇäÉ æÇáäæÚ İÕæá
+3;StudentStatisticsSafTypeAndChanged.rdl;ÇÍÕÇÁ ÏíÇäÉ æäæÚ æãÍæáíä
+3;StudentStatisticsSchoolNationalityAndType.rdl;ÇÍÕÇÁ ÇáÌäÓíÇÊ
+3;StudentStatisticsSafPercentage.rdl;ßËÇİÉ ÇáİÕæá
+3;StudentStatisticsSafAgePercentage.rdl;ÇáİÆÇÊ ÇáÚãÑíå ááãÑÍáå
+4;StudentStatisticsSchoolOrphan.rdl;ÇáÇíÊÇã
+4;StudentStatisticsSchoolRelation.rdl;ÇáÇÎæÉ ÈÇáãÏÑÓÉ
+4;StudentStatisticsSchoolNotes.rdl;ãáÇÍÙÇÊ ÇáØáÇÈ
+4;StudentStatisticsBirthDayCard.rdl;ÊåäÆÉ Èíæã ÇáãíáÇÏ
+4;StudentStatisticsWafed.rdl;ÇáæÇİÏíä
+4;StudentStatistics3a2ed.rdl;ÇáÚÇÆÏæä
