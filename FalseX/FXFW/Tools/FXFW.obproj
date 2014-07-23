@@ -1,0 +1,15 @@
+<Project Name="New Obfuscator Project" ProjectFileVersion="2" UseRelativePaths="True" CheckVersionsWhileResolvingAssemblies="True" ID="{67013efc-4f3d-48c3-bd6e-2274a8720cd1}">
+  <SearchDirectories />
+  <OutputSettings OutputPath="C:\Users\FalseX\Documents\CryptoObfuscator_Output" MainAssemblyPath="" RunAssemblyPath="FXFW" SNPath="" SignToolPath="" LicensingDLLPath="" LicensingMergeAssemblyName="FXFW" OverwriteInputFiles="False" BuildID="">
+    <AdditionalAssemblies />
+  </OutputSettings>
+  <ExceptionReporting ExceptionReportingServiceURL="" TryToContinueOnException="True" LocalReportPath="C:\Users\FalseX\Documents\FXFW_ExceptionReports" ApplicationName="" CompanyName="" ShowUI="True" />
+  <ObfuscationSettings RenamingScheme="0" UseOverloadedFieldNames="False" UseOverloadedMethodNames="False" HonorObfuscationAttributes="True" ExcludeSerializedTypes="True" ProcessInlineStrings="True" ForceXAMLProcessingModeExclude="False" ForceRenameParams="False" />
+  <ObfuscationRules />
+  <Assembly Load="true" Path="..\..\LicenseKeyGenerator\Release\FXFW.dll" XapEntryName="" KeyFilePath="" CertFilePath="" TimeStampURL="" Embed="True" AddExceptionReporting="False" PfxPassword="MQAyADMANAA1ADYA" PfxPasswordCert="MQAyADMANAA1ADYA">
+    <ObfuscationSettings EncryptStrings="True" SuppressReflector="True" ReduceMetaData="True" ObfuscationDisposition="0" FlowObfuscation="3" SuppressILDASM="True" SuppressReflection="True" CombineResources="True" EncryptResources="True" CompressResources="True" MarkAsSealed="True" EnableTamperDetection="False" EnableAntiDebugging="True" SymbolRenaming="True" HideExternalCalls="True" HideInternalCalls="True" GeneratePdbFile="True" ObfuscatePdbFileNames="True" Encrypt="False" Compress="False" MSBuild="False">
+      <Watermarks Watermark0="" Watermark1="" Watermark2="" Watermark3="" Watermark4="" Watermark5="" Watermark6="" Watermark7="" Watermark8="" Watermark9="" />
+    </ObfuscationSettings>
+  </Assembly>
+  <WarningSuppressions />
+</Project>

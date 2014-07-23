@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsQry" targetNamespace="http://tempuri.org/dsQry.xsd" xmlns:mstns="http://tempuri.org/dsQry.xsd" xmlns="http://tempuri.org/dsQry.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GmKadryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GmKadryConnectionString (Settings)" PropertyReference="ApplicationSettings.GM.Properties.Settings.GlobalReference.Default.GmKadryConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GeneralQueryTableAdapter" GeneratorDataComponentClassName="GeneralQueryTableAdapter" Name="GeneralQuery" UserDataComponentName="GeneralQueryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQuery" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        BillId, BillEndId, BillDate, EmployeeName, PlumberName, NationalId, PlumberPhone, PlumberMobile, PlumberArea, PlumberGov, TraderName, TraderSiteName, TraderPhone, TraderMobile, TraderAddress, 
+                         TraderArea, TraderGov, OwnerName, OwnerAddress, OwnerPhone, CardValue, guaranteeId, Notes, Quin, Point, ItemName, UserName, datein
+FROM            GeneralQuery</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BillId" DataSetColumn="BillId" />
+              <Mapping SourceColumn="BillDate" DataSetColumn="BillDate" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="PlumberName" DataSetColumn="PlumberName" />
+              <Mapping SourceColumn="NationalId" DataSetColumn="NationalId" />
+              <Mapping SourceColumn="PlumberPhone" DataSetColumn="PlumberPhone" />
+              <Mapping SourceColumn="PlumberMobile" DataSetColumn="PlumberMobile" />
+              <Mapping SourceColumn="PlumberArea" DataSetColumn="PlumberArea" />
+              <Mapping SourceColumn="PlumberGov" DataSetColumn="PlumberGov" />
+              <Mapping SourceColumn="TraderName" DataSetColumn="TraderName" />
+              <Mapping SourceColumn="TraderSiteName" DataSetColumn="TraderSiteName" />
+              <Mapping SourceColumn="TraderPhone" DataSetColumn="TraderPhone" />
+              <Mapping SourceColumn="TraderMobile" DataSetColumn="TraderMobile" />
+              <Mapping SourceColumn="TraderAddress" DataSetColumn="TraderAddress" />
+              <Mapping SourceColumn="TraderArea" DataSetColumn="TraderArea" />
+              <Mapping SourceColumn="TraderGov" DataSetColumn="TraderGov" />
+              <Mapping SourceColumn="OwnerName" DataSetColumn="OwnerName" />
+              <Mapping SourceColumn="OwnerAddress" DataSetColumn="OwnerAddress" />
+              <Mapping SourceColumn="OwnerPhone" DataSetColumn="OwnerPhone" />
+              <Mapping SourceColumn="CardValue" DataSetColumn="CardValue" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+              <Mapping SourceColumn="Quin" DataSetColumn="Quin" />
+              <Mapping SourceColumn="Point" DataSetColumn="Point" />
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="BillEndId" DataSetColumn="BillEndId1" />
+              <Mapping SourceColumn="guaranteeId" DataSetColumn="guaranteeId1" />
+              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+              <Mapping SourceColumn="datein" DataSetColumn="datein" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQuery" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByBillDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBillDate" GeneratorSourceName="FillByBillDate" GetMethodModifier="Public" GetMethodName="GetDataByBillDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBillDate" UserSourceName="FillByBillDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT BillDate, BillEndId, BillId, CardValue, EmployeeName, ItemName, NationalId, Notes, OwnerAddress, OwnerName, OwnerPhone, PlumberArea, PlumberGov, PlumberMobile, PlumberName, PlumberPhone, Point, Quin, TraderAddress, TraderArea, TraderGov, TraderMobile, TraderName, TraderPhone, TraderSiteName, UserName, datein, guaranteeId FROM GeneralQuery WHERE (BillDate BETWEEN ? AND ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="BillDate" DataSourceName="GeneralQuery" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQuery" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GeneralQueryBillTableAdapter" GeneratorDataComponentClassName="GeneralQueryBillTableAdapter" Name="GeneralQueryBill" UserDataComponentName="GeneralQueryBillTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        BillId, BillEndId, BillDate, TraderName, TraderSiteName, TraderPhone, TraderMobile, TraderAddress, PlumberName, NationalId, PlumberPhone, PlumberMobile, PlumberAddress, GovName, AreaName, 
+                         EmployeeName, EmployeePhone, EmployeeAddress, OwnerName, OwnerAddress, OwnerPhone, CardValue, guaranteeId, Notes, Point, UserName, datein
+FROM            GeneralQueryBill</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BillId" DataSetColumn="BillId" />
+              <Mapping SourceColumn="BillEndId" DataSetColumn="BillEndId" />
+              <Mapping SourceColumn="BillDate" DataSetColumn="BillDate" />
+              <Mapping SourceColumn="TraderName" DataSetColumn="TraderName" />
+              <Mapping SourceColumn="TraderSiteName" DataSetColumn="TraderSiteName" />
+              <Mapping SourceColumn="TraderPhone" DataSetColumn="TraderPhone" />
+              <Mapping SourceColumn="TraderMobile" DataSetColumn="TraderMobile" />
+              <Mapping SourceColumn="TraderAddress" DataSetColumn="TraderAddress" />
+              <Mapping SourceColumn="PlumberName" DataSetColumn="PlumberName" />
+              <Mapping SourceColumn="NationalId" DataSetColumn="NationalId" />
+              <Mapping SourceColumn="PlumberPhone" DataSetColumn="PlumberPhone" />
+              <Mapping SourceColumn="PlumberMobile" DataSetColumn="PlumberMobile" />
+              <Mapping SourceColumn="PlumberAddress" DataSetColumn="PlumberAddress" />
+              <Mapping SourceColumn="GovName" DataSetColumn="GovName" />
+              <Mapping SourceColumn="AreaName" DataSetColumn="AreaName" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="EmployeePhone" DataSetColumn="EmployeePhone" />
+              <Mapping SourceColumn="EmployeeAddress" DataSetColumn="EmployeeAddress" />
+              <Mapping SourceColumn="OwnerName" DataSetColumn="OwnerName" />
+              <Mapping SourceColumn="OwnerAddress" DataSetColumn="OwnerAddress" />
+              <Mapping SourceColumn="OwnerPhone" DataSetColumn="OwnerPhone" />
+              <Mapping SourceColumn="CardValue" DataSetColumn="CardValue" />
+              <Mapping SourceColumn="guaranteeId" DataSetColumn="guaranteeId" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+              <Mapping SourceColumn="Point" DataSetColumn="Point" />
+              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+              <Mapping SourceColumn="datein" DataSetColumn="datein" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByBillDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBillDate" GeneratorSourceName="FillByBillDate" GetMethodModifier="Public" GetMethodName="GetDataByBillDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBillDate" UserSourceName="FillByBillDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT AreaName, BillDate, BillEndId, BillId, CardValue, EmployeeAddress, EmployeeName, EmployeePhone, GovName, NationalId, Notes, OwnerAddress, OwnerName, OwnerPhone, PlumberAddress, PlumberMobile, PlumberName, PlumberPhone, Point, TraderAddress, TraderMobile, TraderName, TraderPhone, TraderSiteName, UserName, datein, guaranteeId FROM GeneralQueryBill WHERE (BillDate BETWEEN ? AND ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Report01TableAdapter" GeneratorDataComponentClassName="Report01TableAdapter" Name="Report01" UserDataComponentName="Report01TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        GovId, GovName, PlumberName, PlumberMobile, AreaName, COUNT(BillId) AS CountOfBillId, SUM(Point) AS SumOfPoint, SUM(CardValue) AS SumOfCardValue
+FROM            GeneralQueryBill
+WHERE        (BillDate BETWEEN ? AND ?) AND (GovId = ?)
+GROUP BY GovId, GovName, PlumberName, PlumberMobile, AreaName</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDateFrom" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDateTo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="GovId" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="GovId" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GovId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GovId" DataSetColumn="GovId" />
+              <Mapping SourceColumn="GovName" DataSetColumn="GovName" />
+              <Mapping SourceColumn="PlumberName" DataSetColumn="PlumberName" />
+              <Mapping SourceColumn="PlumberMobile" DataSetColumn="PlumberMobile" />
+              <Mapping SourceColumn="AreaName" DataSetColumn="AreaName" />
+              <Mapping SourceColumn="CountOfBillId" DataSetColumn="CountOfBillId" />
+              <Mapping SourceColumn="SumOfPoint" DataSetColumn="SumOfPoint" />
+              <Mapping SourceColumn="SumOfCardValue" DataSetColumn="SumOfCardValue" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Report02TableAdapter" GeneratorDataComponentClassName="Report02TableAdapter" Name="Report02" UserDataComponentName="Report02TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        GovId, GovName, PlumberName, PlumberMobile, AreaName, COUNT(BillId) AS CountOfBillId, SUM(Point) AS SumOfPoint, SUM(CardValue) AS SumOfCardValue, AreaId
+FROM            GeneralQueryBill
+WHERE        (BillDate BETWEEN ? AND ?) AND (AreaId = ?)
+GROUP BY GovId, GovName, PlumberName, PlumberMobile, AreaName, AreaId</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="AreaId" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="AreaId" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="AreaId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GovId" DataSetColumn="GovId" />
+              <Mapping SourceColumn="GovName" DataSetColumn="GovName" />
+              <Mapping SourceColumn="PlumberName" DataSetColumn="PlumberName" />
+              <Mapping SourceColumn="PlumberMobile" DataSetColumn="PlumberMobile" />
+              <Mapping SourceColumn="AreaName" DataSetColumn="AreaName" />
+              <Mapping SourceColumn="CountOfBillId" DataSetColumn="CountOfBillId" />
+              <Mapping SourceColumn="SumOfPoint" DataSetColumn="SumOfPoint" />
+              <Mapping SourceColumn="SumOfCardValue" DataSetColumn="SumOfCardValue" />
+              <Mapping SourceColumn="AreaId" DataSetColumn="AreaId" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserRoleDetailNamesTableAdapter" GeneratorDataComponentClassName="UserRoleDetailNamesTableAdapter" Name="UserRoleDetailNames" UserDataComponentName="UserRoleDetailNamesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="RoleDetail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RoleDetail.RoleDetailName
+FROM            (UserRole INNER JOIN
+                         RoleDetail ON UserRole.Role = RoleDetail.RoleId)
+WHERE        (UserRole.[User] = ?)
+GROUP BY RoleDetail.RoleDetailName</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="User" DataSourceName="UserRole" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="User" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="User" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RoleDetailName" DataSetColumn="RoleDetailName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Report03TableAdapter" GeneratorDataComponentClassName="Report03TableAdapter" Name="Report03" UserDataComponentName="Report03TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PlumberName, PlumberMobile, AreaName, COUNT(BillId) AS BillId, SUM(CardValue) AS CardValue, SUM(Point) AS Point
+FROM            GeneralQueryBill
+WHERE        (TraderId = ?) AND (BillDate BETWEEN ? AND ?)
+GROUP BY PlumberName, PlumberMobile, AreaName</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="TraderId" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="TraderId" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="TraderId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PlumberName" DataSetColumn="PlumberName" />
+              <Mapping SourceColumn="PlumberMobile" DataSetColumn="PlumberMobile" />
+              <Mapping SourceColumn="AreaName" DataSetColumn="AreaName" />
+              <Mapping SourceColumn="BillId" DataSetColumn="BillId" />
+              <Mapping SourceColumn="CardValue" DataSetColumn="CardValue" />
+              <Mapping SourceColumn="Point" DataSetColumn="Point" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Report04TableAdapter" GeneratorDataComponentClassName="Report04TableAdapter" Name="Report04" UserDataComponentName="Report04TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PlumberName, PlumberMobile, AreaName, COUNT(BillId) AS BillId, SUM(CardValue) AS CardValue, SUM(Point) AS Point
+FROM            GeneralQueryBill
+WHERE        (EmployeeId = ?) AND (BillDate BETWEEN ? AND ?)
+GROUP BY PlumberName, PlumberMobile, AreaName</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="EmployeeId" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="EmployeeId" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="EmployeeId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PlumberName" DataSetColumn="PlumberName" />
+              <Mapping SourceColumn="PlumberMobile" DataSetColumn="PlumberMobile" />
+              <Mapping SourceColumn="AreaName" DataSetColumn="AreaName" />
+              <Mapping SourceColumn="BillId" DataSetColumn="BillId" />
+              <Mapping SourceColumn="CardValue" DataSetColumn="CardValue" />
+              <Mapping SourceColumn="Point" DataSetColumn="Point" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Report05TableAdapter" GeneratorDataComponentClassName="Report05TableAdapter" Name="Report05" UserDataComponentName="Report05TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="GeneralQueryBill" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        BillId, BillEndId, BillDate, TraderName, OwnerName, OwnerAddress, CardValue, Point, guaranteeId, Notes
+FROM            GeneralQueryBill
+WHERE        (PlumberId = ?) AND (BillDate BETWEEN ? AND ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="PlumberId" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="PlumberId" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="PlumberId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="BillDate" DataSourceName="GeneralQueryBill" DataTypeServer="DbType.Date" DbType="Date" Direction="Input" ParameterName="BillDate1" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="BillDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BillId" DataSetColumn="BillId" />
+              <Mapping SourceColumn="BillEndId" DataSetColumn="BillEndId" />
+              <Mapping SourceColumn="BillDate" DataSetColumn="BillDate" />
+              <Mapping SourceColumn="TraderName" DataSetColumn="TraderName" />
+              <Mapping SourceColumn="OwnerName" DataSetColumn="OwnerName" />
+              <Mapping SourceColumn="OwnerAddress" DataSetColumn="OwnerAddress" />
+              <Mapping SourceColumn="CardValue" DataSetColumn="CardValue" />
+              <Mapping SourceColumn="Point" DataSetColumn="Point" />
+              <Mapping SourceColumn="guaranteeId" DataSetColumn="guaranteeId" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources>
+          <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Empty" MethodsParameterType="CLR" Modifier="Public" Name="Empty" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Empty">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT        ''</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+          <DbSource ConnectionRef="GmKadryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ServerDateTime" MethodsParameterType="CLR" Modifier="Public" Name="ServerDateTime" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ServerDateTime">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT        DATE () AS ServerDateTime</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsQry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsQry" msprop:Generator_UserDSName="dsQry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GeneralQuery" msprop:Generator_TableClassName="GeneralQueryDataTable" msprop:Generator_TableVarName="tableGeneralQuery" msprop:Generator_RowChangedName="GeneralQueryRowChanged" msprop:Generator_TablePropName="GeneralQuery" msprop:Generator_RowDeletingName="GeneralQueryRowDeleting" msprop:Generator_RowChangingName="GeneralQueryRowChanging" msprop:Generator_RowEvHandlerName="GeneralQueryRowChangeEventHandler" msprop:Generator_RowDeletedName="GeneralQueryRowDeleted" msprop:Generator_RowClassName="GeneralQueryRow" msprop:Generator_UserTableName="GeneralQuery" msprop:Generator_RowEvArgName="GeneralQueryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BillId" msprop:Generator_ColumnVarNameInTable="columnBillId" msprop:Generator_ColumnPropNameInRow="BillId" msprop:Generator_ColumnPropNameInTable="BillIdColumn" msprop:Generator_UserColumnName="BillId" type="xs:int" minOccurs="0" />
+              <xs:element name="BillEndId" msprop:Generator_ColumnVarNameInTable="columnBillEndId" msprop:Generator_ColumnPropNameInRow="BillEndId" msprop:Generator_ColumnPropNameInTable="BillEndIdColumn" msprop:Generator_UserColumnName="BillEndId" type="xs:int" minOccurs="0" />
+              <xs:element name="BillDate" msprop:Generator_ColumnVarNameInTable="columnBillDate" msprop:Generator_ColumnPropNameInRow="BillDate" msprop:Generator_ColumnPropNameInTable="BillDateColumn" msprop:Generator_UserColumnName="BillDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberName" msprop:Generator_ColumnVarNameInTable="columnPlumberName" msprop:Generator_ColumnPropNameInRow="PlumberName" msprop:Generator_ColumnPropNameInTable="PlumberNameColumn" msprop:Generator_UserColumnName="PlumberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NationalId" msprop:Generator_ColumnVarNameInTable="columnNationalId" msprop:Generator_ColumnPropNameInRow="NationalId" msprop:Generator_ColumnPropNameInTable="NationalIdColumn" msprop:Generator_UserColumnName="NationalId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberPhone" msprop:Generator_ColumnVarNameInTable="columnPlumberPhone" msprop:Generator_ColumnPropNameInRow="PlumberPhone" msprop:Generator_ColumnPropNameInTable="PlumberPhoneColumn" msprop:Generator_UserColumnName="PlumberPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberMobile" msprop:Generator_ColumnVarNameInTable="columnPlumberMobile" msprop:Generator_ColumnPropNameInRow="PlumberMobile" msprop:Generator_ColumnPropNameInTable="PlumberMobileColumn" msprop:Generator_UserColumnName="PlumberMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberArea" msprop:Generator_ColumnVarNameInTable="columnPlumberArea" msprop:Generator_ColumnPropNameInRow="PlumberArea" msprop:Generator_ColumnPropNameInTable="PlumberAreaColumn" msprop:Generator_UserColumnName="PlumberArea" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberGov" msprop:Generator_ColumnVarNameInTable="columnPlumberGov" msprop:Generator_ColumnPropNameInRow="PlumberGov" msprop:Generator_ColumnPropNameInTable="PlumberGovColumn" msprop:Generator_UserColumnName="PlumberGov" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderName" msprop:Generator_ColumnVarNameInTable="columnTraderName" msprop:Generator_ColumnPropNameInRow="TraderName" msprop:Generator_ColumnPropNameInTable="TraderNameColumn" msprop:Generator_UserColumnName="TraderName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderSiteName" msprop:Generator_ColumnVarNameInTable="columnTraderSiteName" msprop:Generator_ColumnPropNameInRow="TraderSiteName" msprop:Generator_ColumnPropNameInTable="TraderSiteNameColumn" msprop:Generator_UserColumnName="TraderSiteName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderPhone" msprop:Generator_ColumnVarNameInTable="columnTraderPhone" msprop:Generator_ColumnPropNameInRow="TraderPhone" msprop:Generator_ColumnPropNameInTable="TraderPhoneColumn" msprop:Generator_UserColumnName="TraderPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderMobile" msprop:Generator_ColumnVarNameInTable="columnTraderMobile" msprop:Generator_ColumnPropNameInRow="TraderMobile" msprop:Generator_ColumnPropNameInTable="TraderMobileColumn" msprop:Generator_UserColumnName="TraderMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderAddress" msprop:Generator_ColumnVarNameInTable="columnTraderAddress" msprop:Generator_ColumnPropNameInRow="TraderAddress" msprop:Generator_ColumnPropNameInTable="TraderAddressColumn" msprop:Generator_UserColumnName="TraderAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderArea" msprop:Generator_ColumnVarNameInTable="columnTraderArea" msprop:Generator_ColumnPropNameInRow="TraderArea" msprop:Generator_ColumnPropNameInTable="TraderAreaColumn" msprop:Generator_UserColumnName="TraderArea" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderGov" msprop:Generator_ColumnVarNameInTable="columnTraderGov" msprop:Generator_ColumnPropNameInRow="TraderGov" msprop:Generator_ColumnPropNameInTable="TraderGovColumn" msprop:Generator_UserColumnName="TraderGov" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerName" msprop:Generator_ColumnVarNameInTable="columnOwnerName" msprop:Generator_ColumnPropNameInRow="OwnerName" msprop:Generator_ColumnPropNameInTable="OwnerNameColumn" msprop:Generator_UserColumnName="OwnerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerAddress" msprop:Generator_ColumnVarNameInTable="columnOwnerAddress" msprop:Generator_ColumnPropNameInRow="OwnerAddress" msprop:Generator_ColumnPropNameInTable="OwnerAddressColumn" msprop:Generator_UserColumnName="OwnerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerPhone" msprop:Generator_ColumnVarNameInTable="columnOwnerPhone" msprop:Generator_ColumnPropNameInRow="OwnerPhone" msprop:Generator_ColumnPropNameInTable="OwnerPhoneColumn" msprop:Generator_UserColumnName="OwnerPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardValue" msprop:Generator_ColumnVarNameInTable="columnCardValue" msprop:Generator_ColumnPropNameInRow="CardValue" msprop:Generator_ColumnPropNameInTable="CardValueColumn" msprop:Generator_UserColumnName="CardValue" type="xs:int" minOccurs="0" />
+              <xs:element name="guaranteeId" msprop:Generator_ColumnVarNameInTable="columnguaranteeId" msprop:Generator_ColumnPropNameInRow="guaranteeId" msprop:Generator_ColumnPropNameInTable="guaranteeIdColumn" msprop:Generator_UserColumnName="guaranteeId" type="xs:int" minOccurs="0" />
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quin" msprop:Generator_ColumnVarNameInTable="columnQuin" msprop:Generator_ColumnPropNameInRow="Quin" msprop:Generator_ColumnPropNameInTable="QuinColumn" msprop:Generator_UserColumnName="Quin" type="xs:int" minOccurs="0" />
+              <xs:element name="Point" msprop:Generator_ColumnVarNameInTable="columnPoint" msprop:Generator_ColumnPropNameInRow="Point" msprop:Generator_ColumnPropNameInTable="PointColumn" msprop:Generator_UserColumnName="Point" type="xs:int" minOccurs="0" />
+              <xs:element name="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_UserColumnName="ItemName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillEndId1" msdata:Caption="BillEndId" msprop:Generator_ColumnVarNameInTable="columnBillEndId1" msprop:Generator_ColumnPropNameInRow="BillEndId1" msprop:Generator_ColumnPropNameInTable="BillEndId1Column" msprop:Generator_UserColumnName="BillEndId1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="guaranteeId1" msdata:Caption="guaranteeId" msprop:Generator_ColumnVarNameInTable="columnguaranteeId1" msprop:Generator_ColumnPropNameInRow="guaranteeId1" msprop:Generator_ColumnPropNameInTable="guaranteeId1Column" msprop:Generator_UserColumnName="guaranteeId1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datein" msprop:Generator_ColumnVarNameInTable="columndatein" msprop:Generator_ColumnPropNameInRow="datein" msprop:Generator_ColumnPropNameInTable="dateinColumn" msprop:Generator_UserColumnName="datein" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GeneralQueryBill" msprop:Generator_TableClassName="GeneralQueryBillDataTable" msprop:Generator_TableVarName="tableGeneralQueryBill" msprop:Generator_RowChangedName="GeneralQueryBillRowChanged" msprop:Generator_TablePropName="GeneralQueryBill" msprop:Generator_RowDeletingName="GeneralQueryBillRowDeleting" msprop:Generator_RowChangingName="GeneralQueryBillRowChanging" msprop:Generator_RowEvHandlerName="GeneralQueryBillRowChangeEventHandler" msprop:Generator_RowDeletedName="GeneralQueryBillRowDeleted" msprop:Generator_RowClassName="GeneralQueryBillRow" msprop:Generator_UserTableName="GeneralQueryBill" msprop:Generator_RowEvArgName="GeneralQueryBillRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BillId" msprop:Generator_ColumnVarNameInTable="columnBillId" msprop:Generator_ColumnPropNameInRow="BillId" msprop:Generator_ColumnPropNameInTable="BillIdColumn" msprop:Generator_UserColumnName="BillId" type="xs:int" minOccurs="0" />
+              <xs:element name="BillEndId" msprop:Generator_ColumnVarNameInTable="columnBillEndId" msprop:Generator_ColumnPropNameInRow="BillEndId" msprop:Generator_ColumnPropNameInTable="BillEndIdColumn" msprop:Generator_UserColumnName="BillEndId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillDate" msprop:Generator_ColumnVarNameInTable="columnBillDate" msprop:Generator_ColumnPropNameInRow="BillDate" msprop:Generator_ColumnPropNameInTable="BillDateColumn" msprop:Generator_UserColumnName="BillDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TraderName" msprop:Generator_ColumnVarNameInTable="columnTraderName" msprop:Generator_ColumnPropNameInRow="TraderName" msprop:Generator_ColumnPropNameInTable="TraderNameColumn" msprop:Generator_UserColumnName="TraderName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderSiteName" msprop:Generator_ColumnVarNameInTable="columnTraderSiteName" msprop:Generator_ColumnPropNameInRow="TraderSiteName" msprop:Generator_ColumnPropNameInTable="TraderSiteNameColumn" msprop:Generator_UserColumnName="TraderSiteName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderPhone" msprop:Generator_ColumnVarNameInTable="columnTraderPhone" msprop:Generator_ColumnPropNameInRow="TraderPhone" msprop:Generator_ColumnPropNameInTable="TraderPhoneColumn" msprop:Generator_UserColumnName="TraderPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderMobile" msprop:Generator_ColumnVarNameInTable="columnTraderMobile" msprop:Generator_ColumnPropNameInRow="TraderMobile" msprop:Generator_ColumnPropNameInTable="TraderMobileColumn" msprop:Generator_UserColumnName="TraderMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TraderAddress" msprop:Generator_ColumnVarNameInTable="columnTraderAddress" msprop:Generator_ColumnPropNameInRow="TraderAddress" msprop:Generator_ColumnPropNameInTable="TraderAddressColumn" msprop:Generator_UserColumnName="TraderAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberName" msprop:Generator_ColumnVarNameInTable="columnPlumberName" msprop:Generator_ColumnPropNameInRow="PlumberName" msprop:Generator_ColumnPropNameInTable="PlumberNameColumn" msprop:Generator_UserColumnName="PlumberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NationalId" msprop:Generator_ColumnVarNameInTable="columnNationalId" msprop:Generator_ColumnPropNameInRow="NationalId" msprop:Generator_ColumnPropNameInTable="NationalIdColumn" msprop:Generator_UserColumnName="NationalId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberPhone" msprop:Generator_ColumnVarNameInTable="columnPlumberPhone" msprop:Generator_ColumnPropNameInRow="PlumberPhone" msprop:Generator_ColumnPropNameInTable="PlumberPhoneColumn" msprop:Generator_UserColumnName="PlumberPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberMobile" msprop:Generator_ColumnVarNameInTable="columnPlumberMobile" msprop:Generator_ColumnPropNameInRow="PlumberMobile" msprop:Generator_ColumnPropNameInTable="PlumberMobileColumn" msprop:Generator_UserColumnName="PlumberMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberAddress" msprop:Generator_ColumnVarNameInTable="columnPlumberAddress" msprop:Generator_ColumnPropNameInRow="PlumberAddress" msprop:Generator_ColumnPropNameInTable="PlumberAddressColumn" msprop:Generator_UserColumnName="PlumberAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GovName" msprop:Generator_ColumnVarNameInTable="columnGovName" msprop:Generator_ColumnPropNameInRow="GovName" msprop:Generator_ColumnPropNameInTable="GovNameColumn" msprop:Generator_UserColumnName="GovName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AreaName" msprop:Generator_ColumnVarNameInTable="columnAreaName" msprop:Generator_ColumnPropNameInRow="AreaName" msprop:Generator_ColumnPropNameInTable="AreaNameColumn" msprop:Generator_UserColumnName="AreaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeePhone" msprop:Generator_ColumnVarNameInTable="columnEmployeePhone" msprop:Generator_ColumnPropNameInRow="EmployeePhone" msprop:Generator_ColumnPropNameInTable="EmployeePhoneColumn" msprop:Generator_UserColumnName="EmployeePhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeAddress" msprop:Generator_ColumnVarNameInTable="columnEmployeeAddress" msprop:Generator_ColumnPropNameInRow="EmployeeAddress" msprop:Generator_ColumnPropNameInTable="EmployeeAddressColumn" msprop:Generator_UserColumnName="EmployeeAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerName" msprop:Generator_ColumnVarNameInTable="columnOwnerName" msprop:Generator_ColumnPropNameInRow="OwnerName" msprop:Generator_ColumnPropNameInTable="OwnerNameColumn" msprop:Generator_UserColumnName="OwnerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerAddress" msprop:Generator_ColumnVarNameInTable="columnOwnerAddress" msprop:Generator_ColumnPropNameInRow="OwnerAddress" msprop:Generator_ColumnPropNameInTable="OwnerAddressColumn" msprop:Generator_UserColumnName="OwnerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerPhone" msprop:Generator_ColumnVarNameInTable="columnOwnerPhone" msprop:Generator_ColumnPropNameInRow="OwnerPhone" msprop:Generator_ColumnPropNameInTable="OwnerPhoneColumn" msprop:Generator_UserColumnName="OwnerPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardValue" msprop:Generator_ColumnVarNameInTable="columnCardValue" msprop:Generator_ColumnPropNameInRow="CardValue" msprop:Generator_ColumnPropNameInTable="CardValueColumn" msprop:Generator_UserColumnName="CardValue" type="xs:int" minOccurs="0" />
+              <xs:element name="guaranteeId" msprop:Generator_ColumnVarNameInTable="columnguaranteeId" msprop:Generator_ColumnPropNameInRow="guaranteeId" msprop:Generator_ColumnPropNameInTable="guaranteeIdColumn" msprop:Generator_UserColumnName="guaranteeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Point" msprop:Generator_ColumnVarNameInTable="columnPoint" msprop:Generator_ColumnPropNameInRow="Point" msprop:Generator_ColumnPropNameInTable="PointColumn" msprop:Generator_UserColumnName="Point" type="xs:double" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datein" msprop:Generator_ColumnVarNameInTable="columndatein" msprop:Generator_ColumnPropNameInRow="datein" msprop:Generator_ColumnPropNameInTable="dateinColumn" msprop:Generator_UserColumnName="datein" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Report01" msprop:Generator_TableClassName="Report01DataTable" msprop:Generator_TableVarName="tableReport01" msprop:Generator_RowChangedName="Report01RowChanged" msprop:Generator_TablePropName="Report01" msprop:Generator_RowDeletingName="Report01RowDeleting" msprop:Generator_RowChangingName="Report01RowChanging" msprop:Generator_RowEvHandlerName="Report01RowChangeEventHandler" msprop:Generator_RowDeletedName="Report01RowDeleted" msprop:Generator_RowClassName="Report01Row" msprop:Generator_UserTableName="Report01" msprop:Generator_RowEvArgName="Report01RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GovId" msprop:Generator_ColumnVarNameInTable="columnGovId" msprop:Generator_ColumnPropNameInRow="GovId" msprop:Generator_ColumnPropNameInTable="GovIdColumn" msprop:Generator_UserColumnName="GovId" type="xs:int" minOccurs="0" />
+              <xs:element name="GovName" msprop:Generator_ColumnVarNameInTable="columnGovName" msprop:Generator_ColumnPropNameInRow="GovName" msprop:Generator_ColumnPropNameInTable="GovNameColumn" msprop:Generator_UserColumnName="GovName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberName" msprop:Generator_ColumnVarNameInTable="columnPlumberName" msprop:Generator_ColumnPropNameInRow="PlumberName" msprop:Generator_ColumnPropNameInTable="PlumberNameColumn" msprop:Generator_UserColumnName="PlumberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberMobile" msprop:Generator_ColumnVarNameInTable="columnPlumberMobile" msprop:Generator_ColumnPropNameInRow="PlumberMobile" msprop:Generator_ColumnPropNameInTable="PlumberMobileColumn" msprop:Generator_UserColumnName="PlumberMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AreaName" msprop:Generator_ColumnVarNameInTable="columnAreaName" msprop:Generator_ColumnPropNameInRow="AreaName" msprop:Generator_ColumnPropNameInTable="AreaNameColumn" msprop:Generator_UserColumnName="AreaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountOfBillId" msprop:Generator_ColumnVarNameInTable="columnCountOfBillId" msprop:Generator_ColumnPropNameInRow="CountOfBillId" msprop:Generator_ColumnPropNameInTable="CountOfBillIdColumn" msprop:Generator_UserColumnName="CountOfBillId" type="xs:int" minOccurs="0" />
+              <xs:element name="SumOfPoint" msprop:Generator_ColumnVarNameInTable="columnSumOfPoint" msprop:Generator_ColumnPropNameInRow="SumOfPoint" msprop:Generator_ColumnPropNameInTable="SumOfPointColumn" msprop:Generator_UserColumnName="SumOfPoint" type="xs:double" minOccurs="0" />
+              <xs:element name="SumOfCardValue" msprop:Generator_ColumnVarNameInTable="columnSumOfCardValue" msprop:Generator_ColumnPropNameInRow="SumOfCardValue" msprop:Generator_ColumnPropNameInTable="SumOfCardValueColumn" msprop:Generator_UserColumnName="SumOfCardValue" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Report02" msprop:Generator_TableClassName="Report02DataTable" msprop:Generator_TableVarName="tableReport02" msprop:Generator_RowChangedName="Report02RowChanged" msprop:Generator_TablePropName="Report02" msprop:Generator_RowDeletingName="Report02RowDeleting" msprop:Generator_RowChangingName="Report02RowChanging" msprop:Generator_RowEvHandlerName="Report02RowChangeEventHandler" msprop:Generator_RowDeletedName="Report02RowDeleted" msprop:Generator_RowClassName="Report02Row" msprop:Generator_UserTableName="Report02" msprop:Generator_RowEvArgName="Report02RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GovId" msprop:Generator_ColumnVarNameInTable="columnGovId" msprop:Generator_ColumnPropNameInRow="GovId" msprop:Generator_ColumnPropNameInTable="GovIdColumn" msprop:Generator_UserColumnName="GovId" type="xs:int" minOccurs="0" />
+              <xs:element name="GovName" msprop:Generator_ColumnVarNameInTable="columnGovName" msprop:Generator_ColumnPropNameInRow="GovName" msprop:Generator_ColumnPropNameInTable="GovNameColumn" msprop:Generator_UserColumnName="GovName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberName" msprop:Generator_ColumnVarNameInTable="columnPlumberName" msprop:Generator_ColumnPropNameInRow="PlumberName" msprop:Generator_ColumnPropNameInTable="PlumberNameColumn" msprop:Generator_UserColumnName="PlumberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberMobile" msprop:Generator_ColumnVarNameInTable="columnPlumberMobile" msprop:Generator_ColumnPropNameInRow="PlumberMobile" msprop:Generator_ColumnPropNameInTable="PlumberMobileColumn" msprop:Generator_UserColumnName="PlumberMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AreaName" msprop:Generator_ColumnVarNameInTable="columnAreaName" msprop:Generator_ColumnPropNameInRow="AreaName" msprop:Generator_ColumnPropNameInTable="AreaNameColumn" msprop:Generator_UserColumnName="AreaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountOfBillId" msprop:Generator_ColumnVarNameInTable="columnCountOfBillId" msprop:Generator_ColumnPropNameInRow="CountOfBillId" msprop:Generator_ColumnPropNameInTable="CountOfBillIdColumn" msprop:Generator_UserColumnName="CountOfBillId" type="xs:int" minOccurs="0" />
+              <xs:element name="SumOfPoint" msprop:Generator_ColumnVarNameInTable="columnSumOfPoint" msprop:Generator_ColumnPropNameInRow="SumOfPoint" msprop:Generator_ColumnPropNameInTable="SumOfPointColumn" msprop:Generator_UserColumnName="SumOfPoint" type="xs:double" minOccurs="0" />
+              <xs:element name="SumOfCardValue" msprop:Generator_ColumnVarNameInTable="columnSumOfCardValue" msprop:Generator_ColumnPropNameInRow="SumOfCardValue" msprop:Generator_ColumnPropNameInTable="SumOfCardValueColumn" msprop:Generator_UserColumnName="SumOfCardValue" type="xs:double" minOccurs="0" />
+              <xs:element name="AreaId" msprop:Generator_ColumnVarNameInTable="columnAreaId" msprop:Generator_ColumnPropNameInRow="AreaId" msprop:Generator_ColumnPropNameInTable="AreaIdColumn" msprop:Generator_UserColumnName="AreaId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UserRoleDetailNames" msprop:Generator_TableClassName="UserRoleDetailNamesDataTable" msprop:Generator_TableVarName="tableUserRoleDetailNames" msprop:Generator_TablePropName="UserRoleDetailNames" msprop:Generator_RowDeletingName="UserRoleDetailNamesRowDeleting" msprop:Generator_RowChangingName="UserRoleDetailNamesRowChanging" msprop:Generator_RowEvHandlerName="UserRoleDetailNamesRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRoleDetailNamesRowDeleted" msprop:Generator_UserTableName="UserRoleDetailNames" msprop:Generator_RowChangedName="UserRoleDetailNamesRowChanged" msprop:Generator_RowEvArgName="UserRoleDetailNamesRowChangeEvent" msprop:Generator_RowClassName="UserRoleDetailNamesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RoleDetailName" msprop:Generator_ColumnVarNameInTable="columnRoleDetailName" msprop:Generator_ColumnPropNameInRow="RoleDetailName" msprop:Generator_ColumnPropNameInTable="RoleDetailNameColumn" msprop:Generator_UserColumnName="RoleDetailName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Report03" msprop:Generator_TableClassName="Report03DataTable" msprop:Generator_TableVarName="tableReport03" msprop:Generator_RowChangedName="Report03RowChanged" msprop:Generator_TablePropName="Report03" msprop:Generator_RowDeletingName="Report03RowDeleting" msprop:Generator_RowChangingName="Report03RowChanging" msprop:Generator_RowEvHandlerName="Report03RowChangeEventHandler" msprop:Generator_RowDeletedName="Report03RowDeleted" msprop:Generator_RowClassName="Report03Row" msprop:Generator_UserTableName="Report03" msprop:Generator_RowEvArgName="Report03RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PlumberName" msprop:Generator_ColumnVarNameInTable="columnPlumberName" msprop:Generator_ColumnPropNameInRow="PlumberName" msprop:Generator_ColumnPropNameInTable="PlumberNameColumn" msprop:Generator_UserColumnName="PlumberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberMobile" msprop:Generator_ColumnVarNameInTable="columnPlumberMobile" msprop:Generator_ColumnPropNameInRow="PlumberMobile" msprop:Generator_ColumnPropNameInTable="PlumberMobileColumn" msprop:Generator_UserColumnName="PlumberMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AreaName" msprop:Generator_ColumnVarNameInTable="columnAreaName" msprop:Generator_ColumnPropNameInRow="AreaName" msprop:Generator_ColumnPropNameInTable="AreaNameColumn" msprop:Generator_UserColumnName="AreaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillId" msprop:Generator_ColumnVarNameInTable="columnBillId" msprop:Generator_ColumnPropNameInRow="BillId" msprop:Generator_ColumnPropNameInTable="BillIdColumn" msprop:Generator_UserColumnName="BillId" type="xs:int" minOccurs="0" />
+              <xs:element name="CardValue" msprop:Generator_ColumnVarNameInTable="columnCardValue" msprop:Generator_ColumnPropNameInRow="CardValue" msprop:Generator_ColumnPropNameInTable="CardValueColumn" msprop:Generator_UserColumnName="CardValue" type="xs:double" minOccurs="0" />
+              <xs:element name="Point" msprop:Generator_ColumnVarNameInTable="columnPoint" msprop:Generator_ColumnPropNameInRow="Point" msprop:Generator_ColumnPropNameInTable="PointColumn" msprop:Generator_UserColumnName="Point" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Report04" msprop:Generator_TableClassName="Report04DataTable" msprop:Generator_TableVarName="tableReport04" msprop:Generator_RowChangedName="Report04RowChanged" msprop:Generator_TablePropName="Report04" msprop:Generator_RowDeletingName="Report04RowDeleting" msprop:Generator_RowChangingName="Report04RowChanging" msprop:Generator_RowEvHandlerName="Report04RowChangeEventHandler" msprop:Generator_RowDeletedName="Report04RowDeleted" msprop:Generator_RowClassName="Report04Row" msprop:Generator_UserTableName="Report04" msprop:Generator_RowEvArgName="Report04RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PlumberName" msprop:Generator_ColumnVarNameInTable="columnPlumberName" msprop:Generator_ColumnPropNameInRow="PlumberName" msprop:Generator_ColumnPropNameInTable="PlumberNameColumn" msprop:Generator_UserColumnName="PlumberName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlumberMobile" msprop:Generator_ColumnVarNameInTable="columnPlumberMobile" msprop:Generator_ColumnPropNameInRow="PlumberMobile" msprop:Generator_ColumnPropNameInTable="PlumberMobileColumn" msprop:Generator_UserColumnName="PlumberMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AreaName" msprop:Generator_ColumnVarNameInTable="columnAreaName" msprop:Generator_ColumnPropNameInRow="AreaName" msprop:Generator_ColumnPropNameInTable="AreaNameColumn" msprop:Generator_UserColumnName="AreaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillId" msprop:Generator_ColumnVarNameInTable="columnBillId" msprop:Generator_ColumnPropNameInRow="BillId" msprop:Generator_ColumnPropNameInTable="BillIdColumn" msprop:Generator_UserColumnName="BillId" type="xs:int" minOccurs="0" />
+              <xs:element name="CardValue" msprop:Generator_ColumnVarNameInTable="columnCardValue" msprop:Generator_ColumnPropNameInRow="CardValue" msprop:Generator_ColumnPropNameInTable="CardValueColumn" msprop:Generator_UserColumnName="CardValue" type="xs:double" minOccurs="0" />
+              <xs:element name="Point" msprop:Generator_ColumnVarNameInTable="columnPoint" msprop:Generator_ColumnPropNameInRow="Point" msprop:Generator_ColumnPropNameInTable="PointColumn" msprop:Generator_UserColumnName="Point" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Report05" msprop:Generator_TableClassName="Report05DataTable" msprop:Generator_TableVarName="tableReport05" msprop:Generator_TablePropName="Report05" msprop:Generator_RowDeletingName="Report05RowDeleting" msprop:Generator_RowChangingName="Report05RowChanging" msprop:Generator_RowEvHandlerName="Report05RowChangeEventHandler" msprop:Generator_RowDeletedName="Report05RowDeleted" msprop:Generator_UserTableName="Report05" msprop:Generator_RowChangedName="Report05RowChanged" msprop:Generator_RowEvArgName="Report05RowChangeEvent" msprop:Generator_RowClassName="Report05Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BillId" msprop:Generator_ColumnVarNameInTable="columnBillId" msprop:Generator_ColumnPropNameInRow="BillId" msprop:Generator_ColumnPropNameInTable="BillIdColumn" msprop:Generator_UserColumnName="BillId" type="xs:int" minOccurs="0" />
+              <xs:element name="BillEndId" msprop:Generator_ColumnVarNameInTable="columnBillEndId" msprop:Generator_ColumnPropNameInRow="BillEndId" msprop:Generator_ColumnPropNameInTable="BillEndIdColumn" msprop:Generator_UserColumnName="BillEndId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillDate" msprop:Generator_ColumnVarNameInTable="columnBillDate" msprop:Generator_ColumnPropNameInRow="BillDate" msprop:Generator_ColumnPropNameInTable="BillDateColumn" msprop:Generator_UserColumnName="BillDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TraderName" msprop:Generator_ColumnVarNameInTable="columnTraderName" msprop:Generator_ColumnPropNameInRow="TraderName" msprop:Generator_ColumnPropNameInTable="TraderNameColumn" msprop:Generator_UserColumnName="TraderName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerName" msprop:Generator_ColumnVarNameInTable="columnOwnerName" msprop:Generator_ColumnPropNameInRow="OwnerName" msprop:Generator_ColumnPropNameInTable="OwnerNameColumn" msprop:Generator_UserColumnName="OwnerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerAddress" msprop:Generator_ColumnVarNameInTable="columnOwnerAddress" msprop:Generator_ColumnPropNameInRow="OwnerAddress" msprop:Generator_ColumnPropNameInTable="OwnerAddressColumn" msprop:Generator_UserColumnName="OwnerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardValue" msprop:Generator_ColumnVarNameInTable="columnCardValue" msprop:Generator_ColumnPropNameInRow="CardValue" msprop:Generator_ColumnPropNameInTable="CardValueColumn" msprop:Generator_UserColumnName="CardValue" type="xs:int" minOccurs="0" />
+              <xs:element name="Point" msprop:Generator_ColumnVarNameInTable="columnPoint" msprop:Generator_ColumnPropNameInRow="Point" msprop:Generator_ColumnPropNameInTable="PointColumn" msprop:Generator_UserColumnName="Point" type="xs:double" minOccurs="0" />
+              <xs:element name="guaranteeId" msprop:Generator_ColumnVarNameInTable="columnguaranteeId" msprop:Generator_ColumnPropNameInRow="guaranteeId" msprop:Generator_ColumnPropNameInTable="guaranteeIdColumn" msprop:Generator_UserColumnName="guaranteeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

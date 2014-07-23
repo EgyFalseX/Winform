@@ -1,0 +1,3 @@
+﻿SELECT     BillID, BillTypeID, BillNo, BillName, BillDate, PersonID, Info, UserID, EditDate,
+(SELECT SUM(Quantity * UnitPrice)  FROM BillDetails WHERE BillID = Bills.BillID) AS TotalCash
+FROM         Bills

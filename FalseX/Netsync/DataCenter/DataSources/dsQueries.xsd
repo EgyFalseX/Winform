@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsQueries" targetNamespace="http://tempuri.org/dsQueries.xsd" xmlns:mstns="http://tempuri.org/dsQueries.xsd" xmlns="http://tempuri.org/dsQueries.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DataCenterConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DataCenterConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataCenter.Properties.Settings.GlobalReference.Default.DataCenterConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QryItemsTableAdapter" GeneratorDataComponentClassName="QryItemsTableAdapter" Name="QryItems" UserDataComponentName="QryItemsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectName="DataCenter.dbo.Item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUserId" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByUserId" GeneratorSourceName="FillByUserId" GetMethodModifier="Public" GetMethodName="GetDataByUserId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByUserId" UserSourceName="FillByUserId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ItemId, ItemName, PhysicalName, TypeId, CategoryId, Info, CreateIn, OwnerId, ModifyIn, UserIn, active, Locker, 1 AS CanRead,
+(SELECT CategoryName FROM Category WHERE CategoryId = Item.CategoryId) AS CategoryName,
+(SELECT TypeName FROM [Types] WHERE TypeId = Item.TypeId) AS TypeName,
+(SELECT TypeIconData FROM [Types] WHERE TypeId = Item.TypeId) AS TypeIconData,
+(SELECT AssociationId FROM [Types] WHERE TypeId = Item.TypeId) AS AssociationId,
+(SELECT RealName FROM Users WHERE UserID = Item.UserIn) AS RealNameLastEdit,
+(SELECT RealName FROM Users WHERE UserID = Item.OwnerId) AS RealNameOwner,
+
+ISNULL((SELECT TOP 1 1 AS CanWrite WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanWrite = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanWrite = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = CategoryRole.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanWrite = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanWrite = 1 AND UserId = @UserId)
+), 0) AS CanWrite,
+
+ISNULL((SELECT TOP 1 1 AS CanInsert WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanInsert = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanInsert = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = CategoryRole.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanInsert = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanInsert = 1 AND UserId = @UserId)
+), 0) AS CanInsert,
+
+ISNULL((SELECT TOP 1 1 AS CanDelete WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanDelete = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanDelete = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = CategoryRole.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanDelete = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanDelete = 1 AND UserId = @UserId)
+), 0) AS CanDelete
+
+FROM Item
+WHERE active = 1 AND
+(
+EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanRead = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanRead = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanRead = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanRead = 1 AND UserId = @UserId)
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserId" ColumnName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UserId" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ItemId" DataSetColumn="ItemId" />
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="PhysicalName" DataSetColumn="PhysicalName" />
+              <Mapping SourceColumn="TypeId" DataSetColumn="TypeId" />
+              <Mapping SourceColumn="CategoryId" DataSetColumn="CategoryId" />
+              <Mapping SourceColumn="Info" DataSetColumn="Info" />
+              <Mapping SourceColumn="CreateIn" DataSetColumn="CreateIn" />
+              <Mapping SourceColumn="ModifyIn" DataSetColumn="ModifyIn" />
+              <Mapping SourceColumn="UserIn" DataSetColumn="UserIn" />
+              <Mapping SourceColumn="active" DataSetColumn="active" />
+              <Mapping SourceColumn="Locker" DataSetColumn="Locker" />
+              <Mapping SourceColumn="TypeName" DataSetColumn="TypeName" />
+              <Mapping SourceColumn="TypeIconData" DataSetColumn="TypeIconData" />
+              <Mapping SourceColumn="OwnerId" DataSetColumn="OwnerId" />
+              <Mapping SourceColumn="CanRead" DataSetColumn="CanRead" />
+              <Mapping SourceColumn="RealNameLastEdit" DataSetColumn="RealNameLastEdit" />
+              <Mapping SourceColumn="RealNameOwner" DataSetColumn="RealNameOwner" />
+              <Mapping SourceColumn="CategoryName" DataSetColumn="CategoryName" />
+              <Mapping SourceColumn="CanWrite" DataSetColumn="CanWrite" />
+              <Mapping SourceColumn="CanInsert" DataSetColumn="CanInsert" />
+              <Mapping SourceColumn="CanDelete" DataSetColumn="CanDelete" />
+              <Mapping SourceColumn="AssociationId" DataSetColumn="AssociationId" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectName="DataCenter.dbo.Item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCategoryId_UserId" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCategoryId_UserId" GeneratorSourceName="FillByCategoryId_UserId" GetMethodModifier="Public" GetMethodName="GetDataByCategoryId_UserId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCategoryId_UserId" UserSourceName="FillByCategoryId_UserId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ItemId, ItemName, PhysicalName, TypeId, CategoryId, Info, CreateIn, OwnerId, ModifyIn, UserIn, active, Locker, 1 AS CanRead,
+(SELECT CategoryName FROM Category WHERE CategoryId = Item.CategoryId) AS CategoryName,
+(SELECT TypeName FROM [Types] WHERE TypeId = Item.TypeId) AS TypeName,
+(SELECT TypeIconData FROM [Types] WHERE TypeId = Item.TypeId) AS TypeIconData,
+(SELECT AssociationId FROM [Types] WHERE TypeId = Item.TypeId) AS AssociationId,
+(SELECT RealName FROM Users WHERE UserID = Item.UserIn) AS RealNameLastEdit,
+(SELECT RealName FROM Users WHERE UserID = Item.OwnerId) AS RealNameOwner,
+
+ISNULL((SELECT TOP 1 1 AS CanWrite WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanWrite = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanWrite = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = CategoryRole.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanWrite = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanWrite = 1 AND UserId = @UserId)
+), 0) AS CanWrite,
+
+ISNULL((SELECT TOP 1 1 AS CanInsert WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanInsert = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanInsert = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = CategoryRole.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanInsert = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanInsert = 1 AND UserId = @UserId)
+), 0) AS CanInsert,
+
+ISNULL((SELECT TOP 1 1 AS CanDelete WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanDelete = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanDelete = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = CategoryRole.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanDelete = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole AS T1 WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND  UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanDelete = 1 AND UserId = @UserId)
+), 0) AS CanDelete
+
+FROM Item
+WHERE CategoryId = @CategoryId  AND active = 1 AND
+(
+EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Item.CategoryId AND CanRead = 1 AND UserId = @UserId)
+OR
+EXISTS(SELECT ItemId FROM ItemRole WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 1 AND ItemId = Item.ItemId AND CanRead = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Item.CategoryId AND CanRead = 1 AND UserId = @UserId)
+AND
+NOT EXISTS(SELECT ItemId FROM ItemRole WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT ItemId FROM ItemUser WHERE GrantId = 2 AND  ItemId = Item.ItemId AND CanRead = 1 AND UserId = @UserId)
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="CategoryId" ColumnName="CategoryId" DataSourceName="DataCenter.dbo.Item" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CategoryId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CategoryId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserId" ColumnName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UserId" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QryCategoryTableAdapter" GeneratorDataComponentClassName="QryCategoryTableAdapter" Name="QryCategory" UserDataComponentName="QryCategoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectName="DataCenter.dbo.Category" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CategoryId, CategoryName, CreateIn, ModifyIn, UserIn, ParentID, Info, IconId, active, 1 AS CanRead,
+(SELECT RealName FROM Users WHERE UserID = Category.UserIn) AS RealNameLastEdit,
+(SELECT RealName FROM Users WHERE UserID = Category.OwnerId) AS RealNameOwner,
+
+
+ISNULL((SELECT TOP 1 1 AS CanWrite WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanWrite = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanWrite = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanWrite = 1 AND UserId = @UserId)
+), 0) AS CanWrite,
+
+ISNULL((SELECT TOP 1 1 AS CanInsert WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanInsert = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanInsert = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanInsert = 1 AND UserId = @UserId)
+), 0) AS CanInsert,
+
+ISNULL((SELECT TOP 1 1 AS CanDelete WHERE 
+(
+EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanDelete = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole AS T1 WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanDelete = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanDelete = 1 AND UserId = @UserId)
+), 0) AS CanDelete,
+
+ISNULL((SELECT TOP 1 1 AS UserLevelId WHERE 
+(
+EXISTS(SELECT UserLevelId FROM CategoryRole AS T1 WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND UserLevelId = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT UserLevelId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND UserLevelId = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT UserLevelId FROM CategoryRole AS T1 WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND UserLevelId = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE RoleId = T1.RoleId AND UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT UserLevelId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND UserLevelId = 1 AND UserId = @UserId)
+), 0) AS UserLevelId
+
+FROM Category
+WHERE active = 1 AND
+(
+EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 1))
+OR
+EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 1 AND CategoryId = Category.CategoryId AND CanRead = 1 AND UserId = @UserId)
+)
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryRole WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanRead = 1 AND EXISTS(SELECT RoleId FROM UserRole WHERE UserId = @UserId AND GrantId = 2))
+AND
+NOT EXISTS(SELECT CategoryId FROM CategoryUser WHERE GrantId = 2 AND  CategoryId = Category.CategoryId AND CanRead = 1 AND UserId = @UserId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserId" ColumnName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UserId" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CategoryId" DataSetColumn="CategoryId" />
+              <Mapping SourceColumn="CategoryName" DataSetColumn="CategoryName" />
+              <Mapping SourceColumn="CreateIn" DataSetColumn="CreateIn" />
+              <Mapping SourceColumn="ModifyIn" DataSetColumn="ModifyIn" />
+              <Mapping SourceColumn="UserIn" DataSetColumn="UserIn" />
+              <Mapping SourceColumn="ParentID" DataSetColumn="ParentID" />
+              <Mapping SourceColumn="Info" DataSetColumn="Info" />
+              <Mapping SourceColumn="active" DataSetColumn="active" />
+              <Mapping SourceColumn="CanRead" DataSetColumn="CanRead" />
+              <Mapping SourceColumn="RealNameLastEdit" DataSetColumn="RealNameLastEdit" />
+              <Mapping SourceColumn="RealNameOwner" DataSetColumn="RealNameOwner" />
+              <Mapping SourceColumn="CanWrite" DataSetColumn="CanWrite" />
+              <Mapping SourceColumn="CanInsert" DataSetColumn="CanInsert" />
+              <Mapping SourceColumn="CanDelete" DataSetColumn="CanDelete" />
+              <Mapping SourceColumn="UserLevelId" DataSetColumn="UserLevelId" />
+              <Mapping SourceColumn="IconId" DataSetColumn="IconId" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QUERIESTableAdapter" GeneratorDataComponentClassName="QUERIESTableAdapter" Name="QUERIES" UserDataComponentName="QUERIESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        GETDATE() AS SERVERDATETIME</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SERVERDATETIME" DataSetColumn="SERVERDATETIME" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryCategoryNewId" Modifier="Public" Name="ScalarQueryCategoryNewId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQueryCategoryNewId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(MAX(CategoryId) + 1, 1) AS NewId
+FROM            Category</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryItemNewId" Modifier="Public" Name="ScalarQueryItemNewId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQueryItemNewId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(MAX(ItemId) + 1, 1) AS NewId
+FROM            Item</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryRolesNewId" Modifier="Public" Name="ScalarQueryRolesNewId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQueryRolesNewId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(MAX(RoleID) + 1, 1) AS NewId
+FROM            Roles</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuerySERVERDATETIME" Modifier="Public" Name="ScalarQuerySERVERDATETIME" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuerySERVERDATETIME">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        GETDATE() AS SERVERDATETIME</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryUsersNewId" Modifier="Public" Name="ScalarQueryUsersNewId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQueryUsersNewId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(MAX(UserID) + 1, 1) AS NewId
+FROM            Users</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QryLogsTableAdapter" GeneratorDataComponentClassName="QryLogsTableAdapter" Name="QryLogs" UserDataComponentName="QryLogsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectName="DataCenter.dbo.Logs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT LogDate, LogIndex, LogIndexExtra, LogOpId, LogTypeId, UserId, id,
+(SELECT OperationName FROM LogOpType WHERE LogOpId = Logs.LogOpId) AS OperationName,
+(SELECT LogTypeName FROM LogType WHERE LogTypeId = Logs.LogTypeId) AS LogTypeName,
+(SELECT RealName FROM Users WHERE UserId = Logs.UserId) AS RealName,
+(SELECT RoleName FROM Roles WHERE RoleID = Logs.LogIndexExtra) AS LogNameExtra
+FROM Logs 
+WHERE LogOpId IN (1, 2, 3, 4, 5, 6, 7, 8, 9)
+union
+SELECT LogDate, LogIndex, LogIndexExtra, LogOpId, LogTypeId, UserId, id,
+(SELECT OperationName FROM LogOpType WHERE LogOpId = Logs.LogOpId) AS OperationName,
+(SELECT LogTypeName FROM LogType WHERE LogTypeId = Logs.LogTypeId) AS LogTypeName,
+(SELECT RealName FROM Users WHERE UserId = Logs.UserId) AS RealName,
+(SELECT RealName FROM Users WHERE UserId = Logs.LogIndexExtra) AS LogNameExtra
+FROM Logs 
+WHERE LogOpId IN (10, 11, 12, 13, 14, 15)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="LogDate" DataSetColumn="LogDate" />
+              <Mapping SourceColumn="LogIndex" DataSetColumn="LogIndex" />
+              <Mapping SourceColumn="LogIndexExtra" DataSetColumn="LogIndexExtra" />
+              <Mapping SourceColumn="LogOpId" DataSetColumn="LogOpId" />
+              <Mapping SourceColumn="LogTypeId" DataSetColumn="LogTypeId" />
+              <Mapping SourceColumn="UserId" DataSetColumn="UserId" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="OperationName" DataSetColumn="OperationName" />
+              <Mapping SourceColumn="LogTypeName" DataSetColumn="LogTypeName" />
+              <Mapping SourceColumn="RealName" DataSetColumn="RealName" />
+              <Mapping SourceColumn="LogNameExtra" DataSetColumn="LogNameExtra" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DataCenterConnectionString (Settings)" DbObjectName="DataCenter.dbo.Logs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByLogTypeId_LogIndex" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLogTypeId_LogIndex" GeneratorSourceName="FillByLogTypeId_LogIndex" GetMethodModifier="Public" GetMethodName="GetDataByLogTypeId_LogIndex" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLogTypeId_LogIndex" UserSourceName="FillByLogTypeId_LogIndex">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT LogDate, LogIndex, LogIndexExtra, LogOpId, LogTypeId, UserId, id,
+(SELECT OperationName FROM LogOpType WHERE LogOpId = Logs.LogOpId) AS OperationName,
+(SELECT LogTypeName FROM LogType WHERE LogTypeId = Logs.LogTypeId) AS LogTypeName,
+(SELECT RealName FROM Users WHERE UserId = Logs.UserId) AS RealName,
+(SELECT RoleName FROM Roles WHERE RoleID = Logs.LogIndexExtra) AS LogNameExtra
+FROM Logs 
+WHERE LogTypeId = @LogTypeId AND LogIndex = @LogIndex
+AND LogOpId IN (1, 2, 3, 4, 5, 6, 7, 8, 9)
+union
+SELECT LogDate, LogIndex, LogIndexExtra, LogOpId, LogTypeId, UserId, id,
+(SELECT OperationName FROM LogOpType WHERE LogOpId = Logs.LogOpId) AS OperationName,
+(SELECT LogTypeName FROM LogType WHERE LogTypeId = Logs.LogTypeId) AS LogTypeName,
+(SELECT RealName FROM Users WHERE UserId = Logs.UserId) AS RealName,
+(SELECT RealName FROM Users WHERE UserId = Logs.LogIndexExtra) AS LogNameExtra
+FROM Logs 
+WHERE LogTypeId = @LogTypeId AND LogIndex = @LogIndex
+AND LogOpId IN (10, 11, 12, 13, 14, 15)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="LogTypeId" ColumnName="LogTypeId" DataSourceName="DataCenter.dbo.Logs" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@LogTypeId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LogTypeId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="LogIndex" ColumnName="LogIndex" DataSourceName="DataCenter.dbo.Logs" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@LogIndex" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LogIndex" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsQueries" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsQueries" msprop:Generator_UserDSName="dsQueries">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="QryItems" msprop:Generator_TableClassName="QryItemsDataTable" msprop:Generator_TableVarName="tableQryItems" msprop:Generator_TablePropName="QryItems" msprop:Generator_RowDeletingName="QryItemsRowDeleting" msprop:Generator_RowChangingName="QryItemsRowChanging" msprop:Generator_RowEvHandlerName="QryItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="QryItemsRowDeleted" msprop:Generator_UserTableName="QryItems" msprop:Generator_RowChangedName="QryItemsRowChanged" msprop:Generator_RowEvArgName="QryItemsRowChangeEvent" msprop:Generator_RowClassName="QryItemsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemId" msprop:Generator_ColumnVarNameInTable="columnItemId" msprop:Generator_ColumnPropNameInRow="ItemId" msprop:Generator_ColumnPropNameInTable="ItemIdColumn" msprop:Generator_UserColumnName="ItemId" type="xs:int" />
+              <xs:element name="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_UserColumnName="ItemName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PhysicalName" msprop:Generator_ColumnVarNameInTable="columnPhysicalName" msprop:Generator_ColumnPropNameInRow="PhysicalName" msprop:Generator_ColumnPropNameInTable="PhysicalNameColumn" msprop:Generator_UserColumnName="PhysicalName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TypeId" msprop:Generator_ColumnVarNameInTable="columnTypeId" msprop:Generator_ColumnPropNameInRow="TypeId" msprop:Generator_ColumnPropNameInTable="TypeIdColumn" msprop:Generator_UserColumnName="TypeId" type="xs:int" minOccurs="0" />
+              <xs:element name="CategoryId" msprop:Generator_ColumnVarNameInTable="columnCategoryId" msprop:Generator_ColumnPropNameInRow="CategoryId" msprop:Generator_ColumnPropNameInTable="CategoryIdColumn" msprop:Generator_UserColumnName="CategoryId" type="xs:int" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreateIn" msprop:Generator_ColumnVarNameInTable="columnCreateIn" msprop:Generator_ColumnPropNameInRow="CreateIn" msprop:Generator_ColumnPropNameInTable="CreateInColumn" msprop:Generator_UserColumnName="CreateIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ModifyIn" msprop:Generator_ColumnVarNameInTable="columnModifyIn" msprop:Generator_ColumnPropNameInRow="ModifyIn" msprop:Generator_ColumnPropNameInTable="ModifyInColumn" msprop:Generator_UserColumnName="ModifyIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UserIn" msprop:Generator_ColumnVarNameInTable="columnUserIn" msprop:Generator_ColumnPropNameInRow="UserIn" msprop:Generator_ColumnPropNameInTable="UserInColumn" msprop:Generator_UserColumnName="UserIn" type="xs:int" minOccurs="0" />
+              <xs:element name="active" msprop:Generator_ColumnVarNameInTable="columnactive" msprop:Generator_ColumnPropNameInRow="active" msprop:Generator_ColumnPropNameInTable="activeColumn" msprop:Generator_UserColumnName="active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Locker" msprop:Generator_ColumnVarNameInTable="columnLocker" msprop:Generator_ColumnPropNameInRow="Locker" msprop:Generator_ColumnPropNameInTable="LockerColumn" msprop:Generator_UserColumnName="Locker" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TypeName" msprop:Generator_ColumnVarNameInTable="columnTypeName" msprop:Generator_ColumnPropNameInRow="TypeName" msprop:Generator_ColumnPropNameInTable="TypeNameColumn" msprop:Generator_UserColumnName="TypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TypeIconData" msprop:Generator_ColumnVarNameInTable="columnTypeIconData" msprop:Generator_ColumnPropNameInRow="TypeIconData" msprop:Generator_ColumnPropNameInTable="TypeIconDataColumn" msprop:Generator_UserColumnName="TypeIconData" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="OwnerId" msprop:Generator_ColumnVarNameInTable="columnOwnerId" msprop:Generator_ColumnPropNameInRow="OwnerId" msprop:Generator_ColumnPropNameInTable="OwnerIdColumn" msprop:Generator_UserColumnName="OwnerId" type="xs:int" minOccurs="0" />
+              <xs:element name="CanRead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanRead" msprop:Generator_ColumnPropNameInRow="CanRead" msprop:Generator_ColumnPropNameInTable="CanReadColumn" msprop:Generator_UserColumnName="CanRead" type="xs:int" minOccurs="0" />
+              <xs:element name="RealNameLastEdit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealNameLastEdit" msprop:Generator_ColumnPropNameInRow="RealNameLastEdit" msprop:Generator_ColumnPropNameInTable="RealNameLastEditColumn" msprop:Generator_UserColumnName="RealNameLastEdit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RealNameOwner" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealNameOwner" msprop:Generator_ColumnPropNameInRow="RealNameOwner" msprop:Generator_ColumnPropNameInTable="RealNameOwnerColumn" msprop:Generator_UserColumnName="RealNameOwner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CategoryName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCategoryName" msprop:Generator_ColumnPropNameInRow="CategoryName" msprop:Generator_ColumnPropNameInTable="CategoryNameColumn" msprop:Generator_UserColumnName="CategoryName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CanWrite" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanWrite" msprop:Generator_ColumnPropNameInRow="CanWrite" msprop:Generator_ColumnPropNameInTable="CanWriteColumn" msprop:Generator_UserColumnName="CanWrite" type="xs:int" minOccurs="0" />
+              <xs:element name="CanInsert" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanInsert" msprop:Generator_ColumnPropNameInRow="CanInsert" msprop:Generator_ColumnPropNameInTable="CanInsertColumn" msprop:Generator_UserColumnName="CanInsert" type="xs:int" minOccurs="0" />
+              <xs:element name="CanDelete" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanDelete" msprop:Generator_ColumnPropNameInRow="CanDelete" msprop:Generator_ColumnPropNameInTable="CanDeleteColumn" msprop:Generator_UserColumnName="CanDelete" type="xs:int" minOccurs="0" />
+              <xs:element name="AssociationId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAssociationId" msprop:Generator_ColumnPropNameInRow="AssociationId" msprop:Generator_ColumnPropNameInTable="AssociationIdColumn" msprop:Generator_UserColumnName="AssociationId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QryCategory" msprop:Generator_TableClassName="QryCategoryDataTable" msprop:Generator_TableVarName="tableQryCategory" msprop:Generator_RowChangedName="QryCategoryRowChanged" msprop:Generator_TablePropName="QryCategory" msprop:Generator_RowDeletingName="QryCategoryRowDeleting" msprop:Generator_RowChangingName="QryCategoryRowChanging" msprop:Generator_RowEvHandlerName="QryCategoryRowChangeEventHandler" msprop:Generator_RowDeletedName="QryCategoryRowDeleted" msprop:Generator_RowClassName="QryCategoryRow" msprop:Generator_UserTableName="QryCategory" msprop:Generator_RowEvArgName="QryCategoryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CategoryId" msprop:Generator_ColumnVarNameInTable="columnCategoryId" msprop:Generator_ColumnPropNameInRow="CategoryId" msprop:Generator_ColumnPropNameInTable="CategoryIdColumn" msprop:Generator_UserColumnName="CategoryId" type="xs:int" />
+              <xs:element name="CategoryName" msprop:Generator_ColumnVarNameInTable="columnCategoryName" msprop:Generator_ColumnPropNameInRow="CategoryName" msprop:Generator_ColumnPropNameInTable="CategoryNameColumn" msprop:Generator_UserColumnName="CategoryName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreateIn" msprop:Generator_ColumnVarNameInTable="columnCreateIn" msprop:Generator_ColumnPropNameInRow="CreateIn" msprop:Generator_ColumnPropNameInTable="CreateInColumn" msprop:Generator_UserColumnName="CreateIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ModifyIn" msprop:Generator_ColumnVarNameInTable="columnModifyIn" msprop:Generator_ColumnPropNameInRow="ModifyIn" msprop:Generator_ColumnPropNameInTable="ModifyInColumn" msprop:Generator_UserColumnName="ModifyIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UserIn" msprop:Generator_ColumnVarNameInTable="columnUserIn" msprop:Generator_ColumnPropNameInRow="UserIn" msprop:Generator_ColumnPropNameInTable="UserInColumn" msprop:Generator_UserColumnName="UserIn" type="xs:int" minOccurs="0" />
+              <xs:element name="ParentID" msprop:Generator_ColumnVarNameInTable="columnParentID" msprop:Generator_ColumnPropNameInRow="ParentID" msprop:Generator_ColumnPropNameInTable="ParentIDColumn" msprop:Generator_UserColumnName="ParentID" type="xs:int" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="active" msprop:Generator_ColumnVarNameInTable="columnactive" msprop:Generator_ColumnPropNameInRow="active" msprop:Generator_ColumnPropNameInTable="activeColumn" msprop:Generator_UserColumnName="active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CanRead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanRead" msprop:Generator_ColumnPropNameInRow="CanRead" msprop:Generator_ColumnPropNameInTable="CanReadColumn" msprop:Generator_UserColumnName="CanRead" type="xs:int" minOccurs="0" />
+              <xs:element name="RealNameLastEdit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealNameLastEdit" msprop:Generator_ColumnPropNameInRow="RealNameLastEdit" msprop:Generator_ColumnPropNameInTable="RealNameLastEditColumn" msprop:Generator_UserColumnName="RealNameLastEdit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RealNameOwner" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealNameOwner" msprop:Generator_ColumnPropNameInRow="RealNameOwner" msprop:Generator_ColumnPropNameInTable="RealNameOwnerColumn" msprop:Generator_UserColumnName="RealNameOwner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CanWrite" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanWrite" msprop:Generator_ColumnPropNameInRow="CanWrite" msprop:Generator_ColumnPropNameInTable="CanWriteColumn" msprop:Generator_UserColumnName="CanWrite" type="xs:int" minOccurs="0" />
+              <xs:element name="CanInsert" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanInsert" msprop:Generator_ColumnPropNameInRow="CanInsert" msprop:Generator_ColumnPropNameInTable="CanInsertColumn" msprop:Generator_UserColumnName="CanInsert" type="xs:int" minOccurs="0" />
+              <xs:element name="CanDelete" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCanDelete" msprop:Generator_ColumnPropNameInRow="CanDelete" msprop:Generator_ColumnPropNameInTable="CanDeleteColumn" msprop:Generator_UserColumnName="CanDelete" type="xs:int" minOccurs="0" />
+              <xs:element name="UserLevelId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUserLevelId" msprop:Generator_ColumnPropNameInRow="UserLevelId" msprop:Generator_ColumnPropNameInTable="UserLevelIdColumn" msprop:Generator_UserColumnName="UserLevelId" type="xs:int" minOccurs="0" />
+              <xs:element name="IconId" msprop:Generator_ColumnVarNameInTable="columnIconId" msprop:Generator_ColumnPropNameInRow="IconId" msprop:Generator_ColumnPropNameInTable="IconIdColumn" msprop:Generator_UserColumnName="IconId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QUERIES" msprop:Generator_TableClassName="QUERIESDataTable" msprop:Generator_TableVarName="tableQUERIES" msprop:Generator_RowChangedName="QUERIESRowChanged" msprop:Generator_TablePropName="QUERIES" msprop:Generator_RowDeletingName="QUERIESRowDeleting" msprop:Generator_RowChangingName="QUERIESRowChanging" msprop:Generator_RowEvHandlerName="QUERIESRowChangeEventHandler" msprop:Generator_RowDeletedName="QUERIESRowDeleted" msprop:Generator_RowClassName="QUERIESRow" msprop:Generator_UserTableName="QUERIES" msprop:Generator_RowEvArgName="QUERIESRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SERVERDATETIME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSERVERDATETIME" msprop:Generator_ColumnPropNameInRow="SERVERDATETIME" msprop:Generator_ColumnPropNameInTable="SERVERDATETIMEColumn" msprop:Generator_UserColumnName="SERVERDATETIME" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QryLogs" msprop:Generator_TableClassName="QryLogsDataTable" msprop:Generator_TableVarName="tableQryLogs" msprop:Generator_RowChangedName="QryLogsRowChanged" msprop:Generator_TablePropName="QryLogs" msprop:Generator_RowDeletingName="QryLogsRowDeleting" msprop:Generator_RowChangingName="QryLogsRowChanging" msprop:Generator_RowEvHandlerName="QryLogsRowChangeEventHandler" msprop:Generator_RowDeletedName="QryLogsRowDeleted" msprop:Generator_RowClassName="QryLogsRow" msprop:Generator_UserTableName="QryLogs" msprop:Generator_RowEvArgName="QryLogsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LogDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogDate" msprop:Generator_ColumnPropNameInRow="LogDate" msprop:Generator_ColumnPropNameInTable="LogDateColumn" msprop:Generator_UserColumnName="LogDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LogIndex" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogIndex" msprop:Generator_ColumnPropNameInRow="LogIndex" msprop:Generator_ColumnPropNameInTable="LogIndexColumn" msprop:Generator_UserColumnName="LogIndex" type="xs:int" minOccurs="0" />
+              <xs:element name="LogIndexExtra" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogIndexExtra" msprop:Generator_ColumnPropNameInRow="LogIndexExtra" msprop:Generator_ColumnPropNameInTable="LogIndexExtraColumn" msprop:Generator_UserColumnName="LogIndexExtra" type="xs:int" minOccurs="0" />
+              <xs:element name="LogOpId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogOpId" msprop:Generator_ColumnPropNameInRow="LogOpId" msprop:Generator_ColumnPropNameInTable="LogOpIdColumn" msprop:Generator_UserColumnName="LogOpId" type="xs:int" minOccurs="0" />
+              <xs:element name="LogTypeId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogTypeId" msprop:Generator_ColumnPropNameInRow="LogTypeId" msprop:Generator_ColumnPropNameInTable="LogTypeIdColumn" msprop:Generator_UserColumnName="LogTypeId" type="xs:int" minOccurs="0" />
+              <xs:element name="UserId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUserId" msprop:Generator_ColumnPropNameInRow="UserId" msprop:Generator_ColumnPropNameInTable="UserIdColumn" msprop:Generator_UserColumnName="UserId" type="xs:int" minOccurs="0" />
+              <xs:element name="id" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" minOccurs="0" />
+              <xs:element name="OperationName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOperationName" msprop:Generator_ColumnPropNameInRow="OperationName" msprop:Generator_ColumnPropNameInTable="OperationNameColumn" msprop:Generator_UserColumnName="OperationName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LogTypeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogTypeName" msprop:Generator_ColumnPropNameInRow="LogTypeName" msprop:Generator_ColumnPropNameInTable="LogTypeNameColumn" msprop:Generator_UserColumnName="LogTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RealName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRealName" msprop:Generator_ColumnPropNameInRow="RealName" msprop:Generator_ColumnPropNameInTable="RealNameColumn" msprop:Generator_UserColumnName="RealName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LogNameExtra" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogNameExtra" msprop:Generator_ColumnPropNameInRow="LogNameExtra" msprop:Generator_ColumnPropNameInTable="LogNameExtraColumn" msprop:Generator_UserColumnName="LogNameExtra" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QryItems" />
+      <xs:field xpath="mstns:ItemId" />
+    </xs:unique>
+    <xs:unique name="QryCategory_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QryCategory" />
+      <xs:field xpath="mstns:CategoryId" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Item_Category" msdata:parent="QryCategory" msdata:child="QryItems" msdata:parentkey="CategoryId" msdata:childkey="CategoryId" msprop:Generator_UserChildTable="QryItems" msprop:Generator_ChildPropName="GetQryItemsRows" msprop:Generator_UserRelationName="FK_Item_Category" msprop:Generator_ParentPropName="QryCategoryRow" msprop:Generator_RelationVarName="relationFK_Item_Category" msprop:Generator_UserParentTable="QryCategory" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

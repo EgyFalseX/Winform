@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalseStudio", "FalseStudio\FalseStudio.csproj", "{6E942ACC-16E9-4942-965F-8374CE801DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlugin", "TestPlugin\TestPlugin.csproj", "{7030F6FB-B847-464B-BA7E-B6ECA4406840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayDo", "DayDo\DayDo.csproj", "{78C141B4-8782-4E39-A783-1FCB969F60D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sro Skills Timer", "Sro Skills Timer\Sro Skills Timer.csproj", "{3D978EEF-5118-406A-9B36-1EF7366A4E36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsSroClosed", "IsSroClosed\IsSroClosed.csproj", "{399AA0E4-77B9-4159-89AB-8834F5415020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravianMonitor", "TravianMonitor\TravianMonitor.csproj", "{C1EB53C5-8196-4E08-9711-46329566E1E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriorityPlugin", "PriorityPlugin\PriorityPlugin.csproj", "{F44C9850-EEDA-44EC-B21E-56324D25A295}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E942ACC-16E9-4942-965F-8374CE801DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E942ACC-16E9-4942-965F-8374CE801DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E942ACC-16E9-4942-965F-8374CE801DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E942ACC-16E9-4942-965F-8374CE801DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7030F6FB-B847-464B-BA7E-B6ECA4406840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7030F6FB-B847-464B-BA7E-B6ECA4406840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7030F6FB-B847-464B-BA7E-B6ECA4406840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7030F6FB-B847-464B-BA7E-B6ECA4406840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78C141B4-8782-4E39-A783-1FCB969F60D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C141B4-8782-4E39-A783-1FCB969F60D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C141B4-8782-4E39-A783-1FCB969F60D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C141B4-8782-4E39-A783-1FCB969F60D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D978EEF-5118-406A-9B36-1EF7366A4E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D978EEF-5118-406A-9B36-1EF7366A4E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D978EEF-5118-406A-9B36-1EF7366A4E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D978EEF-5118-406A-9B36-1EF7366A4E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399AA0E4-77B9-4159-89AB-8834F5415020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399AA0E4-77B9-4159-89AB-8834F5415020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399AA0E4-77B9-4159-89AB-8834F5415020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399AA0E4-77B9-4159-89AB-8834F5415020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1EB53C5-8196-4E08-9711-46329566E1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1EB53C5-8196-4E08-9711-46329566E1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1EB53C5-8196-4E08-9711-46329566E1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1EB53C5-8196-4E08-9711-46329566E1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44C9850-EEDA-44EC-B21E-56324D25A295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44C9850-EEDA-44EC-B21E-56324D25A295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44C9850-EEDA-44EC-B21E-56324D25A295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44C9850-EEDA-44EC-B21E-56324D25A295}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

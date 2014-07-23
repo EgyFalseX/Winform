@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.25" name="dsDataCenterLinq">
+  <DataContextMoniker Name="/dsDataCenterLinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="18eacb40-d836-4835-9c85-fdd1563e39bf" absoluteBounds="2.625, 0.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="db8c35ca-6e61-43b4-afca-2c87ee7243ab" absoluteBounds="2.64, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e643d64c-6c91-4f58-a681-56150b35583e" absoluteBounds="0.5, 0.625, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e65bc545-d9fa-43ef-897c-4e22f8e780f6" absoluteBounds="0.51500000000000012, 1.085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0baffebb-087d-406f-9027-73138e73125a" absoluteBounds="4.75, 0.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5dcecae1-0860-4288-8c02-967545169afa" absoluteBounds="4.7650000000000006, 1.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7bc04310-ab02-4a16-ab69-d0157e10560a" absoluteBounds="4.75, 3.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd769ccc-bfb2-4978-8ecf-e6ca13ab61bf" absoluteBounds="4.765, 3.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2dd9ae4f-86f4-4297-aadf-382cc8048325" absoluteBounds="2.625, 4, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vGrant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f1645a2-606d-47a4-8e5d-9dc627e37359" absoluteBounds="2.64, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78605919-cb44-4fd0-8c99-669ebabaf96f" absoluteBounds="0.625, 4.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vLogType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b71e8809-e76e-43e3-a604-433b34c740f0" absoluteBounds="0.64, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6bff4cdf-3e0c-4df8-a272-2e0608c7704e" absoluteBounds="4.75, 5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vLogOpType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd00ca4f-76a8-48e6-b580-cf3932cc5cf6" absoluteBounds="4.7650000000000006, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b057be3-b24d-4b6d-9c7f-6c98d4b2a947" absoluteBounds="0.5, 5.875, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vDeletedItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35551055-5bf0-4905-b3b6-188456756055" absoluteBounds="0.515, 6.335, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed640292-067c-468e-a29f-5989c43f88da" absoluteBounds="2.625, 5.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/dsDataCenterLinqDataContext/vDeletedCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d4d7bc70-77a1-45c8-ac2e-bc7906cf5023" absoluteBounds="2.64, 6.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

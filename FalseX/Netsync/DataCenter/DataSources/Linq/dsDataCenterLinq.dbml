@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataCenter" Class="dsDataCenterLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DataCenter;Persist Security Info=True;User ID=sa" SettingsObjectName="DataCenter.Properties.Settings" SettingsPropertyName="DataCenterConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vCategory" Member="vCategories">
+    <Type Name="vCategory">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OwnerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifyIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OwnerRealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastRealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentCategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vItems" Member="vItems">
+    <Type Name="vItem">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhysicalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Locker" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeIconData" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUsers" Member="vUsers">
+    <Type Name="vUser">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserPass" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserLevelId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserLevelName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRoles" Member="vRoles">
+    <Type Name="vRole">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="RoleDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vGrant" Member="vGrants">
+    <Type Name="vGrant">
+      <Column Name="GrantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GrantName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLogType" Member="vLogTypes">
+    <Type Name="vLogType">
+      <Column Name="LogTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LogTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLogOpType" Member="vLogOpTypes">
+    <Type Name="vLogOpType">
+      <Column Name="LogOpId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OperationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vDeletedItems" Member="vDeletedItems">
+    <Type Name="vDeletedItem">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhysicalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OwnerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifyIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Locker" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeIconData" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnerRealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastRealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vDeletedCategory" Member="vDeletedCategories">
+    <Type Name="vDeletedCategory">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OwnerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifyIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IconId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ParentCategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnerRealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastRealName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IconData" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+</Database>

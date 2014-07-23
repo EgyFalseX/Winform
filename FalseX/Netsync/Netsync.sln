@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netsync", "Netsync\Netsync.csproj", "{35AE29AE-D139-40C6-97E4-AFD3B9484BE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nsLib", "nsLib\nsLib.csproj", "{1B3348F4-02AE-4406-BFD2-CC12BE0A46E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCenter", "DataCenter\DataCenter.csproj", "{DABAFABC-67A5-440C-9D51-8F32393661C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35AE29AE-D139-40C6-97E4-AFD3B9484BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35AE29AE-D139-40C6-97E4-AFD3B9484BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35AE29AE-D139-40C6-97E4-AFD3B9484BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35AE29AE-D139-40C6-97E4-AFD3B9484BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3348F4-02AE-4406-BFD2-CC12BE0A46E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3348F4-02AE-4406-BFD2-CC12BE0A46E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3348F4-02AE-4406-BFD2-CC12BE0A46E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3348F4-02AE-4406-BFD2-CC12BE0A46E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DABAFABC-67A5-440C-9D51-8F32393661C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABAFABC-67A5-440C-9D51-8F32393661C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABAFABC-67A5-440C-9D51-8F32393661C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABAFABC-67A5-440C-9D51-8F32393661C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

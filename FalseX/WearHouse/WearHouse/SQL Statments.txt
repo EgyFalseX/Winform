@@ -1,0 +1,31 @@
+﻿SELECT     Customers.CusName, SUM(CusPays.Amount) AS Payments, SUM(BillTypes.Cost * BillTypes.[Count]) AS BillZ
+FROM         (((Customers INNER JOIN
+                      Bills ON Customers.CusID = Bills.CusID) INNER JOIN
+                      CusPays ON Customers.CusID = CusPays.CusID) INNER JOIN
+                      BillTypes ON Bills.BillsID = BillTypes.BillID)
+GROUP BY Customers.CusName
+
+_________
+SELECT     Customers.CusName, SUM(CusPays.Amount) AS Payments
+FROM         (Customers INNER JOIN
+                      CusPays ON CusPays.CusID = Customers.CusID)
+GROUP BY Customers.CusName
+_______
+SELECT     Customers.CusName, SUM(BillTypes.Cost * BillTypes.[Count]) AS BillZ
+FROM         ((Customers INNER JOIN
+                      Bills ON Customers.CusID = Bills.CusID) INNER JOIN
+                      BillTypes ON Bills.BillsID = BillTypes.BillID)
+GROUP BY Customers.CusName
+______________
+Get All items Added 2 the storage (without the bills items)
+SELECT Types.TypeCode, SUM(Adding.AddingCount) AS AddingCount, Types.Cost, SUM(Adding.AddingCount) * Types.Cost AS Total FROM (Adding INNER JOIN Types ON Adding.TypeID = Types.TypeID) GROUP BY Types.TypeCode, Types.Cost Order by Types.TypeCode
+________________
+SELECT     Customers.CusName, SUM(BillTypes.Cost * BillTypes.[Count]) / (select count(Customers.CusID) from Customers) - SUM(RetType.[Count] * RetType.Cost) / (select count(Customers.CusID) from Customers) AS BillZ
+FROM         (((Returners LEFT OUTER JOIN
+                      RetType ON Returners.ReturnerID = RetType.ReturnerID) RIGHT OUTER JOIN
+                      Customers ON Returners.CusID = Customers.CusID) LEFT OUTER JOIN
+                      (BillTypes RIGHT OUTER JOIN
+                      Bills ON BillTypes.BillID = Bills.BillsID) ON Customers.CusID = Bills.CusID)
+group by  Customers.CusName
+
+________________

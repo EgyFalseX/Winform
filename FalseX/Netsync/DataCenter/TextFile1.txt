@@ -1,0 +1,59 @@
+﻿//////////change privlige when moving category/////////////////
+//Delete All Exists Inheritances Roles
+AdpCatRole.FillByInheritances(dsDataCenter.CategoryRole, CategoryId);
+foreach (DataSources.dsDataCenter.CategoryRoleRow CatRoleRow in dsDataCenter.CategoryRole)
+{
+    if (CatRoleRow.CategoryId == CatRoleRow.InheritanceCategoryId)
+        continue;
+    if (DataManager.defaultInstance.UpdateSubCategoryInheritancePrivilages(CatRoleRow, true))
+    {
+        //LogOperation
+        if (CatRoleRow.GrantId == (int)nsLib.Utilities.Types.GrantType.allow)
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyRole, CategoryId, nsLib.Utilities.Types.LogOpType.DeleteAllowedRole, CatRoleRow.RoleID);
+        else
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyRole, CategoryId, nsLib.Utilities.Types.LogOpType.DeleteDeniedRole, CatRoleRow.RoleID);
+    }
+}
+//Delete All Exists Inheritances Users
+AdpCatUser.FillByInheritances(dsDataCenter.CategoryUser, CategoryId);
+foreach (DataSources.dsDataCenter.CategoryUserRow CatUserRow in dsDataCenter.CategoryUser)
+{
+    if (CatUserRow.CategoryId == CatUserRow.InheritanceCategoryId)
+        continue;
+    if (DataManager.defaultInstance.UpdateSubCategoryInheritancePrivilages(CatUserRow, true))
+    {
+        //LogOperation
+        if (CatUserRow.GrantId == (int)nsLib.Utilities.Types.GrantType.allow)
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyUser, CategoryId, nsLib.Utilities.Types.LogOpType.DeleteAllowedUser, CatUserRow.UserID);
+        else
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyUser, CategoryId, nsLib.Utilities.Types.LogOpType.DeleteDeniedUser, CatUserRow.UserID);
+    }
+}
+
+//Add All New Inheritances Roles
+AdpCatRole.FillByInheritances(dsDataCenter.CategoryRole, ParentId);
+foreach (DataSources.dsDataCenter.CategoryRoleRow CatRoleRow in dsDataCenter.CategoryRole)
+{
+    if (DataManager.defaultInstance.UpdateSubCategoryInheritancePrivilages(CatRoleRow, false))
+    {
+        //LogOperation
+        if (CatRoleRow.GrantId == (int)nsLib.Utilities.Types.GrantType.allow)
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyRole, CategoryId, nsLib.Utilities.Types.LogOpType.AddAllowedRole, CatRoleRow.RoleID);
+        else
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyRole, CategoryId, nsLib.Utilities.Types.LogOpType.AddDeniedRole, CatRoleRow.RoleID);
+    }
+}
+//Add All New Inheritances Users
+AdpCatUser.FillByInheritances(dsDataCenter.CategoryUser, ParentId);
+foreach (DataSources.dsDataCenter.CategoryUserRow CatUserRow in dsDataCenter.CategoryUser)
+{
+    if (DataManager.defaultInstance.UpdateSubCategoryInheritancePrivilages(CatUserRow, false))
+    {
+        //LogOperation
+        if (CatUserRow.GrantId == (int)nsLib.Utilities.Types.GrantType.allow)
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyUser, CategoryId, nsLib.Utilities.Types.LogOpType.AddAllowedUser, CatUserRow.UserID);
+        else
+            AppManager.defaultInstance.LogOperation(nsLib.Utilities.Types.LogType.CategoyUser, CategoryId, nsLib.Utilities.Types.LogOpType.AddDeniedUser, CatUserRow.UserID);
+    }
+}
+_______________________________________________________________

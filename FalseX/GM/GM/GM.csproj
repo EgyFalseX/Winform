@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DABAFABC-67A5-440C-9D51-8F32393661C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GM</RootNamespace>
+    <AssemblyName>GM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>GM.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\Releases\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSources\dsGM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsGM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\dsQry.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsQry.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\AreaEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\AreaEditorFrm.Designer.cs">
+      <DependentUpon>AreaEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\BillEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\BillEditorFrm.Designer.cs">
+      <DependentUpon>BillEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\BillEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\BillEditorWFrm.Designer.cs">
+      <DependentUpon>BillEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\ItemEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\ItemEditorWFrm.Designer.cs">
+      <DependentUpon>ItemEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\ItemEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\ItemEditorFrm.Designer.cs">
+      <DependentUpon>ItemEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\PlumberEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\PlumberEditorFrm.Designer.cs">
+      <DependentUpon>PlumberEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\PlumberEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\PlumberEditorWFrm.Designer.cs">
+      <DependentUpon>PlumberEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\TraderEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\TraderEditorWFrm.Designer.cs">
+      <DependentUpon>TraderEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\TraderEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\TraderEditorFrm.Designer.cs">
+      <DependentUpon>TraderEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\EmployeeEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\EmployeeEditorFrm.Designer.cs">
+      <DependentUpon>EmployeeEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\GovEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\GovEditorFrm.Designer.cs">
+      <DependentUpon>GovEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\AreaEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\AreaEditorWFrm.Designer.cs">
+      <DependentUpon>AreaEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\EmployeeEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\EmployeeEditorWFrm.Designer.cs">
+      <DependentUpon>EmployeeEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Code\GovEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Code\GovEditorWFrm.Designer.cs">
+      <DependentUpon>GovEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\msgDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\msgDlg.designer.cs">
+      <DependentUpon>msgDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\PasswordChangerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\PasswordChangerFrm.designer.cs">
+      <DependentUpon>PasswordChangerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleDetailEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleDetailEditorFrm.Designer.cs">
+      <DependentUpon>RoleDetailEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\UserRoleEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\UserRoleEditorFrm.Designer.cs">
+      <DependentUpon>UserRoleEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleEditorFrm.Designer.cs">
+      <DependentUpon>RoleEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\UserRoleEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\UserRoleEditorWFrm.Designer.cs">
+      <DependentUpon>UserRoleEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\UserEditorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\UserEditorFrm.Designer.cs">
+      <DependentUpon>UserEditorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\RoleEditorWFrm.Designer.cs">
+      <DependentUpon>RoleEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Permission\UserEditorWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Permission\UserEditorWFrm.Designer.cs">
+      <DependentUpon>UserEditorWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry004Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry004Frm.Designer.cs">
+      <DependentUpon>Qry004Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry003Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry003Frm.Designer.cs">
+      <DependentUpon>Qry003Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry001Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry001Frm.Designer.cs">
+      <DependentUpon>Qry001Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry002Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Qry\Qry002Frm.Designer.cs">
+      <DependentUpon>Qry002Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Glob.cs" />
+    <Compile Include="Managers\DataManager.cs" />
+    <Compile Include="Forms\Main\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\AboutUs.designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\DebugLogsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\DebugLogsFrm.Designer.cs">
+      <DependentUpon>DebugLogsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\SplashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\SplashFrm.designer.cs">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\WaitWindowFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\WaitWindowFrm.designer.cs">
+      <DependentUpon>WaitWindowFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Managers\AppManager.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XRep05.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XRep05.Designer.cs">
+      <DependentUpon>XRep05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XRep04.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XRep04.Designer.cs">
+      <DependentUpon>XRep04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XRep03.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XRep03.Designer.cs">
+      <DependentUpon>XRep03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XRep02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XRep02.Designer.cs">
+      <DependentUpon>XRep02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XRep01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XRep01.Designer.cs">
+      <DependentUpon>XRep01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="UserSkinSettings.cs" />
+    <Compile Include="Utilities\Buffers.cs" />
+    <Compile Include="Utilities\Types.cs" />
+    <Compile Include="Utilities\UpdateInfo.cs" />
+    <Compile Include="Utilities\Uti.cs" />
+    <EmbeddedResource Include="Forms\Code\AreaEditorFrm.resx">
+      <DependentUpon>AreaEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\BillEditorFrm.resx">
+      <DependentUpon>BillEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\BillEditorWFrm.resx">
+      <DependentUpon>BillEditorWFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\ItemEditorWFrm.resx">
+      <DependentUpon>ItemEditorWFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\ItemEditorFrm.resx">
+      <DependentUpon>ItemEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\PlumberEditorFrm.resx">
+      <DependentUpon>PlumberEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\PlumberEditorWFrm.resx">
+      <DependentUpon>PlumberEditorWFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\TraderEditorWFrm.resx">
+      <DependentUpon>TraderEditorWFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\TraderEditorFrm.resx">
+      <DependentUpon>TraderEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\EmployeeEditorFrm.resx">
+      <DependentUpon>EmployeeEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\GovEditorFrm.resx">
+      <DependentUpon>GovEditorFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\AreaEditorWFrm.resx">
+      <DependentUpon>AreaEditorWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\EmployeeEditorWFrm.resx">
+      <DependentUpon>EmployeeEditorWFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Code\GovEditorWFrm.resx">
+      <DependentUpon>GovEditorWFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\DebugLogsFrm.resx">
+      <DependentUpon>DebugLogsFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\PasswordChangerFrm.resx">
+      <DependentUpon>PasswordChangerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\RoleDetailEditorFrm.resx">
+      <DependentUpon>RoleDetailEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\UserRoleEditorFrm.resx">
+      <DependentUpon>UserRoleEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\RoleEditorFrm.resx">
+      <DependentUpon>RoleEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\UserRoleEditorWFrm.resx">
+      <DependentUpon>UserRoleEditorWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\UserEditorFrm.resx">
+      <DependentUpon>UserEditorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\RoleEditorWFrm.resx">
+      <DependentUpon>RoleEditorWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Permission\UserEditorWFrm.resx">
+      <DependentUpon>UserEditorWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry004Frm.resx">
+      <DependentUpon>Qry004Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry003Frm.resx">
+      <DependentUpon>Qry003Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry001Frm.resx">
+      <DependentUpon>Qry001Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Qry\Qry002Frm.resx">
+      <DependentUpon>Qry002Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\SplashFrm.resx">
+      <DependentUpon>SplashFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\WaitWindowFrm.resx">
+      <DependentUpon>WaitWindowFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\msgDlg.resx">
+      <DependentUpon>msgDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XRep05.resx">
+      <DependentUpon>XRep05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XRep04.resx">
+      <DependentUpon>XRep04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XRep03.resx">
+      <DependentUpon>XRep03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XRep02.resx">
+      <DependentUpon>XRep02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XRep01.resx">
+      <DependentUpon>XRep01.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="DataSources\dsGM.xsc">
+      <DependentUpon>dsGM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\dsGM.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGM.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSources\dsGM.xss">
+      <DependentUpon>dsGM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\dsQry.xsc">
+      <DependentUpon>dsQry.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\dsQry.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsQry.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSources\dsQry.xss">
+      <DependentUpon>dsQry.xsd</DependentUpon>
+    </None>
+    <None Include="Log4Net\AppLog4Net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataSources\Linq\" />
+    <Folder Include="misc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSG_Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSG_Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOX_Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOX_Info.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOXFrm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQLConnection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteObject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddSub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GM.ico" />
+    <Content Include="GmKadry.mdb" />
+    <Content Include="Log4Net\AppLog4Net.txt" />
+    <Content Include="nestle.ico" />
+    <None Include="Resources\nestle.png" />
+    <None Include="Resources\Qry.ico" />
+    <None Include="Resources\ImportData.ico" />
+    <None Include="Resources\New.png" />
+    <None Include="Resources\Export.png" />
+    <None Include="Resources\AreaEditor.ico" />
+    <None Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\apply_16x16.png" />
+    <None Include="Resources\done.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\Question.png" />
+    <None Include="Resources\JobEditor.ico" />
+    <None Include="Resources\ProductBaseEditor.ico" />
+    <None Include="Resources\ProductEditor.ico" />
+    <None Include="Resources\MenuSize.ico" />
+    <None Include="Resources\MenuTheme.ico" />
+    <None Include="Resources\Employee.ico" />
+    <None Include="Resources\Customers.ico" />
+    <None Include="Resources\BranchEditor.ico" />
+    <None Include="Resources\Start Menu16.ico" />
+    <None Include="Resources\Start Menu32.ico" />
+    <None Include="Resources\MenuOrder16.ico" />
+    <None Include="Resources\MenuOrder32.ico" />
+    <None Include="Resources\Qry16.ico" />
+    <None Include="Resources\Gov.ico" />
+    <None Include="Resources\Trader.ico" />
+    <None Include="Resources\Item.ico" />
+    <None Include="Resources\GM logo.png" />
+    <None Include="Resources\Role.ico" />
+    <None Include="Resources\RoleDetail.ico" />
+    <None Include="Resources\User.ico" />
+    <None Include="Resources\UserRole.ico" />
+    <Content Include="TextFile1.txt" />
+    <None Include="Resources\MSG_Warnning.png" />
+    <None Include="Resources\MSG_Success.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\Item.png" />
+    <None Include="Resources\Category.png" />
+    <None Include="Resources\History.png" />
+    <None Include="Resources\Permission.png" />
+    <None Include="Resources\AdminLevel.png" />
+    <None Include="Resources\UserPriv.png" />
+    <None Include="Resources\RolePriv.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
