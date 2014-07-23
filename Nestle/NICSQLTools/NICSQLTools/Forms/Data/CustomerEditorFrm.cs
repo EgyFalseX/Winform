@@ -41,6 +41,18 @@ namespace NICSQLTools.Forms.Data
         #region -  EventWhnd - 
         private void Frm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQry.DistributionChannel2' table. You can move, or remove it, as needed.
+            this.distributionChannel2TableAdapter.Fill(this.dsQry.DistributionChannel2);
+            // TODO: This line of code loads data into the 'dsQry.LevelCCSD' table. You can move, or remove it, as needed.
+            this.levelCCSDTableAdapter.Fill(this.dsQry.LevelCCSD);
+            // TODO: This line of code loads data into the 'dsQry.Subchannel' table. You can move, or remove it, as needed.
+            this.subchannelTableAdapter.Fill(this.dsQry.Subchannel);
+            // TODO: This line of code loads data into the 'dsQry.CustomerType2' table. You can move, or remove it, as needed.
+            this.customerType2TableAdapter.Fill(this.dsQry.CustomerType2);
+            // TODO: This line of code loads data into the 'dsQry.CustomerType' table. You can move, or remove it, as needed.
+            this.customerTypeTableAdapter.Fill(this.dsQry.CustomerType);
+            // TODO: This line of code loads data into the 'dsQry.CustomerGroup' table. You can move, or remove it, as needed.
+            this.customerGroupTableAdapter.Fill(this.dsQry.CustomerGroup);
         }
         private void CustomerEditorFrm_Shown(object sender, EventArgs e)
         {

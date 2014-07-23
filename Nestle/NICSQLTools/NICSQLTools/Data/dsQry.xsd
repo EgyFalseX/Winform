@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsQry" targetNamespace="http://tempuri.org/dsQry.xsd" xmlns:mstns="http://tempuri.org/dsQry.xsd" xmlns="http://tempuri.org/dsQry.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="IC_DBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="IC_DBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.NICSQLTools.Properties.Settings.GlobalReference.Default.IC_DBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerGroupTableAdapter" GeneratorDataComponentClassName="CustomerGroupTableAdapter" Name="CustomerGroup" UserDataComponentName="CustomerGroupTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.[0-6 Customer HN]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Customer Group]
+FROM            [0-6 Customer HN]
+GROUP BY [Customer Group]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Customer Group" DataSetColumn="Customer Group" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerTypeTableAdapter" GeneratorDataComponentClassName="CustomerTypeTableAdapter" Name="CustomerType" UserDataComponentName="CustomerTypeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.[0-6 Customer HN]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Customer Type]
+FROM            [0-6 Customer HN]
+GROUP BY [Customer Type]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Customer Type" DataSetColumn="Customer Type" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerType2TableAdapter" GeneratorDataComponentClassName="CustomerType2TableAdapter" Name="CustomerType2" UserDataComponentName="CustomerType2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.[0-6 Customer HN]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Customer Type 2]
+FROM            [0-6 Customer HN]
+GROUP BY [Customer Type 2]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Customer Type 2" DataSetColumn="Customer Type 2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SubchannelTableAdapter" GeneratorDataComponentClassName="SubchannelTableAdapter" Name="Subchannel" UserDataComponentName="SubchannelTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.[0-6 Customer HN]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Subchannel
+FROM            [0-6 Customer HN]
+GROUP BY Subchannel</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Subchannel" DataSetColumn="Subchannel" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LevelCCSDTableAdapter" GeneratorDataComponentClassName="LevelCCSDTableAdapter" Name="LevelCCSD" UserDataComponentName="LevelCCSDTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.[0-6 Customer HN]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Level CCSD]
+FROM            [0-6 Customer HN]
+GROUP BY [Level CCSD]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Level CCSD" DataSetColumn="Level CCSD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DistributionChannel2TableAdapter" GeneratorDataComponentClassName="DistributionChannel2TableAdapter" Name="DistributionChannel2" UserDataComponentName="DistributionChannel2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.[0-6 Customer HN]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Distribution channel 2]
+FROM            [0-6 Customer HN]
+GROUP BY [Distribution channel 2]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Distribution channel 2" DataSetColumn="Distribution channel 2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_DistributionV1TableAdapter" GeneratorDataComponentClassName="sp_DistributionV1TableAdapter" Name="sp_DistributionV1" UserDataComponentName="sp_DistributionV1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.sp_DistributionV1" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.sp_DistributionV1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DateStart" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DateEnd" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Base Base Product" DataSetColumn="Base Base Product" />
+              <Mapping SourceColumn="Sales District" DataSetColumn="Sales District" />
+              <Mapping SourceColumn="Route &amp; Sold" DataSetColumn="Route &amp; Sold" />
+              <Mapping SourceColumn="APOS14" DataSetColumn="APOS14" />
+              <Mapping SourceColumn="APOS13" DataSetColumn="APOS13" />
+              <Mapping SourceColumn="TAPOS14" DataSetColumn="TAPOS14" />
+              <Mapping SourceColumn="TAPOS13" DataSetColumn="TAPOS13" />
+              <Mapping SourceColumn="ASM" DataSetColumn="ASM" />
+              <Mapping SourceColumn="Supervisor" DataSetColumn="Supervisor" />
+              <Mapping SourceColumn="Route Name" DataSetColumn="Route Name" />
+              <Mapping SourceColumn="Brand Route" DataSetColumn="Brand Route" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_DistributionV2TableAdapter" GeneratorDataComponentClassName="sp_DistributionV2TableAdapter" Name="sp_DistributionV2" UserDataComponentName="sp_DistributionV2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.sp_DistributionV2" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.sp_DistributionV2</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DateStart" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DateEnd" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Base Base Product" DataSetColumn="Base Base Product" />
+              <Mapping SourceColumn="Sales District" DataSetColumn="Sales District" />
+              <Mapping SourceColumn="APOS14" DataSetColumn="APOS14" />
+              <Mapping SourceColumn="APOS13" DataSetColumn="APOS13" />
+              <Mapping SourceColumn="TAPOS14" DataSetColumn="TAPOS14" />
+              <Mapping SourceColumn="TAPOS13" DataSetColumn="TAPOS13" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_DistributionV3TableAdapter" GeneratorDataComponentClassName="sp_DistributionV3TableAdapter" Name="sp_DistributionV3" UserDataComponentName="sp_DistributionV3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IC_DBConnectionString (Settings)" DbObjectName="IC_DB.dbo.sp_DistributionV3" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.sp_DistributionV3</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DateStart" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DateEnd" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Base Base Product" DataSetColumn="Base Base Product" />
+              <Mapping SourceColumn="APOS14" DataSetColumn="APOS14" />
+              <Mapping SourceColumn="APOS13" DataSetColumn="APOS13" />
+              <Mapping SourceColumn="TAPOS14" DataSetColumn="TAPOS14" />
+              <Mapping SourceColumn="TAPOS13" DataSetColumn="TAPOS13" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsQry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsQry" msprop:Generator_UserDSName="dsQry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CustomerGroup" msprop:Generator_TableClassName="CustomerGroupDataTable" msprop:Generator_TableVarName="tableCustomerGroup" msprop:Generator_RowChangedName="CustomerGroupRowChanged" msprop:Generator_TablePropName="CustomerGroup" msprop:Generator_RowDeletingName="CustomerGroupRowDeleting" msprop:Generator_RowChangingName="CustomerGroupRowChanging" msprop:Generator_RowEvHandlerName="CustomerGroupRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerGroupRowDeleted" msprop:Generator_RowClassName="CustomerGroupRow" msprop:Generator_UserTableName="CustomerGroup" msprop:Generator_RowEvArgName="CustomerGroupRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Customer_x0020_Group" msprop:Generator_ColumnVarNameInTable="columnCustomer_Group" msprop:Generator_ColumnPropNameInRow="Customer_Group" msprop:Generator_ColumnPropNameInTable="Customer_GroupColumn" msprop:Generator_UserColumnName="Customer Group">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CustomerType" msprop:Generator_TableClassName="CustomerTypeDataTable" msprop:Generator_TableVarName="tableCustomerType" msprop:Generator_RowChangedName="CustomerTypeRowChanged" msprop:Generator_TablePropName="CustomerType" msprop:Generator_RowDeletingName="CustomerTypeRowDeleting" msprop:Generator_RowChangingName="CustomerTypeRowChanging" msprop:Generator_RowEvHandlerName="CustomerTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerTypeRowDeleted" msprop:Generator_RowClassName="CustomerTypeRow" msprop:Generator_UserTableName="CustomerType" msprop:Generator_RowEvArgName="CustomerTypeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Customer_x0020_Type" msprop:Generator_ColumnVarNameInTable="columnCustomer_Type" msprop:Generator_ColumnPropNameInRow="Customer_Type" msprop:Generator_ColumnPropNameInTable="Customer_TypeColumn" msprop:Generator_UserColumnName="Customer Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CustomerType2" msprop:Generator_TableClassName="CustomerType2DataTable" msprop:Generator_TableVarName="tableCustomerType2" msprop:Generator_RowChangedName="CustomerType2RowChanged" msprop:Generator_TablePropName="CustomerType2" msprop:Generator_RowDeletingName="CustomerType2RowDeleting" msprop:Generator_RowChangingName="CustomerType2RowChanging" msprop:Generator_RowEvHandlerName="CustomerType2RowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerType2RowDeleted" msprop:Generator_RowClassName="CustomerType2Row" msprop:Generator_UserTableName="CustomerType2" msprop:Generator_RowEvArgName="CustomerType2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Customer_x0020_Type_x0020_2" msprop:Generator_ColumnVarNameInTable="columnCustomer_Type_2" msprop:Generator_ColumnPropNameInRow="Customer_Type_2" msprop:Generator_ColumnPropNameInTable="Customer_Type_2Column" msprop:Generator_UserColumnName="Customer Type 2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Subchannel" msprop:Generator_TableClassName="SubchannelDataTable" msprop:Generator_TableVarName="tableSubchannel" msprop:Generator_RowChangedName="SubchannelRowChanged" msprop:Generator_TablePropName="Subchannel" msprop:Generator_RowDeletingName="SubchannelRowDeleting" msprop:Generator_RowChangingName="SubchannelRowChanging" msprop:Generator_RowEvHandlerName="SubchannelRowChangeEventHandler" msprop:Generator_RowDeletedName="SubchannelRowDeleted" msprop:Generator_RowClassName="SubchannelRow" msprop:Generator_UserTableName="Subchannel" msprop:Generator_RowEvArgName="SubchannelRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Subchannel" msprop:Generator_ColumnVarNameInTable="columnSubchannel" msprop:Generator_ColumnPropNameInRow="Subchannel" msprop:Generator_ColumnPropNameInTable="SubchannelColumn" msprop:Generator_UserColumnName="Subchannel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LevelCCSD" msprop:Generator_TableClassName="LevelCCSDDataTable" msprop:Generator_TableVarName="tableLevelCCSD" msprop:Generator_RowChangedName="LevelCCSDRowChanged" msprop:Generator_TablePropName="LevelCCSD" msprop:Generator_RowDeletingName="LevelCCSDRowDeleting" msprop:Generator_RowChangingName="LevelCCSDRowChanging" msprop:Generator_RowEvHandlerName="LevelCCSDRowChangeEventHandler" msprop:Generator_RowDeletedName="LevelCCSDRowDeleted" msprop:Generator_RowClassName="LevelCCSDRow" msprop:Generator_UserTableName="LevelCCSD" msprop:Generator_RowEvArgName="LevelCCSDRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Level_x0020_CCSD" msprop:Generator_ColumnVarNameInTable="columnLevel_CCSD" msprop:Generator_ColumnPropNameInRow="Level_CCSD" msprop:Generator_ColumnPropNameInTable="Level_CCSDColumn" msprop:Generator_UserColumnName="Level CCSD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DistributionChannel2" msprop:Generator_TableClassName="DistributionChannel2DataTable" msprop:Generator_TableVarName="tableDistributionChannel2" msprop:Generator_RowChangedName="DistributionChannel2RowChanged" msprop:Generator_TablePropName="DistributionChannel2" msprop:Generator_RowDeletingName="DistributionChannel2RowDeleting" msprop:Generator_RowChangingName="DistributionChannel2RowChanging" msprop:Generator_RowEvHandlerName="DistributionChannel2RowChangeEventHandler" msprop:Generator_RowDeletedName="DistributionChannel2RowDeleted" msprop:Generator_RowClassName="DistributionChannel2Row" msprop:Generator_UserTableName="DistributionChannel2" msprop:Generator_RowEvArgName="DistributionChannel2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Distribution_x0020_channel_x0020_2" msprop:Generator_ColumnVarNameInTable="columnDistribution_channel_2" msprop:Generator_ColumnPropNameInRow="Distribution_channel_2" msprop:Generator_ColumnPropNameInTable="Distribution_channel_2Column" msprop:Generator_UserColumnName="Distribution channel 2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sp_DistributionV1" msprop:Generator_TableClassName="sp_DistributionV1DataTable" msprop:Generator_TableVarName="tablesp_DistributionV1" msprop:Generator_TablePropName="sp_DistributionV1" msprop:Generator_RowDeletingName="sp_DistributionV1RowDeleting" msprop:Generator_RowChangingName="sp_DistributionV1RowChanging" msprop:Generator_RowEvHandlerName="sp_DistributionV1RowChangeEventHandler" msprop:Generator_RowDeletedName="sp_DistributionV1RowDeleted" msprop:Generator_UserTableName="sp_DistributionV1" msprop:Generator_RowChangedName="sp_DistributionV1RowChanged" msprop:Generator_RowEvArgName="sp_DistributionV1RowChangeEvent" msprop:Generator_RowClassName="sp_DistributionV1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Base_x0020_Base_x0020_Product" msprop:Generator_ColumnVarNameInTable="columnBase_Base_Product" msprop:Generator_ColumnPropNameInRow="Base_Base_Product" msprop:Generator_ColumnPropNameInTable="Base_Base_ProductColumn" msprop:Generator_UserColumnName="Base Base Product" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sales_x0020_District" msprop:Generator_ColumnVarNameInTable="columnSales_District" msprop:Generator_ColumnPropNameInRow="Sales_District" msprop:Generator_ColumnPropNameInTable="Sales_DistrictColumn" msprop:Generator_UserColumnName="Sales District" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Route_x0020__x0026__x0020_Sold" msprop:Generator_ColumnVarNameInTable="_columnRoute___Sold" msprop:Generator_ColumnPropNameInRow="_Route___Sold" msprop:Generator_ColumnPropNameInTable="_Route___SoldColumn" msprop:Generator_UserColumnName="Route &amp; Sold" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APOS14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAPOS14" msprop:Generator_ColumnPropNameInRow="APOS14" msprop:Generator_ColumnPropNameInTable="APOS14Column" msprop:Generator_UserColumnName="APOS14" type="xs:int" minOccurs="0" />
+              <xs:element name="APOS13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAPOS13" msprop:Generator_ColumnPropNameInRow="APOS13" msprop:Generator_ColumnPropNameInTable="APOS13Column" msprop:Generator_UserColumnName="APOS13" type="xs:int" minOccurs="0" />
+              <xs:element name="TAPOS14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAPOS14" msprop:Generator_ColumnPropNameInRow="TAPOS14" msprop:Generator_ColumnPropNameInTable="TAPOS14Column" msprop:Generator_UserColumnName="TAPOS14" type="xs:int" minOccurs="0" />
+              <xs:element name="TAPOS13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAPOS13" msprop:Generator_ColumnPropNameInRow="TAPOS13" msprop:Generator_ColumnPropNameInTable="TAPOS13Column" msprop:Generator_UserColumnName="TAPOS13" type="xs:int" minOccurs="0" />
+              <xs:element name="ASM" msprop:Generator_ColumnVarNameInTable="columnASM" msprop:Generator_ColumnPropNameInRow="ASM" msprop:Generator_ColumnPropNameInTable="ASMColumn" msprop:Generator_UserColumnName="ASM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supervisor" msprop:Generator_ColumnVarNameInTable="columnSupervisor" msprop:Generator_ColumnPropNameInRow="Supervisor" msprop:Generator_ColumnPropNameInTable="SupervisorColumn" msprop:Generator_UserColumnName="Supervisor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Route_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnRoute_Name" msprop:Generator_ColumnPropNameInRow="Route_Name" msprop:Generator_ColumnPropNameInTable="Route_NameColumn" msprop:Generator_UserColumnName="Route Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Route" msprop:Generator_ColumnVarNameInTable="columnBrand_Route" msprop:Generator_ColumnPropNameInRow="Brand_Route" msprop:Generator_ColumnPropNameInTable="Brand_RouteColumn" msprop:Generator_UserColumnName="Brand Route" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sp_DistributionV2" msprop:Generator_TableClassName="sp_DistributionV2DataTable" msprop:Generator_TableVarName="tablesp_DistributionV2" msprop:Generator_TablePropName="sp_DistributionV2" msprop:Generator_RowDeletingName="sp_DistributionV2RowDeleting" msprop:Generator_RowChangingName="sp_DistributionV2RowChanging" msprop:Generator_RowEvHandlerName="sp_DistributionV2RowChangeEventHandler" msprop:Generator_RowDeletedName="sp_DistributionV2RowDeleted" msprop:Generator_UserTableName="sp_DistributionV2" msprop:Generator_RowChangedName="sp_DistributionV2RowChanged" msprop:Generator_RowEvArgName="sp_DistributionV2RowChangeEvent" msprop:Generator_RowClassName="sp_DistributionV2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Base_x0020_Base_x0020_Product" msprop:Generator_ColumnVarNameInTable="columnBase_Base_Product" msprop:Generator_ColumnPropNameInRow="Base_Base_Product" msprop:Generator_ColumnPropNameInTable="Base_Base_ProductColumn" msprop:Generator_UserColumnName="Base Base Product" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sales_x0020_District" msprop:Generator_ColumnVarNameInTable="columnSales_District" msprop:Generator_ColumnPropNameInRow="Sales_District" msprop:Generator_ColumnPropNameInTable="Sales_DistrictColumn" msprop:Generator_UserColumnName="Sales District" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APOS14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAPOS14" msprop:Generator_ColumnPropNameInRow="APOS14" msprop:Generator_ColumnPropNameInTable="APOS14Column" msprop:Generator_UserColumnName="APOS14" type="xs:int" minOccurs="0" />
+              <xs:element name="APOS13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAPOS13" msprop:Generator_ColumnPropNameInRow="APOS13" msprop:Generator_ColumnPropNameInTable="APOS13Column" msprop:Generator_UserColumnName="APOS13" type="xs:int" minOccurs="0" />
+              <xs:element name="TAPOS14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAPOS14" msprop:Generator_ColumnPropNameInRow="TAPOS14" msprop:Generator_ColumnPropNameInTable="TAPOS14Column" msprop:Generator_UserColumnName="TAPOS14" type="xs:int" minOccurs="0" />
+              <xs:element name="TAPOS13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAPOS13" msprop:Generator_ColumnPropNameInRow="TAPOS13" msprop:Generator_ColumnPropNameInTable="TAPOS13Column" msprop:Generator_UserColumnName="TAPOS13" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sp_DistributionV3" msprop:Generator_TableClassName="sp_DistributionV3DataTable" msprop:Generator_TableVarName="tablesp_DistributionV3" msprop:Generator_TablePropName="sp_DistributionV3" msprop:Generator_RowDeletingName="sp_DistributionV3RowDeleting" msprop:Generator_RowChangingName="sp_DistributionV3RowChanging" msprop:Generator_RowEvHandlerName="sp_DistributionV3RowChangeEventHandler" msprop:Generator_RowDeletedName="sp_DistributionV3RowDeleted" msprop:Generator_UserTableName="sp_DistributionV3" msprop:Generator_RowChangedName="sp_DistributionV3RowChanged" msprop:Generator_RowEvArgName="sp_DistributionV3RowChangeEvent" msprop:Generator_RowClassName="sp_DistributionV3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Base_x0020_Base_x0020_Product" msprop:Generator_ColumnVarNameInTable="columnBase_Base_Product" msprop:Generator_ColumnPropNameInRow="Base_Base_Product" msprop:Generator_ColumnPropNameInTable="Base_Base_ProductColumn" msprop:Generator_UserColumnName="Base Base Product">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APOS14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAPOS14" msprop:Generator_ColumnPropNameInRow="APOS14" msprop:Generator_ColumnPropNameInTable="APOS14Column" msprop:Generator_UserColumnName="APOS14" type="xs:int" minOccurs="0" />
+              <xs:element name="APOS13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAPOS13" msprop:Generator_ColumnPropNameInRow="APOS13" msprop:Generator_ColumnPropNameInTable="APOS13Column" msprop:Generator_UserColumnName="APOS13" type="xs:int" minOccurs="0" />
+              <xs:element name="TAPOS14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAPOS14" msprop:Generator_ColumnPropNameInRow="TAPOS14" msprop:Generator_ColumnPropNameInTable="TAPOS14Column" msprop:Generator_UserColumnName="TAPOS14" type="xs:int" minOccurs="0" />
+              <xs:element name="TAPOS13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAPOS13" msprop:Generator_ColumnPropNameInRow="TAPOS13" msprop:Generator_ColumnPropNameInTable="TAPOS13Column" msprop:Generator_UserColumnName="TAPOS13" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CustomerGroup" />
+      <xs:field xpath="mstns:Customer_x0020_Group" />
+    </xs:unique>
+    <xs:unique name="sp_DistributionV1_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:sp_DistributionV1" />
+      <xs:field xpath="mstns:Base_x0020_Base_x0020_Product" />
+      <xs:field xpath="mstns:Route_x0020__x0026__x0020_Sold" />
+    </xs:unique>
+    <xs:unique name="sp_DistributionV2_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:sp_DistributionV2" />
+      <xs:field xpath="mstns:Base_x0020_Base_x0020_Product" />
+      <xs:field xpath="mstns:Sales_x0020_District" />
+    </xs:unique>
+    <xs:unique name="sp_DistributionV3_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:sp_DistributionV3" />
+      <xs:field xpath="mstns:Base_x0020_Base_x0020_Product" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

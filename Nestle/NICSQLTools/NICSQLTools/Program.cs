@@ -8,7 +8,7 @@ namespace NICSQLTools
 {
     static class Program
     {
-        public static string updatePath = Application.StartupPath + @"\NICSQLTools_update.exe";
+        public static string updatePath = Application.StartupPath + @"\UpdateObject";
         public static string AppPath = Application.StartupPath + @"\NICSQLTools.exe";
 
         /// <summary>
@@ -26,13 +26,17 @@ namespace NICSQLTools
             {
                 Properties.Settings.Default["IC_DBConnectionString"] = FXFW.SqlDB.SqlConStr;
 
+                Init();
                 //Set User Info
                 DataManager.User.RealName = "Public Test"; DataManager.User.IsAdmin = true;
-
                 DataManager.PerformUpdate();
                 Application.Run(new MainFrm());
             }
             
+        }
+        public static void Init()
+        {
+            DataManager.Init();
         }
 
     }

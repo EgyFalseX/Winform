@@ -16,6 +16,7 @@ using DevExpress.XtraSplashScreen;
 using System.Linq;
 using NICSQLTools.Forms;
 using NICSQLTools.Forms.Data;
+using NICSQLTools.Forms.Qry;
 
 
 namespace NICSQLTools
@@ -174,6 +175,11 @@ namespace NICSQLTools
         private void bbiFinalDataEditor_ItemClick(object sender, ItemClickEventArgs e)
         {
             FinalDataEditorFrm frm = new FinalDataEditorFrm() { MdiParent = this };
+            frm.Show();
+        }
+        private void bbiQrysp_DistributionV1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Qrysp_DistributionV1Frm frm = new Qrysp_DistributionV1Frm() { MdiParent = this };
             frm.Show();
         }
 

@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using log4net;
 
 namespace NICSQLTools
 {
     public class DataManager
     {
         #region -   Variables   -
-        //private static readonly ILog Logger = log4net.LogManager.GetLogger(typeof(DataManager));
+        private static readonly ILog Logger = log4net.LogManager.GetLogger(typeof(DataManager));
         public static DataManager defaultInstance;
         public static int ConnectionTimeout = 0;
         public static int SHRINKSIZE = 10;
@@ -37,6 +38,11 @@ namespace NICSQLTools
         {
             get { return "999999"; }
         }
+        public DateTime ServerDateTime
+        {
+            get { return (DateTime)adpQry.GetServerDate(); }
+        }
+
 
         public static Uti.Types.UserInfo User = new Uti.Types.UserInfo();
 
@@ -46,6 +52,10 @@ namespace NICSQLTools
         
         #endregion
         #region -   Functions   -
+        public static void Init()
+        {
+            defaultInstance = new DataManager();
+        }
         public static void SetAllCommandTimeouts(object adapter, int timeout)
         {
             var commands = adapter.GetType().InvokeMember("CommandCollection",

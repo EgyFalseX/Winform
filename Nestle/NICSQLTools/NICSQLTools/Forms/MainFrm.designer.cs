@@ -54,6 +54,8 @@
             this.bbiRouteEditor = new DevExpress.XtraBars.BarButtonItem();
             this.bbiProductEditor = new DevExpress.XtraBars.BarButtonItem();
             this.bbiFinalDataEditor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiQrysp_DistributionV1 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiQryDistribution = new DevExpress.XtraBars.BarSubItem();
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupCode = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dataRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -62,6 +64,8 @@
             this.exitRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageImport = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupImportImportData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageQry = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupQry = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageDebug = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -113,15 +117,18 @@
             this.bbiCustomerEditor,
             this.bbiRouteEditor,
             this.bbiProductEditor,
-            this.bbiFinalDataEditor});
+            this.bbiFinalDataEditor,
+            this.bbiQrysp_DistributionV1,
+            this.bbiQryDistribution});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 18;
+            this.ribbonControl.MaxItemId = 1;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.homeRibbonPage,
             this.ribbonPageImport,
+            this.ribbonPageQry,
             this.helpRibbonPage,
             this.ribbonPageDebug});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
@@ -390,6 +397,28 @@
             this.bbiFinalDataEditor.Name = "bbiFinalDataEditor";
             this.bbiFinalDataEditor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFinalDataEditor_ItemClick);
             // 
+            // bbiQrysp_DistributionV1
+            // 
+            this.bbiQrysp_DistributionV1.Caption = "Distribution Per Route";
+            this.bbiQrysp_DistributionV1.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.bbiQrysp_DistributionV1.Id = 18;
+            this.bbiQrysp_DistributionV1.ImageIndex = 10;
+            this.bbiQrysp_DistributionV1.LargeImageIndex = 10;
+            this.bbiQrysp_DistributionV1.Name = "bbiQrysp_DistributionV1";
+            this.bbiQrysp_DistributionV1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.bbiQrysp_DistributionV1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiQrysp_DistributionV1_ItemClick);
+            // 
+            // bbiQryDistribution
+            // 
+            this.bbiQryDistribution.Caption = "Distribution";
+            this.bbiQryDistribution.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.bbiQryDistribution.Id = 19;
+            this.bbiQryDistribution.ImageIndex = 10;
+            this.bbiQryDistribution.LargeImageIndex = 10;
+            this.bbiQryDistribution.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiQrysp_DistributionV1)});
+            this.bbiQryDistribution.Name = "bbiQryDistribution";
+            // 
             // homeRibbonPage
             // 
             this.homeRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -448,6 +477,19 @@
             this.ribbonPageGroupImportImportData.ItemLinks.Add(this.bbiImportBillingDetails);
             this.ribbonPageGroupImportImportData.Name = "ribbonPageGroupImportImportData";
             this.ribbonPageGroupImportImportData.Text = "Import data from external datasource";
+            // 
+            // ribbonPageQry
+            // 
+            this.ribbonPageQry.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupQry});
+            this.ribbonPageQry.Name = "ribbonPageQry";
+            this.ribbonPageQry.Text = "Queries";
+            // 
+            // ribbonPageGroupQry
+            // 
+            this.ribbonPageGroupQry.ItemLinks.Add(this.bbiQryDistribution);
+            this.ribbonPageGroupQry.Name = "ribbonPageGroupQry";
+            this.ribbonPageGroupQry.Text = "Queries";
             // 
             // helpRibbonPage
             // 
@@ -648,6 +690,10 @@
         private DevExpress.XtraBars.BarButtonItem bbiRouteEditor;
         private DevExpress.XtraBars.BarButtonItem bbiProductEditor;
         private DevExpress.XtraBars.BarButtonItem bbiFinalDataEditor;
+        private DevExpress.XtraBars.BarButtonItem bbiQrysp_DistributionV1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageQry;
+        private DevExpress.XtraBars.BarSubItem bbiQryDistribution;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupQry;
 
     }
 }
