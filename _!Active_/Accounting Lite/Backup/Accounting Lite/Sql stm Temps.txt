@@ -1,0 +1,9 @@
+﻿SELECT     TypeName, Information,(Select Sum(InCount) As CCount1 from Incoming Where Incoming.TypeID = Types.TypeID) - (Select Sum(ConCount) As CCount2 from ContainZ Where ContainZ.TypeID = Types.TypeID) As XZZ
+FROM          (Types INNER JOIN Incoming ON Types.TypeID = Incoming.TypeID)
+Group by  TypeName, Information,Types.TypeID
+_____________________________________________________
+SELECT     (Incoming.InCount - SUM(ContainZ.ConCount)) * Incoming.InValue AS Expr1
+FROM         (Incoming INNER JOIN
+                      ContainZ ON Incoming.IncomingID = ContainZ.IncomingID)
+WHERE     (Incoming.TypeID = 1)
+GROUP BY Incoming.InCount, Incoming.IncomingID, Incoming.InValue

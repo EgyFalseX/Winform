@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "edxClientlessPrototype.vcproj", "{9038847D-5C0F-4435-8D3A-0B90A808DCD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9038847D-5C0F-4435-8D3A-0B90A808DCD1}.Debug|Win32.ActiveCfg = Release|Win32
+		{9038847D-5C0F-4435-8D3A-0B90A808DCD1}.Debug|Win32.Build.0 = Release|Win32
+		{9038847D-5C0F-4435-8D3A-0B90A808DCD1}.Release|Win32.ActiveCfg = Release|Win32
+		{9038847D-5C0F-4435-8D3A-0B90A808DCD1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

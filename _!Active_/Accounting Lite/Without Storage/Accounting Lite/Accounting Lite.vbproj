@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B2286D5-34EC-4740-8F91-E694DEBC11FD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Accounting_Lite.My.MyApplication</StartupObject>
+    <RootNamespace>Accounting_Lite</RootNamespace>
+    <AssemblyName>Accounting Lite</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ApplicationIcon>Tools\Accounting Lite.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Accounting Lite.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>false</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\</OutputPath>
+    <DocumentationFile>Accounting Lite.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BillsFrm.designer.vb">
+      <DependentUpon>BillsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BillsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditorFrm.designer.vb">
+      <DependentUpon>EditorFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditorFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MModule.vb" />
+    <Compile Include="MSGBOXFrm.designer.vb">
+      <DependentUpon>MSGBOXFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MSGBOXFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="AccountingLiteSCFrm.designer.vb">
+      <DependentUpon>AccountingLiteSCFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingLiteSCFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDlgFrm.designer.vb">
+      <DependentUpon>AdminDlgFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDlgFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsFrm.designer.vb">
+      <DependentUpon>OptionsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingFrm.Designer.vb">
+      <DependentUpon>PrintingFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueriesFrm.Designer.vb">
+      <DependentUpon>QueriesFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QueriesFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierFrm.designer.vb">
+      <DependentUpon>SupplierFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypesInsertionFrm.designer.vb">
+      <DependentUpon>TypesInsertionFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TypesInsertionFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BillsFrm.resx">
+      <DependentUpon>BillsFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditorFrm.resx">
+      <DependentUpon>EditorFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MSGBOXFrm.resx">
+      <DependentUpon>MSGBOXFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountingLiteSCFrm.resx">
+      <DependentUpon>AccountingLiteSCFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDlgFrm.resx">
+      <DependentUpon>AdminDlgFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsFrm.resx">
+      <DependentUpon>OptionsFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingFrm.resx">
+      <DependentUpon>PrintingFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueriesFrm.resx">
+      <DependentUpon>QueriesFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierFrm.resx">
+      <DependentUpon>SupplierFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypesInsertionFrm.resx">
+      <DependentUpon>TypesInsertionFrm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\Accounting Lite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSGBOXFrm.jpg" />
+    <Content Include="Sql stm Temps.txt" />
+    <None Include="Tools\CoInfo.jpg" />
+    <None Include="Tools\Accounting Lite_MSG.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

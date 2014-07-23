@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Process Manager">
+</Property><Property Name="Solution File" Value="D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Process Manager.sln">
+</Property><Property Name="User Options File" Value="D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Process Manager.suo">
+</Property><Property Name="Date" Value="Friday, October 19, 2007">
+</Property><Property Name="Time" Value="20:39 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Process Manager.sln" Description="File successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\Process Manager.sln">
+</Event><Event ErrorLevel="0" Project="" Source="Process Manager.suo" Description="File successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\Process Manager.suo">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="Process Manager.vbproj" Description="Project file successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\Process Manager.vbproj">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="Process Manager.vbproj.user" Description="Project user file successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\Process Manager.vbproj.user">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="AssemblyInfo.vb" Description="File successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="Frm_Main.vb" Description="File successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\Frm_Main.vb">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="broken.ico" Description="File successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\broken.ico">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="Frm_Main.resx" Description="File successfully backed up as D:\PC Software\My work Area\MyAppsSrc\Apps\Process Manger\Backup\Frm_Main.resx">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="Process Manager.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Process Manager" Source="Process Manager.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Process Manager.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Process Manager.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Process Manager" Source="Process Manager.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

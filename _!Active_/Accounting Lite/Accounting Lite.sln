@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Accounting Lite", "Accounting Lite\Accounting Lite.vbproj", "{6B2286D5-34EC-4740-8F91-E694DEBC11FD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Accounting Lite Setup", "Accounting Lite Setup\Accounting Lite Setup.vdproj", "{0457E83E-8F43-416F-A154-F7A2039D0D58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B2286D5-34EC-4740-8F91-E694DEBC11FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B2286D5-34EC-4740-8F91-E694DEBC11FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B2286D5-34EC-4740-8F91-E694DEBC11FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B2286D5-34EC-4740-8F91-E694DEBC11FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0457E83E-8F43-416F-A154-F7A2039D0D58}.Debug|Any CPU.ActiveCfg = Debug
+		{0457E83E-8F43-416F-A154-F7A2039D0D58}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

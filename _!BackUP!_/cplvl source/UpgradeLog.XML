@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="edxClientlessPrototype">
+</Property><Property Name="Projektmappendatei" Value="H:\Downloads\edx clientless\edxClientlessPrototype\edxClientlessPrototype.sln">
+</Property><Property Name="Benutzeroptionendatei" Value="H:\Downloads\edx clientless\edxClientlessPrototype\edxClientlessPrototype.suo">
+</Property><Property Name="Date" Value="Dienstag, 18. November 2008">
+</Property><Property Name="Time" Value="11:59">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="edxClientlessPrototype.sln" Description="Datei wurde erfolgreich als &quot;H:\Downloads\edx clientless\edxClientlessPrototype\edxClientlessPrototype.sln.old&quot; gesichert">
+</Event><Event ErrorLevel="0" Project="" Source="edxClientlessPrototype.suo" Description="Datei wurde erfolgreich als &quot;H:\Downloads\edx clientless\edxClientlessPrototype\edxClientlessPrototype.suo.old&quot; gesichert">
+</Event><Event ErrorLevel="0" Project="edxClientlessPrototype" Source="edxClientlessPrototype.vcproj" Description="Die Webbereitstellung auf dem lokalen IIS-Server wird nicht mehr unterstützt. Das Buildtool für die Webbereitstellung wurde aus den Projekteinstellungen entfernt.">
+</Event><Event ErrorLevel="1" Project="edxClientlessPrototype" Source="edxClientlessPrototype.vcproj" Description="Die Anwendung wurde aktualisiert und enthält nun auch Einstellungen für die Benutzerkontensteuerung (User Account Control, UAC) von Windows Vista. Standardmäßig wird die Anwendung beim Ausführen unter Windows Vista mit aktivierter Benutzerkontensteuerung so markiert, dass sie mit den gleichen Berechtigungen wie der Prozess ausgeführt wird, durch den sie gestartet wurde. Mit der Markierung wird auch das Ausführen der Anwendung mit Virtualisierung deaktiviert. Sie können die Einstellungen der Benutzerkontensteuerung über die Eigenschaftenseiten des Projekts ändern.">
+</Event><Event ErrorLevel="0" Project="edxClientlessPrototype" Source="edxClientlessPrototype.vcproj" Description="Die Projektdatei wurde erfolgreich als &quot;H:\Downloads\edx clientless\edxClientlessPrototype\edxClientlessPrototype.vcproj.8.00.old&quot; gesichert.">
+</Event><Event ErrorLevel="0" Project="edxClientlessPrototype" Source="edxClientlessPrototype.vcproj" Description="Das Projekt wurde erfolgreich aktualisiert.">
+</Event><Event ErrorLevel="3" Project="edxClientlessPrototype" Source="edxClientlessPrototype.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="edxClientlessPlugin" Source="edxClientlessPlugin.vcproj" Description="Die Webbereitstellung auf dem lokalen IIS-Server wird nicht mehr unterstützt. Das Buildtool für die Webbereitstellung wurde aus den Projekteinstellungen entfernt.">
+</Event><Event ErrorLevel="1" Project="edxClientlessPlugin" Source="edxClientlessPlugin.vcproj" Description="Die Anwendung wurde aktualisiert und enthält nun auch Einstellungen für die Benutzerkontensteuerung (User Account Control, UAC) von Windows Vista. Standardmäßig wird die Anwendung beim Ausführen unter Windows Vista mit aktivierter Benutzerkontensteuerung so markiert, dass sie mit den gleichen Berechtigungen wie der Prozess ausgeführt wird, durch den sie gestartet wurde. Mit der Markierung wird auch das Ausführen der Anwendung mit Virtualisierung deaktiviert. Sie können die Einstellungen der Benutzerkontensteuerung über die Eigenschaftenseiten des Projekts ändern.">
+</Event><Event ErrorLevel="0" Project="edxClientlessPlugin" Source="edxClientlessPlugin.vcproj" Description="Die Projektdatei wurde erfolgreich als &quot;H:\Downloads\edx clientless\edxClientlessPrototype\edxClientlessPlugin.vcproj.8.00.old&quot; gesichert.">
+</Event><Event ErrorLevel="0" Project="edxClientlessPlugin" Source="edxClientlessPlugin.vcproj" Description="Das Projekt wurde erfolgreich aktualisiert.">
+</Event><Event ErrorLevel="3" Project="edxClientlessPlugin" Source="edxClientlessPlugin.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="edxClientlessPrototype.sln" Description="Die Projektmappe wurde erfolgreich konvertiert.">
+</Event><Event ErrorLevel="3" Project="" Source="edxClientlessPrototype.sln" Description="Converted">
+</Event></UpgradeLog>
