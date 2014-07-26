@@ -279,6 +279,18 @@
     <Compile Include="Forms\Code\CodeFrm.designer.cs">
       <DependentUpon>CodeFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Data\TBLProofDocWFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLProofDocWFrm.designer.cs">
+      <DependentUpon>TBLProofDocWFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\TBLProofDocFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\TBLProofDocFrm.designer.cs">
+      <DependentUpon>TBLProofDocFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Data\RemoveTBLWarasaNIDFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -832,6 +844,12 @@
     <Content Include="web.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Forms\Data\TBLProofDocWFrm.resx">
+      <DependentUpon>TBLProofDocWFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Data\TBLProofDocFrm.resx">
+      <DependentUpon>TBLProofDocFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Data\RemoveTBLWarasaNIDFrm.resx">
       <DependentUpon>RemoveTBLWarasaNIDFrm.cs</DependentUpon>
     </EmbeddedResource>

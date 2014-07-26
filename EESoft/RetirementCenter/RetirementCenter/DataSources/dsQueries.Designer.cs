@@ -6680,6 +6680,10 @@ namespace RetirementCenter.DataSources {
             
             private global::System.Data.DataColumn columnSubCommitte;
             
+            private global::System.Data.DataColumn columnyasref;
+            
+            private global::System.Data.DataColumn columnMashHala;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TBLMashatDataTable() {
@@ -6755,6 +6759,22 @@ namespace RetirementCenter.DataSources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn yasrefColumn {
+                get {
+                    return this.columnyasref;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MashHalaColumn {
+                get {
+                    return this.columnMashHala;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6790,14 +6810,16 @@ namespace RetirementCenter.DataSources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TBLMashatRow AddTBLMashatRow(int MMashatId, string MMashatName, int sarfnumber, string Syndicate, string SubCommitte) {
+            public TBLMashatRow AddTBLMashatRow(int MMashatId, string MMashatName, int sarfnumber, string Syndicate, string SubCommitte, bool yasref, string MashHala) {
                 TBLMashatRow rowTBLMashatRow = ((TBLMashatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MMashatId,
                         MMashatName,
                         sarfnumber,
                         Syndicate,
-                        SubCommitte};
+                        SubCommitte,
+                        yasref,
+                        MashHala};
                 rowTBLMashatRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTBLMashatRow);
                 return rowTBLMashatRow;
@@ -6832,6 +6854,8 @@ namespace RetirementCenter.DataSources {
                 this.columnsarfnumber = base.Columns["sarfnumber"];
                 this.columnSyndicate = base.Columns["Syndicate"];
                 this.columnSubCommitte = base.Columns["SubCommitte"];
+                this.columnyasref = base.Columns["yasref"];
+                this.columnMashHala = base.Columns["MashHala"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6847,6 +6871,10 @@ namespace RetirementCenter.DataSources {
                 base.Columns.Add(this.columnSyndicate);
                 this.columnSubCommitte = new global::System.Data.DataColumn("SubCommitte", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubCommitte);
+                this.columnyasref = new global::System.Data.DataColumn("yasref", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyasref);
+                this.columnMashHala = new global::System.Data.DataColumn("MashHala", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMashHala);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMMashatId}, true));
                 this.columnMMashatId.AllowDBNull = false;
@@ -6858,6 +6886,9 @@ namespace RetirementCenter.DataSources {
                 this.columnSyndicate.MaxLength = 50;
                 this.columnSubCommitte.ReadOnly = true;
                 this.columnSubCommitte.MaxLength = 50;
+                this.columnyasref.AllowDBNull = false;
+                this.columnMashHala.AllowDBNull = false;
+                this.columnMashHala.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13708,6 +13739,28 @@ namespace RetirementCenter.DataSources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool yasref {
+                get {
+                    return ((bool)(this[this.tableTBLMashat.yasrefColumn]));
+                }
+                set {
+                    this[this.tableTBLMashat.yasrefColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MashHala {
+                get {
+                    return ((string)(this[this.tableTBLMashat.MashHalaColumn]));
+                }
+                set {
+                    this[this.tableTBLMashat.MashHalaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSyndicateNull() {
                 return this.IsNull(this.tableTBLMashat.SyndicateColumn);
             }
@@ -19927,26 +19980,9 @@ GROUP BY CDSyndicate.SyndicateId, CDSyndicate.Syndicate";
             tableMapping.ColumnMappings.Add("sarfnumber", "sarfnumber");
             tableMapping.ColumnMappings.Add("Syndicate", "Syndicate");
             tableMapping.ColumnMappings.Add("SubCommitte", "SubCommitte");
+            tableMapping.ColumnMappings.Add("yasref", "yasref");
+            tableMapping.ColumnMappings.Add("MashHala", "MashHala");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TBLMashat] WHERE (([MMashatId] = @Original_MMashatId) AND ([MMashatN" +
-                "ame] = @Original_MMashatName) AND ([sarfnumber] = @Original_sarfnumber))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MMashatId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MMashatName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sarfnumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sarfnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [TBLMashat] SET [MMashatId] = @MMashatId, [MMashatName] = @MMashatName, [sarfnumber] = @sarfnumber WHERE (([MMashatId] = @Original_MMashatId) AND ([MMashatName] = @Original_MMashatName) AND ([sarfnumber] = @Original_sarfnumber));
-SELECT MMashatId, MMashatName, sarfnumber, (SELECT Syndicate FROM CDSyndicate WHERE (SyndicateId = TBLMashat.SyndicateId)) AS Syndicate, (SELECT SubCommitte FROM CDSubCommitte WHERE (SubCommitteId = TBLMashat.SubCommitteId)) AS SubCommitte FROM TBLMashat WHERE (MMashatId = @MMashatId)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MMashatId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MMashatName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sarfnumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sarfnumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MMashatId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MMashatName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MMashatName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sarfnumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sarfnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19962,10 +19998,11 @@ SELECT MMashatId, MMashatName, sarfnumber, (SELECT Syndicate FROM CDSyndicate WH
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "select MMashatId, MMashatName, sarfnumber, \r\n(select Syndicate from CDSyndicate w" +
-                "here SyndicateId = TBLMashat.SyndicateId) as Syndicate,\r\n(select SubCommitte fro" +
-                "m CDSubCommitte where SubCommitteId = TBLMashat.SubCommitteId) as SubCommitte\r\nf" +
-                "rom TBLMashat";
+            this._commandCollection[0].CommandText = @"SELECT        TBLMashat.MMashatId, TBLMashat.MMashatName, TBLMashat.sarfnumber, TBLMashat.yasref, CDSyndicate.Syndicate, CDSubCommitte_1.SubCommitte, CDMashHala.MashHala
+FROM            TBLMashat INNER JOIN
+                         CDMashHala ON TBLMashat.MashHalaId = CDMashHala.MashHalaId LEFT OUTER JOIN
+                         CDSyndicate ON TBLMashat.SyndicateId = CDSyndicate.SyndicateId LEFT OUTER JOIN
+                         CDSubCommitte AS CDSubCommitte_1 ON TBLMashat.SubCommitteId = CDSubCommitte_1.SubCommitteId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -20029,109 +20066,6 @@ GROUP BY MMashatId";
             dsQueries.TBLMashatDataTable dataTable = new dsQueries.TBLMashatDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsQueries.TBLMashatDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsQueries dataSet) {
-            return this.Adapter.Update(dataSet, "TBLMashat");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_MMashatId, string Original_MMashatName, int Original_sarfnumber) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MMashatId));
-            if ((Original_MMashatName == null)) {
-                throw new global::System.ArgumentNullException("Original_MMashatName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_MMashatName));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_sarfnumber));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MMashatId, string MMashatName, int sarfnumber, int Original_MMashatId, string Original_MMashatName, int Original_sarfnumber) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MMashatId));
-            if ((MMashatName == null)) {
-                throw new global::System.ArgumentNullException("MMashatName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MMashatName));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(sarfnumber));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MMashatId));
-            if ((Original_MMashatName == null)) {
-                throw new global::System.ArgumentNullException("Original_MMashatName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_MMashatName));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_sarfnumber));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string MMashatName, int sarfnumber, int Original_MMashatId, string Original_MMashatName, int Original_sarfnumber) {
-            return this.Update(Original_MMashatId, MMashatName, sarfnumber, Original_MMashatId, Original_MMashatName, Original_sarfnumber);
         }
     }
     
@@ -21990,7 +21924,7 @@ FROM            TBLWarasa INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[22];
+            this._commandCollection = new global::System.Data.IDbCommand[23];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::RetirementCenter.Properties.Settings.Default.RetirementCenterConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "SELECT ISNULL(MAX(MMashatId) +1, 1) AS NewId FROM TBLMashat";
@@ -22118,6 +22052,10 @@ OR
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[21])).Connection = new global::System.Data.SqlClient.SqlConnection(global::RetirementCenter.Properties.Settings.Default.RetirementCenterConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[21])).CommandText = "UPDATE       CDGender\r\nSET                GenderEnglish = 1";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[21])).CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[22] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[22])).Connection = new global::System.Data.SqlClient.SqlConnection(global::RetirementCenter.Properties.Settings.Default.RetirementCenterConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[22])).CommandText = "SELECT ISNULL(MAX(ProofDocId) +1, 1) AS NewId FROM TBLProofDoc";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[22])).CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22773,6 +22711,34 @@ OR
             }
             return returnValue;
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> TBLProofDocNewId() {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[22]));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
     }
     
     /// <summary>
@@ -22792,8 +22758,6 @@ OR
         private CDsarfTypeTableAdapter _cDsarfTypeTableAdapter;
         
         private TBLEdafatCreator2TableAdapter _tBLEdafatCreator2TableAdapter;
-        
-        private TBLMashatTableAdapter _tBLMashatTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -22854,20 +22818,6 @@ OR
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public TBLMashatTableAdapter TBLMashatTableAdapter {
-            get {
-                return this._tBLMashatTableAdapter;
-            }
-            set {
-                this._tBLMashatTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -22897,10 +22847,6 @@ OR
                             && (this._tBLEdafatCreator2TableAdapter.Connection != null))) {
                     return this._tBLEdafatCreator2TableAdapter.Connection;
                 }
-                if (((this._tBLMashatTableAdapter != null) 
-                            && (this._tBLMashatTableAdapter.Connection != null))) {
-                    return this._tBLMashatTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -22923,9 +22869,6 @@ OR
                 if ((this._tBLEdafatCreator2TableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._tBLMashatTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -22937,15 +22880,6 @@ OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(dsQueries dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tBLMashatTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TBLMashat.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tBLMashatTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tBLEdafatCreator2TableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TBLEdafatCreator2.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -22983,14 +22917,6 @@ OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(dsQueries dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tBLMashatTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TBLMashat.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tBLMashatTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tBLEdafatCreator2TableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TBLEdafatCreator2.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -23049,14 +22975,6 @@ OR
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tBLMashatTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TBLMashat.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tBLMashatTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -23108,11 +23026,6 @@ OR
             }
             if (((this._tBLEdafatCreator2TableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tBLEdafatCreator2TableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._tBLMashatTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tBLMashatTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -23173,15 +23086,6 @@ OR
                     if (this._tBLEdafatCreator2TableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._tBLEdafatCreator2TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tBLEdafatCreator2TableAdapter.Adapter);
-                    }
-                }
-                if ((this._tBLMashatTableAdapter != null)) {
-                    revertConnections.Add(this._tBLMashatTableAdapter, this._tBLMashatTableAdapter.Connection);
-                    this._tBLMashatTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tBLMashatTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tBLMashatTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tBLMashatTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tBLMashatTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -23253,10 +23157,6 @@ OR
                 if ((this._tBLEdafatCreator2TableAdapter != null)) {
                     this._tBLEdafatCreator2TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tBLEdafatCreator2TableAdapter]));
                     this._tBLEdafatCreator2TableAdapter.Transaction = null;
-                }
-                if ((this._tBLMashatTableAdapter != null)) {
-                    this._tBLMashatTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tBLMashatTableAdapter]));
-                    this._tBLMashatTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

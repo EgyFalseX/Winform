@@ -273,6 +273,11 @@ namespace RetirementCenter
                 }
                 cmd.CommandText = vQry43;
                 cmd.ExecuteNonQuery();
+
+
+                cmd.CommandText = TBLProofDoc;
+                cmd.ExecuteNonQuery();
+
             }
             catch (SqlException ex)
             {
@@ -914,6 +919,28 @@ FROM            TBLMemberSarf INNER JOIN
                          CDSyndicate ON CDSubCommitte.SyndicateId = CDSyndicate.SyndicateId INNER JOIN
                          Users ON TBLMashat.userin = Users.UserID INNER JOIN
                          TBLDofatSarf ON TBLMemberSarf.DofatSarfId = TBLDofatSarf.DofatSarfId";
+            }
+        }
+        public static string TBLProofDoc
+        {
+            get
+            {
+                return @"
+                        IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TBLProofDoc]') AND type in (N'U'))
+                        BEGIN
+                        CREATE TABLE [dbo].[TBLProofDoc](
+	                        [ProofDocId] [int] NOT NULL,
+	                        [MMashatId] [int] NULL,
+	                        [DocDate] [date] NULL,
+	                        [userin] [int] NULL,
+	                        [datein] [datetime] NULL,
+	                        [memo] [nvarchar](255) NULL,
+                         CONSTRAINT [PK_ProofDoc] PRIMARY KEY CLUSTERED 
+                        (
+	                        [ProofDocId] ASC
+                        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+                        ) ON [PRIMARY]
+                        END";
             }
         }
 
