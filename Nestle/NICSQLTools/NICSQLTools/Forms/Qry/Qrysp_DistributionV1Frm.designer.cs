@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.repositoryItemTextEditf2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.popupMenuMain = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barManagerMain = new DevExpress.XtraBars.BarManager(this.components);
+            this.popupMenuMain = new DevExpress.XtraBars.PopupMenu();
+            this.barManagerMain = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.bbiStartDate = new DevExpress.XtraBars.BarEditItem();
@@ -47,9 +46,9 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.dxValidationProviderMain = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProviderMain = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.pivotGridControlMain = new DevExpress.XtraPivotGrid.PivotGridControl();
-            this.spDistributionV1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDistributionV1BindingSource = new System.Windows.Forms.BindingSource();
             this.dsQry = new NICSQLTools.Data.dsQry();
             this.fieldBaseBaseProduct1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldSalesDistrict1 = new DevExpress.XtraPivotGrid.PivotGridField();
@@ -62,10 +61,10 @@
             this.fieldSupervisor1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldRouteName1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldBrandRoute1 = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldPre13 = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldPre14 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.calcCY = new DevExpress.XtraPivotGrid.PivotGridField();
             this.repositoryItemTextEditPer = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.sp_DistributionV1TableAdapter = new NICSQLTools.Data.dsQryTableAdapters.sp_DistributionV1TableAdapter();
+            this.calcLY = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEditf2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuMain)).BeginInit();
@@ -211,14 +210,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(919, 31);
+            this.barDockControlTop.Size = new System.Drawing.Size(936, 31);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 311);
-            this.barDockControlBottom.Size = new System.Drawing.Size(919, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(936, 0);
             // 
             // barDockControlLeft
             // 
@@ -231,7 +230,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(919, 31);
+            this.barDockControlRight.Location = new System.Drawing.Point(936, 31);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 280);
             // 
             // repositoryItemDateEdit2
@@ -259,14 +258,14 @@
             this.fieldSupervisor1,
             this.fieldRouteName1,
             this.fieldBrandRoute1,
-            this.fieldPre13,
-            this.fieldPre14});
+            this.calcCY,
+            this.calcLY});
             this.pivotGridControlMain.Location = new System.Drawing.Point(0, 31);
             this.pivotGridControlMain.Name = "pivotGridControlMain";
             this.pivotGridControlMain.OptionsData.DataFieldUnboundExpressionMode = DevExpress.XtraPivotGrid.DataFieldUnboundExpressionMode.UseSummaryValues;
             this.pivotGridControlMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEditPer});
-            this.pivotGridControlMain.Size = new System.Drawing.Size(919, 280);
+            this.pivotGridControlMain.Size = new System.Drawing.Size(936, 280);
             this.pivotGridControlMain.TabIndex = 14;
             this.pivotGridControlMain.CellDoubleClick += new DevExpress.XtraPivotGrid.PivotCellEventHandler(this.pivotGridControlMain_CellDoubleClick);
             // 
@@ -306,7 +305,7 @@
             // fieldAPOS141
             // 
             this.fieldAPOS141.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldAPOS141.AreaIndex = 4;
+            this.fieldAPOS141.AreaIndex = 2;
             this.fieldAPOS141.Caption = "APOS CY";
             this.fieldAPOS141.FieldName = "APOS14";
             this.fieldAPOS141.Name = "fieldAPOS141";
@@ -314,7 +313,7 @@
             // fieldAPOS131
             // 
             this.fieldAPOS131.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldAPOS131.AreaIndex = 1;
+            this.fieldAPOS131.AreaIndex = 0;
             this.fieldAPOS131.Caption = "APOS LY";
             this.fieldAPOS131.FieldName = "APOS13";
             this.fieldAPOS131.Name = "fieldAPOS131";
@@ -330,7 +329,7 @@
             // fieldTAPOS131
             // 
             this.fieldTAPOS131.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldTAPOS131.AreaIndex = 0;
+            this.fieldTAPOS131.AreaIndex = 1;
             this.fieldTAPOS131.Caption = "TAPOS LY";
             this.fieldTAPOS131.FieldName = "TAPOS13";
             this.fieldTAPOS131.Name = "fieldTAPOS131";
@@ -366,49 +365,23 @@
             this.fieldBrandRoute1.FieldName = "Brand Route";
             this.fieldBrandRoute1.Name = "fieldBrandRoute1";
             // 
-            // fieldPre13
+            // calcCY
             // 
-            this.fieldPre13.Appearance.Value.ForeColor = System.Drawing.Color.Red;
-            this.fieldPre13.Appearance.Value.Options.UseForeColor = true;
-            this.fieldPre13.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldPre13.AreaIndex = 2;
-            this.fieldPre13.Caption = "% LY";
-            this.fieldPre13.CellFormat.FormatString = "f2";
-            this.fieldPre13.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldPre13.EmptyCellText = "0";
-            this.fieldPre13.EmptyValueText = "0";
-            this.fieldPre13.Name = "fieldPre13";
-            this.fieldPre13.TotalCellFormat.FormatString = "f2";
-            this.fieldPre13.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldPre13.TotalValueFormat.FormatString = "f2";
-            this.fieldPre13.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldPre13.UnboundExpression = "[fieldTAPOS131]/[fieldTAPOS131]";
-            this.fieldPre13.UnboundFieldName = "fieldPre13";
-            this.fieldPre13.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.fieldPre13.ValueFormat.FormatString = "f2";
-            this.fieldPre13.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            // 
-            // fieldPre14
-            // 
-            this.fieldPre14.Appearance.Value.ForeColor = System.Drawing.Color.Red;
-            this.fieldPre14.Appearance.Value.Options.UseForeColor = true;
-            this.fieldPre14.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldPre14.AreaIndex = 5;
-            this.fieldPre14.Caption = "% CY";
-            this.fieldPre14.CellFormat.FormatString = "f2";
-            this.fieldPre14.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldPre14.EmptyCellText = "0";
-            this.fieldPre14.EmptyValueText = "0";
-            this.fieldPre14.Name = "fieldPre14";
-            this.fieldPre14.TotalCellFormat.FormatString = "f2";
-            this.fieldPre14.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldPre14.TotalValueFormat.FormatString = "f2";
-            this.fieldPre14.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldPre14.UnboundExpression = "[fieldAPOS141]/[fieldTAPOS141]";
-            this.fieldPre14.UnboundFieldName = "fieldPre14";
-            this.fieldPre14.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.fieldPre14.ValueFormat.FormatString = "f2";
-            this.fieldPre14.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calcCY.Appearance.CellGrandTotal.ForeColor = System.Drawing.Color.Red;
+            this.calcCY.Appearance.CellGrandTotal.Options.UseForeColor = true;
+            this.calcCY.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.calcCY.AreaIndex = 4;
+            this.calcCY.Caption = "% CY";
+            this.calcCY.EmptyCellText = "0";
+            this.calcCY.EmptyValueText = "0";
+            this.calcCY.GrandTotalCellFormat.FormatString = "p";
+            this.calcCY.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calcCY.Name = "calcCY";
+            this.calcCY.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average;
+            this.calcCY.UnboundExpression = "Iif(IsNullOrEmpty([fieldAPOS141] / [fieldTAPOS141]),  0, [fieldAPOS141] / [fieldT" +
+    "APOS141])";
+            this.calcCY.UnboundFieldName = "calcCY";
+            this.calcCY.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             // 
             // repositoryItemTextEditPer
             // 
@@ -424,11 +397,28 @@
             // 
             this.sp_DistributionV1TableAdapter.ClearBeforeFill = true;
             // 
+            // calcLY
+            // 
+            this.calcLY.Appearance.CellGrandTotal.ForeColor = System.Drawing.Color.Red;
+            this.calcLY.Appearance.CellGrandTotal.Options.UseForeColor = true;
+            this.calcLY.AreaIndex = 3;
+            this.calcLY.Caption = "% LY";
+            this.calcLY.EmptyCellText = "0";
+            this.calcLY.EmptyValueText = "0";
+            this.calcLY.GrandTotalCellFormat.FormatString = "p";
+            this.calcLY.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calcLY.Name = "calcLY";
+            this.calcLY.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average;
+            this.calcLY.UnboundExpression = "Iif(IsNullOrEmpty([fieldAPOS131] / [fieldTAPOS131]),  0, [fieldAPOS131] / [fieldT" +
+    "APOS131])";
+            this.calcLY.UnboundFieldName = "calcLY";
+            this.calcLY.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            // 
             // Qrysp_DistributionV1Frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 311);
+            this.ClientSize = new System.Drawing.Size(936, 311);
             this.Controls.Add(this.pivotGridControlMain);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -493,7 +483,7 @@
         private DevExpress.XtraPivotGrid.PivotGridField fieldRouteName1;
         private DevExpress.XtraPivotGrid.PivotGridField fieldBrandRoute1;
         private NICSQLTools.Data.dsQryTableAdapters.sp_DistributionV1TableAdapter sp_DistributionV1TableAdapter;
-        private DevExpress.XtraPivotGrid.PivotGridField fieldPre13;
-        private DevExpress.XtraPivotGrid.PivotGridField fieldPre14;
+        private DevExpress.XtraPivotGrid.PivotGridField calcCY;
+        private DevExpress.XtraPivotGrid.PivotGridField calcLY;
     }
 }

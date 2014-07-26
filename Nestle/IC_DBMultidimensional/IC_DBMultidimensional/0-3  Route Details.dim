@@ -1,0 +1,226 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fb9c0507-e24b-40dc-9f3d-6501379ffa9c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>0-3  Route Details</ID>
+  <Name>0-3  Route Details</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="66da9d25-dc06-4410-a157-34aded02e1b1">
+    <DataSourceViewID>IC DB</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="e7c4d144-69b4-4522-a824-f4eb33374ca5">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="1e7bb2eb-d7ba-4766-8cb1-c826d1f18b06">
+      <ID>Route Number</ID>
+      <Name>Route Number</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="431feb56-09e7-42f6-b054-be54cfe7cebd">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8f0cf0cf-baab-42de-a27d-e5d6f4162fbd">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Route_x0020_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="51cf4692-4279-49df-ab9d-0cf7eb352e76">
+          <AttributeID>Distribution Channel</AttributeID>
+          <Name>Distribution Channel</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d5d16f21-82fa-4210-ad22-63006c48c5c5">
+          <AttributeID>Route Name</AttributeID>
+          <Name>Route Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="29bc2bf0-1dd3-43c9-8582-407e58509832">
+          <AttributeID>Sales District</AttributeID>
+          <Name>Sales District</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="49ffa6eb-b69d-4def-90b1-253d0bf97440">
+          <AttributeID>Sales District 2</AttributeID>
+          <Name>Sales District 2</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ffc1ed0c-91a3-42c1-afc5-f4d1c2857f49">
+          <AttributeID>ASM</AttributeID>
+          <Name>ASM</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2b5f4ab2-16ec-460a-ac81-ab8b92782e22">
+          <AttributeID>Supervisor</AttributeID>
+          <Name>Supervisor</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7c441d41-7eef-4c54-945c-a2bb815cd5c4">
+          <AttributeID>Brand Route</AttributeID>
+          <Name>Brand Route</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5c648c88-9b01-4eee-8de1-c1d5b129ac8d">
+      <ID>Distribution Channel</ID>
+      <Name>Distribution Channel</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a6bb9794-983e-4ca3-b1ff-d3fc2c3f766a">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ce93c7d8-a761-426f-b363-9c1792967004">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Distribution_x0020_Channel</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d39c7a0e-c246-4e1f-8984-9d5f87cf874f">
+      <ID>Route Name</ID>
+      <Name>Route Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f2f60ce9-ec9f-4b09-858a-b5e278cb6835">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dcb6574a-0e6c-4ca6-9ea4-5b52c034c006">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Route_x0020_Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="07a70e4b-57e7-4695-bf0d-6bd712b89155">
+      <ID>Sales District</ID>
+      <Name>Sales District</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2616f9e7-214f-4905-8cbe-6eed31a36ced">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8e3c4fbd-a600-477e-94a4-86e110193514">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Sales_x0020_District</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="341e6f14-8560-419d-bf36-9f0f240649ac">
+      <ID>Sales District 2</ID>
+      <Name>Sales District 2</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="74aebf0b-895a-4868-858d-3d8c674dab03">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5134909a-a497-451e-816b-e7fe65c5cb3d">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Sales_x0020_District_x0020_2</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2b112981-ac00-4167-9f90-c72bdb8c05c9">
+      <ID>ASM</ID>
+      <Name>ASM</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0082561e-26dd-44f0-9a85-38002e56e270">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a082ac15-fc32-4418-8705-2b6b76cd008b">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>ASM</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e4a4350c-9e7b-4a75-b074-dee127d66926">
+      <ID>Supervisor</ID>
+      <Name>Supervisor</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="325233cc-9ba5-45e1-96ef-3f7bc959d09a">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b58704e-9937-4c2c-ae52-5970a563be82">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Supervisor</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1f288789-c076-4539-a272-07833844c5ac">
+      <ID>Brand Route</ID>
+      <Name>Brand Route</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ccde3f1a-eac8-4858-b895-e9d750afac3e">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b9484fbe-935a-4347-a49e-52493e440135">
+            <TableID>dbo_0-3_x0020__x0020_Route_x0020_Details</TableID>
+            <ColumnID>Brand_x0020_Route</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

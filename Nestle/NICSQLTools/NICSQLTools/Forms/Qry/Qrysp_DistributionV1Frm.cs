@@ -33,6 +33,8 @@ namespace NICSQLTools.Forms.Qry
             DataManager.SetAllCommandTimeouts(sp_DistributionV1TableAdapter, DataManager.ConnectionTimeout);
             sp_DistributionV1TableAdapter.Fill(dsQry.sp_DistributionV1, Convert.ToDateTime(bbiStartDate.EditValue), Convert.ToDateTime(bbiEndDate.EditValue));
             pivotGridControlMain.BestFit();
+            
+            
         }
         
         #endregion
