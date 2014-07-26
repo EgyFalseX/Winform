@@ -163,6 +163,7 @@
             this.mbRetCenterQry42 = new DevExpress.XtraBars.BarButtonItem();
             this.mbRetCenterQry43 = new DevExpress.XtraBars.BarButtonItem();
             this.mbRetCenterXRep09 = new DevExpress.XtraBars.BarButtonItem();
+            this.mbRetCenterTBLProofDoc = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.DataribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.DataribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -508,10 +509,11 @@
             this.mbRetCenterTblChekNid,
             this.mbRetCenterQry42,
             this.mbRetCenterQry43,
-            this.mbRetCenterXRep09});
+            this.mbRetCenterXRep09,
+            this.mbRetCenterTBLProofDoc});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(2, 21);
-            this.ribbonControl.MaxItemId = 275;
+            this.ribbonControl.MaxItemId = 276;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.mbRetCenterAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -576,6 +578,7 @@
             this.ribbonImageCollection.Images.SetKeyName(43, "TblWarasaAmanat.png");
             this.ribbonImageCollection.Images.SetKeyName(44, "archive16.png");
             this.ribbonImageCollection.Images.SetKeyName(45, "TblChekNid16.png");
+            this.ribbonImageCollection.Images.SetKeyName(46, "TBLProofDoc16.png");
             // 
             // mbRetCenterExit
             // 
@@ -1643,6 +1646,14 @@
             this.mbRetCenterXRep09.Name = "mbRetCenterXRep09";
             this.mbRetCenterXRep09.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // mbRetCenterTBLProofDoc
+            // 
+            this.mbRetCenterTBLProofDoc.Caption = "بيان معاش";
+            this.mbRetCenterTBLProofDoc.Id = 275;
+            this.mbRetCenterTBLProofDoc.ImageIndex = 46;
+            this.mbRetCenterTBLProofDoc.LargeImageIndex = 46;
+            this.mbRetCenterTBLProofDoc.Name = "mbRetCenterTBLProofDoc";
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -1693,6 +1704,7 @@
             this.ribbonImageCollectionLarge.Images.SetKeyName(43, "TblWarasaAmanat.png");
             this.ribbonImageCollectionLarge.Images.SetKeyName(44, "archive32.png");
             this.ribbonImageCollectionLarge.Images.SetKeyName(45, "TblChekNid32.png");
+            this.ribbonImageCollectionLarge.Images.SetKeyName(46, "TBLProofDoc32.png");
             // 
             // DataribbonPage
             // 
@@ -1711,6 +1723,7 @@
             this.DataribbonPageGroup.ItemLinks.Add(this.mbRetCenterTblWarasaAmanat);
             this.DataribbonPageGroup.ItemLinks.Add(this.mbRetCenterarchef);
             this.DataribbonPageGroup.ItemLinks.Add(this.mbRetCenterTblChekNid);
+            this.DataribbonPageGroup.ItemLinks.Add(this.mbRetCenterTBLProofDoc);
             this.DataribbonPageGroup.Name = "DataribbonPageGroup";
             this.DataribbonPageGroup.Text = "قائمة ادخال البيانات";
             // 
@@ -2040,6 +2053,7 @@
         private DevExpress.XtraBars.BarButtonItem mbRetCenterQry42;
         private DevExpress.XtraBars.BarButtonItem mbRetCenterQry43;
         private DevExpress.XtraBars.BarButtonItem mbRetCenterXRep09;
+        private DevExpress.XtraBars.BarButtonItem mbRetCenterTBLProofDoc;
         private DevExpress.Utils.ImageCollection ribbonImageCollectionLarge;
         private DevExpress.XtraBars.Ribbon.RibbonPage DataribbonPage;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup DataribbonPageGroup;

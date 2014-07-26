@@ -96,8 +96,7 @@ namespace RetirementCenter
             this.Text += " - " + Program.UserInfo.RealName;
             //Qry00Frm frm = new Qry00Frm();
             //frm.ShowDialog();
-            //TBLWarasaSarfCompareFrm frm = new TBLWarasaSarfCompareFrm();
-            //frm.ShowDialog();
+          
         }
         private void MainFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -563,6 +562,16 @@ namespace RetirementCenter
             this.Invoke(new MethodInvoker(() =>
             {
                 TblChekNidFrm FrmData = new TblChekNidFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(ribbonImageCollectionLarge.Images["TblChekNid32.png"], 32, false) };
+                FrmData.Show();
+            }));
+            SplashScreenManager.CloseForm();
+        }
+        private void mbRetCenterTBLProofDoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(Forms.Main.WaitWindowFrm));
+            this.Invoke(new MethodInvoker(() =>
+            {
+                TBLProofDocFrm FrmData = new TBLProofDocFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(ribbonImageCollectionLarge.Images["TBLProofDoc32.png"], 32, false) };
                 FrmData.Show();
             }));
             SplashScreenManager.CloseForm();
@@ -1120,6 +1129,8 @@ namespace RetirementCenter
         }
         
         #endregion
+
+        
 
         
 
