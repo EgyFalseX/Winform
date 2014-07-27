@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XRep05));
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.plumberTableAdapter = new GM.DataSources.dsGMTableAdapters.PlumberTableAdapter();
             this.dsGM = new GM.DataSources.dsGM();
             this.employeeTableAdapter = new GM.DataSources.dsGMTableAdapters.EmployeeTableAdapter();
@@ -105,15 +105,21 @@
             this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell21 = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.pramPlumberId = new DevExpress.XtraReports.Parameters.Parameter();
             this.pramFrom = new DevExpress.XtraReports.Parameters.Parameter();
             this.pramTo = new DevExpress.XtraReports.Parameters.Parameter();
             this.report05TableAdapter = new GM.DataSources.dsQryTableAdapters.Report05TableAdapter();
+            this.XPSCSPlumber = new DevExpress.Xpo.XPServerCollectionSource(this.components);
+            this.sessionPlumber = new DevExpress.Xpo.Session(this.components);
+            this.PlumberbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pramPlumberId = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.dsGM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XPSCSPlumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionPlumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlumberbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // plumberTableAdapter
@@ -136,6 +142,8 @@
             this.Detail.HeightF = 25F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("BillDate", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrTable1
@@ -776,19 +784,6 @@
             this.PageFooter.HeightF = 32.99997F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // pramPlumberId
-            // 
-            this.pramPlumberId.Description = "اسم السباك";
-            dynamicListLookUpSettings1.DataAdapter = this.plumberTableAdapter;
-            dynamicListLookUpSettings1.DataMember = "Plumber";
-            dynamicListLookUpSettings1.DataSource = this.dsGM;
-            dynamicListLookUpSettings1.DisplayMember = "PlumberName";
-            dynamicListLookUpSettings1.ValueMember = "PlumberId";
-            this.pramPlumberId.LookUpSettings = dynamicListLookUpSettings1;
-            this.pramPlumberId.Name = "pramPlumberId";
-            this.pramPlumberId.Type = typeof(int);
-            this.pramPlumberId.ValueInfo = "0";
-            // 
             // pramFrom
             // 
             this.pramFrom.Description = "من تاريخ";
@@ -804,6 +799,27 @@
             // report05TableAdapter
             // 
             this.report05TableAdapter.ClearBeforeFill = true;
+            // 
+            // XPSCSPlumber
+            // 
+            this.XPSCSPlumber.ObjectType = typeof(GM.DataSources.dsGM.PlumberDataTable);
+            // 
+            // sessionPlumber
+            // 
+            this.sessionPlumber.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.sessionPlumber.TrackPropertiesModifications = false;
+            // 
+            // PlumberbindingSource
+            // 
+            this.PlumberbindingSource.DataMember = "Plumber";
+            this.PlumberbindingSource.DataSource = this.dsGM;
+            // 
+            // pramPlumberId
+            // 
+            this.pramPlumberId.Description = "اسم السباك";
+            this.pramPlumberId.Name = "pramPlumberId";
+            this.pramPlumberId.Type = typeof(int);
+            this.pramPlumberId.ValueInfo = "0";
             // 
             // XRep05
             // 
@@ -827,12 +843,16 @@
             this.pramFrom,
             this.pramTo});
             this.Version = "13.2";
+            this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.XRep05_ParametersRequestBeforeShow);
             this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.XRep01_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.dsGM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XPSCSPlumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionPlumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlumberbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -877,7 +897,6 @@
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DataSources.dsGM dsGM;
-        private DevExpress.XtraReports.Parameters.Parameter pramPlumberId;
         private DevExpress.XtraReports.UI.XRTable xrTable3;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
@@ -914,5 +933,9 @@
         private DevExpress.XtraReports.UI.XRLabel lblGovName;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DataSources.dsGMTableAdapters.PlumberTableAdapter plumberTableAdapter;
+        private DevExpress.Xpo.XPServerCollectionSource XPSCSPlumber;
+        private DevExpress.Xpo.Session sessionPlumber;
+        private System.Windows.Forms.BindingSource PlumberbindingSource;
+        private DevExpress.XtraReports.Parameters.Parameter pramPlumberId;
     }
 }

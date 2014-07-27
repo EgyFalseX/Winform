@@ -43,6 +43,7 @@
             this.colItemId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colItemName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colItemPoint = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcItemName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEditQuin = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colPoint = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -101,7 +102,6 @@
             this.traderTableAdapter = new GM.DataSources.dsGMTableAdapters.TraderTableAdapter();
             this.billDetailsTableAdapter = new GM.DataSources.dsGMTableAdapters.BillDetailsTableAdapter();
             this.itemTableAdapter = new GM.DataSources.dsGMTableAdapters.ItemTableAdapter();
-            this.gcItemName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControlMain)).BeginInit();
             this.wizardControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ceAutoOpen.Properties)).BeginInit();
@@ -302,6 +302,22 @@
             this.colItemPoint.Visible = true;
             this.colItemPoint.VisibleIndex = 2;
             // 
+            // gcItemName
+            // 
+            this.gcItemName.AppearanceCell.Options.UseTextOptions = true;
+            this.gcItemName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gcItemName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gcItemName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gcItemName.Caption = "Item Name";
+            this.gcItemName.FieldName = "gcItemName";
+            this.gcItemName.Name = "gcItemName";
+            this.gcItemName.OptionsColumn.AllowEdit = false;
+            this.gcItemName.OptionsColumn.AllowFocus = false;
+            this.gcItemName.OptionsColumn.ReadOnly = true;
+            this.gcItemName.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            this.gcItemName.Visible = true;
+            this.gcItemName.VisibleIndex = 1;
+            // 
             // colQuin
             // 
             this.colQuin.AppearanceCell.Options.UseTextOptions = true;
@@ -453,10 +469,6 @@
             this.BillIdTextEdit.EnterMoveNextControl = true;
             this.BillIdTextEdit.Location = new System.Drawing.Point(89, 12);
             this.BillIdTextEdit.Name = "BillIdTextEdit";
-            this.BillIdTextEdit.Properties.DisplayFormat.FormatString = "n0";
-            this.BillIdTextEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.BillIdTextEdit.Properties.EditFormat.FormatString = "n0";
-            this.BillIdTextEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.BillIdTextEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.BillIdTextEdit.Size = new System.Drawing.Size(129, 20);
             this.BillIdTextEdit.StyleController = this.dataLayoutControl1;
@@ -965,22 +977,6 @@
             // itemTableAdapter
             // 
             this.itemTableAdapter.ClearBeforeFill = true;
-            // 
-            // gcItemName
-            // 
-            this.gcItemName.AppearanceCell.Options.UseTextOptions = true;
-            this.gcItemName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcItemName.AppearanceHeader.Options.UseTextOptions = true;
-            this.gcItemName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcItemName.Caption = "Item Name";
-            this.gcItemName.FieldName = "gcItemName";
-            this.gcItemName.Name = "gcItemName";
-            this.gcItemName.OptionsColumn.AllowEdit = false;
-            this.gcItemName.OptionsColumn.AllowFocus = false;
-            this.gcItemName.OptionsColumn.ReadOnly = true;
-            this.gcItemName.UnboundType = DevExpress.Data.UnboundColumnType.String;
-            this.gcItemName.Visible = true;
-            this.gcItemName.VisibleIndex = 1;
             // 
             // BillEditorWFrm
             // 
